@@ -6,10 +6,10 @@
         <form [formGroup]="firstFormGroup">
           <ng-template matStepLabel>
             <div *ngIf="!item.active">
-              <img src="../../assets/icons/if_status_inactive.png" alt="unanswered" />
+              <img src="./assets/icons/if_status_inactive.png" alt="unanswered" />
             </div>
             <div *ngIf="item.active">
-              <img src="../../assets/icons/if_status_active.png" alt="answered" />
+              <img src="./assets/icons/if_status_active.png" alt="answered" />
             </div>
           </ng-template>
           <p class="question_text">Q.{{ i + 1 }} {{ item.Question_text }}</p>
