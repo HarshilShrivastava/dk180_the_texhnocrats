@@ -21,6 +21,7 @@ export class RoundThreeComponent implements OnInit {
   SD_2_marks = 0;
 
   totalAnswered = 0;
+  showLoader: boolean = false;
 
 
 
@@ -42,11 +43,14 @@ export class RoundThreeComponent implements OnInit {
   }
 
   getQuestions(){
+    this.showLoader = true;
     this.quizService.getSubDomainQuestions().subscribe(data => {
       // console.log(data);
       this.data = data;
+      this.showLoader = false;
       this.data.data.forEach(function(element) {
         element.active = false;
+        element.noReview = true
       });
       console.log(this.data);
       
@@ -181,6 +185,15 @@ export class RoundThreeComponent implements OnInit {
   //   console.log("Sub domain no. 2 = " + this.max2_sd + " from sub domain no. " + this.max2_sd_id);
 
   // } 
+
+
+  markForReview(index){
+    if(this.data.data[index].noReview === false)
+      this.data.data[index].noReview = true
+    else
+      this.data.data[index].noReview = false
+
+  }
 
 
   Answers() {

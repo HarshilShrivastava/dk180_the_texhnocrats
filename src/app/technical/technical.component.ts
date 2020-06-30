@@ -57,6 +57,7 @@ export class TechnicalComponent implements OnInit {
   temp = 0;
   hold: any;
   totalAnswered = 0;
+  showLoader: boolean = false;
 
 
   constructor(
@@ -74,11 +75,14 @@ export class TechnicalComponent implements OnInit {
   }
 
   TechContacts() {
+    this.showLoader = true;
     this.quizService.TechData().subscribe(data => {
       console.log(data);
       this.data = data;
+      this.showLoader = false;
       this.data.data.forEach(function(element) {
         element.active = false;
+        element.noReview = true
       });
     });
   }
@@ -212,6 +216,14 @@ export class TechnicalComponent implements OnInit {
 
   //   this.setName();
   // } 
+
+  markForReview(index){
+    if(this.data.data[index].noReview === false)
+      this.data.data[index].noReview = true
+    else
+      this.data.data[index].noReview = false
+
+  }
 
   sortDomains(){
 

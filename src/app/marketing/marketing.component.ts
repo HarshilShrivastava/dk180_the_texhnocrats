@@ -52,6 +52,7 @@ export class MarketingComponent implements OnInit {
   temp = 0;
   hold: any;
   totalAnswered = 0;
+  showLoader: boolean = false;
 
 
   constructor(
@@ -70,11 +71,14 @@ export class MarketingComponent implements OnInit {
 
 
   MarkContacts() {
+    this.showLoader = true;
     this.quizService.MarkData().subscribe(data => {
       console.log(data);
       this.data = data;
+      this.showLoader = false;
       this.data.data.forEach(function(element) {
         element.active = false;
+        element.noReview = true
       });
     });
   }
@@ -138,6 +142,14 @@ export class MarketingComponent implements OnInit {
     // this.marks = this.marks + Weightage ;
     // this.quizService.Totalmarks = this.marks;
     // console.log(this.quizService.Totalmarks, 'marks' , Weightage);
+  }
+
+  markForReview(index){
+    if(this.data.data[index].noReview === false)
+      this.data.data[index].noReview = true
+    else
+      this.data.data[index].noReview = false
+
   }
 
   getTopSubdomains(){

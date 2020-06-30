@@ -32,6 +32,7 @@ export class QuizComponent implements OnInit {
   marketmarks = 0;
   totalmarks = 0;
   totalAnswered = 0;
+  showLoader: boolean = false;
 
   constructor(
     private quizService: QuizService, 
@@ -60,11 +61,14 @@ export class QuizComponent implements OnInit {
   }
 
   getContacts() {
+    this.showLoader = true;
     this.quizService.getData().subscribe(data => {
       console.log(data);
       this.data = data;
+      this.showLoader = false;
       this.data.Question_list.forEach(function(element) {
         element.active = false;
+        element.noReview = true
       });
       this.data.Question_list.forEach(res =>{
         this.result_arr.push([])
@@ -140,6 +144,14 @@ export class QuizComponent implements OnInit {
   //     }
   //   }
   // }
+
+  markForReview(index){
+    if(this.data.Question_list[index].noReview === false)
+      this.data.Question_list[index].noReview = true
+    else
+      this.data.Question_list[index].noReview = false
+
+  }
 
   Answers() {
     
