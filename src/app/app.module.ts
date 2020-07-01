@@ -60,9 +60,8 @@ import { FaqPageComponent } from './shared/faq-page/faq-page.component';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatStepperModule} from '@angular/material/stepper';
 import { ReactiveFormsModule } from '@angular/forms';
-
-
-
+import {MatCardModule} from '@angular/material/card';
+import {MatPaginatorModule} from '@angular/material/paginator';
 
 
 @NgModule({
@@ -133,7 +132,10 @@ import { ReactiveFormsModule } from '@angular/forms';
     PdfViewerModule,
     MatExpansionModule,
     MatStepperModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatCardModule,
+    MatPaginatorModule,
+    MatMenuModule
   ],
   providers: [QuizService, User],
   bootstrap: [AppComponent],
