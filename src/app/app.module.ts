@@ -62,6 +62,7 @@ import {MatStepperModule} from '@angular/material/stepper';
 import { ReactiveFormsModule } from '@angular/forms';
 import {MatCardModule} from '@angular/material/card';
 import {MatPaginatorModule} from '@angular/material/paginator';
+import { JobViewDialogComponent } from './shared/job-view-dialog/job-view-dialog.component';
 
 
 @NgModule({
@@ -107,7 +108,8 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     RecommendedJobsComponent,
     GeneralDialogBoxComponent,
     InstructionsPageComponent,
-    FaqPageComponent
+    FaqPageComponent,
+    JobViewDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -139,7 +141,7 @@ import {MatPaginatorModule} from '@angular/material/paginator';
   ],
   providers: [QuizService, User],
   bootstrap: [AppComponent],
-  entryComponents: [JobApplyDialogComponent, ErrorDialogComponent, GeneralDialogBoxComponent]
+  entryComponents: [JobApplyDialogComponent, ErrorDialogComponent, GeneralDialogBoxComponent, JobViewDialogComponent]
 
 })
 export class AppModule { }

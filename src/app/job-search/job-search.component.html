@@ -1,15 +1,9 @@
 <div class="row">
-    <div class="loader-container">
-        <div *ngIf="showLoader">
-          <img src="./assets/loader.gif" class="loader" alt="Loading...">
-        </div>
-    </div>
 
-    <div *ngIf="!showLoader">
     <div class="search-container">
-        <h4>Find all jobs here:</h4>
+        <!-- <h4>Find all jobs here:</h4> -->
         <div class="nav-wrapper">
-            <form>
+            <form class="search-wrapper">
             <div class="search-bar">
                 <i id="search-icon" class="material-icons">search</i>
                 <input id="search" [(ngModel)] = "query" name="query" type="search" required (keyup)="applyFilter($event.target.value)" placeholder="Search..">
@@ -18,6 +12,15 @@
             </form>
         </div>
     </div>
+
+    <div class="loader-container">
+        <div *ngIf="showLoader">
+          <img src="./assets/loader.gif" class="loader" alt="Loading...">
+        </div>
+    </div>
+
+    <div *ngIf="!showLoader">
+    
 
     <div class="col s12 ">
         
@@ -38,6 +41,12 @@
                     <mat-icon>more_vert</mat-icon>
                 </button>
                 <mat-menu #menu="matMenu">
+                    <button class="dropdown-cont" mat-menu-item (click)="onApplyClick(result.id)" *ngIf="userService.isOrganization">
+                        <i class="material-icons">edit</i>
+                        <span>
+                            <div class="dropdown-txt" >Apply Now</div>
+                        </span>
+                    </button>
                     <button class="dropdown-cont" mat-menu-item>
                             <i class="material-icons">share</i>
                             <span>
@@ -50,27 +59,27 @@
                             <div class="dropdown-txt" >Save</div>
                         </span>
                     </button>
-                    <button class="dropdown-cont" mat-menu-item (click)="onViewApplicant(result.id)" *ngIf="userService.isOrganization">
+                    <!-- <button class="dropdown-cont" mat-menu-item (click)="onViewApplicant(result.id)" *ngIf="userService.isOrganization">
                         <i class="material-icons">pageview</i>
                         <span>
                             <div class="dropdown-txt" >View applicants</div>
                         </span>
-                    </button>
+                    </button> -->
                 </mat-menu>
             </div>
             </div>
-            <p class="description"><strong>Description : </strong>{{result.Job_Descreption}}</p>
+            <p class="description" title="{{result.Job_Descreption}}"><strong>Description : </strong>{{result.Job_Descreption}}</p>
             <mat-card-content>
                 <p><strong>Minimum experience : </strong>
                     {{result.Minimum_experience}}
                 </p>
-                <p class="description"><strong>Available at : </strong>
+                <p class="city"><strong>Available at : </strong>
                     {{result.prefered_city}}
                 </p>
             </mat-card-content>
             <mat-card-actions class="footer">
-                <button mat-button class="btn" (click)="onApplyClick(result.id)">Apply Now<i class="material-icons footer-icons right">edit</i></button>
-                <button mat-button class="btn" (click)="onViewApplicant(result.id)">View Applicants<i class="material-icons footer-icons right">pageview</i></button>
+                <button mat-button class="btn" (click)="onViewClick(result)">View Post</button>
+                <button mat-button class="btn" (click)="onViewApplicant(result.id)" *ngIf="userService.isOrganization">View Applicants</button>
             </mat-card-actions>
           </mat-card>
         </div>

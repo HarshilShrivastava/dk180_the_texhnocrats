@@ -60,7 +60,7 @@
           </div>
           <div class="btn-class">
             <button mat-button matStepperPrevious class="btn" *ngIf = "i !== 0"><i class="material-icons left">arrow_back_ios</i>Back</button>
-            <button mat-button matStepperNext class="btn">Next<i class="material-icons right">arrow_forward_ios</i></button>
+            <button mat-button matStepperNext class="btn" *ngIf = "i !== 19">Next<i class="material-icons right">arrow_forward_ios</i></button>
             <button *ngIf="item.noReview" mat-button matStepperNext (click)="markForReview(i)" class="btn review">Mark For Review<i class="material-icons right">push_pin</i></button>
             <button *ngIf="!item.noReview" (click)="markForReview(i)" class="btn review">Unmark From Review<i class="material-icons right">push_pin</i></button>
 

@@ -21,6 +21,7 @@ h4{
     margin-left: 20px !important;
     margin-bottom: 0px;
     color: #0b132b;
+    margin-left: 9% !important;
 }
 
 .card{
@@ -69,18 +70,23 @@ a{
 
 .search-container{
     display: flex;
-    margin-left: 7.5%;
+    // margin-left: 7.5%;
+    background-color: white;
+}
+
+.search-wrapper{
+    margin-bottom: 4%;
 }
 
 .search-bar{
     display: flex;
     border: 1px solid;
     height: 42.4px;
-    margin-left: 3%;
     margin-top: 7%;
     justify-content: space-between;
     width: 280px;
     max-width: 280px;
+    margin-left: 42% !important;
 }
 
 #cross{
@@ -153,6 +159,37 @@ a{
 .description{
     border-bottom: 1px solid;
     border-bottom-color: lightgray;
+    overflow: hidden;
+    position: relative;
+    line-height: 1.2em;
+    max-height: 6em;
+    text-align: justify;
+    margin-right: -1em;
+    padding-right: 2em;
+}
+
+.description:before {
+    content: '...';
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    padding-right: 1em;
+
+  }
+
+.description:after {
+    content: '';
+    position: absolute;
+    right: 0;
+    width: 1em;
+    height: 1em;
+    margin-top: 0.2em;
+    background: white;
+  }
+
+.city{
+    border-bottom: 1px solid;
+    border-bottom-color: lightgray; 
 }
 
 .footer{

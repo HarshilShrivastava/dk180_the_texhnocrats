@@ -4,6 +4,7 @@ import { MatDialog } from '@angular/material';
 import { JobApplyDialogComponent } from '../dialogs/job-apply-dialog/job-apply-dialog.component';
 import { Router } from '@angular/router';
 import { UserService } from '../shared/user.service';
+import { JobViewDialogComponent } from '../shared/job-view-dialog/job-view-dialog.component';
 
 @Component({
   selector: 'app-job-search',
@@ -57,6 +58,7 @@ showLoader: boolean = false
   }
 
   applyFilter(filterValue: string) {
+    this.showLoader = true
     this.query = filterValue.trim().toLowerCase();
     if(filterValue === ''){
       this.getListing();
@@ -68,6 +70,7 @@ showLoader: boolean = false
 
   render(input){
     this.data = input;
+    this.showLoader = false;
   }
 
   clear(){
@@ -79,6 +82,21 @@ showLoader: boolean = false
   onApplyClick(id) {
     localStorage.setItem('id', id);
     this.router.navigate(['/jobapply']);
+  }
+
+  onViewClick(res){
+    let data = {
+      Name: res.Name,
+      id: res.id,
+      job_title: res.job_title,
+      Job_Descreption: res.Job_Descreption,
+      Minimum_experience: res.Minimum_experience,
+      prefered_city: res.prefered_city
+    }
+    let dialogRef = this.dialog.open(JobViewDialogComponent, {
+      height: '400px',
+      data: data
+    });
   }
 
   onViewApplicant(id) {
