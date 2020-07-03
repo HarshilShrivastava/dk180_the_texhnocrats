@@ -4,6 +4,8 @@ import { UserService } from 'src/app/shared/user.service';
 import { QuizService } from 'src/app/shared/quiz.service';
 import { MatDialog } from '@angular/material';
 import { ErrorDialogComponent } from 'src/app/shared/error-dialog/error-dialog.component';
+import * as confetti from 'canvas-confetti';
+
 
 @Component({
   selector: 'app-quiz-results',
@@ -47,6 +49,12 @@ export class QuizResultsComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    var duration = 30*1000;
+    var end = Date.now() + duration;
+    if (Date.now() < end)
+      this.celebrate();
+    
+
     if(sessionStorage.getItem("Marks_tech_lvl1")){
       let a = JSON.parse(sessionStorage.getItem("Marks_tech_lvl1"));
       this.Marks_tech_lvl1 = parseInt(a);
@@ -111,6 +119,34 @@ export class QuizResultsComponent implements OnInit {
   // ngOnDestroy(){
   //   sessionStorage.clear();
   // }
+  celebrate(){
+    confetti.create()({
+      shapes: ['square'],
+      colors: ['#C83110', '#1048C8', '#C810A4', '#F5FC00', '#88CA04'],
+      decay: 0.3,
+      particleCount: 300,
+      zIndex: 1000,
+      gravity: 0.5,
+      spread: 200,
+      // ticks: 800,
+      origin: {
+          y:0
+      }
+  });
+  confetti.create()({
+    shapes: ['square'],
+    colors: ['#C83110', '#1048C8', '#C810A4', '#F5FC00', '#88CA04'],
+    decay: 0.3,
+    particleCount: 500,
+    zIndex: 1000,
+    gravity: 0.5,
+    spread: 200,
+    // ticks: 800,
+    origin: {
+        x:0.8
+    }
+});
+  }
 
   OnClickRating(){
     this.final_rating = (this.Final_SD1_Marks + this.Final_SD2_Marks)/20 * 5;
@@ -125,7 +161,20 @@ export class QuizResultsComponent implements OnInit {
   }
 
   OnClickViewJobs(){
-    this.router.navigate(['/get-recommended-jobs'])
+    if(this.userService.isLoggedIn() === false){
+      let dialogRef = this.dialog.open(ErrorDialogComponent, {
+        height: '150px',
+        data: "Please login first to view jobs."
+      });
+    }
+    else if(!this.userService.isCandidate){
+      let dialogRef = this.dialog.open(ErrorDialogComponent, {
+        height: '150px',
+        data: "You need to have a candidate profile to view jobs."
+      });
+    }
+    else 
+      this.router.navigate(['/get-recommended-jobs'])
   }
 
   // OnPostMarks(){
@@ -136,7 +185,7 @@ export class QuizResultsComponent implements OnInit {
     if(this.userService.isLoggedIn() === false){
       let dialogRef = this.dialog.open(ErrorDialogComponent, {
         height: '150px',
-        data: "Please login first to post rating to profile"
+        data: "Please login first to post rating to profile."
       });
     }
     else if(localStorage.getItem("token")){

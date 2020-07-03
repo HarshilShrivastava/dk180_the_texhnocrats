@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { QuizService } from '../shared/quiz.service';
 import { Router } from '@angular/router';
+import {FormBuilder, FormGroup, Validators, FormControl} from '@angular/forms';
+
 
 @Component({
   selector: 'app-marketing',
@@ -8,6 +10,9 @@ import { Router } from '@angular/router';
   styleUrls: ['./marketing.component.less']
 })
 export class MarketingComponent implements OnInit {
+  firstFormGroup: FormGroup;
+  secondFormGroup: FormGroup;
+
   data: any = {};
   tech = 0;
   mark = 0;
@@ -46,24 +51,45 @@ export class MarketingComponent implements OnInit {
   max2_sd_id: any;
   temp = 0;
   hold: any;
+  totalAnswered = 0;
+  showLoader: boolean = false;
 
-  constructor(private quizService: QuizService, private router: Router) { }
+
+  constructor(
+    private quizService: QuizService, 
+    private router: Router, 
+    private _formBuilder: FormBuilder 
+    ) { }
 
   ngOnInit() {
+    this.firstFormGroup = this._formBuilder.group({
+      firstCtrl: ['', Validators.required]
+    });
+
     this.MarkContacts();
   }
 
 
   MarkContacts() {
+    this.showLoader = true;
     this.quizService.MarkData().subscribe(data => {
       console.log(data);
       this.data = data;
+      this.showLoader = false;
+      this.data.data.forEach(function(element) {
+        element.active = false;
+        element.noReview = true
+      });
     });
   }
 
 
   Answer(Weightage, from_Domain, id, arr, index) {
     // this.result_arr.insert(index, arr);
+    if(this.data.data[index].active === false)
+      this.totalAnswered += 1;
+    this.data.data[index].active = true;
+
       if(this.result_arr[index] == []){
         this.result_arr[index] = arr;
       }
@@ -116,6 +142,14 @@ export class MarketingComponent implements OnInit {
     // this.marks = this.marks + Weightage ;
     // this.quizService.Totalmarks = this.marks;
     // console.log(this.quizService.Totalmarks, 'marks' , Weightage);
+  }
+
+  markForReview(index){
+    if(this.data.data[index].noReview === false)
+      this.data.data[index].noReview = true
+    else
+      this.data.data[index].noReview = false
+
   }
 
   getTopSubdomains(){

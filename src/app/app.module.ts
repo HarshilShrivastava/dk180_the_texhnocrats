@@ -58,7 +58,11 @@ import { PdfViewerModule } from 'ng2-pdf-viewer';
 import { InstructionsPageComponent } from './quiz-ops/instructions-page/instructions-page.component';
 import { FaqPageComponent } from './shared/faq-page/faq-page.component';
 import {MatExpansionModule} from '@angular/material/expansion';
-
+import {MatStepperModule} from '@angular/material/stepper';
+import { ReactiveFormsModule } from '@angular/forms';
+import {MatCardModule} from '@angular/material/card';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import { JobViewDialogComponent } from './shared/job-view-dialog/job-view-dialog.component';
 
 
 @NgModule({
@@ -104,7 +108,8 @@ import {MatExpansionModule} from '@angular/material/expansion';
     RecommendedJobsComponent,
     GeneralDialogBoxComponent,
     InstructionsPageComponent,
-    FaqPageComponent
+    FaqPageComponent,
+    JobViewDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -127,11 +132,16 @@ import {MatExpansionModule} from '@angular/material/expansion';
     MatTooltipModule,
     MatCheckboxModule,
     PdfViewerModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatStepperModule,
+    ReactiveFormsModule,
+    MatCardModule,
+    MatPaginatorModule,
+    MatMenuModule
   ],
   providers: [QuizService, User],
   bootstrap: [AppComponent],
-  entryComponents: [JobApplyDialogComponent, ErrorDialogComponent, GeneralDialogBoxComponent]
+  entryComponents: [JobApplyDialogComponent, ErrorDialogComponent, GeneralDialogBoxComponent, JobViewDialogComponent]
 
 })
 export class AppModule { }
