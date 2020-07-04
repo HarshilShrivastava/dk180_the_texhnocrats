@@ -159,6 +159,7 @@ export class NavbarComponent implements OnInit {
         else{
           this.quizService.chaluKar.next(false)
           this.timeLeft = 1200;
+          clearInterval(this.interval);
         }
       },1000)
       
@@ -172,13 +173,14 @@ export class NavbarComponent implements OnInit {
     this.router.navigate(['/register']);
 
   }
+
   Logout() {
     this.isLoggedIn = false;
     localStorage.removeItem('token');
     localStorage.removeItem('Is_University');
     localStorage.removeItem('Is_Candidate');
     localStorage.removeItem('Is_Organization');
-    sessionStorage.clearAll();
+    sessionStorage.clear();
 
     console.log('You Are Logged Out');
     this.router.navigate(['/login']);

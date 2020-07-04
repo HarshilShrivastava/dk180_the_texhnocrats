@@ -197,6 +197,7 @@ export class RoundThreeComponent implements OnInit {
 
 
   Answers() {
+    this.quizService.chaluKar.next(false);
     // this.getTopSubdomains();
 
 
