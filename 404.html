@@ -27,6 +27,19 @@
   </app-root>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+      <script>
+        window.watsonAssistantChatOptions = {
+            integrationID: "0313c728-756f-42f7-9812-835f7bdccac4", // The ID of this integration.
+            region: "au-syd", // The region your integration is hosted in.
+            serviceInstanceID: "ee60c960-3661-4720-a90b-1221baf95aae", // The ID of your service instance.
+            onLoad: function(instance) { instance.render(); }
+          };
+        setTimeout(function(){
+          const t=document.createElement('script');
+          t.src="https://web-chat.global.assistant.watson.appdomain.cloud/loadWatsonAssistantChat.js";
+          document.head.appendChild(t);
+        });
+      </script>
   <app-footer></app-footer>
-<script src="runtime-es2015.c5fa8325f89fc516600b.js" type="module"></script><script src="runtime-es5.c5fa8325f89fc516600b.js" nomodule defer></script><script src="polyfills-es5.d4aaa9fae2f3c7a14a80.js" nomodule defer></script><script src="polyfills-es2015.9816319eec07608422ea.js" type="module"></script><script src="main-es2015.3abcdd8de1e875c46fc4.js" type="module"></script><script src="main-es5.3abcdd8de1e875c46fc4.js" nomodule defer></script></body>
+<script src="runtime-es2015.c5fa8325f89fc516600b.js" type="module"></script><script src="runtime-es5.c5fa8325f89fc516600b.js" nomodule defer></script><script src="polyfills-es5.d4aaa9fae2f3c7a14a80.js" nomodule defer></script><script src="polyfills-es2015.9816319eec07608422ea.js" type="module"></script><script src="main-es2015.5a34ba901ee35d5b13a7.js" type="module"></script><script src="main-es5.5a34ba901ee35d5b13a7.js" nomodule defer></script></body>
 </html>
