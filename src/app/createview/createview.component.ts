@@ -66,12 +66,12 @@ export class CreateviewComponent implements OnInit {
           this.router.navigate(['/instructions']);
         }
         else
-          this.router.navigate(['/instructions'])
+          this.router.navigate(['/canview'])
       });
        Name.value = null;
        Address.value = null;
        Image.value = null;
-       this.imageUrl = 'http://localhost:4200/assets/image/default-image.png';
+       this.imageUrl = 'https://p7.hiclipart.com/preview/919/5/279/computer-icons-font-awesome-text-file-document-txt-file.jpg';
      }
    );
   } else{

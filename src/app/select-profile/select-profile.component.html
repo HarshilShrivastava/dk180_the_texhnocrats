@@ -12,8 +12,8 @@
               <button class="btn-large btn-submit" type="submit" [(ngModel)]="university" (click)="onClick()">University</button>
             </div>
           </div> -->
-        <li><a class="waves-effect waves-light btn-large" [routerLink]="['/organ']"><i class="material-icons right">fingerprint</i>Organisation</a></li>
-        <li><a class="waves-effect waves-light btn-large" [routerLink]="['/candidate']"><i class="material-icons right">fingerprint</i>Candidate</a></li>
+        <li class="links-list" matTooltip="Select this if you're looking for the right candidates (Excluded in beta releases)"><a class="btn" [routerLink]="['/organ']">Organisation<i class="material-icons right">add_business</i></a></li>
+        <li class="links-list" matTooltip="Select this if you're looking for your next perfect job"><a class="btn" [routerLink]="['/candidate']">Candidate<i class="material-icons right">person_add_alt_1</i></a></li>
         <!-- <li><a class="waves-effect waves-light btn-large" [routerLink]="['/signup']"><i class="material-icons right">fingerprint</i>University</a></li> -->
     </ul>
 </div>
