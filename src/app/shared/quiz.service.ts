@@ -6,10 +6,12 @@ import { HttpClient , HttpHeaders, HttpResponse, HttpParams } from '@angular/com
 import { Job } from './job.model';
 import { University } from './university.model';
 import { JobApply } from './jobapply.model';
+import { BehaviorSubject } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
 export class QuizService {
+  public chaluKar: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
   private apiUrl = 'https://harshraj.pythonanywhere.com/user/api/get-question/?format=json';
   qns: any[];
   Candidate: boolean;
@@ -18,7 +20,13 @@ export class QuizService {
   Totalmarks: number;
   Marketing: number;
   Technical: number;
+  startTimer: boolean;
   constructor(private http: HttpClient) { }
+
+  checkForTimer(){
+    if(this.startTimer === true)
+      this.chaluKar.next(true);
+  }
 
   getData() {
     return this.http.get(this.apiUrl);

@@ -5,6 +5,7 @@ import { $ } from 'protractor';
 import {FormBuilder, FormGroup, Validators, FormControl} from '@angular/forms';
 import { MatDialog } from '@angular/material';
 import { ErrorDialogComponent } from '../shared/error-dialog/error-dialog.component';
+import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-quiz',
@@ -15,6 +16,7 @@ export class QuizComponent implements OnInit {
 
   firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;
+
 
   data: any = {};
   id_obj: any = {
@@ -41,6 +43,9 @@ export class QuizComponent implements OnInit {
     private _formBuilder: FormBuilder 
     ) { }
   ngOnInit() {
+    this.getContacts();
+
+    this.quizService.chaluKar.next(true);
 
     this.firstFormGroup = this._formBuilder.group({
       firstCtrl: ['', Validators.required]
@@ -49,7 +54,6 @@ export class QuizComponent implements OnInit {
       secondCtrl: ['', Validators.required]
     });
 
-    this.getContacts();
 
 
   //   this.firstFormGroup.patchValue({

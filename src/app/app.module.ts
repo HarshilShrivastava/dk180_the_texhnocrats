@@ -63,6 +63,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import {MatCardModule} from '@angular/material/card';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { JobViewDialogComponent } from './shared/job-view-dialog/job-view-dialog.component';
+import { MinutesToSecondsPipe } from '../../src/app/pipes/minutesToSeconds.pipe'
 
 
 @NgModule({
@@ -109,7 +110,8 @@ import { JobViewDialogComponent } from './shared/job-view-dialog/job-view-dialog
     GeneralDialogBoxComponent,
     InstructionsPageComponent,
     FaqPageComponent,
-    JobViewDialogComponent
+    JobViewDialogComponent,
+    MinutesToSecondsPipe
   ],
   imports: [
     BrowserModule,

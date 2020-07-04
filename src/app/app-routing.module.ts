@@ -62,7 +62,7 @@ const routes: Routes = [
   {path: 'university', component: UniversityComponent},
   {path: 'universityread', component: UniversityReadComponent},
   {path: 'jobapply', component: JobApplyComponent},
-  {path: 'jobsearch', component: JobSearchComponent},
+  {path: 'job-search', component: JobSearchComponent},
   {path: 'applied-jobs', component: JobsAppliedComponent},
   {path: 'applicant-list', component: ApplicantListComponent},
   {path: 'quiz-results', component: QuizResultsComponent},
