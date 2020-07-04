@@ -155,6 +155,13 @@ export class NavbarComponent implements OnInit {
       this.interval = setInterval(() => {
         if(this.timeLeft > 0 && this.quizStarted) {
           this.timeLeft--;
+          if(this.timeLeft === 0){
+            this.router.navigate(['/home']);
+            let dialogRef = this.dialog.open(ErrorDialogComponent, {
+              height: '170px',
+              data: "Sorry your time is up!"
+            });  
+          }
         }
         else{
           this.quizService.chaluKar.next(false)
