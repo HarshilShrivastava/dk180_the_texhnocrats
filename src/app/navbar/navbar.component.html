@@ -24,31 +24,39 @@
 </div> -->
 
 <div class="navba-wrapper">
+<<<<<<< HEAD
   <div class="logo">
     <img src="./../../assets/gifgit.png" alt="Logo"/>
+=======
+  <div class="left-nav">
+    <div class="logo">
+      <img src="https://www.set-test.org/images/logos/SIT.png" alt="Logo"/>
+    </div>
+    <div class="beta-vers">Beta-version 1.1.0</div> 
+    <div class="timer" *ngIf="quizStarted">Time Left: {{timeLeft | minutesToSeconds}}</div>
+>>>>>>> ec6e45084519e7842d6de2960aa25a34d58f077a
   </div>
-  <div class="beta-vers">Beta-version 1.1.0</div> 
   <div class="links">
     <div class="nav-link">
-      <a [routerLink]="['/home']">Home</a>
+      <a (click) = "onClickOption('home')">Home</a>
     </div>
     <div class="nav-link" *ngIf = "userService.isOrganization()">
-      <a [routerLink]="['/jobForm']">Create Job</a>
+      <a (click) = "onClickOption('create-job')">Create Job</a>
     </div>
     <div class="nav-link" *ngIf = "userService.isCandidate()">
-      <a [routerLink]="['/jobsearch']">Job Search</a>
+      <a (click) = "onClickOption('job-search')">Job Search</a>
     </div>
     <div class="nav-link" *ngIf = "checkifLoggedIn()">
-      <a (click)="getAppliedJobs()">Applied Jobs</a>
+      <a (click) = "onClickOption('applied-jobs')">Applied Jobs</a>
     </div>
     <div class="nav-link" *ngIf = "!checkifLoggedIn()">
-      <a [routerLink]="['/profiles']">Sign Up</a>
+      <a (click) = "onClickOption('profiles')">Sign Up</a>
     </div>
     <div class="nav-link" *ngIf = "!checkifLoggedIn()">
-      <a [routerLink] = "['/login']">Log In</a>
+      <a (click) = "onClickOption('login')">Log In</a>
     </div>
     <div class="nav-link" *ngIf = "userService.isLoggedIn()">
-      <a (click)="Logout()">Logout</a>
+      <a (click) = "onClickOption('logout')">Logout</a>
     </div>
   </div>
 </div>
