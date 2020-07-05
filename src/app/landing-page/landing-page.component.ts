@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UserService } from '../shared/user.service';
 
 @Component({
   selector: 'app-landing-page',
@@ -9,11 +10,12 @@ export class LandingPageComponent implements OnInit {
 
   isLoggedIn: boolean = false;
 
-  constructor() { }
+  constructor(
+    public userService: UserService,
+  ) { }
 
   ngOnInit() {
-    if(localStorage.getItem("token"))
-      this.isLoggedIn  = true;
+
   }
 
 }

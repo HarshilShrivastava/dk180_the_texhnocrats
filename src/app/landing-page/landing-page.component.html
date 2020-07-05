@@ -17,17 +17,17 @@
             <div class="btn">
                 <a class="btn-txt" [routerLink]="['/instructions']">Take Quiz</a>
             </div>
-            <div class="btn">
+            <div class="btn" *ngIf="!userService.isLoggedIn()">
                 <a class="btn-txt" [routerLink]="['/profiles']">Create Profile</a>
             </div>
-            <div class="btn">
+            <div class="btn" *ngIf="!userService.isLoggedIn()">
                 <a class="btn-txt" [routerLink]="['/login']">Login</a>
             </div>
         </div>
     </div>
     
     <div class="img">
-        <img src="./assets/image/f1.gif" alt="job-pic">
+        <img src="./assets/image/final.png" class="lp-img" alt="job-pic">
     </div>
     
      
