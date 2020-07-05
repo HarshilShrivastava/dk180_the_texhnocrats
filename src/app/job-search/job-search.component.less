@@ -93,11 +93,88 @@ a{
     cursor: pointer;
 }
 
-.container{
+.total {
+    margin-top: 24px;
+    color: #676A76;
+    font-size: 12px;
+    display: flex;
+    justify-content: flex-end;
+    padding: 0% 6% 0% 0%;
+    // margin-bottom: 40px;
+  
+    .mat-paginator {
+      background: transparent !important;
+    }
+  }
+  
+  /deep/ mat-paginator {
+    display: flex;
+    margin-left: 2.5%;
+  
+    .mat-paginator-outer-container {
+      .mat-paginator-container {
+        .mat-paginator-page-size-select {
+          margin: 0px 4px 0 4px;
+  
+          .mat-form-field-wrapper {
+            box-sizing: border-box;
+            height: 40px;
+            width: 69px;
+            border: 0.86px solid #E4E5E6;
+            border-radius: 4px;
+            background-color: #FFFFFF;
+            padding-bottom: 0px !important;
+  
+            .mat-form-field-flex {
+              text-align: center;
+            }
+  
+            .mat-form-field-underline {
+              height: 0px !important;
+  
+              .mat-form-field-ripple {
+                background: none !important;
+              }
+            }
+          }
+        }
+  
+        .mat-paginator-page-size {
+          align-items: center;
+          margin-right: 40px;
+          
+          .mat-paginator-page-size-label {
+            color: #41434C;
+            font-family: Poppins;
+            font-size: 12px;
+            letter-spacing: 0;
+            line-height: 18px;
+            content: 'Rows per page';
+          }
+        }
+  
+        .mat-paginator-range-actions {
+          .mat-paginator-range-label {
+            display: none;
+          }
+        }
+      }
+  
+    }
+  
+  }
+
+.cont-cont{
     display: flex;
     flex-wrap: wrap;
-    width: 100%;  
-    justify-content: center;  
+    width: 100%;
+    padding: 0% 5% 5% 5%;
+    justify-content: center;
+}
+
+.container{
+    max-width: 29%; 
+    margin: 0% 2% 2% 2%;
 }
 
 .mat-card-avatar{
@@ -113,12 +190,13 @@ a{
 }
 
 .example-card {
-    max-width: 25%;
+    // max-width: 25%;
     min-width: 25%;
-    max-height: 8%;
+    // max-height: 8%;
     margin: 2%;
     min-height: 8%;
     padding: 12px !important;
+    min-height: 100%;
   }
   
   .example-header-image {
@@ -194,6 +272,11 @@ a{
 
 .footer{
     display: flex;
+    justify-content: space-between;
+    padding: 0% 2% 0% 2%;
+    // position: absolute;
+    // bottom: 5%;
+    margin-top: 5%;
 }
 
 .footer-icons{

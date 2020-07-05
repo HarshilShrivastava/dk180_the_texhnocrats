@@ -23,10 +23,17 @@
     
 
     <div class="col s12 ">
-        
 
-          <div class="container">
-          <mat-card class="example-card" *ngFor="let result of data.data">
+        <!-- <div class="total">
+            <mat-paginator #paginator [length]="paginatorLength" [pageSize]="10" [pageSizeOptions]="[10,20, 100, 500, 2000]"
+              (page)="onPageChanged($event)" [pageIndex]="0">
+            </mat-paginator>
+          </div> -->
+          <!-- *ngIf="i >= startIndex && i < endIndex" -->
+        
+          <div class="cont-cont">
+          <div class="container" *ngFor="let result of data.data; let i = index">
+          <mat-card class="example-card" >
             <div class="header-container">
             <mat-card-header>
               <div mat-card-avatar>
@@ -83,6 +90,7 @@
             </mat-card-actions>
           </mat-card>
         </div>
+    </div>
         <!-- <div class="search-filter">
             Search companies:<br>
             <mat-form-field class="filter">
