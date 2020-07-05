@@ -65,6 +65,7 @@ export class CandidateComponent implements OnInit {
           this.resetForm();
           let dialogRef = this.dialog.open(ErrorDialogComponent, {
             height: '200px',
+            width: '400px',
             data: "You are successfully registered with us, please proceed to add a profile section"
           }); 
           this.router.navigate(['/create']);
