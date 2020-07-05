@@ -50,6 +50,48 @@ export class CandidateComponent implements OnInit {
     console.log(event);
   }
 
+  checkIfPostRatingPending(){
+      if(sessionStorage.getItem("Final_Tech_Rating")){
+        this.quizService.postTechRating()
+        .subscribe((data: any) => {
+          console.log(data);
+          if(data.status === 200){
+            let dialogRef = this.dialog.open(ErrorDialogComponent, {
+              height: '150px',
+              data: "Last quiz Tech rating posted to profile successfully"
+            });  
+          }
+          else {
+            let dialogRef = this.dialog.open(ErrorDialogComponent, {
+              height: '150px',
+              data: "Failed to post tech rating"
+            });  
+          }
+          
+        })
+      }
+      else if(sessionStorage.getItem("Final_Marketing_Rating")){
+        this.quizService.postMarketingRating()
+        .subscribe((data: any) => {
+          console.log(data);
+          if(data.status === 200){
+            let dialogRef = this.dialog.open(ErrorDialogComponent, {
+              height: '150px',
+              data: "Last quiz Marketing rating posted to profile successfully!"
+            });  
+          }
+          else {
+            let dialogRef = this.dialog.open(ErrorDialogComponent, {
+              height: '150px',
+              data: "Failed to post Marketing rating"
+            });  
+          }
+          
+        })
+      }
+      sessionStorage.clear();
+  }
+
   OnSubmit(form: NgForm) {
     this.quizService.Candidate = this.user.Is_Candidate;
     this.quizService.Organization = this.user.Is_Organization;
@@ -61,6 +103,7 @@ export class CandidateComponent implements OnInit {
             console.log(data);
             localStorage.setItem("token", data.token);
             localStorage.setItem("Is_Candidate", JSON.stringify(true))
+            this.checkIfPostRatingPending()
           })
           this.resetForm();
           let dialogRef = this.dialog.open(ErrorDialogComponent, {
@@ -68,6 +111,7 @@ export class CandidateComponent implements OnInit {
             width: '400px',
             data: "You are successfully registered with us, please proceed to add a profile section"
           }); 
+          
           this.router.navigate(['/create']);
           // alert('User Registration Succeeded');
         } 

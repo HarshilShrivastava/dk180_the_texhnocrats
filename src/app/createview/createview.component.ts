@@ -59,6 +59,7 @@ export class CreateviewComponent implements OnInit {
        console.log('done', data);
        let dialogRef = this.dialog.open(GeneralDialogBoxComponent, {
         height: '200px',
+        width: '400px',
         data: "Your profile is created successfully, would you like to proceed to the quiz?"
       });  
       dialogRef.afterClosed().subscribe((data) => {
@@ -77,6 +78,7 @@ export class CreateviewComponent implements OnInit {
   } else{
     let dialogRef = this.dialog.open(ErrorDialogComponent, {
       height: '200px',
+      width: '400px',
       data: "Sorry your profile could not be created right now, please try again in some time."
     }); 
     this.router.navigate(['/signup']);

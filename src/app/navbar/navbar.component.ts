@@ -60,7 +60,7 @@ export class NavbarComponent implements OnInit {
     else if(option === 'profiles')
       this.router.navigate(['/profiles']);
     else if(option === 'login')
-      this.router.navigate(['/login']);
+      this.LogIn()
     else if(option === 'applied-jobs')
       this.router.navigate(['/applied-jobs']);
     else if(option === 'logout')
@@ -178,6 +178,13 @@ export class NavbarComponent implements OnInit {
 
   SignOut() {
     this.router.navigate(['/register']);
+
+  }
+
+  
+
+  LogIn(){
+    this.router.navigate(['/login']);
 
   }
 
