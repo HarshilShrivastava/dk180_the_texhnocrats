@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve -o",
-    "deploy": "ng build --prod --base-href https://gauravjoshi1998.github.io/JobsForYou/ && sudo npx ngh --dir=dist/mcq2",
+    "deploy": "ng build --prod --base-href https://HarshilShrivastava.github.io/SIH-ANGULAR/ && sudo npx ngh --dir=dist/mcq2",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
@@ -25,7 +25,6 @@
     "@angular/router": "~8.2.3",
     "angular-material": "^1.1.21",
     "angular-password-strength-meter": "^1.0.2",
-    "canvas-confetti": "^1.2.0",
     "express": "^4.17.1",
     "firebase": "^7.8.0",
     "ng-multiselect-dropdown": "^0.2.10",
