@@ -140,7 +140,7 @@ import { MinutesToSecondsPipe } from '../../src/app/pipes/minutesToSeconds.pipe'
     MatCardModule,
     MatPaginatorModule,
     MatMenuModule
-  ],
+],
   providers: [QuizService, User],
   bootstrap: [AppComponent],
   entryComponents: [JobApplyDialogComponent, ErrorDialogComponent, GeneralDialogBoxComponent, JobViewDialogComponent]

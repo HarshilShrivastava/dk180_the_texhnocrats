@@ -151,7 +151,7 @@ displayedRows$: Observable<[]>;
       prefered_city: res.prefered_city
     }
     let dialogRef = this.dialog.open(JobViewDialogComponent, {
-      height: '400px',
+      height: '350px',
       data: data
     });
   }
