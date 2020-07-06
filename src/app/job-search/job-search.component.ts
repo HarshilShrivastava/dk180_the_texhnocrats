@@ -24,6 +24,7 @@ result: any;
 isOrganization = localStorage.getItem("Is_Organization");
 isCandidate = localStorage.getItem("Is_Candidate");
 showLoader: boolean = false;
+noMatch: boolean = false;
 pageEvent: PageEvent;
 
 
@@ -80,6 +81,7 @@ displayedRows$: Observable<[]>;
     this.showLoader = true
     this.query = filterValue.trim().toLowerCase();
     if(filterValue === ''){
+      this.noMatch = false;
       this.getListing();
     }
     else{
@@ -89,11 +91,16 @@ displayedRows$: Observable<[]>;
 
   render(input){
     this.data = input;
+    if(this.data.count === 0)
+      this.noMatch = true;
+    else 
+      this.noMatch = false;
     this.showLoader = false;
   }
 
   clear(){
     this.query = "";
+    this.noMatch = false;
     this.getListing();
 
   }

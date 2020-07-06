@@ -118,7 +118,7 @@ export class QuizService {
   }
   canView() {
     const Headers = new HttpHeaders().set('Authorization', 'token ' + localStorage.getItem('token'));
-    return this.http.get('http://harshraj.pythonanywhere.com/candidate/create/', {headers: Headers} );
+    return this.http.get('https://harshraj.pythonanywhere.com/candidate/create/', {headers: Headers} );
   }
   uniView() {
     const Headers = new HttpHeaders()

@@ -37,7 +37,7 @@ export class CandiviewComponent implements OnInit {
     this.quizService.canView().subscribe(data => {
       console.log(data);
       this.resumeFile = data
-      this.makeLink()
+      // this.makeLink()
     });
 
     // Show image preview
