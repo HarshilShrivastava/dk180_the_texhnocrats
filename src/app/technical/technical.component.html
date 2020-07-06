@@ -1,0 +1,116 @@
+<div class="quiz-r2">
+  <div>
+    <div class="loader-container">
+      <div *ngIf="showLoader">
+        <img src="./assets/loader.gif" class="loader" alt="Loading...">
+      </div>
+    </div>
+    <mat-horizontal-stepper #stepper labelPosition="bottom" *ngIf="!showLoader">
+      <mat-step [stepControl]="firstFormGroup" errorMessage="Not answered."
+        *ngFor="let item of data.data; let i = index">
+        <form [formGroup]="firstFormGroup" class="form-container">
+          <ng-template matStepLabel>
+            <div *ngIf="!item.active && item.noReview"> 
+              <img src="./assets/icons/if_status_inactive.png" alt="unanswered">
+            </div>
+            <div *ngIf="item.active && item.noReview">
+              <img src="./assets/icons/if_status_active.png" alt="answered">
+            </div>
+            <div *ngIf="!item.noReview" class="pin">
+              <img src="./assets/icons/pin1.png" alt="pin" class="pin">
+            </div>
+          </ng-template>
+          <p class="question_text">Q.{{ i + 1 }} {{ item.Question_text }}</p>
+          <div>
+            <ul class="collection answer">
+              <ng-container *ngFor="let answer of item.Question_domain; let ind = index">
+                <li>
+                  <label>
+                    <input name="selected_answer" type="radio" class="with-gap" name="{{ item.id }}" (click)="
+                        Answer(
+                          answer.Weightage,
+                          answer.from_Domain,
+                          answer.id,
+                          answer,
+                          i
+                        )
+                      " value="answer.id" required />
+                    <span>{{ answer.Answer_text }}</span>
+                  </label>
+                </li>
+              </ng-container>
+            </ul>
+          </div>
+          <div class="btn-class">
+            <button mat-button matStepperPrevious class="btn" *ngIf="i !== 0">
+              <i class="material-icons left">arrow_back_ios</i>Back
+            </button>
+            <button mat-button matStepperNext class="btn" *ngIf = "i !== 19">
+              Next<i class="material-icons right">arrow_forward_ios</i>
+            </button>
+            <button *ngIf="item.noReview" mat-button matStepperNext (click)="markForReview(i)" class="btn review">Mark For Review<i class="material-icons right">push_pin</i></button>
+            <button *ngIf="!item.noReview" (click)="markForReview(i)" class="btn review">Unmark From Review<i class="material-icons right">push_pin</i></button>
+            <button mat-button class="btn" (click)="stepper.reset()" *ngIf="i === 19">
+              Go back to Q1
+            </button>
+          </div>
+
+          <div class="answered-questions">
+            Total answered: {{ totalAnswered }} / 20
+          </div>
+          <div class="row">
+            <div class="btn-submit col s12">
+              <button class="btn" type="submit" name="action" (click)="Answers()">
+                  Round Three<i class="material-icons right">send</i>
+              </button>
+            </div>
+          </div>
+        </form>
+      </mat-step>
+    </mat-horizontal-stepper>
+  </div>
+</div>
+
+
+<!-- End quiz -->
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div class="row" >
+    <div class="col s8 offset-s2">
+
+        <div class="card darken-1" *ngFor="let question of data.data; let ind = index" >
+          <div class="card_content white_text" >
+            <p>Q. {{question.Question_text}}</p>
+          </div>
+          <div class="card_action  white white-text">
+            <ul class="collection answer">
+              <ng-container *ngFor ="let answer of question.Question_domain; let i = index">
+                <li>
+                  <label>
+                    <input type="radio" class="with-gap" name = {{question.id}} (click)="Answer(answer.Weightage, answer.from_Domain, answer.id, answer, ind)"  required/>
+                    <span>{{answer.Answer_text}}</span>
+                  </label>
+                 </li>
+              </ng-container>
+            </ul>
+          </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+  <div class="input-field col s12">
+    <button class="btn-large waves-effect waves-light" type="submit" name="action" (click)="Answers()">
+      <p>Proceed to last round<i class="material-icons right">send</i></p>
+    </button>
+  </div>
+</div> -->

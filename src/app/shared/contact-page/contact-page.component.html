@@ -1,0 +1,42 @@
+<div class="row">
+    <div class="col s8 offset-s2">
+      <!-- <div class="card">
+        <div class="sm-jumbotron center-align"> -->
+          <h2>Get In Touch</h2>
+        <!-- </div> -->
+        
+        <form (ngSubmit)="processForm()" class="form-style-9">
+           <div class="row">
+             <div class="input-field col s6">
+               <i class="material-icons prefix">account_circle</i>
+               <input type="text" name="name" class="field-style field-split" placeholder="Your Name" [(ngModel)]="name">
+               <!-- <span class="helper-text" data-error="Use lowercases or use correct username!" style="color: rgb(20, 75, 57); text-shadow:blue;"></span> -->
+
+             </div>
+             <div class="input-field col s6">
+                <i class="material-icons prefix">email</i>
+                <input type="email" name="email" class="field-style field-split" placeholder="Your Email" [(ngModel)]="email">
+              </div>
+           </div>
+           <div class="row">
+            <div class="input-field col s12">
+                <i class="material-icons prefix">message</i>
+                <textarea name="message" class="field-style1 field-split1" placeholder="What's on your mind" [(ngModel)]="message"></textarea>
+              </div>
+              
+            </div>  
+            <div class="row">
+                <div class="input-field col s12">
+                  <button class="btn-large btn-submit" type="submit">
+                    <p>Submit</p>
+                  </button>
+
+                  <!-- <div class="btn">
+                    <button class="btn-txt">Take Quiz</button>
+                </div> -->
+                </div>
+              </div>
+        </form>
+        
+    </div>
+</div>

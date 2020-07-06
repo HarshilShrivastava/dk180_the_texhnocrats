@@ -1,0 +1,19 @@
+<div class="header">
+    <h3>Select the profile you wish to signup as:</h3>
+    <ul class="link-buttons">
+        <!-- <div class="row">
+            <div>
+              <button class="btn-large btn-submit" type="submit" [(ngModel)]="organization" (click)="onClick()">Organisation</button>
+            </div>
+            <div>
+              <button class="btn-large btn-submit" type="submit" [(ngModel)]="candidate" (click)="onClick()">Candidate</button>
+            </div>
+            <div>
+              <button class="btn-large btn-submit" type="submit" [(ngModel)]="university" (click)="onClick()">University</button>
+            </div>
+          </div> -->
+        <li class="links-list" matTooltip="Select this if you're looking for the right candidates (Excluded in beta releases)"><a class="btn" [routerLink]="['/organ']">Organisation<i class="material-icons right">add_business</i></a></li>
+        <li class="links-list" matTooltip="Select this if you're looking for your next perfect job"><a class="btn" [routerLink]="['/candidate']">Candidate<i class="material-icons right">person_add_alt_1</i></a></li>
+        <!-- <li><a class="waves-effect waves-light btn-large" [routerLink]="['/signup']"><i class="material-icons right">fingerprint</i>University</a></li> -->
+    </ul>
+</div>
