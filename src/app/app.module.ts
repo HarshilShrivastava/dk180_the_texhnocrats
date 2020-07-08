@@ -64,6 +64,8 @@ import {MatCardModule} from '@angular/material/card';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { JobViewDialogComponent } from './shared/job-view-dialog/job-view-dialog.component';
 import { MinutesToSecondsPipe } from '../../src/app/pipes/minutesToSeconds.pipe'
+import {MatSelectModule} from '@angular/material/select';
+
 
 
 @NgModule({
@@ -139,7 +141,8 @@ import { MinutesToSecondsPipe } from '../../src/app/pipes/minutesToSeconds.pipe'
     ReactiveFormsModule,
     MatCardModule,
     MatPaginatorModule,
-    MatMenuModule
+    MatMenuModule,
+    MatSelectModule
 ],
   providers: [QuizService, User],
   bootstrap: [AppComponent],
