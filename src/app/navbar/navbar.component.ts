@@ -14,6 +14,8 @@ import { GeneralDialogBoxComponent } from '../dialogs/general-dialog-box/general
   styleUrls: ['./navbar.component.less']
 })
 export class NavbarComponent implements OnInit {
+  userIsCandidate: boolean;
+  userIsOrganization: boolean;
 
   constructor(
     private router: Router,
@@ -27,12 +29,36 @@ export class NavbarComponent implements OnInit {
         if(this.quizStarted === true)
         this.checkIfQuizStarted();
       })
+
+      {
+        this.userService.aaya.subscribe(value => {
+          if(value === true)
+          this.name = localStorage.getItem("Name")
+        })
+      }
+      {
+        this.userService.candidatehai.subscribe(value => {
+          if(value === true)
+            this.userIsCandidate = true
+          // else  
+          //   this.userIsCandidate = false;
+        })
+      }
+      {
+        this.userService.organizationhai.subscribe(value => {
+          if(value === true)
+            this.userIsOrganization = true
+          // else
+          //   this.userIsOrganization = false
+        })
+      }
     }
 
   isLoggedIn:boolean;
   quizStarted: boolean = false;
   isOrganization = localStorage.getItem("Is_Organization");
   isCandidate = localStorage.getItem("Is_Candidate");
+  tok = localStorage.getItem("token")
 
   @ViewChild('sidenav', {static: true}) sidenav: MatSidenav;
   isExpanded = true;
@@ -42,9 +68,17 @@ export class NavbarComponent implements OnInit {
   timeLeft: number = 1200;
   interval;
 
+  data: any;
+  name: string = localStorage.getItem("Name")
+
 
   ngOnInit() {
     this.checkIfQuizStarted();
+    // this.getUserName();
+  }
+
+  getName(){
+    this.userService.getUserName()
   }
 
   onClickOption(option){
@@ -61,6 +95,8 @@ export class NavbarComponent implements OnInit {
       this.router.navigate(['/profiles']);
     else if(option === 'login')
       this.LogIn()
+    else if(option === 'canview')
+    this.router.navigate(['/canview']);
     else if(option === 'applied-jobs')
       this.router.navigate(['/applied-jobs']);
     else if(option === 'logout')
@@ -195,6 +231,8 @@ export class NavbarComponent implements OnInit {
     localStorage.removeItem('Is_Candidate');
     localStorage.removeItem('Is_Organization');
     sessionStorage.clear();
+    this.userIsCandidate = false;
+    this.userIsOrganization = false;
 
     console.log('You Are Logged Out');
     this.router.navigate(['/login']);

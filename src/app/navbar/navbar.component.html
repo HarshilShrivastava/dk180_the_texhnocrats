@@ -35,10 +35,10 @@
     <div class="nav-link">
       <a (click) = "onClickOption('home')">Home</a>
     </div>
-    <div class="nav-link" *ngIf = "userService.isOrganization()">
+    <div class="nav-link" *ngIf = "userIsOrganization">
       <a (click) = "onClickOption('create-job')">Create Job</a>
     </div>
-    <div class="nav-link" *ngIf = "userService.isCandidate()">
+    <div class="nav-link" *ngIf = "userIsCandidate">
       <a (click) = "onClickOption('job-search')">Job Search</a>
     </div>
     <div class="nav-link" *ngIf = "checkifLoggedIn()">
@@ -50,9 +50,52 @@
     <div class="nav-link" *ngIf = "!checkifLoggedIn()">
       <a (click) = "onClickOption('login')">Log In</a>
     </div>
-    <div class="nav-link" *ngIf = "userService.isLoggedIn()">
+
+    <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu" *ngIf = "checkifLoggedIn()">
+      <mat-icon>work</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item disabled *ngIf = "checkifLoggedIn()">
+        <mat-icon>verified_user</mat-icon>
+        <span>{{name}}</span>
+      </button>
+      <button mat-menu-item (click) = "onClickOption('canview')" *ngIf = "checkifLoggedIn()">
+        <mat-icon>dialpad</mat-icon>
+        <span>View Dashboard</span>
+      </button>
+      <button mat-menu-item (click) = "onClickOption('logout')" *ngIf = "checkifLoggedIn()">
+        <mat-icon>cancel</mat-icon>
+        <span>Logout</span>
+      </button>
+      <!-- <button mat-menu-item>
+        <mat-icon>notifications_off</mat-icon>
+        <span>Disable alerts</span>
+      </button> -->
+    </mat-menu>
+    <!-- <div class="nav-link" *ngIf = "userService.isLoggedIn()">
       <a (click) = "onClickOption('logout')">Logout</a>
-    </div>
+    </div> -->
+    <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu" *ngIf = "checkifLoggedIn()">
+      <mat-icon>account_circle</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item disabled *ngIf = "checkifLoggedIn()">
+        <mat-icon>verified_user</mat-icon>
+        <span>{{name}}</span>
+      </button>
+      <button mat-menu-item (click) = "onClickOption('canview')" *ngIf = "checkifLoggedIn()">
+        <mat-icon>dialpad</mat-icon>
+        <span>View Dashboard</span>
+      </button>
+      <button mat-menu-item (click) = "onClickOption('logout')" *ngIf = "checkifLoggedIn()">
+        <mat-icon>cancel</mat-icon>
+        <span>Logout</span>
+      </button>
+      <!-- <button mat-menu-item>
+        <mat-icon>notifications_off</mat-icon>
+        <span>Disable alerts</span>
+      </button> -->
+    </mat-menu>
   </div>
 </div>
   

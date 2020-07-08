@@ -5,6 +5,11 @@
         <h4 class="center white-text">Candidate Profile</h4>
       </div> -->
       <form #imageForm=ngForm class="form-style-9" (ngSubmit)="OnSubmit(Name, Address, Image, Time, income)">
+        <div class="part-number">
+          Part 1: General Details:
+        </div>
+
+        <div class="general-details">
         <div class="row">
           <div class="input-field col s12">
             <i class="material-icons prefix">account_circle</i>
@@ -33,21 +38,33 @@
         <mat-checkbox (change)="preview()">I want a preview of my uploaded file</mat-checkbox>
         </div>
         <br>
-        <div *ngIf="!hide">
-          <div class="preview"> Preview: </div>
-          <pdf-viewer [src]="imageUrl" [render-text]="true" style="display: block;"></pdf-viewer> 
-          <div *ngIf="!hide" class="no-resume">You have not added a PDF of your Resume yet. Please add one and check again.</div>
+        <div>
+          <div *ngIf="display">
+            <div class="preview"> Preview: </div>
+            <pdf-viewer [src]="imageUrl" [render-text]="true" style="display: block;"></pdf-viewer> 
+          </div>
+          
+          <div *ngIf="hide" class="no-resume">You have not added a PDF of your Resume yet.</div>
+          <div *ngIf="!isValid" class="no-resume">Please only upload a PDF file.</div>
+          <div *ngIf="resumeStatus && !display" class="yes-resume">Uploaded! :)</div>
 
+
+
+        </div>
         </div>
         <br>
 
-        <div class="row">
-          <div class="input col s12">
+        <div class="part-number">
+          Part 2: Social Media Activity:
+        </div>
+        <div class="info-container">
+        <div class="sm-platforms">
+          <div class="sm-dropdown" matTooltip="Social Media Platforms You Use">
             <!-- <i class="material-icons icon-image-preview prefix">supervised_user_circle</i> -->
             <!-- <input type="text" class="field-style field-split" #Socialmedia ngModel name="Socialmedia" id="Socialmedia" required>
             <label for="Socialmedia">Socialmedia</label> -->
             <mat-form-field appearance="fill">
-              <mat-label>Social Media Platforms</mat-label>
+              <mat-label>Social Media Platforms You Use</mat-label>
               <mat-select [formControl]="socialmedias" (selectionChange)="onSelectionChange($event)" multiple>
                 <mat-select-trigger>
                   {{socialmedias.value ? socialmedias.value[0].value : ''}}
@@ -60,48 +77,48 @@
             </mat-form-field>
           </div>
         </div>
-        <br>
 
-
-        
-
-
-        <div class="row">
+        <div class="info-field">
           <div class="input-field col s12">
             <i class="material-icons icon-image-preview prefix">access_time</i>
             <input type="text" class="field-style field-split" #Time ngModel name="Time" id="Time" required>
-            <label for="Time">Approximate time spent on above platforms*</label>
+            <label for="Time">~ Hours spent on these platforms (Ex: 3)*</label>
           </div>
+        </div>
         </div>
 
         <br>
 
-        <div class="row">
+        <div class="part-number">
+          Part 3: Socio-Economic Status:
+        </div>
+
+        <div class="info-container">
+
+          <div class="se-residence">
+            <div class="se-dropdown" matTooltip="Type of area">
+              <!-- <i class="material-icons icon-image-preview prefix">supervised_user_circle</i> -->
+              <!-- <input type="text" class="field-style field-split" #Socialmedia ngModel name="Socialmedia" id="Socialmedia" required>
+              <label for="Socialmedia">Socialmedia</label> -->
+              <mat-form-field appearance="fill">
+                <mat-label>Place of Residence</mat-label>
+                <mat-select [formControl]="residences" (selectionChange)="onResidenceSelectionChange($event)">
+                    <!-- <mat-select-trigger>
+                      {{residences.value ? residences.value[0] : ''}}
+                    </mat-select-trigger> -->
+                  <mat-option *ngFor="let item of residenceList | keyvalue" [value]="item">{{item.value}}</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+          </div>
+
+        <div class="info-field">
           <div class="input-field col s12">
             <i class="material-icons icon-image-preview prefix">account_balance</i>
             <input type="text" class="field-style field-split" #income ngModel name="income" id="income" required>
-            <label for="income">Your approximate family income*</label>
+            <label for="income">Your approximate family income (Ex: 300000)*</label>
           </div>
         </div>
-
-        <br>
-
-
-        <div class="row">
-          <div class="input col s12">
-            <!-- <i class="material-icons icon-image-preview prefix">supervised_user_circle</i> -->
-            <!-- <input type="text" class="field-style field-split" #Socialmedia ngModel name="Socialmedia" id="Socialmedia" required>
-            <label for="Socialmedia">Socialmedia</label> -->
-            <mat-form-field appearance="fill">
-              <mat-label>Place of Residence</mat-label>
-              <mat-select [formControl]="residences" (selectionChange)="onResidenceSelectionChange($event)">
-                  <!-- <mat-select-trigger>
-                    {{residences.value ? residences.value[0] : ''}}
-                  </mat-select-trigger> -->
-                <mat-option *ngFor="let item of residenceList | keyvalue" [value]="item">{{item.value}}</mat-option>
-              </mat-select>
-            </mat-form-field>
-          </div>
         </div>
         <br>
 

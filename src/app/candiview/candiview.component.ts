@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { QuizService } from '../shared/quiz.service';
 import { DomSanitizer } from '@angular/platform-browser';
+import { UserService } from '../shared/user.service';
 
 
 @Component({
@@ -15,6 +16,7 @@ export class CandiviewComponent implements OnInit {
 
   constructor(
     private quizService: QuizService,
+    public userService: UserService,
     public sanitizer: DomSanitizer
     ) { }
 
@@ -28,6 +30,8 @@ export class CandiviewComponent implements OnInit {
     this.quizService.canView().subscribe(data => {
       console.log(data);
       this.data = data;
+      localStorage.setItem("Name", this.data.data.Name)
+      this.userService.aaya.next(true)
     });
   }
   }

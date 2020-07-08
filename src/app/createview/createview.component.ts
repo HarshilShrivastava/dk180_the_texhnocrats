@@ -21,6 +21,10 @@ export class CreateviewComponent implements OnInit {
   imageUrl: string = 'http://localhost:4200/assets/image/default-image.png';
   fileToUpload: File = null;
   hide: boolean = true;
+  display: boolean = false;
+  isValid: boolean = true;
+  resumeStatus: boolean = false;
+
   socialMediaArray: Array<string> = [ ];
 
   residence: number;
@@ -55,8 +59,14 @@ export class CreateviewComponent implements OnInit {
   }
 
   handleFileInput(file: FileList) {
-    // this.hide = false;
+
+    this.hide = false;
     this.fileToUpload = file.item(0);
+    this.validateFile(this.fileToUpload.name)
+    if(this.isValid)
+      this.resumeStatus = true;
+    else
+      this.resumeStatus = false
 
     // Show image preview
     const reader = new FileReader();
@@ -70,10 +80,26 @@ export class CreateviewComponent implements OnInit {
   }
 
   preview(){
-    if(this.hide)
-      this.hide = false;
+    if(this.display)
+      this.display = false; 
     else
-      this.hide = true;
+      this.display = true;
+  }
+
+  validateFile(name: String) {
+
+    var ext = name.substring(name.lastIndexOf(".") + 1);
+    if (
+      ext.toLowerCase() == "pdf"
+    ) {
+      this.isValid = true;
+      // this.resumeStatus = true;
+      return true;
+    } else {
+      this.isValid = false
+      // this.resumeStatus = false;
+      return false;
+    }
   }
 
   onSelectionChange(event){

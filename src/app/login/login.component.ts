@@ -4,6 +4,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { ErrorDialogComponent } from '../shared/error-dialog/error-dialog.component';
 import { MatDialog } from '@angular/material';
+import { UserService } from '../shared/user.service';
 
 @Component({
   selector: 'app-login',
@@ -15,7 +16,12 @@ export class LoginComponent implements OnInit {
   isLoginError: boolean = false;
   userpattern = '^[a-z0-9_-]{3,15}$';
 
-  constructor(private quizService: QuizService, private router: Router, private dialog: MatDialog) { }
+  constructor(
+    private quizService: QuizService, 
+    private router: Router, 
+    private dialog: MatDialog,
+    public userService: UserService
+  ) { }
 
   ngOnInit() {
   }
@@ -75,10 +81,12 @@ export class LoginComponent implements OnInit {
 
         // this.router.navigate(['instructions']);
         if (data.Is_Candidate === true) {
+          this.userService.candidatehai.next(true)
           this.router.navigate(['/canview']);
           this.checkIfPostRatingPending()
         }
         if (data.Is_Organization === true) {
+          this.userService.organizationhai.next(true)
           this.router.navigate(['/orview']);
         }
         if (data.Is_University === true) {
