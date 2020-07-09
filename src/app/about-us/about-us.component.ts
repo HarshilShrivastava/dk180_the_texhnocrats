@@ -1,5 +1,4 @@
 import { Component, OnInit } from "@angular/core";
-var json = require("./data.json");
 @Component({
   selector: "app-about-us",
   templateUrl: "./about-us.component.html",
@@ -20,7 +19,7 @@ export class AboutUsComponent implements OnInit {
     },
     {
       name: "Harshil",
-      desc: "I am Batman",
+      desc: "I am BATMAN",
       image: "./../../assets/image/team/harshil.jpg"
     },
     {
@@ -30,7 +29,7 @@ export class AboutUsComponent implements OnInit {
     },
     {
       name: "Ankita",
-      desc: "yolo",
+      desc: "Yolo",
       image: "./../../assets/image/team/ankita.jpg"
     },
     {

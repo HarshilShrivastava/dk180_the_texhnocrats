@@ -42,10 +42,14 @@
   </p>
 
   <h1>Meet the Team</h1>
-  <div *ngFor="let section of sections; let i = index">
-    <p>{{ section.name }}</p>
-    <img class="photo" src="{{ section.image }}" />
-    <p>{{ section.desc }}</p>
+  <div class="team">
+    <div class="team-member" *ngFor="let section of sections; let i = index">
+      <img class="photo" src="{{ section.image }}" />
+      <p class="name">{{ section.name }}</p>
+      <p>{{ section.desc }}</p>
+    </div>
   </div>
+
+  <br />
   <p>Made with pyar by Technocrats</p>
 </div>
