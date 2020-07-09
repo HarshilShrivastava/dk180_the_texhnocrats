@@ -6,7 +6,7 @@
   </p>
   <br />
   <!-- Embeded video -->
-  <p> <video width="" height="" controls></video></p>
+  <p><video width="" height="" controls></video></p>
   <br />
   <p>
     Our portal is designed in way to access the skill set and capacity of the
@@ -42,40 +42,10 @@
   </p>
 
   <h1>Meet the Team</h1>
-
+  <div *ngFor="let section of sections; let i = index">
+    <p>{{ section.name }}</p>
+    <img class="photo" src="{{ section.image }}" />
+    <p>{{ section.desc }}</p>
+  </div>
   <p>Made with pyar by Technocrats</p>
 </div>
-<!-- 
-    sections = [
-        {
-          name: "Gaurav Joshi",
-          desc: "A passionate web developer, ML and fitness enthusiast. Also a rider, pet-parent and a cook at times amongst many things. One thing I'm not is monotonous 💯",
-          image: "./../../assets/image/team/gaurav.jpg"
-        },
-        {
-          name: "Harsh",
-          desc: "Front end developer and Data Science enthusiast",
-          image: "./../../assets/image/team/harsh.JPG"
-        },
-        {
-          name: "Harshil",
-          desc: "I am Batman",
-          image: "./../../assets/image/team/harshil.jpg"
-        },
-        {
-          name: "Manish",
-          desc: "I am ambitious and driven. I thrive on challenge and constantly set goals for myself",
-          image: "./../../assets/image/team/manish.jpg"
-        },
-        {
-          name: "Ankita",
-          desc: "yolo",
-          image: "./../../assets/image/team/ankita.jpg"
-        },
-        {
-          name: "Kanishka",
-          desc: "I am a people-person",
-          image: "./../../assets/image/team/kanishka.jpg"
-        }
-      ]
--->
