@@ -33,7 +33,7 @@ export class NavbarComponent implements OnInit {
       {
         this.userService.aaya.subscribe(value => {
           if(value === true)
-          this.name = localStorage.getItem("Name")
+          this.name = localStorage.getItem("cc_uname")
         })
       }
       {
@@ -69,7 +69,7 @@ export class NavbarComponent implements OnInit {
   interval;
 
   data: any;
-  name: string = localStorage.getItem("Name")
+  name: string = localStorage.getItem("cc_uname")
 
 
   ngOnInit() {
@@ -88,7 +88,7 @@ export class NavbarComponent implements OnInit {
       if(option === 'home')
       this.router.navigate(['/home']);
     else if(option === 'create-job')
-      this.router.navigate(['/create-job']);
+      this.router.navigate(['/jobForm']);
     else if(option === 'job-search')
       this.router.navigate(['/job-search']);
     else if(option === 'profiles')
@@ -226,10 +226,11 @@ export class NavbarComponent implements OnInit {
 
   Logout() {
     this.isLoggedIn = false;
-    localStorage.removeItem('token');
-    localStorage.removeItem('Is_University');
-    localStorage.removeItem('Is_Candidate');
-    localStorage.removeItem('Is_Organization');
+    // localStorage.removeItem('token');
+    // localStorage.removeItem('Is_University');
+    // localStorage.removeItem('Is_Candidate');
+    // localStorage.removeItem('Is_Organization');
+    localStorage.clear();
     sessionStorage.clear();
     this.userIsCandidate = false;
     this.userIsOrganization = false;

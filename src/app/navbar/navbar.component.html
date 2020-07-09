@@ -39,7 +39,7 @@
     <div class="nav-link">
       <a (click)="onClickOption('home')">Home</a>
     </div>
-    <div class="nav-link" *ngIf = "userIsOrganization">
+    <!-- <div class="nav-link" *ngIf = "userIsOrganization">
       <a (click) = "onClickOption('create-job')">Create Job</a>
     </div>
     <div class="nav-link" *ngIf = "userIsCandidate">
@@ -47,7 +47,7 @@
     </div>
     <div class="nav-link" *ngIf="checkifLoggedIn()">
       <a (click)="onClickOption('applied-jobs')">Applied Jobs</a>
-    </div>
+    </div> -->
     <div class="nav-link" *ngIf="!checkifLoggedIn()">
       <a (click)="onClickOption('profiles')">Sign Up</a>
     </div>
@@ -55,21 +55,25 @@
       <a (click)="onClickOption('login')">Log In</a>
     </div>
 
-    <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu" *ngIf = "checkifLoggedIn()">
-      <mat-icon>work</mat-icon>
+    <button class="nav-btn" mat-icon-button [matMenuTriggerFor]="jobsmenu" aria-label="Example icon-button with a menu" *ngIf = "checkifLoggedIn()">
+      <div class="nav-btn-txt" >Jobs<mat-icon>arrow_drop_down</mat-icon></div>
     </button>
-    <mat-menu #menu="matMenu">
-      <button mat-menu-item disabled *ngIf = "checkifLoggedIn()">
-        <mat-icon>verified_user</mat-icon>
+    <mat-menu #jobsmenu="matMenu">
+      <!-- <button mat-menu-item disabled *ngIf = "checkifLoggedIn()">
+        <mat-icon>search</mat-icon>
         <span>{{name}}</span>
+      </button> -->
+      <button class="nav-btn" mat-menu-item (click) = "onClickOption('job-search')" *ngIf = "checkifLoggedIn() && userIsCandidate">
+        <mat-icon>search</mat-icon>
+        <span>Search Jobs</span>
       </button>
-      <button mat-menu-item (click) = "onClickOption('canview')" *ngIf = "checkifLoggedIn()">
-        <mat-icon>dialpad</mat-icon>
-        <span>View Dashboard</span>
+      <button class="nav-btn" mat-menu-item (click) = "onClickOption('applied-jobs')" *ngIf = "checkifLoggedIn() && userIsCandidate">
+        <mat-icon>edit</mat-icon>
+        <span>Applied Jobs</span>
       </button>
-      <button mat-menu-item (click) = "onClickOption('logout')" *ngIf = "checkifLoggedIn()">
-        <mat-icon>cancel</mat-icon>
-        <span>Logout</span>
+      <button class="nav-btn" mat-menu-item (click) = "onClickOption('create-job')" *ngIf = "checkifLoggedIn() && userIsOrganization">
+        <mat-icon>add_alert</mat-icon>
+        <span>Create Job</span>
       </button>
       <!-- <button mat-menu-item>
         <mat-icon>notifications_off</mat-icon>
@@ -79,19 +83,19 @@
     <!-- <div class="nav-link" *ngIf = "userService.isLoggedIn()">
       <a (click) = "onClickOption('logout')">Logout</a>
     </div> -->
-    <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu" *ngIf = "checkifLoggedIn()">
+    <button class="nav-btn" mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu" *ngIf = "checkifLoggedIn()">
       <mat-icon>account_circle</mat-icon>
     </button>
     <mat-menu #menu="matMenu">
-      <button mat-menu-item disabled *ngIf = "checkifLoggedIn()">
+      <button class="nav-btn" mat-menu-item disabled *ngIf = "checkifLoggedIn()">
         <mat-icon>verified_user</mat-icon>
         <span>{{name}}</span>
       </button>
-      <button mat-menu-item (click) = "onClickOption('canview')" *ngIf = "checkifLoggedIn()">
-        <mat-icon>dialpad</mat-icon>
-        <span>View Dashboard</span>
+      <button class="nav-btn" mat-menu-item (click) = "onClickOption('canview')" *ngIf = "checkifLoggedIn()">
+        <mat-icon>dashboard</mat-icon>
+        <span>Dashboard</span>
       </button>
-      <button mat-menu-item (click) = "onClickOption('logout')" *ngIf = "checkifLoggedIn()">
+      <button class="nav-btn" mat-menu-item (click) = "onClickOption('logout')" *ngIf = "checkifLoggedIn()">
         <mat-icon>cancel</mat-icon>
         <span>Logout</span>
       </button>
