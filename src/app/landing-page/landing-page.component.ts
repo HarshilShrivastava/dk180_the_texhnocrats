@@ -15,7 +15,7 @@ export class LandingPageComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-
+    window.scrollTo(0,0);
   }
 
 }

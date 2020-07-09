@@ -67,6 +67,7 @@ import { MinutesToSecondsPipe } from '../../src/app/pipes/minutesToSeconds.pipe'
 import {MatSelectModule} from '@angular/material/select';
 import { ContactComponent } from './contact/contact.component';
 import { ContactPageComponent } from './shared/contact-page/contact-page.component'
+import { AboutUsComponent } from './about-us/about-us.component'
 
 
 @NgModule({
@@ -116,7 +117,8 @@ import { ContactPageComponent } from './shared/contact-page/contact-page.compone
     JobViewDialogComponent,
     MinutesToSecondsPipe,
     ContactComponent,
-    ContactPageComponent
+    ContactPageComponent,
+    AboutUsComponent
   ],
   imports: [
     BrowserModule,

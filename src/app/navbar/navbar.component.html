@@ -4,21 +4,21 @@
         <a [routerLink] = "['/instructions']" class="brand-logo"><img src="https://www.set-test.org/images/logos/SIT.png" alt="Logo"/></a>
         <div class="beta-vers">Beta-version 1.1.0</div> 
         <ul class="right hide-on-med-and-down"> -->
-          <!-- <li><a [routerLink]="['/signup']">SignUp as Organisation</a></li>
+<!-- <li><a [routerLink]="['/signup']">SignUp as Organisation</a></li>
           <li><a [routerLink]="['/candidate']">SignUp as Candidate</a></li> -->
-          <!-- <li><a [routerLink]="['/organ']">Create profile as organisation</a></li> -->
-          <!-- <li><a [routerLink]="['/home']">Home</a></li>
+<!-- <li><a [routerLink]="['/organ']">Create profile as organisation</a></li> -->
+<!-- <li><a [routerLink]="['/home']">Home</a></li>
           <li><a [routerLink]="['/jobForm']" *ngIf = "userService.isOrganization()">Create Job</a></li> -->
-          <!-- <li *ngIf = "checkIfCandidate()"><a [routerLink]="['/jobapply']" *ngIf = "isCandidate">Apply for job</a></li> -->
-          <!-- <li><a [routerLink]="['/jobsearch']" *ngIf = "userService.isCandidate()">Job Search</a></li>
+<!-- <li *ngIf = "checkIfCandidate()"><a [routerLink]="['/jobapply']" *ngIf = "isCandidate">Apply for job</a></li> -->
+<!-- <li><a [routerLink]="['/jobsearch']" *ngIf = "userService.isCandidate()">Job Search</a></li>
           <li *ngIf = "checkifLoggedIn()"><a (click)="getAppliedJobs()">Applied Jobs</a></li>
           <li *ngIf = "!checkifLoggedIn()"><a [routerLink]="['/profiles']">Sign Up</a></li> -->
-          <!-- <li><a [routerLink]="['/create']">Create profile as Candidate</a></li> -->
-          <!-- <li *ngIf = "!checkifLoggedIn()"><a [routerLink] = "['/login']">Log In</a></li>
+<!-- <li><a [routerLink]="['/create']">Create profile as Candidate</a></li> -->
+<!-- <li *ngIf = "!checkifLoggedIn()"><a [routerLink] = "['/login']">Log In</a></li>
           <li *ngIf = "userService.isLoggedIn()"><a (click)="Logout()">Logout</a></li> -->
-          <!-- <li *ngIf = "checkifLoggedIn()"><a (click)="goToProfile()">Profile</a></li> -->
+<!-- <li *ngIf = "checkifLoggedIn()"><a (click)="goToProfile()">Profile</a></li> -->
 
-        <!-- </ul>
+<!-- </ul>
       </div>
     </nav>
 </div> -->
@@ -26,14 +26,18 @@
 <div class="navba-wrapper">
   <div class="left-nav">
     <div class="logo">
-      <img src="./assets/icons/logo.png" class="logo-img" alt="Logo"/>
+      <a (click)="onClickOption('home')">
+        <img src="./../../assets/grp19.png" alt="Logo" />
+      </a>
     </div>
-    <div class="beta-vers">Beta-version 1.1.0</div> 
-    <div class="timer" *ngIf="quizStarted">Time Left: {{timeLeft | minutesToSeconds}}</div>
+    <div class="beta-vers">Beta-version 1.1.0</div>
+    <div class="timer" *ngIf="quizStarted">
+      Time Left: {{ timeLeft | minutesToSeconds }}
+    </div>
   </div>
   <div class="links">
     <div class="nav-link">
-      <a (click) = "onClickOption('home')">Home</a>
+      <a (click)="onClickOption('home')">Home</a>
     </div>
     <div class="nav-link" *ngIf = "userIsOrganization">
       <a (click) = "onClickOption('create-job')">Create Job</a>
@@ -41,14 +45,14 @@
     <div class="nav-link" *ngIf = "userIsCandidate">
       <a (click) = "onClickOption('job-search')">Job Search</a>
     </div>
-    <div class="nav-link" *ngIf = "checkifLoggedIn()">
-      <a (click) = "onClickOption('applied-jobs')">Applied Jobs</a>
+    <div class="nav-link" *ngIf="checkifLoggedIn()">
+      <a (click)="onClickOption('applied-jobs')">Applied Jobs</a>
     </div>
-    <div class="nav-link" *ngIf = "!checkifLoggedIn()">
-      <a (click) = "onClickOption('profiles')">Sign Up</a>
+    <div class="nav-link" *ngIf="!checkifLoggedIn()">
+      <a (click)="onClickOption('profiles')">Sign Up</a>
     </div>
-    <div class="nav-link" *ngIf = "!checkifLoggedIn()">
-      <a (click) = "onClickOption('login')">Log In</a>
+    <div class="nav-link" *ngIf="!checkifLoggedIn()">
+      <a (click)="onClickOption('login')">Log In</a>
     </div>
 
     <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu" *ngIf = "checkifLoggedIn()">
@@ -98,10 +102,10 @@
     </mat-menu>
   </div>
 </div>
-  
+
 <!-- <div class="row">
   <div class="input-field col s12 offset-s1"> -->
-    <!-- <button class="btn-large waves-effect waves-light" type="submit" name="action" [routerLink]="['/signup']">SignUp as Organisation
+<!-- <button class="btn-large waves-effect waves-light" type="submit" name="action" [routerLink]="['/signup']">SignUp as Organisation
     </button>
     
     <button class="btn-large waves-effect waves-light" type="submit" name="action" [routerLink]="['/candidate']" >SignUp as Candidate
@@ -115,5 +119,5 @@
     
     <button class="btn-large waves-effect waves-light" type="submit" name="action" [routerLink]="['/create']">create profile as Candidate
     </button> -->
-  <!-- </div>
+<!-- </div>
 </div> -->

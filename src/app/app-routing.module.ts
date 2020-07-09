@@ -33,6 +33,7 @@ import { InstructionsPageComponent } from './quiz-ops/instructions-page/instruct
 import { FaqPageComponent } from './shared/faq-page/faq-page.component';
 import { ContactPageComponent } from './shared/contact-page/contact-page.component';
 import { from } from 'rxjs';
+import { AboutUsComponent } from './about-us/about-us.component';
 
 
 const routes: Routes = [
@@ -73,6 +74,7 @@ const routes: Routes = [
   {path: 'instructions', component: InstructionsPageComponent},
   {path: 'faq-page', component: FaqPageComponent},
   {path: 'contact-page', component:ContactPageComponent},
+  {path: 'about-us', component: AboutUsComponent},
 
 
 
