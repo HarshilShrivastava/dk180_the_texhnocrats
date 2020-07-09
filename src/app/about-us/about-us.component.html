@@ -11,7 +11,7 @@
   </p>
   <br />
   <!-- Embeded video -->
-  <p class="video"><video width="400px" height="" controls></video></p>
+  <p class="video"><video width="600px" height="" controls></video></p>
   <br />
   <p>
     Our portal is designed in way to access the skill set and capacity of the
@@ -45,13 +45,16 @@
     For more information, you can check out the <a href="">documentation</a> of
     our portal.
   </p>
-
+  <br />
   <h1>Meet the Team</h1>
+  <br />
   <div class="team">
     <div class="team-member" *ngFor="let section of sections; let i = index">
       <img class="photo" src="{{ section.image }}" />
       <p class="name">{{ section.name }}</p>
-      <span>{{ section.desc }}</span>
+      <span
+        >{{ section.desc }} <img class="icon" src="{{ section.emoji }}"
+      /></span>
     </div>
   </div>
 
