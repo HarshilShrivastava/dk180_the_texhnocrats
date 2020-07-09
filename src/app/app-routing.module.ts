@@ -31,6 +31,7 @@ import { RoundThreeComponent } from './quiz-ops/round-three/round-three.componen
 import { RecommendedJobsComponent } from './job-ops/recommended-jobs/recommended-jobs.component';
 import { InstructionsPageComponent } from './quiz-ops/instructions-page/instructions-page.component';
 import { FaqPageComponent } from './shared/faq-page/faq-page.component';
+import { AboutUsComponent } from './about-us/about-us.component';
 
 
 const routes: Routes = [
@@ -70,6 +71,7 @@ const routes: Routes = [
   {path: 'get-recommended-jobs', component: RecommendedJobsComponent},
   {path: 'instructions', component: InstructionsPageComponent},
   {path: 'faq-page', component: FaqPageComponent},
+  {path: 'about-us', component: AboutUsComponent},
 
 
 
