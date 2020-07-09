@@ -4,6 +4,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { UserService } from '../shared/user.service';
 
 
+
 @Component({
   selector: 'app-candiview',
   templateUrl: './candiview.component.html',
@@ -13,6 +14,7 @@ export class CandiviewComponent implements OnInit {
   data: any = {};
   resumeFile: any;
   resumeLink: any;
+  courses: any;
 
   constructor(
     private quizService: QuizService,
@@ -22,6 +24,7 @@ export class CandiviewComponent implements OnInit {
 
   ngOnInit() {
     this.view();
+    this.getCourses();
     // this.handleFileInput();
   }
 
@@ -34,6 +37,12 @@ export class CandiviewComponent implements OnInit {
       this.userService.aaya.next(true)
     });
   }
+  }
+
+  getCourses(){
+    this.quizService.getRecommendedCourses().subscribe((data) => {
+      this.courses = data;
+    })
   }
 
   handleFileInput() {

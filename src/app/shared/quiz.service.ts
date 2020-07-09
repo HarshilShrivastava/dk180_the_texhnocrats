@@ -289,6 +289,13 @@ export class QuizService {
       return this.http.post('http://harshraj.pythonanywhere.com/candidate/put-ratingM/', body, { headers: Headers});
   }
 
+  getRecommendedCourses(){
+    const Headers = new HttpHeaders()
+      .set('Authorization', 'token ' + localStorage.getItem('token'));
+
+    return this.http.get('http://harshraj.pythonanywhere.com/content/Recommended-courses/', {headers: Headers} );
+  }
+
   // postAllMarks(){
   //   const body = {
   //     Roundone: sessionStorage.getItem("Final_Marketing_Rating")
