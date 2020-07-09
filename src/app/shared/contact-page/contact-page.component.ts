@@ -12,4 +12,9 @@ export class ContactPageComponent implements OnInit {
   ngOnInit() {
   }
 
+  processForm(){
+    console.log("Form processed :D");
+    
+  }
+
 }

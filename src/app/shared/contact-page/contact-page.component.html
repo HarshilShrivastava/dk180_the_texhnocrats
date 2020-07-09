@@ -9,19 +9,19 @@
            <div class="row">
              <div class="input-field col s6">
                <i class="material-icons prefix">account_circle</i>
-               <input type="text" name="name" class="field-style field-split" placeholder="Your Name" [(ngModel)]="name">
+               <input type="text" #name name="name" class="field-style field-split" placeholder="Your Name" ngModel id="name">
                <!-- <span class="helper-text" data-error="Use lowercases or use correct username!" style="color: rgb(20, 75, 57); text-shadow:blue;"></span> -->
 
              </div>
              <div class="input-field col s6">
                 <i class="material-icons prefix">email</i>
-                <input type="email" name="email" class="field-style field-split" placeholder="Your Email" [(ngModel)]="email">
+                <input type="email" #email name="email" class="field-style field-split" placeholder="Your Email" ngModel id="email">
               </div>
            </div>
            <div class="row">
             <div class="input-field col s12">
                 <i class="material-icons prefix">message</i>
-                <textarea name="message" class="field-style1 field-split1" placeholder="What's on your mind" [(ngModel)]="message"></textarea>
+                <textarea name="message" #message class="field-style1 field-split1" placeholder="What's on your mind" ngModel id="message"></textarea>
               </div>
               
             </div>  
