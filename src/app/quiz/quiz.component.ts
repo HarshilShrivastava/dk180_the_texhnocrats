@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 import { QuizService } from '../shared/quiz.service';
 import { Router } from '@angular/router';
 import { $ } from 'protractor';
@@ -44,8 +44,7 @@ export class QuizComponent implements OnInit {
     ) { }
   ngOnInit() {
     this.getContacts();
-
-    this.quizService.chaluKar.next(true);
+    this.quizService.showTimer.next(true);
 
     this.firstFormGroup = this._formBuilder.group({
       firstCtrl: ['', Validators.required]
@@ -64,12 +63,23 @@ export class QuizComponent implements OnInit {
 
   }
 
+  @HostListener("window:beforeunload", ["$event"]) unloadHandler(event: Event) {
+    let result = confirm("You will lose your progress and be redirected to homepage");
+    if (result) {
+      this.router.navigate(['/home'])
+      // Do more processing...
+    }
+    event.returnValue = false;
+    // stay on same page
+  }
+
   getContacts() {
     this.showLoader = true;
     this.quizService.getData().subscribe(data => {
       console.log(data);
       this.data = data;
       this.showLoader = false;
+      this.quizService.chaluKar.next(true);
       this.data.Question_list.forEach(function(element) {
         element.active = false;
         element.noReview = true

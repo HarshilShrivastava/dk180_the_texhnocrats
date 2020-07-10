@@ -67,6 +67,9 @@ export class TechnicalComponent implements OnInit {
     ) { }
 
   ngOnInit() {
+    this.quizService.showTimer.next(true);
+    this.quizService.chaluKar.next(false);
+
     this.firstFormGroup = this._formBuilder.group({
       firstCtrl: ['', Validators.required]
     });
@@ -80,6 +83,9 @@ export class TechnicalComponent implements OnInit {
       console.log(data);
       this.data = data;
       this.showLoader = false;
+
+      this.quizService.chaluKar.next(true);
+
       this.data.data.forEach(function(element) {
         element.active = false;
         element.noReview = true

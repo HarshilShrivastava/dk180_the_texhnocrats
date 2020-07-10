@@ -27,8 +27,16 @@ export class NavbarComponent implements OnInit {
       this.quizService.chaluKar.subscribe(value => {
         this.quizStarted = value
         if(this.quizStarted === true)
-        this.checkIfQuizStarted();
+          this.checkIfQuizStarted();
+        else if(this.quizStarted === false)
+          this.pauseTimer();
       })
+
+      {
+        this.quizService.showTimer.subscribe(value => {
+          this.showTimer = value;
+        })
+      }
 
       {
         this.userService.aaya.subscribe(value => {
@@ -56,6 +64,7 @@ export class NavbarComponent implements OnInit {
 
   isLoggedIn:boolean;
   quizStarted: boolean = false;
+  showTimer: boolean = false;
   isOrganization = localStorage.getItem("Is_Organization");
   isCandidate = localStorage.getItem("Is_Candidate");
   tok = localStorage.getItem("token")
@@ -114,6 +123,7 @@ export class NavbarComponent implements OnInit {
       dialogRef.afterClosed().subscribe((data) => {
         if (data === "proceed") {
           this.quizService.chaluKar.next(false);
+          this.quizService.showTimer.next(false);
           if(option === 'logout')
             this.Logout();
           else
@@ -210,6 +220,10 @@ export class NavbarComponent implements OnInit {
     else{
       this.timeLeft = 1200;
     }
+  }
+
+  pauseTimer(){
+    clearInterval(this.interval);
   }
 
   SignOut() {

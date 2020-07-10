@@ -12,6 +12,8 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class QuizService {
   public chaluKar: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+  public showTimer: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+
   private apiUrl = 'https://harshraj.pythonanywhere.com/user/api/get-question/?format=json';
   qns: any[];
   Candidate: boolean;
@@ -293,7 +295,7 @@ export class QuizService {
     const Headers = new HttpHeaders()
       .set('Authorization', 'token ' + localStorage.getItem('token'));
 
-    return this.http.get('http://harshraj.pythonanywhere.com/content/Recommended-courses/', {headers: Headers} );
+    return this.http.get('https://harshraj.pythonanywhere.com/content/Recommended-courses/', {headers: Headers} );
   }
 
   // postAllMarks(){

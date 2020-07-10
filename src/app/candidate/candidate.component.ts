@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
 import { MatDialog } from '@angular/material';
 import { ErrorDialogComponent } from '../shared/error-dialog/error-dialog.component';
+import { UserService } from '../shared/user.service';
 
 @Component({
   selector: 'app-candidate',
@@ -17,6 +18,7 @@ export class CandidateComponent implements OnInit {
   constructor(
     private quizService: QuizService, 
     private router: Router,
+    public userService: UserService,
     private dialog: MatDialog
     ) { }
 
@@ -103,6 +105,8 @@ export class CandidateComponent implements OnInit {
             console.log(data);
             localStorage.setItem("token", data.token);
             localStorage.setItem("Is_Candidate", JSON.stringify(true))
+            localStorage.setItem("cc_uname", "N/A")
+            this.userService.aaya.next(true);
             this.checkIfPostRatingPending()
           })
           this.resetForm();
