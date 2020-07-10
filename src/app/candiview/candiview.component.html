@@ -18,24 +18,30 @@
         </div>
     </div>
 
+    
+
     <div class="carousel carousel-slider center">
+      <!-- <div style="display: flex; justify-content: space-evenly; z-index: 1;">
+        <div><mat-icon class="dropdwn-arr">chevron_left</mat-icon></div>
+        <div><mat-icon class="dropdwn-arr">chevron_right</mat-icon></div>
+      </div> -->
         <div class="carousel-fixed-item center">
-          <a class="btn waves-effect darken-text-2" style=" position: relative;"></a>
+          <a style=" position: relative;"></a>
         </div>
         <div class="carousel-item red white-text" *ngFor="let course of coursess; let i = index">
             <h2>Title: {{course.title}}</h2>
             <p class="white-text">Description {{course.desc}}</p>
             <p class="white-text">By: {{course.by}}</p>
             <p class="white-text">Rating {{course.rating}}</p>  
-            <div (click)="onClick()">
-                <a class="btn waves-effect white grey-text darken-text-2" target="_blank" href="{{course.apply}}">Apply Now</a>
+            <div (click)="onClick(course, i)">
+                <a class="btn waves-effect white grey-text darken-text-2 btn" target="_blank" href="{{course.apply}}"> <a class="btn-txt"> Apply Now </a></a>
             </div>     
         </div>
       </div>
 
 
       
-
+    <!-- <div>
     <div class="carousel carousel-slider center" id="courses-carousel" data-indicators="true">
         
         <div class="carousel-item red white-text" *ngFor="let course of coursess; let i = index">
@@ -52,9 +58,9 @@
             </div>
             <div class="carousel-fixed-item center">
                 <a class="btn waves-effect white grey-text darken-text-2" target="_blank" href="{{course.apply}}">Apply Now</a>
-            </div>
+            </div> -->
            <!-- <button><a href="{{course.apply}}">Apply Now!</a></button>  -->
-        </div>
+        <!-- </div> -->
         <!-- <div class="carousel-item amber white-text" href="#two!">
           <h2>Second Panel</h2>
           <p class="white-text">This is your second panel</p>
@@ -67,6 +73,7 @@
           <h2>Fourth Panel</h2>
           <p class="white-text">This is your fourth panel</p>
         </div> -->
-      </div>
+      <!-- </div>
+    </div> -->
       
 </div>

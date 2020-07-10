@@ -56,7 +56,7 @@
     </div>
 
     <button class="nav-btn" mat-icon-button [matMenuTriggerFor]="jobsmenu" aria-label="Example icon-button with a menu" *ngIf = "checkifLoggedIn()">
-      <div class="nav-btn-txt" >Jobs<mat-icon>arrow_drop_down</mat-icon></div>
+      <div class="nav-btn-txt" >Jobs<mat-icon class="dropdwn-arr">arrow_drop_down</mat-icon></div>
     </button>
     <mat-menu #jobsmenu="matMenu">
       <!-- <button mat-menu-item disabled *ngIf = "checkifLoggedIn()">

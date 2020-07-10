@@ -4,19 +4,27 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { UserService } from '../shared/user.service';
 import M from '../../../node_modules/materialize-css';
 
-document.addEventListener('DOMContentLoaded', function() {
-  var elems = document.querySelectorAll('.carousel');
-  var instances = M.Carousel.init(elems);
-  var instance = M.Carousel.getInstance(elems);
-});
+// window.onload = function () {
+//   window.location.reload();
+// }
 
-var instance = M.Carousel.init({
-  dist: 0,
-  padding: 0,
-  fullWidth: true,
-  indicators: true,
-  duration: 100,
-});
+function init_carousel(){
+  document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.carousel');
+    var instances = M.Carousel.init(elems);
+    var instance = M.Carousel.getInstance(elems);
+  });
+  
+  var instance = M.Carousel.init({
+    dist: 0,
+    padding: 0,
+    fullWidth: true,
+    indicators: true,
+    duration: 100,
+  });
+}
+
+
 
 // $(document).ready(function(){
 //   $('#demo-carousel-auto').carousel();
@@ -26,10 +34,6 @@ var instance = M.Carousel.init({
 //  }); 
 
 // instance.next();
-
-
-
-
 
 @Component({
   selector: 'app-candiview',
@@ -41,6 +45,7 @@ export class CandiviewComponent implements OnInit {
   resumeFile: any;
   resumeLink: any;
   courses: any;
+  courseURL: string;
 
   coursess = [
     {
@@ -107,12 +112,30 @@ export class CandiviewComponent implements OnInit {
     ) { }
 
   ngOnInit() {
+    init_carousel();
     this.view();
     this.getCourses();
+    this.isReloaded();
     // this.handleFileInput();
   }
 
+  ngOnDestroy(){
+    console.log("Destroying :)");
+    localStorage.removeItem("carousel_load")
+  }
+
+  isReloaded(){
+    if(!localStorage.getItem('carousel_load')){
+      localStorage.setItem('carousel_load', "true")
+      window.location.reload()
+    }
+    else
+      localStorage.removeItem("carousel_init")
+  }
+
   view() {
+    // window.location.reload();
+
     if (localStorage.getItem('Is_Candidate') === 'true') {
     this.quizService.canView().subscribe(data => {
       console.log(data);
@@ -126,12 +149,19 @@ export class CandiviewComponent implements OnInit {
   getCourses(){
     this.quizService.getRecommendedCourses().subscribe((data) => {
       this.courses = data;
-    })
+      console.log(this.courses);
+    }),
+    err => {
+      console.log(err);
+    }
   }
 
-  onClick(){
-    alert("Clicked!")
-    
+  onClick(course, i){
+    // alert("Clicked!")
+    // console.log(course);
+    // console.log(i);  
+    this.courseURL = course.apply;
+    window.open(this.courseURL, "_blank");
   }
 
   handleFileInput() {
