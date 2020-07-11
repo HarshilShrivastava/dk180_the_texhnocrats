@@ -132,7 +132,9 @@ export class CandiviewComponent implements OnInit {
   isReloaded(){
     if(!localStorage.getItem('carousel_load')){
       localStorage.setItem('carousel_load', "true")
-      window.location.reload()
+      setTimeout( function() {
+        window.location.reload()
+      }, 1000)
     }
     else
       localStorage.removeItem("carousel_init")
