@@ -35,7 +35,7 @@ export class AboutUsComponent implements OnInit {
     },
     {
       name: "Ankita Roy",
-      desc: "Yolo ",
+      desc: "Saving the world one code/plant at a time ",
       image: "./assets/image/team/ankita.jpg",
       emoji: "./assets/image/team/ankita_emoji.jpeg",
     },
