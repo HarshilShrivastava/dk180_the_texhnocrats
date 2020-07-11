@@ -15,6 +15,8 @@ import { UserService } from '../shared/user.service';
 export class CandidateComponent implements OnInit {
   user: User;
   emailPattern = '^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$';
+  showLoader: boolean = false;
+
   constructor(
     private quizService: QuizService, 
     private router: Router,
@@ -95,11 +97,14 @@ export class CandidateComponent implements OnInit {
   }
 
   OnSubmit(form: NgForm) {
+    this.showLoader = true;
+
     this.quizService.Candidate = this.user.Is_Candidate;
     this.quizService.Organization = this.user.Is_Organization;
     this.quizService.University = this.user.Is_University;
       this.quizService.register(form.value).subscribe((data: any) => {
         if (data.response === 201) {
+          this.showLoader = false;
           console.log(data);
           this.quizService.userLogin(form.value.username, form.value.password).subscribe((data: any) => {
             console.log(data);

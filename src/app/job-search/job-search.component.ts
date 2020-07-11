@@ -25,6 +25,9 @@ isOrganization = localStorage.getItem("Is_Organization");
 isCandidate = localStorage.getItem("Is_Candidate");
 showLoader: boolean = false;
 noMatch: boolean = false;
+userIsCandidate: boolean = false;
+userIsOrganization: boolean = false;
+
 pageEvent: PageEvent;
 
 
@@ -46,7 +49,26 @@ displayedRows$: Observable<[]>;
     private dialog: MatDialog,
     private router: Router
 
-  ) { }
+  ) {
+
+    {
+      this.userService.candidatehai.subscribe(value => {
+        if(value === true)
+          this.userIsCandidate = true
+        // else  
+        //   this.userIsCandidate = false;
+      })
+    }
+    {
+      this.userService.organizationhai.subscribe(value => {
+        if(value === true)
+          this.userIsOrganization = true
+        // else
+        //   this.userIsOrganization = false
+      })
+    }
+
+   }
 
   ngOnInit() {
     this.getListing();

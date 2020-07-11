@@ -57,7 +57,7 @@ export class UserService{
     }
 
     isCandidate(){
-        if(localStorage.getItem("token") && (this.candidate === "true")){
+        if(this.candidate === 'true'){
             return true;
         }
         else
@@ -65,7 +65,7 @@ export class UserService{
     }
 
     isOrganization(){
-        if(localStorage.getItem("token") && (this.organization === "true")){
+        if(this.organization === "true"){
             return true;
         }
         else

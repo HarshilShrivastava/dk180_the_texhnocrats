@@ -35,8 +35,12 @@ export class NavbarComponent implements OnInit {
       {
         this.quizService.showTimer.subscribe(value => {
           this.showTimer = value;
+          if(this.showTimer === true){
+            this.showLinks = false
+          }
           if(this.showTimer === false){
-            this.timeLeft = 1200;
+            this.timeLeft = 10;
+            this.showLinks = true
             clearInterval(this.interval);
           }
         })
@@ -69,6 +73,7 @@ export class NavbarComponent implements OnInit {
   isLoggedIn:boolean;
   quizStarted: boolean = false;
   showTimer: boolean = false;
+  showLinks: boolean = true;
   isOrganization = localStorage.getItem("Is_Organization");
   isCandidate = localStorage.getItem("Is_Candidate");
   tok = localStorage.getItem("token")
@@ -78,7 +83,7 @@ export class NavbarComponent implements OnInit {
   showSubmenu: boolean = false;
   isShowing = false;
   showSubSubMenu: boolean = false;
-  timeLeft: number = 1200;
+  timeLeft: number = 10;
   interval;
 
   data: any;
@@ -132,7 +137,7 @@ export class NavbarComponent implements OnInit {
             this.Logout();
           else
             this.router.navigate([option]);
-          this.timeLeft = 1200;
+          this.timeLeft = 10;
           clearInterval(this.interval);
         }
         // else
@@ -206,24 +211,27 @@ export class NavbarComponent implements OnInit {
         if(this.timeLeft > 0 && this.quizStarted) {
           this.timeLeft--;
           if(this.timeLeft === 0){
-            this.router.navigate(['/home']);
+            this.router.navigate(['/canview']);
+            // this.router.navigate(['/home']);
+
             this.quizService.showTimer.next(false);
             let dialogRef = this.dialog.open(ErrorDialogComponent, {
               height: '170px',
               data: "Sorry your time is up!"
             });  
+            
           }
         }
         else{
           this.quizService.chaluKar.next(false)
-          this.timeLeft = 1200;
+          this.timeLeft = 10;
           clearInterval(this.interval);
         }
       },1000)
       
     }
     else{
-      this.timeLeft = 1200;
+      this.timeLeft = 10;
     }
   }
 

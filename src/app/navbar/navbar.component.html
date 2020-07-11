@@ -26,7 +26,7 @@
 <div class="navba-wrapper">
   <div class="left-nav">
     <div class="logo">
-      <a (click)="onClickOption('home')">
+      <a (click)="onClickOption('home')" *ngIf = "showLinks">
         <img src="./assets/grp19.png" alt="Logo" />
       </a>
     </div>
@@ -35,7 +35,7 @@
       Time Left: {{ timeLeft | minutesToSeconds }}
     </div>
   </div>
-  <div class="links">
+  <div class="links" *ngIf = "showLinks">
     <div class="nav-link">
       <a (click)="onClickOption('home')">Home</a>
     </div>

@@ -13,11 +13,18 @@ export class CanDeactivateService implements CanDeactivate<CanComponentDeactivat
   canDeactivate(component: CanComponentDeactivate, currentRoute: ActivatedRouteSnapshot, 
     currentState: RouterStateSnapshot, 
     nextState?: RouterStateSnapshot) {
+    
+      if (nextState.url === '/canview') {
+        return true; // bypass checks if we are trying to go to /login
+      }
+    else{
       console.log(component);
-   console.log(currentRoute);
-   console.log(currentState);
-   console.log(nextState);
-    return component.canDeactivate ? component.canDeactivate() : true;
+      console.log(currentRoute);
+      console.log(currentState);
+      console.log(nextState);
+       return component.canDeactivate ? component.canDeactivate() : true;
+    }
+    
   }
 
   constructor() { }

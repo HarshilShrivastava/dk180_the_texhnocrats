@@ -1,3 +1,13 @@
+.loader-container {
+  display: flex;
+  justify-content: center;
+}
+
+.loader {
+  width: 100px;
+  height: 100px;
+}
+
 p {
   color: lightgray;
   padding: 0px;
@@ -104,8 +114,76 @@ h6 {
 
 p{
 	padding-left: 6px;
-	color: white;
+	color: black;
 }
 i {
   color: #390099;
+}
+
+.btn-container{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.btn-submit{
+  border: none !important;
+  background: linear-gradient(to top, #390099, #390099);
+  color: white;
+  width: 200px;
+  height: 50px;
+  border-radius: 55px;
+  font-weight: bold;
+  display: flex;
+  /* text-align: center; */
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.btn-submit:disabled{
+  border: none !important;
+  background: transparent;
+  color: white;
+  width: 200px;
+  height: 50px;
+  border-radius: 55px;
+  font-weight: bold;
+  display: flex;
+  /* text-align: center; */
+  align-items: center;
+  justify-content: center;
+  cursor: not-allowed;
+}
+
+.btn-hide{
+  border: none !important;
+  background: linear-gradient(to top, #390099, #390099);
+  color: white;
+  width: 200px;
+  height: 50px;
+  border-radius: 55px;
+  font-weight: bold;
+  display: flex;
+  /* text-align: center; */
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  // margin-top: 150px !important;
+}
+
+.btn-hide:disabled{
+  border: none !important;
+  background: transparent;
+  color: black;
+  width: 200px;
+  height: 50px;
+  border-radius: 55px;
+  font-weight: bold;
+  display: flex;
+  /* text-align: center; */
+  align-items: center;
+  justify-content: center;
+  cursor: not-allowed;
+  // margin-top: 150px !important;
 }

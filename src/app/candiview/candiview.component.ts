@@ -47,6 +47,7 @@ export class CandiviewComponent implements OnInit {
   courses: any;
   courseURL: string;
   showLoader: boolean = false;
+  notRegistered: boolean = false;
   name: string = localStorage.getItem("cc_uname");
 
 
@@ -120,7 +121,13 @@ export class CandiviewComponent implements OnInit {
     init_carousel();
     this.view();
     this.getCourses();
-    this.isReloaded();
+    if(!localStorage.getItem("token")){
+      this.notRegistered = true;
+      this.showLoader = false;
+    }
+    else
+      this.isReloaded();
+
     // this.handleFileInput();
   }
 
@@ -134,7 +141,7 @@ export class CandiviewComponent implements OnInit {
       localStorage.setItem('carousel_load', "true")
       setTimeout( function() {
         window.location.reload()
-      }, 500)
+      }, 1000)
     }
     else
       localStorage.removeItem("carousel_init")

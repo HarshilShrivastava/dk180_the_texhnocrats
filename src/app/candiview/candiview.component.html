@@ -5,7 +5,17 @@
   </div>
 </div>
 
-  <div class="row" *ngIf="!showLoader">
+<div *ngIf="notRegistered" class="not-registered">
+  <div class="not-registered-txt">
+    Please <a href="/profiles"> Sign Up </a> to view recommended courses/ blogs/ Govt. schemes on your dashboard. 
+    <!-- In the meantime, you can view these general courses to help you out with the quiz. -->
+  </div>
+  <div class="not-registered-img">
+    <img class="nr-actual-img" src="./assets/image/final.png" alt="error_logo">
+  </div>
+</div>
+
+  <div class="row" *ngIf="!showLoader && !notRegistered">
     <div class="dashboard_header">
       {{name}}'s Dashboard
     </div>
@@ -100,10 +110,11 @@
     </div>
   </div>
 
-    <div class="dashboard_courses_header">
+    <div class="dashboard_courses_header" *ngIf="!showLoader && !notRegistered">
       {{name}}'s Recommended courses <br> <div class="dashboard_header_subtitle">(Click anywhere on the section below to view the next course)</div>
     </div>
 
+    <!-- <div *ngIf="!showLoader && !notRegistered"> -->
     <div class="carousel carousel-slider center">
       <!-- <div style="display: flex; justify-content: space-evenly; z-index: 1;">
         <div><mat-icon class="dropdwn-arr">chevron_left</mat-icon></div>
@@ -122,6 +133,7 @@
             </div>     
         </div>
       </div>
+    <!-- </div> -->
 
 
       

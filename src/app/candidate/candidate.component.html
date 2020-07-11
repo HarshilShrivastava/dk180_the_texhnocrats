@@ -70,10 +70,14 @@
 
 
 
+  <div class="loader-container">
+    <div *ngIf="showLoader">
+      <img src="./assets/loader.gif" class="loader" alt="Loading..." />
+    </div>
+  </div>
 
 
-
-  <div class="row">
+  <div class="row" *ngIf="!showLoader">
     <div class="col s8 offset-s2">
       <!-- <div class="card"> -->
         <!-- <div class="sm-jumbotron center-align"> -->
@@ -109,12 +113,8 @@
                 </div>
             </div>
             
-            <div class="row">
-                <div class="input-field col s12">
-                  <button [disabled]="!organRegistrationForm.valid" class="btn-large btn-submit" type="submit">
-                    <p>Register As Candidate</p>
-                  </button>
-                </div>
+            <div class="btn-container">
+              <button type="submit" [ngClass]="{'btn-submit' : organRegistrationForm.valid, 'btn-hide' : !organRegistrationForm.valid}" [disabled]="!organRegistrationForm.valid">Register as Candidate</button>
             </div>
           </form>
       <!-- </div> -->
