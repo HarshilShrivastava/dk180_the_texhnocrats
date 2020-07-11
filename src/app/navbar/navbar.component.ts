@@ -27,13 +27,21 @@ export class NavbarComponent implements OnInit {
       this.quizService.chaluKar.subscribe(value => {
         this.quizStarted = value
         if(this.quizStarted === true)
-        this.checkIfQuizStarted();
+          this.checkIfQuizStarted();
+        else if(this.quizStarted === false)
+          this.pauseTimer();
       })
+
+      {
+        this.quizService.showTimer.subscribe(value => {
+          this.showTimer = value;
+        })
+      }
 
       {
         this.userService.aaya.subscribe(value => {
           if(value === true)
-          this.name = localStorage.getItem("Name")
+          this.name = localStorage.getItem("cc_uname")
         })
       }
       {
@@ -56,6 +64,7 @@ export class NavbarComponent implements OnInit {
 
   isLoggedIn:boolean;
   quizStarted: boolean = false;
+  showTimer: boolean = false;
   isOrganization = localStorage.getItem("Is_Organization");
   isCandidate = localStorage.getItem("Is_Candidate");
   tok = localStorage.getItem("token")
@@ -69,7 +78,7 @@ export class NavbarComponent implements OnInit {
   interval;
 
   data: any;
-  name: string = localStorage.getItem("Name")
+  name: string = localStorage.getItem("cc_uname")
 
 
   ngOnInit() {
@@ -88,7 +97,7 @@ export class NavbarComponent implements OnInit {
       if(option === 'home')
       this.router.navigate(['/home']);
     else if(option === 'create-job')
-      this.router.navigate(['/create-job']);
+      this.router.navigate(['/jobForm']);
     else if(option === 'job-search')
       this.router.navigate(['/job-search']);
     else if(option === 'profiles')
@@ -114,6 +123,7 @@ export class NavbarComponent implements OnInit {
       dialogRef.afterClosed().subscribe((data) => {
         if (data === "proceed") {
           this.quizService.chaluKar.next(false);
+          this.quizService.showTimer.next(false);
           if(option === 'logout')
             this.Logout();
           else
@@ -212,6 +222,10 @@ export class NavbarComponent implements OnInit {
     }
   }
 
+  pauseTimer(){
+    clearInterval(this.interval);
+  }
+
   SignOut() {
     this.router.navigate(['/register']);
 
@@ -226,10 +240,11 @@ export class NavbarComponent implements OnInit {
 
   Logout() {
     this.isLoggedIn = false;
-    localStorage.removeItem('token');
-    localStorage.removeItem('Is_University');
-    localStorage.removeItem('Is_Candidate');
-    localStorage.removeItem('Is_Organization');
+    // localStorage.removeItem('token');
+    // localStorage.removeItem('Is_University');
+    // localStorage.removeItem('Is_Candidate');
+    // localStorage.removeItem('Is_Organization');
+    localStorage.clear();
     sessionStorage.clear();
     this.userIsCandidate = false;
     this.userIsOrganization = false;

@@ -23,7 +23,7 @@ export class OrviewComponent implements OnInit {
     this.quizService.orView().subscribe(data => {
       console.log(data);
       this.data = data;
-      localStorage.setItem("Name", this.data.data.Name)
+      localStorage.setItem("cc_uname", this.data.data.Name)
       this.userService.aaya.next(true)
     });
   }
