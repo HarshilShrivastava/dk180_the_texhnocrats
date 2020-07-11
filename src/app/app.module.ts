@@ -63,7 +63,11 @@ import { ReactiveFormsModule } from '@angular/forms';
 import {MatCardModule} from '@angular/material/card';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { JobViewDialogComponent } from './shared/job-view-dialog/job-view-dialog.component';
-import { MinutesToSecondsPipe } from '../../src/app/pipes/minutesToSeconds.pipe'
+import { MinutesToSecondsPipe } from '../../src/app/pipes/minutesToSeconds.pipe';
+import {MatSelectModule} from '@angular/material/select';
+import { ContactComponent } from './contact/contact.component';
+import { ContactPageComponent } from './shared/contact-page/contact-page.component'
+import { AboutUsComponent } from './about-us/about-us.component'
 
 
 @NgModule({
@@ -111,7 +115,10 @@ import { MinutesToSecondsPipe } from '../../src/app/pipes/minutesToSeconds.pipe'
     InstructionsPageComponent,
     FaqPageComponent,
     JobViewDialogComponent,
-    MinutesToSecondsPipe
+    MinutesToSecondsPipe,
+    ContactComponent,
+    ContactPageComponent,
+    AboutUsComponent
   ],
   imports: [
     BrowserModule,
@@ -139,8 +146,9 @@ import { MinutesToSecondsPipe } from '../../src/app/pipes/minutesToSeconds.pipe'
     ReactiveFormsModule,
     MatCardModule,
     MatPaginatorModule,
-    MatMenuModule
-  ],
+    MatMenuModule,
+    MatSelectModule
+],
   providers: [QuizService, User],
   bootstrap: [AppComponent],
   entryComponents: [JobApplyDialogComponent, ErrorDialogComponent, GeneralDialogBoxComponent, JobViewDialogComponent]

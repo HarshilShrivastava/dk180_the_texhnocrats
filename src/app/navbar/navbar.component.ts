@@ -14,6 +14,8 @@ import { GeneralDialogBoxComponent } from '../dialogs/general-dialog-box/general
   styleUrls: ['./navbar.component.less']
 })
 export class NavbarComponent implements OnInit {
+  userIsCandidate: boolean;
+  userIsOrganization: boolean;
 
   constructor(
     private router: Router,
@@ -25,14 +27,51 @@ export class NavbarComponent implements OnInit {
       this.quizService.chaluKar.subscribe(value => {
         this.quizStarted = value
         if(this.quizStarted === true)
-        this.checkIfQuizStarted();
+          this.checkIfQuizStarted();
+        else if(this.quizStarted === false)
+          this.pauseTimer();
       })
+
+      {
+        this.quizService.showTimer.subscribe(value => {
+          this.showTimer = value;
+          if(this.showTimer === false){
+            this.timeLeft = 1200;
+            clearInterval(this.interval);
+          }
+        })
+      }
+
+      {
+        this.userService.aaya.subscribe(value => {
+          if(value === true)
+          this.name = localStorage.getItem("cc_uname")
+        })
+      }
+      {
+        this.userService.candidatehai.subscribe(value => {
+          if(value === true)
+            this.userIsCandidate = true
+          // else  
+          //   this.userIsCandidate = false;
+        })
+      }
+      {
+        this.userService.organizationhai.subscribe(value => {
+          if(value === true)
+            this.userIsOrganization = true
+          // else
+          //   this.userIsOrganization = false
+        })
+      }
     }
 
   isLoggedIn:boolean;
   quizStarted: boolean = false;
+  showTimer: boolean = false;
   isOrganization = localStorage.getItem("Is_Organization");
   isCandidate = localStorage.getItem("Is_Candidate");
+  tok = localStorage.getItem("token")
 
   @ViewChild('sidenav', {static: true}) sidenav: MatSidenav;
   isExpanded = true;
@@ -42,30 +81,40 @@ export class NavbarComponent implements OnInit {
   timeLeft: number = 1200;
   interval;
 
+  data: any;
+  name: string = localStorage.getItem("cc_uname")
+
 
   ngOnInit() {
     this.checkIfQuizStarted();
+    // this.getUserName();
+  }
+
+  getName(){
+    this.userService.getUserName()
   }
 
   onClickOption(option){
-    if(this.quizStarted)
-      this.ifQuizOngoing(option);
-    else{
+    // if(this.quizStarted)
+      // this.ifQuizOngoing(option);
+    // else{
       if(option === 'home')
       this.router.navigate(['/home']);
     else if(option === 'create-job')
-      this.router.navigate(['/create-job']);
+      this.router.navigate(['/jobForm']);
     else if(option === 'job-search')
       this.router.navigate(['/job-search']);
     else if(option === 'profiles')
       this.router.navigate(['/profiles']);
     else if(option === 'login')
-      this.router.navigate(['/login']);
+      this.LogIn()
+    else if(option === 'canview')
+    this.router.navigate(['/canview']);
     else if(option === 'applied-jobs')
       this.router.navigate(['/applied-jobs']);
     else if(option === 'logout')
       this.Logout()
-    }
+  // }
     
   }
 
@@ -78,6 +127,7 @@ export class NavbarComponent implements OnInit {
       dialogRef.afterClosed().subscribe((data) => {
         if (data === "proceed") {
           this.quizService.chaluKar.next(false);
+          this.quizService.showTimer.next(false);
           if(option === 'logout')
             this.Logout();
           else
@@ -157,6 +207,7 @@ export class NavbarComponent implements OnInit {
           this.timeLeft--;
           if(this.timeLeft === 0){
             this.router.navigate(['/home']);
+            this.quizService.showTimer.next(false);
             let dialogRef = this.dialog.open(ErrorDialogComponent, {
               height: '170px',
               data: "Sorry your time is up!"
@@ -176,18 +227,32 @@ export class NavbarComponent implements OnInit {
     }
   }
 
+  pauseTimer(){
+    clearInterval(this.interval);
+  }
+
   SignOut() {
     this.router.navigate(['/register']);
 
   }
 
+  
+
+  LogIn(){
+    this.router.navigate(['/login']);
+
+  }
+
   Logout() {
     this.isLoggedIn = false;
-    localStorage.removeItem('token');
-    localStorage.removeItem('Is_University');
-    localStorage.removeItem('Is_Candidate');
-    localStorage.removeItem('Is_Organization');
+    // localStorage.removeItem('token');
+    // localStorage.removeItem('Is_University');
+    // localStorage.removeItem('Is_Candidate');
+    // localStorage.removeItem('Is_Organization');
+    localStorage.clear();
     sessionStorage.clear();
+    this.userIsCandidate = false;
+    this.userIsOrganization = false;
 
     console.log('You Are Logged Out');
     this.router.navigate(['/login']);

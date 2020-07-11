@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { QuizService } from '../shared/quiz.service';
 import { Router } from '@angular/router';
 import {FormBuilder, FormGroup, Validators, FormControl} from '@angular/forms';
+import { MatDialog } from '@angular/material';
+import { GeneralDialogBoxComponent } from '../dialogs/general-dialog-box/general-dialog-box.component';
+import { map, first } from 'rxjs/operators';
 
 
 @Component({
@@ -53,15 +56,22 @@ export class MarketingComponent implements OnInit {
   hold: any;
   totalAnswered = 0;
   showLoader: boolean = false;
+  proceed: boolean = false;
+
 
 
   constructor(
     private quizService: QuizService, 
     private router: Router, 
-    private _formBuilder: FormBuilder 
+    private _formBuilder: FormBuilder,
+    private dialog: MatDialog
+
     ) { }
 
   ngOnInit() {
+    this.quizService.showTimer.next(true);
+    this.quizService.chaluKar.next(false);
+
     this.firstFormGroup = this._formBuilder.group({
       firstCtrl: ['', Validators.required]
     });
@@ -76,6 +86,9 @@ export class MarketingComponent implements OnInit {
       console.log(data);
       this.data = data;
       this.showLoader = false;
+      
+      this.quizService.chaluKar.next(true);
+
       this.data.data.forEach(function(element) {
         element.active = false;
         element.noReview = true
@@ -83,6 +96,44 @@ export class MarketingComponent implements OnInit {
     });
   }
 
+  canDeactivate() {
+    // if the editName !== this.user.name
+    if(this.proceed === false ){
+      if (this.quizService.startTimer === true) {
+
+        return this.openDialog();
+      }
+    }
+    
+    return true;
+  }
+
+  openDialog(){
+    if(this.proceed === false){
+      let dialogRef = this.dialog.open(GeneralDialogBoxComponent, {
+        height: '190px',
+        width: '380px',
+        data: "All progress will be lost and you will be redirected to home, continue?"
+      });
+      return dialogRef.afterClosed().pipe(map(result => {
+        if (result === 'proceed') {
+          this.router.navigate(['/home'])
+          this.quizService.chaluKar.next(false);
+          this.quizService.showTimer.next(false);
+          this.quizService.startTimer = false;
+          return true;
+        }
+        else{
+          return false;
+        }
+      }), first());
+    }
+    else{
+      this.proceed = true;
+      return false;
+    }
+    
+  }
 
   Answer(Weightage, from_Domain, id, arr, index) {
     // this.result_arr.insert(index, arr);
@@ -245,6 +296,7 @@ export class MarketingComponent implements OnInit {
 
 
   Answers() {
+    this.proceed = true;
 
     this.getTopSubdomains();
 

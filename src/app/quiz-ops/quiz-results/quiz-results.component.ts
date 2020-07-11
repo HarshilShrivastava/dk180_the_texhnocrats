@@ -114,6 +114,8 @@ export class QuizResultsComponent implements OnInit {
       this.Final_SD2_Marks = parseInt(l);
       this.final_sd2_marks = true
     }
+
+    this.OnClickRating();
   }
 
   // ngOnDestroy(){

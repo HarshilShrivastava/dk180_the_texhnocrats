@@ -4,7 +4,141 @@
       <div class="card-panel teal lighten-2">
         <h4 class="center white-text">Candidate Profile</h4>
       </div> -->
-      <form #imageForm=ngForm class="form-style-9" (ngSubmit)="OnSubmit(Name,Address,Image)">
+      <form #imageForm=ngForm class="form-style-9" (ngSubmit)="OnSubmit(Name, Address, Image, Time, income)">
+        <div class="part-number">
+          Part 1: General Details:
+        </div>
+
+        <div class="general-details">
+        <div class="row">
+          <div class="input-field col s12">
+            <i class="material-icons prefix">account_circle</i>
+
+            <input type="text" class="field-style field-split" #Name ngModel name="Name" id="Name" required>
+            <label for="Name">Display name* (This name will be visible on your profile and to recruiters)</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <i class="material-icons icon-image-preview prefix">home</i>
+            <input type="text" class="field-style field-split" #Address ngModel name="Address" id="Address" required>
+            <label for="Address">Address*</label>
+          </div>
+        </div>
+        <div class="label1">
+        <label for="resume-upload" style="font-weight: bold; font-size: inherit;">Upload resume* (Please only upload a .pdf file)</label>
+
+        <br>
+        <br>
+        <!-- <img *ngIf="hide" [src]="imageUrl"  style="width:50px;height:50px"> -->
+        <input type="file" class="submit" #Image accept="image/*" (change)="handleFileInput($event.target.files)">
+        <br>
+        <!-- <button class="btn-large btn-submit" (click)="preview()"></button> -->
+        
+        <mat-checkbox (change)="preview()">I want a preview of my uploaded file</mat-checkbox>
+        </div>
+        <br>
+        <div>
+          <div *ngIf="display">
+            <div class="preview"> Preview: </div>
+            <pdf-viewer [src]="imageUrl" [render-text]="true" style="display: block;"></pdf-viewer> 
+          </div>
+          
+          <div *ngIf="hide" class="no-resume">You have not added a PDF of your Resume yet.</div>
+          <div *ngIf="!isValid" class="no-resume">Please only upload a PDF file.</div>
+          <div *ngIf="resumeStatus && !display" class="yes-resume">Uploaded! :)</div>
+
+
+
+        </div>
+        </div>
+        <br>
+
+        <div class="part-number">
+          Part 2: Social Media Activity:
+        </div>
+        <div class="info-container">
+        <div class="sm-platforms">
+          <div class="sm-dropdown" matTooltip="Social Media Platforms You Use">
+            <!-- <i class="material-icons icon-image-preview prefix">supervised_user_circle</i> -->
+            <!-- <input type="text" class="field-style field-split" #Socialmedia ngModel name="Socialmedia" id="Socialmedia" required>
+            <label for="Socialmedia">Socialmedia</label> -->
+            <mat-form-field appearance="fill">
+              <mat-label>Social Media Platforms You Use</mat-label>
+              <mat-select [formControl]="socialmedias" (selectionChange)="onSelectionChange($event)" multiple>
+                <mat-select-trigger>
+                  {{socialmedias.value ? socialmedias.value[0].value : ''}}
+                  <span *ngIf="socialmedias.value?.length > 1" class="example-additional-selection">
+                    (+{{socialmedias.value.length - 1}} {{socialmedias.value?.length === 2 ? 'other' : 'others'}})
+                  </span>
+                </mat-select-trigger>
+                <mat-option *ngFor="let platform of platformList | keyvalue" [value]="platform">{{platform.value}}</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div class="info-field">
+          <div class="input-field col s12">
+            <i class="material-icons icon-image-preview prefix">access_time</i>
+            <input type="text" class="field-style field-split" #Time ngModel name="Time" id="Time" required>
+            <label for="Time">~ Hours spent on these platforms (Ex: 3)*</label>
+          </div>
+        </div>
+        </div>
+
+        <br>
+
+        <div class="part-number">
+          Part 3: Socio-Economic Status:
+        </div>
+
+        <div class="info-container">
+
+          <div class="se-residence">
+            <div class="se-dropdown" matTooltip="Type of area">
+              <!-- <i class="material-icons icon-image-preview prefix">supervised_user_circle</i> -->
+              <!-- <input type="text" class="field-style field-split" #Socialmedia ngModel name="Socialmedia" id="Socialmedia" required>
+              <label for="Socialmedia">Socialmedia</label> -->
+              <mat-form-field appearance="fill">
+                <mat-label>Place of Residence</mat-label>
+                <mat-select [formControl]="residences" (selectionChange)="onResidenceSelectionChange($event)">
+                    <!-- <mat-select-trigger>
+                      {{residences.value ? residences.value[0] : ''}}
+                    </mat-select-trigger> -->
+                  <mat-option *ngFor="let item of residenceList | keyvalue" [value]="item">{{item.value}}</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+          </div>
+
+        <div class="info-field">
+          <div class="input-field col s12">
+            <i class="material-icons icon-image-preview prefix">account_balance</i>
+            <input type="text" class="field-style field-split" #income ngModel name="income" id="income" required>
+            <label for="income">Your approximate family income (Ex: 300000)*</label>
+          </div>
+        </div>
+        </div>
+        <br>
+
+        
+        
+        <div class="btn-container">
+          <button type="submit" [ngClass]="{'btn-submit' : hide, 'btn-hide' : !hide}" [disabled]="Image.value=='' || !imageForm.valid">Submit</button>
+        </div>
+      </form>
+    <!-- </div> -->
+  </div>
+</div>
+
+<!-- <div class="container">
+  <div class="row"> -->
+    <!-- <div class="col s8 offset-2">
+      <div class="card-panel teal lighten-2">
+        <h4 class="center white-text">Candidate Profile</h4>
+      </div> -->
+      <!-- <form #imageForm=ngForm class="form-style-9" (ngSubmit)="OnSubmit(Name,Address,Image)">
         <div class="row">
           <div class="input-field col s12">
             <i class="material-icons prefix">account_circle</i>
@@ -24,13 +158,13 @@
         <label for="resume-upload">Upload resume (Please only upload a .pdf file for now)</label>
 
         <br>
-        <br>
+        <br> -->
         <!-- <img *ngIf="hide" [src]="imageUrl"  style="width:50px;height:50px"> -->
-        <input type="file" class="submit" #Image accept="image/*" (change)="handleFileInput($event.target.files)">
-        <br>
+        <!-- <input type="file" class="submit" #Image accept="image/*" (change)="handleFileInput($event.target.files)"> -->
+        <!-- <br> -->
         <!-- <button class="btn-large btn-submit" (click)="preview()"></button> -->
         
-        <mat-checkbox (change)="preview()">I want a preview of my uploaded file</mat-checkbox>
+        <!-- <mat-checkbox (change)="preview()">I want a preview of my uploaded file</mat-checkbox>
         </div>
         <br>
         <div *ngIf="!hide">
@@ -42,8 +176,8 @@
         
 
         <button type="submit" [ngClass]="{'btn-large btn-submit' : hide, 'btn-large btn-hide' : !hide}" [disabled]="Image.value=='' || !imageForm.valid">Submit</button>
-      </form>
+      </form> -->
     <!-- </div> -->
-  </div>
-</div>
+  <!-- </div>
+</div> -->
 

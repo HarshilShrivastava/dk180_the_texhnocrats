@@ -6,13 +6,74 @@
                 <span class="card-title">Your Profile</span>
                 <p ><strong>Your Name : </strong>{{data.data.Name}}</p>
                 <!-- <p ><strong>Address : </strong>{{data.Address}}</p> -->
-                <p ><strong>Your Resume : </strong> <img src="https://harshraj.pythonanywhere.com{{data.data.Resume}}" style="width: 100px;" ></p>
-                <p><strong>Your rating in Technical domain : {{data.data.TechRating}}</strong></p>
-                <p><strong>Your rating in Marketing domain : {{data.data.MarketRating}}</strong></p>
+                <p ><strong>Resume: </strong> <a href="{{data.data.Resume}}" target="_blank">View</a>        
+                    <!-- <pdf-viewer [src]="resumeLink" [render-text]="true" style="display: block;"></pdf-viewer>  -->
+                </p>
+                <p><strong>Your rating in Technical domain : {{data.data.TechRating}} (Start giving the quiz to improve this)</strong></p>
+                <p><strong>Your rating in Marketing domain : {{data.data.MarketRating}} (Start giving the quiz to improve this)</strong></p>
 
             </div>
             <!--button type="submit" class="btn-large btn-submit" ng-hide="IsVisible" >Submit</button-->
 
         </div>
     </div>
+
+    
+
+    <div class="carousel carousel-slider center">
+      <!-- <div style="display: flex; justify-content: space-evenly; z-index: 1;">
+        <div><mat-icon class="dropdwn-arr">chevron_left</mat-icon></div>
+        <div><mat-icon class="dropdwn-arr">chevron_right</mat-icon></div>
+      </div> -->
+        <div class="carousel-fixed-item center">
+          <a style=" position: relative;"></a>
+        </div>
+        <div class="carousel-item red white-text" *ngFor="let course of coursess; let i = index">
+            <h2>Title: {{course.title}}</h2>
+            <p class="white-text">Description {{course.desc}}</p>
+            <p class="white-text">By: {{course.by}}</p>
+            <p class="white-text">Rating {{course.rating}}</p>  
+            <div (click)="onClick(course, i)">
+                <a class="btn waves-effect white grey-text darken-text-2 btn" target="_blank" href="{{course.apply}}"> <a class="btn-txt"> Apply Now </a></a>
+            </div>     
+        </div>
+      </div>
+
+
+      
+    <!-- <div>
+    <div class="carousel carousel-slider center" id="courses-carousel" data-indicators="true">
+        
+        <div class="carousel-item red white-text" *ngFor="let course of coursess; let i = index">
+            <div class="carousel-fixed-item center">
+                <a class="btn waves-effect white grey-text darken-text-2">button</a>
+              </div>
+            <div class="course-title">
+                <h2>Title: {{course.title}}</h2>
+            </div>
+            <div class="course-content">
+                <p class="white-text">Description {{course.desc}}</p>
+                <p class="white-text">By: {{course.by}}</p>
+                <p class="white-text">Rating {{course.rating}}</p>
+            </div>
+            <div class="carousel-fixed-item center">
+                <a class="btn waves-effect white grey-text darken-text-2" target="_blank" href="{{course.apply}}">Apply Now</a>
+            </div> -->
+           <!-- <button><a href="{{course.apply}}">Apply Now!</a></button>  -->
+        <!-- </div> -->
+        <!-- <div class="carousel-item amber white-text" href="#two!">
+          <h2>Second Panel</h2>
+          <p class="white-text">This is your second panel</p>
+        </div>
+        <div class="carousel-item green white-text" href="#three!">
+          <h2>Third Panel</h2>
+          <p class="white-text">This is your third panel</p>
+        </div>
+        <div class="carousel-item blue white-text" href="#four!">
+          <h2>Fourth Panel</h2>
+          <p class="white-text">This is your fourth panel</p>
+        </div> -->
+      <!-- </div>
+    </div> -->
+      
 </div>

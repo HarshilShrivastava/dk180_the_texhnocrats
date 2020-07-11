@@ -12,6 +12,8 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class QuizService {
   public chaluKar: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+  public showTimer: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+
   private apiUrl = 'https://harshraj.pythonanywhere.com/user/api/get-question/?format=json';
   qns: any[];
   Candidate: boolean;
@@ -118,7 +120,7 @@ export class QuizService {
   }
   canView() {
     const Headers = new HttpHeaders().set('Authorization', 'token ' + localStorage.getItem('token'));
-    return this.http.get('http://harshraj.pythonanywhere.com/candidate/create/', {headers: Headers} );
+    return this.http.get('https://harshraj.pythonanywhere.com/candidate/create/', {headers: Headers} );
   }
   uniView() {
     const Headers = new HttpHeaders()
@@ -165,11 +167,27 @@ export class QuizService {
     return this.http.post('https://harshraj.pythonanywhere.com/account/login/', data , { headers: reqheaders });
   }
 
-  postFile(Name: string, Address: string ,  fileToUpload: File) {
+  postFile(Name: string, Address: string ,  fileToUpload: File, Time: string, Familyincome: string, Residence) {
     const formData: FormData = new FormData();
     formData.append('Resume', fileToUpload, fileToUpload.name);
     formData.append('Name', Name);
     formData.append('Address', Address);
+    // formData.append('Socialmedia', Socialmedia.toString());
+    formData.append('Time', Time.toString());
+    formData.append('Familyincome', Familyincome.toString());
+    formData.append('Residence', Residence.toString());
+
+    if(localStorage.getItem("SM1")) 
+      formData.append('Socialmedia', localStorage.getItem("SM1"))
+    if(localStorage.getItem("SM2")) 
+      formData.append('Socialmedia', localStorage.getItem("SM2"))
+    if(localStorage.getItem("SM3")) 
+      formData.append('Socialmedia', localStorage.getItem("SM3"))
+    if(localStorage.getItem("SM4")) 
+      formData.append('Socialmedia', localStorage.getItem("SM4"))
+    if(localStorage.getItem("SM5")) 
+      formData.append('Socialmedia', localStorage.getItem("SM5"))
+
     const Headers = new HttpHeaders().set('Authorization', 'token ' + localStorage.getItem('token'));
     return this.http.post('https://harshraj.pythonanywhere.com/candidate/create/', formData, {headers: Headers});
   }
@@ -271,6 +289,13 @@ export class QuizService {
       };
 
       return this.http.post('http://harshraj.pythonanywhere.com/candidate/put-ratingM/', body, { headers: Headers});
+  }
+
+  getRecommendedCourses(){
+    const Headers = new HttpHeaders()
+      .set('Authorization', 'token ' + localStorage.getItem('token'));
+
+    return this.http.get('https://harshraj.pythonanywhere.com/content/Recommended-courses/', {headers: Headers} );
   }
 
   // postAllMarks(){

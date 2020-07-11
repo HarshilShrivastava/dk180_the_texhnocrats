@@ -1,0 +1,71 @@
+<div class="main-container">
+  <h1>About Us</h1>
+
+  <p>
+    <i
+      >We are a team of engineers who want to solve the employment crisis in
+      India.</i
+    >
+    <br>
+    <br>
+    Almost 60% of the youth who are employed in the country are unhappy with
+    their present jobs. This in turn makes the employer unhappy as stuns the
+    company's growth. We believe that the root cause of this is that people are
+    pushed into roles which are not suitable for them. Hence we take a holistic
+    approach to assess a candidate's profile.
+  </p>
+  <br />
+  <!-- Embeded video -->
+  <p class="video"><video width="600px" height="" controls></video></p>
+  <br />
+  <p>
+    Our portal is designed in way to access the skill set and capacity of the
+    Appplicant accurately and recommend jobs to the suitable candidate against a
+    requirement from the industry.
+  </p>
+  <br />
+  <p>
+    The best way to access an applicant's inclination towards a particular
+    domain is not just by looking at their resume. This is why along with the
+    resume we ask the candidate to answer relevant questions which can be
+    processed to give factual data.
+  </p>
+  <br />
+  <p>
+    Our assessment consists of three rounds. The first round is a generic round
+    to determine which domain the candidate would excel the most at. The next
+    round has questions on the domain that got selected in the previous round.
+    Here, knowledge of all the sub domains are tested and the top two sub
+    domains are taken into consideration for the third and final round.
+  </p>
+  <br />
+  <p>
+    Along with the quiz, we also have a chatbot which acts as a Career
+    Counsellor. The applicants who are extremely confused about which path they
+    should choose can interact with the chatbot and get their queries resolved.
+  </p>
+  <br />
+
+  <p>
+    For more information, you can check out the <a href="">documentation</a> of
+    our portal.
+  </p>
+  <br />
+  <h1>Meet the Team</h1>
+  <br />
+  <div class="team">
+    <div class="team-member" *ngFor="let section of sections; let i = index">
+      <img class="photo" src="{{ section.image }}" />
+      <p class="name">{{ section.name }}</p>
+      <span
+        >{{ section.desc }} <img class="icon" src="{{ section.emoji }}"
+      /></span>
+    </div>
+  </div>
+
+  <br />
+  <p>
+    Made with <img class="icon" src="./assets/icons/heart.png" /> by
+    Technocrats
+  </p>
+</div>

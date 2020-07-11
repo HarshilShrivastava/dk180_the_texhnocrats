@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { UserService } from './shared/user.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,19 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.less']
 })
 export class AppComponent {
-  title = 'mcq2';
+  title = 'CareerConnect';
+  
+  constructor(
+    public userService: UserService,
+    ){
+
+  }
+
+  ngOnInit(){
+    if(this.userService.candidate === "true")
+      this.userService.candidatehai.next(true)
+      
+    if(this.userService.organization === "true")
+      this.userService.organizationhai.next(true)
+  }
 }
