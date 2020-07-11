@@ -6,6 +6,9 @@ import {FormBuilder, FormGroup, Validators, FormControl} from '@angular/forms';
 import { MatDialog } from '@angular/material';
 import { ErrorDialogComponent } from '../shared/error-dialog/error-dialog.component';
 import { BehaviorSubject } from 'rxjs';
+import { GeneralDialogBoxComponent } from '../dialogs/general-dialog-box/general-dialog-box.component';
+import { map, first } from 'rxjs/operators';
+
 
 @Component({
   selector: 'app-quiz',
@@ -35,6 +38,7 @@ export class QuizComponent implements OnInit {
   totalmarks = 0;
   totalAnswered = 0;
   showLoader: boolean = false;
+  proceed: boolean = false;
 
   constructor(
     private quizService: QuizService, 
@@ -45,6 +49,7 @@ export class QuizComponent implements OnInit {
   ngOnInit() {
     this.getContacts();
     this.quizService.showTimer.next(true);
+    this.quizService.startTimer = true;
 
     this.firstFormGroup = this._formBuilder.group({
       firstCtrl: ['', Validators.required]
@@ -71,6 +76,45 @@ export class QuizComponent implements OnInit {
     }
     event.returnValue = false;
     // stay on same page
+  }
+
+  canDeactivate() {
+    // if the editName !== this.user.name
+    if(this.proceed === false ){
+      if (this.quizService.startTimer === true) {
+
+        return this.openDialog();
+      }
+    }
+    
+    return true;
+  }
+
+  openDialog(){
+    if(this.proceed === false){
+      let dialogRef = this.dialog.open(GeneralDialogBoxComponent, {
+        height: '190px',
+        width: '380px',
+        data: "All progress will be lost and you will be redirected to home, continue?"
+      });
+      return dialogRef.afterClosed().pipe(map(result => {
+        if (result === 'proceed') {
+          this.router.navigate(['/home'])
+          this.quizService.chaluKar.next(false);
+          this.quizService.showTimer.next(false);
+          this.quizService.startTimer = false;
+          return true;
+        }
+        else{
+          return false;
+        }
+      }), first());
+    }
+    else{
+      this.proceed = true;
+      return false;
+    }
+    
   }
 
   getContacts() {
@@ -168,6 +212,7 @@ export class QuizComponent implements OnInit {
   }
 
   Answers() {
+    this.proceed = true;
     
     this.result_arr.forEach(res=>{
       if(res.from_Domain == 1){

@@ -34,14 +34,15 @@ import { FaqPageComponent } from './shared/faq-page/faq-page.component';
 import { ContactPageComponent } from './shared/contact-page/contact-page.component';
 import { from } from 'rxjs';
 import { AboutUsComponent } from './about-us/about-us.component';
+import { CanDeactivateService } from './shared/can-deactivate.service';
 
 
 const routes: Routes = [
   {path: '', redirectTo: '/home' , pathMatch: 'full' },
   {path: 'home' , component: LandingPageComponent},
-  {path: 'quiz' , component: QuizComponent},
-  {path: 'tech' , component: TechnicalComponent},
-  {path: 'mark' , component: MarketingComponent},
+  {path: 'quiz' , component: QuizComponent, canDeactivate: [CanDeactivateService]},
+  {path: 'tech' , component: TechnicalComponent, canDeactivate: [CanDeactivateService]},
+  {path: 'mark' , component: MarketingComponent, canDeactivate: [CanDeactivateService]},
   {path: 'create', component: CreateviewComponent},
   {path: 'login', component: LoginComponent},
   {path: 'organ', component: OrcreateComponent},
@@ -69,7 +70,7 @@ const routes: Routes = [
   {path: 'applied-jobs', component: JobsAppliedComponent},
   {path: 'applicant-list', component: ApplicantListComponent},
   {path: 'quiz-results', component: QuizResultsComponent},
-  {path: 'round-three', component: RoundThreeComponent},
+  {path: 'round-three', component: RoundThreeComponent, canDeactivate: [CanDeactivateService]},
   {path: 'get-recommended-jobs', component: RecommendedJobsComponent},
   {path: 'instructions', component: InstructionsPageComponent},
   {path: 'faq-page', component: FaqPageComponent},

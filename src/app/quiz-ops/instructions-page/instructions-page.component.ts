@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { QuizService } from 'src/app/shared/quiz.service';
 
 @Component({
   selector: 'app-instructions-page',
@@ -12,10 +13,13 @@ export class InstructionsPageComponent implements OnInit {
   hide1: boolean = true;
 hide:boolean=true;
   constructor(
-    private router: Router
+    private router: Router,
+    public quizService: QuizService
   ) { }
 
   ngOnInit() {
+    this.quizService.chaluKar.next(false);
+    this.quizService.showTimer.next(false);
   }
   preview(){
     if(this.hide1)

@@ -35,6 +35,10 @@ export class NavbarComponent implements OnInit {
       {
         this.quizService.showTimer.subscribe(value => {
           this.showTimer = value;
+          if(this.showTimer === false){
+            this.timeLeft = 1200;
+            clearInterval(this.interval);
+          }
         })
       }
 
@@ -91,9 +95,9 @@ export class NavbarComponent implements OnInit {
   }
 
   onClickOption(option){
-    if(this.quizStarted)
-      this.ifQuizOngoing(option);
-    else{
+    // if(this.quizStarted)
+      // this.ifQuizOngoing(option);
+    // else{
       if(option === 'home')
       this.router.navigate(['/home']);
     else if(option === 'create-job')
@@ -110,7 +114,7 @@ export class NavbarComponent implements OnInit {
       this.router.navigate(['/applied-jobs']);
     else if(option === 'logout')
       this.Logout()
-    }
+  // }
     
   }
 
@@ -203,6 +207,7 @@ export class NavbarComponent implements OnInit {
           this.timeLeft--;
           if(this.timeLeft === 0){
             this.router.navigate(['/home']);
+            this.quizService.showTimer.next(false);
             let dialogRef = this.dialog.open(ErrorDialogComponent, {
               height: '170px',
               data: "Sorry your time is up!"
