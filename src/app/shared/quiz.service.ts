@@ -276,7 +276,7 @@ export class QuizService {
         TechRating: sessionStorage.getItem("Final_Tech_Rating")
       };
 
-      return this.http.post('http://harshraj.pythonanywhere.com/candidate/put-ratingT/', body, { headers: Headers});
+      return this.http.post('https://harshraj.pythonanywhere.com/candidate/put-ratingT/', body, { headers: Headers});
       
   }
 
@@ -288,7 +288,7 @@ export class QuizService {
         MarketRating: sessionStorage.getItem("Final_Marketing_Rating")
       };
 
-      return this.http.post('http://harshraj.pythonanywhere.com/candidate/put-ratingM/', body, { headers: Headers});
+      return this.http.post('https://harshraj.pythonanywhere.com/candidate/put-ratingM/', body, { headers: Headers});
   }
 
   getRecommendedCourses(){

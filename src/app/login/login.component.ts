@@ -15,6 +15,7 @@ export class LoginComponent implements OnInit {
   // tslint:disable-next-line: no-inferrable-types
   isLoginError: boolean = false;
   userpattern = '^[a-z0-9_-]{3,15}$';
+  showLoader: boolean = false;
 
   constructor(
     private quizService: QuizService, 
@@ -70,9 +71,11 @@ export class LoginComponent implements OnInit {
 
 
   OnSubmit(username, password) {
+    this.showLoader = true;
     this.quizService.userLogin(username, password).subscribe((data: any) => {
      // localStorage.setItem('token', data.data.token);
       console.log(data);
+      this.showLoader = false;
       if (data.status === 200 ) {
         localStorage.setItem('token' , data.token );
         localStorage.setItem('Is_Organization' , data.Is_Organization );

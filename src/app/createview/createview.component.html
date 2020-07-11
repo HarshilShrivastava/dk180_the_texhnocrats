@@ -1,10 +1,16 @@
 <div class="container">
   <div class="row">
+
+    <div class="loader-container">
+      <div *ngIf="showLoader">
+        <img src="./assets/loader.gif" class="loader" alt="Loading...">
+      </div>
+    </div>
     <!-- <div class="col s8 offset-2">
       <div class="card-panel teal lighten-2">
         <h4 class="center white-text">Candidate Profile</h4>
       </div> -->
-      <form #imageForm=ngForm class="form-style-9" (ngSubmit)="OnSubmit(Name, Address, Image, Time, income)">
+      <form *ngIf="!showLoader" #imageForm=ngForm class="form-style-9" (ngSubmit)="OnSubmit(Name, Address, Image, Time, income)">
         <div class="part-number">
           Part 1: General Details:
         </div>

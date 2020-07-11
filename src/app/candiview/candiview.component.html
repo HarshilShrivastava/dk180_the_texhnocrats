@@ -1,24 +1,108 @@
 
-<div class="row">
-    <div class="col s12 " *ngIf="data.data" >
-        <div class="card blue-grey darken-1" >
+<div class="loader-container">
+  <div *ngIf="showLoader">
+    <img src="./assets/loader.gif" class="loader" alt="Loading...">
+  </div>
+</div>
+
+  <div class="row" *ngIf="!showLoader">
+    <div class="dashboard_header">
+      {{name}}'s Dashboard
+    </div>
+    <div class="dashboard" *ngIf="data.data" >
+
+      <mat-card class="example-card">
+        <div class="header-container">
+          <mat-card-header>
+            <div mat-card-avatar>
+              <img class="card_header_img"
+                src="./assets/image/user.png"
+                alt="logo"
+              />
+            </div>
+            <mat-card-title> <strong> Name: </strong> {{ data.data.Name }}</mat-card-title>
+          </mat-card-header>
+
+          <div class="dropdown">
+            <button
+              class="dropdown-cont"
+              mat-icon-button
+              [matMenuTriggerFor]="menu"
+              aria-label="Example icon-button with a menu"
+            >
+              <mat-icon>more_vert</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu">
+              <button
+                class="dropdown-cont"
+                mat-menu-item
+  
+                *ngIf="userService.isOrganization"
+              >
+                <i class="material-icons">edit</i>
+                <span>
+                  <div class="dropdown-txt">Apply Now</div>
+                </span>
+              </button>
+              <button class="dropdown-cont" mat-menu-item>
+                <i class="material-icons">share</i>
+                <span>
+                  <div class="dropdown-txt">Share</div>
+                </span>
+              </button>
+              <button class="dropdown-cont" mat-menu-item>
+                <i class="material-icons">bookmark</i>
+                <span>
+                  <div class="dropdown-txt">Save</div>
+                </span>
+              </button>
+            </mat-menu>
+          </div>
+        </div>
+        <p class="description" title="{{ data.Address }}">
+          <strong>Address : </strong> {{ data.data.Address }}
+        </p>
+        <mat-card-content>
+          <p>
+            <strong>Resume : </strong>
+            <a href="{{data.data.Resume}}" target="_blank">View</a>
+          </p>
+
+          <p>
+            <strong>Technical Rating : {{data.data.TechRating}} (Start giving the quiz to improve this)</strong>
+          </p>
+          <p>
+            <strong>Technical Rating : {{data.data.MarketRating}} (Start giving the quiz to improve this)</strong>
+          </p>
+        </mat-card-content>
+        <mat-card-actions class="footer">
+        </mat-card-actions>
+      </mat-card>
+
+      <div class="dashboard_img-container">
+        <img src="./assets/image/dashboard.png" class="dashboard_img" alt="dashboard_img">
+      </div>
+        <!-- <div class="card blue-grey darken-1" >
             <div class="card-content white-text">
                 <span class="card-title">Your Profile</span>
-                <p ><strong>Your Name : </strong>{{data.data.Name}}</p>
+                <p ><strong>Your Name : </strong>{{data.data.Name}}</p> -->
                 <!-- <p ><strong>Address : </strong>{{data.Address}}</p> -->
-                <p ><strong>Resume: </strong> <a href="{{data.data.Resume}}" target="_blank">View</a>        
+                <!-- <p ><strong>Resume: </strong> <a href="{{data.data.Resume}}" target="_blank">View</a>         -->
                     <!-- <pdf-viewer [src]="resumeLink" [render-text]="true" style="display: block;"></pdf-viewer>  -->
-                </p>
+                <!-- </p>
                 <p><strong>Your rating in Technical domain : {{data.data.TechRating}} (Start giving the quiz to improve this)</strong></p>
                 <p><strong>Your rating in Marketing domain : {{data.data.MarketRating}} (Start giving the quiz to improve this)</strong></p>
 
-            </div>
+            </div> -->
             <!--button type="submit" class="btn-large btn-submit" ng-hide="IsVisible" >Submit</button-->
 
-        </div>
+        <!-- </div> -->
     </div>
+  </div>
 
-    
+    <div class="dashboard_header">
+      {{name}}'s Recommended courses <br> <div class="dashboard_header_subtitle">(Click anywhere on the section below to view the next course)</div>
+    </div>
 
     <div class="carousel carousel-slider center">
       <!-- <div style="display: flex; justify-content: space-evenly; z-index: 1;">
@@ -76,4 +160,3 @@
       <!-- </div>
     </div> -->
       
-</div>

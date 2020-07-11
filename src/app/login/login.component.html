@@ -1,5 +1,12 @@
 <div class="row">
-    <div class="col s8 offset-s2">
+
+  <div class="loader-container">
+    <div *ngIf="showLoader">
+      <img src="./assets/loader.gif" class="loader" alt="Loading...">
+    </div>
+  </div>
+
+    <div class="col s8 offset-s2" *ngIf="!showLoader">
       <!-- <div class="card">
         <div class="sm-jumbotron center-align"> -->
           <h2>Login</h2>

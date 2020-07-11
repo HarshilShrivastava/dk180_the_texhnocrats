@@ -29,6 +29,9 @@ export class CreateviewComponent implements OnInit {
 
   residence: number;
 
+  showLoader: boolean = false;
+
+
   socialmedias = new FormControl();
 
   residences = new FormControl();
@@ -143,10 +146,12 @@ export class CreateviewComponent implements OnInit {
   OnSubmit(Name, Address, Image, Time, income) {
 
     this.setPlatforms();
+    this.showLoader = true;
    if (localStorage.getItem('token')) {
    this.quizService.postFile(Name.value, Address.value, this.fileToUpload, Time.value, income.value, this.residence).subscribe(
      (data: any) => {
        console.log('done', data);
+       this.showLoader = false;
        if(data.status === 200){
        let dialogRef = this.dialog.open(GeneralDialogBoxComponent, {
         height: '200px',

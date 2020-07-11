@@ -46,6 +46,9 @@ export class CandiviewComponent implements OnInit {
   resumeLink: any;
   courses: any;
   courseURL: string;
+  showLoader: boolean = false;
+  name: string = localStorage.getItem("cc_uname");
+
 
   coursess = [
     {
@@ -112,6 +115,8 @@ export class CandiviewComponent implements OnInit {
     ) { }
 
   ngOnInit() {
+    this.showLoader = true;
+    this.name = localStorage.getItem("cc_uname")
     init_carousel();
     this.view();
     this.getCourses();
@@ -135,13 +140,14 @@ export class CandiviewComponent implements OnInit {
 
   view() {
     // window.location.reload();
-
+    this.showLoader = true;
     if (localStorage.getItem('Is_Candidate') === 'true') {
     this.quizService.canView().subscribe(data => {
       console.log(data);
       this.data = data;
       localStorage.setItem("cc_uname", this.data.data.Name)
       this.userService.aaya.next(true)
+      this.showLoader = false;
     });
   }
   }
@@ -149,6 +155,7 @@ export class CandiviewComponent implements OnInit {
   getCourses(){
     this.quizService.getRecommendedCourses().subscribe((data) => {
       this.courses = data;
+      this.showLoader = false ;
       console.log(this.courses);
     }),
     err => {
