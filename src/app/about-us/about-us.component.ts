@@ -15,32 +15,32 @@ export class AboutUsComponent implements OnInit {
       emoji: "./assets/image/team/gaurav_emoji.png",
     },
     {
-      name: "Harsh",
+      name: "Harsh Raj",
       desc: "Front end developer and Data Science enthusiast ",
       image: "./assets/image/team/harsh.JPG",
       emoji: "./assets/image/team/harsh_emoji.jpeg",
     },
     {
-      name: "Harshil",
+      name: "Harshil Shrivastava",
       desc: "I am BATMAN ",
       image: "./assets/image/team/harshil.jpg",
       emoji: "./assets/image/team/harshil_emoji.jpg",
     },
     {
-      name: "Manish",
+      name: "Manish Rathod",
       desc:
         "I am ambitious and driven. I thrive on challenge and constantly set goals for myself ",
       image: "./assets/image/team/manish.jpg",
       emoji: "./assets/image/team/manish_emoji.png",
     },
     {
-      name: "Ankita",
+      name: "Ankita Roy",
       desc: "Yolo ",
       image: "./assets/image/team/ankita.jpg",
       emoji: "./assets/image/team/ankita_emoji.jpeg",
     },
     {
-      name: "Kanishka",
+      name: "Kanishka Jain",
       desc: "I am a people-person ",
       image: "./assets/image/team/kanishka.jpg",
       emoji: "./assets/image/team/kanishka_emoji.jpeg",
