@@ -20,15 +20,27 @@
           <div class="input-field col s12">
             <i class="material-icons prefix">account_circle</i>
 
-            <input type="text" class="field-style field-split" #Name ngModel name="Name" id="Name" required>
+            <input type="text" class="field-style field-split" #Name="ngModel" [(ngModel)]="fields.name" name="Name" id="Name" required>
             <label for="Name">Display name* (This name will be visible on your profile and to recruiters)</label>
+            <span *ngIf = "Name.errors?.required && Name.touched" class="field_error">
+              Name field can't be blank
+            </span>
+            <span *ngIf = "Name.errors?.pattern && Name.touched" class="field_error">
+              Please add a valid name
+          </span>
           </div>
         </div>
         <div class="row">
           <div class="input-field col s12">
             <i class="material-icons icon-image-preview prefix">home</i>
-            <input type="text" class="field-style field-split" #Address ngModel name="Address" id="Address" required>
+            <input type="text" class="field-style field-split" #Address="ngModel" [(ngModel)]="fields.address" name="Address" id="Address" required>
             <label for="Address">Address*</label>
+            <span *ngIf = "Address.errors?.required && Address.touched" class="field_error">
+              Address field can't be blank
+            </span>
+            <span *ngIf = "Address.errors?.pattern && Address.touched" class="field_error">
+              Please add a valid name
+          </span>
           </div>
         </div>
         <div class="label1">
@@ -87,8 +99,14 @@
         <div class="info-field">
           <div class="input-field col s12">
             <i class="material-icons icon-image-preview prefix">access_time</i>
-            <input type="text" class="field-style field-split" #Time ngModel name="Time" id="Time" required>
+            <input type="number" class="field-style field-split" #Time="ngModel" [(ngModel)]="fields.time" name="Time" id="Time" [pattern]="timePattern" required>
             <label for="Time">~ Hours spent on these platforms (Ex: 3)*</label>
+            <span *ngIf = "Time.errors?.required && Time.touched" class="field_error">
+              Time field can't be blank
+            </span>
+            <span *ngIf = "Time.errors?.pattern && Time.touched" class="field_error">
+              Please only add an integer value (0-9)
+          </span>
           </div>
         </div>
         </div>
@@ -121,8 +139,15 @@
         <div class="info-field">
           <div class="input-field col s12">
             <i class="material-icons icon-image-preview prefix">account_balance</i>
-            <input type="text" class="field-style field-split" #income ngModel name="income" id="income" required>
+            <input type="number" class="field-style field-split" #income="ngModel" [(ngModel)]="fields.income" 
+            ngModel name="income" id="income" [pattern]="timePattern" required>
             <label for="income">Your approximate family income (Ex: 300000)*</label>
+            <span *ngIf = "income.errors?.required && income.touched" class="field_error">
+              Income field can't be blank
+            </span>
+            <span *ngIf = "income.errors?.pattern && income.touched" class="field_error">
+              Please only add an integer value (0-9)
+          </span>
           </div>
         </div>
         </div>

@@ -15,7 +15,9 @@ import { UserService } from '../shared/user.service';
 export class CandidateComponent implements OnInit {
   user: User;
   emailPattern = '^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$';
+  userNamePattern = "^[a-z0-9_]*$";
   showLoader: boolean = false;
+  showMismatchError: boolean = false;
   uname: string;
   pw: string;
 
@@ -99,6 +101,15 @@ export class CandidateComponent implements OnInit {
       sessionStorage.clear();
   }
 
+  comparePasswords( form: NgForm, inp){
+    this.pw = form.value.password;
+
+    if(this.pw !== inp.model)
+      this.showMismatchError = true;
+    else  
+      this.showMismatchError = false;
+  }
+
   OnSubmit(form: NgForm) {
     this.uname = form.value.username;
     this.pw = form.value.password;
@@ -139,6 +150,8 @@ export class CandidateComponent implements OnInit {
             height: '150px',
             data: "User with this name is already registered"
           });
+          this.showLoader = false;
+          this.router.navigate(['/candidate'])
         }
         
         else {
@@ -147,6 +160,8 @@ export class CandidateComponent implements OnInit {
             height: '150px',
             data: data.error_message
           }); 
+          this.showLoader = false;
+          this.router.navigate(['/candidate'])
         }
       },
       err => {
@@ -155,6 +170,8 @@ export class CandidateComponent implements OnInit {
           height: '200px',
           data: err.message
         }); 
+        this.showLoader = false;
+        this.router.navigate(['/candidate'])
         }
 
       );

@@ -9,6 +9,8 @@ import {
   DomSanitizer } from '@angular/platform-browser';
 import { GeneralDialogBoxComponent } from '../dialogs/general-dialog-box/general-dialog-box.component';
 import {FormControl} from '@angular/forms';
+import { Fields } from '../shared/signup-fields.model';
+
 
 
 @Component({
@@ -18,6 +20,7 @@ import {FormControl} from '@angular/forms';
 })
 export class CreateviewComponent implements OnInit {
   // tslint:disable-next-line: no-inferrable-types
+  fields: Fields;
   imageUrl: string = 'http://localhost:4200/assets/image/default-image.png';
   fileToUpload: File = null;
   hide: boolean = true;
@@ -30,6 +33,7 @@ export class CreateviewComponent implements OnInit {
   residence: number;
 
   showLoader: boolean = false;
+  timePattern: "^[0-9]+$"
 
 
   socialmedias = new FormControl();
@@ -59,6 +63,16 @@ export class CreateviewComponent implements OnInit {
     private sanitization: DomSanitizer) { }
 
   ngOnInit() {
+
+    this.fields = {
+      name : '',
+      address: '',
+      time: 0,
+      income: 0,
+      social_media: { },
+      residence: ''
+    };
+
   }
 
   handleFileInput(file: FileList) {

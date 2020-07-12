@@ -14,7 +14,7 @@ import { UserService } from '../shared/user.service';
 export class LoginComponent implements OnInit {
   // tslint:disable-next-line: no-inferrable-types
   isLoginError: boolean = false;
-  userpattern = '^[a-z0-9_-]{3,15}$';
+  userpattern = '^[a-z0-9_]{3,15}$';
   showLoader: boolean = false;
 
   constructor(

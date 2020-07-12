@@ -103,8 +103,16 @@ export class NavbarComponent implements OnInit {
     // if(this.quizStarted)
       // this.ifQuizOngoing(option);
     // else{
-      if(option === 'home')
+    if(option === 'home')
       this.router.navigate(['/home']);
+    if(option === 'instructions')
+      this.router.navigate(['/instructions']);
+    if(option === 'course-list')
+      this.router.navigate(['/course-list']);
+    if(option === 'blog-list')
+      this.router.navigate(['/blog-list']);
+    if(option === 'scheme-list')
+      this.router.navigate(['/scheme-list']);
     else if(option === 'create-job')
       this.router.navigate(['/jobForm']);
     else if(option === 'job-search')

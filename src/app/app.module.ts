@@ -67,7 +67,12 @@ import { MinutesToSecondsPipe } from '../../src/app/pipes/minutesToSeconds.pipe'
 import {MatSelectModule} from '@angular/material/select';
 import { ContactComponent } from './contact/contact.component';
 import { ContactPageComponent } from './shared/contact-page/contact-page.component'
-import { AboutUsComponent } from './about-us/about-us.component'
+import { AboutUsComponent } from './about-us/about-us.component';
+import { CourseListComponent } from './resources/course-list/course-list.component';
+import { FilterPipe } from '../../src/app/pipes/filter.pipe';
+import { BlogListComponent } from './resources/blog-list/blog-list.component';
+import { SchemeListComponent } from './resources/scheme-list/scheme-list.component';
+
 
 
 @NgModule({
@@ -118,7 +123,11 @@ import { AboutUsComponent } from './about-us/about-us.component'
     MinutesToSecondsPipe,
     ContactComponent,
     ContactPageComponent,
-    AboutUsComponent
+    AboutUsComponent,
+    CourseListComponent,
+    FilterPipe,
+    BlogListComponent,
+    SchemeListComponent
   ],
   imports: [
     BrowserModule,

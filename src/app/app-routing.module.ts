@@ -35,6 +35,9 @@ import { ContactPageComponent } from './shared/contact-page/contact-page.compone
 import { from } from 'rxjs';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { CanDeactivateService } from './shared/can-deactivate.service';
+import { CourseListComponent } from './resources/course-list/course-list.component';
+import { BlogListComponent } from './resources/blog-list/blog-list.component';
+import { SchemeListComponent } from './resources/scheme-list/scheme-list.component';
 
 
 const routes: Routes = [
@@ -76,6 +79,10 @@ const routes: Routes = [
   {path: 'faq-page', component: FaqPageComponent},
   {path: 'contact-page', component:ContactPageComponent},
   {path: 'about-us', component: AboutUsComponent},
+  {path: 'course-list', component: CourseListComponent},
+  {path: 'blog-list', component: BlogListComponent},
+  {path: 'scheme-list', component: SchemeListComponent},
+
 
 
 

@@ -35,6 +35,11 @@
       Time Left: {{ timeLeft | minutesToSeconds }}
     </div>
   </div>
+  <!-- <div>
+    <div class="nav-link">
+      <a (click)="onClickOption('quiz')">Take Quiz</a>
+    </div>
+  </div> -->
   <div class="links" *ngIf = "showLinks">
     <div class="nav-link">
       <a (click)="onClickOption('home')">Home</a>
@@ -54,6 +59,36 @@
     <div class="nav-link" *ngIf="!checkifLoggedIn()">
       <a (click)="onClickOption('login')">Log In</a>
     </div>
+
+    <button class="nav-btn" mat-icon-button [matMenuTriggerFor]="resourcesmenu" aria-label="Example icon-button with a menu" *ngIf = "checkifLoggedIn() || userIsCandidate">
+      <div class="nav-btn-txt" >Resources<mat-icon class="dropdwn-arr">arrow_drop_down</mat-icon></div>
+    </button>
+    <mat-menu #resourcesmenu="matMenu">
+      <!-- <button mat-menu-item disabled *ngIf = "checkifLoggedIn()">
+        <mat-icon>search</mat-icon>
+        <span>{{name}}</span>
+      </button> -->
+      <button class="nav-btn" mat-menu-item (click) = "onClickOption('instructions')" *ngIf = "!userIsOrganization">
+        <mat-icon>assignment</mat-icon>
+        <span>Take Quiz</span>
+      </button>
+      <button class="nav-btn" mat-menu-item (click) = "onClickOption('course-list')" *ngIf = "checkifLoggedIn() && userIsCandidate">
+        <mat-icon>menu_book</mat-icon>
+        <span>Search Courses</span>
+      </button>
+      <button class="nav-btn" mat-menu-item (click) = "onClickOption('blog-list')" *ngIf = "checkifLoggedIn() && userIsCandidate">
+        <mat-icon>library_books</mat-icon>
+        <span>Search Blogs</span>
+      </button>
+      <button class="nav-btn" mat-menu-item (click) = "onClickOption('scheme-list')" *ngIf = "checkifLoggedIn() && userIsCandidate">
+        <mat-icon>add_alert</mat-icon>
+        <span>Search Schemes</span>
+      </button>
+      <!-- <button mat-menu-item>
+        <mat-icon>notifications_off</mat-icon>
+        <span>Disable alerts</span>
+      </button> -->
+    </mat-menu>
 
     <button class="nav-btn" mat-icon-button [matMenuTriggerFor]="jobsmenu" aria-label="Example icon-button with a menu" *ngIf = "checkifLoggedIn()">
       <div class="nav-btn-txt" >Jobs<mat-icon class="dropdwn-arr">arrow_drop_down</mat-icon></div>
@@ -105,6 +140,15 @@
       </button> -->
     </mat-menu>
   </div>
+
+
+  <div class="links" *ngIf="showTimer">
+    <div class="nav-link">
+      <a (click)="onClickOption('home')">Exit Quiz</a>
+    </div>
+  </div>
+
+
 </div>
 
 <!-- <div class="row">

@@ -87,15 +87,26 @@
             <div class="row">
                 <div class="input-field col s6">
                   <i class="material-icons prefix">account_circle</i>
-                    <input id="username" class="field-style field-split" type="text" name="username" #username="ngModel" [(ngModel)]="user.username" required >
-                    <label for="username">Username</label>
-                    <span class="helper-text" data-error="Required Username !" ></span>
+                    <input id="username" class="field-style field-split" type="text" name="username" #username="ngModel" [(ngModel)]="user.username" [pattern]="userNamePattern" required >
+                    <label for="username">Username (You will use this to Login)</label>
+                    <!-- <span class="helper-text" data-error="Required Username !" ></span> -->
+                    <span *ngIf = "username.errors?.required && username.touched" class="field_error">
+                      User Name field can't be blank
+                    </span>
+                    <span *ngIf = "username.errors?.pattern && username.touched" class="field_error">
+                        That name doesn't seem right. Caps not accepted.
+                    </span>
                 </div>
                 <div class="input-field col s6"> 
                   <i class="material-icons icon-image-preview prefix">email</i>
                     <input id="email" type="text" class="field-style field-split" name="email" #email="ngModel" [(ngModel)]="user.email" [pattern]="emailPattern" required >
                     <label for="email">Email</label>
-                    <span class="helper-text" data-error="Invalid Email!"></span>
+                    <span *ngIf = "email.errors?.required && email.touched" class="field_error">
+                      Email field can't be blank
+                    </span>
+                    <span *ngIf = "email.errors?.pattern && email.touched" class="field_error">
+                      That Email ID doesn't seem right
+                  </span>
                 </div>
             </div>
             <div class="row">
@@ -103,13 +114,14 @@
                   <i class="material-icons prefix">vpn_key</i>
                     <input id="password" type="password" class="field-style field-split" name="password" #password="ngModel" [(ngModel)]="user.password"  required >
                     <label for="password">Password</label>
-                    <span class="helper-text" data-error="Password requires uppercase lowercase symbols and numbers!"></span>
                 </div>
                 <div class="input-field col s6">
                   <i class="material-icons prefix">vpn_key</i>
-                    <input id="confirm_password" type="password" class="field-style field-split" name="confirm_password" #confirm_password="ngModel" [(ngModel)]="user.confirm_password"  required >
+                    <input id="confirm_password" type="password" class="field-style field-split" name="confirm_password" 
+                    #confirm_password="ngModel" [(ngModel)]="user.confirm_password" (keyup)="comparePasswords(organRegistrationForm, confirm_password)" required >
                     <label for="confirm_password">Confirm Password</label>
-                    <span class="helper-text" data-error="Password requires uppercase lowercase symbols and numbers!"></span>
+                    <!-- <span class="helper-text" data-error="Password requires uppercase lowercase symbols and numbers!"></span> -->
+                    <span *ngIf="showMismatchError" class="field_error">Passwords do not match</span>
                 </div>
             </div>
             
