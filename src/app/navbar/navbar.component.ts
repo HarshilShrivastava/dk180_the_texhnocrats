@@ -39,7 +39,7 @@ export class NavbarComponent implements OnInit {
             this.showLinks = false
           }
           if(this.showTimer === false){
-            this.timeLeft = 10;
+            this.timeLeft = 1200;
             this.showLinks = true
             clearInterval(this.interval);
           }
@@ -83,7 +83,7 @@ export class NavbarComponent implements OnInit {
   showSubmenu: boolean = false;
   isShowing = false;
   showSubSubMenu: boolean = false;
-  timeLeft: number = 10;
+  timeLeft: number = 1200;
   interval;
 
   data: any;
@@ -137,7 +137,7 @@ export class NavbarComponent implements OnInit {
             this.Logout();
           else
             this.router.navigate([option]);
-          this.timeLeft = 10;
+          this.timeLeft = 1200;
           clearInterval(this.interval);
         }
         // else
@@ -224,14 +224,14 @@ export class NavbarComponent implements OnInit {
         }
         else{
           this.quizService.chaluKar.next(false)
-          this.timeLeft = 10;
+          this.timeLeft = 1200;
           clearInterval(this.interval);
         }
       },1000)
       
     }
     else{
-      this.timeLeft = 10;
+      this.timeLeft = 1200;
     }
   }
 

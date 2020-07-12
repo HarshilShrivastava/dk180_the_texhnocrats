@@ -7,7 +7,7 @@
 
 <div *ngIf="notRegistered" class="not-registered">
   <div class="not-registered-txt">
-    Please <a href="/profiles"> Sign Up </a> to view recommended courses/ blogs/ Govt. schemes on your dashboard. 
+    Please <a [routerLink] = "['/profiles']"> Sign Up </a> to view recommended courses/ blogs/ Govt. schemes on your dashboard. 
     <!-- In the meantime, you can view these general courses to help you out with the quiz. -->
   </div>
   <div class="not-registered-img">
@@ -69,7 +69,7 @@
             </mat-menu>
           </div>
         </div>
-        <p class="description" title="{{ data.Address }}">
+        <p class="description" title="{{ data.Address }}" title="{{data.data.Address}}">
           <strong>Address : </strong> {{ data.data.Address }}
         </p>
         <mat-card-content>

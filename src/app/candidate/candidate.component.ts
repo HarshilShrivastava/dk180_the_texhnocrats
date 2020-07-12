@@ -16,6 +16,8 @@ export class CandidateComponent implements OnInit {
   user: User;
   emailPattern = '^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$';
   showLoader: boolean = false;
+  uname: string;
+  pw: string;
 
   constructor(
     private quizService: QuizService, 
@@ -25,6 +27,7 @@ export class CandidateComponent implements OnInit {
     ) { }
 
   ngOnInit() {
+    window.scroll(0, 0);
     this.resetForm();
   }
 
@@ -97,22 +100,28 @@ export class CandidateComponent implements OnInit {
   }
 
   OnSubmit(form: NgForm) {
-    this.showLoader = true;
+    this.uname = form.value.username;
+    this.pw = form.value.password;
 
     this.quizService.Candidate = this.user.Is_Candidate;
     this.quizService.Organization = this.user.Is_Organization;
     this.quizService.University = this.user.Is_University;
+    this.showLoader = true;
       this.quizService.register(form.value).subscribe((data: any) => {
+        
         if (data.response === 201) {
-          this.showLoader = false;
+
           console.log(data);
-          this.quizService.userLogin(form.value.username, form.value.password).subscribe((data: any) => {
+          this.quizService.userLogin(this.uname, this.pw).subscribe((data: any) => {
             console.log(data);
             localStorage.setItem("token", data.token);
             localStorage.setItem("Is_Candidate", JSON.stringify(true))
-            localStorage.setItem("cc_uname", "N/A")
+            localStorage.setItem("cc_uname", "Not Added")
+            this.showLoader = false;
+
             this.userService.aaya.next(true);
-            this.checkIfPostRatingPending()
+
+            // this.checkIfPostRatingPending()
           })
           this.resetForm();
           let dialogRef = this.dialog.open(ErrorDialogComponent, {
