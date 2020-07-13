@@ -67,8 +67,8 @@ export class CreateviewComponent implements OnInit {
     this.fields = {
       name : '',
       address: '',
-      time: 0,
-      income: 0,
+      time: null,
+      income: null,
       social_media: { },
       residence: ''
     };
@@ -167,18 +167,17 @@ export class CreateviewComponent implements OnInit {
        console.log('done', data);
        this.showLoader = false;
        if(data.status === 200){
-       let dialogRef = this.dialog.open(GeneralDialogBoxComponent, {
+       let dialogRef = this.dialog.open(ErrorDialogComponent, {
         height: '200px',
         width: '400px',
-        data: "Your profile is created successfully, would you like to proceed to the quiz?"
+        data: "Your profile is created successfully, redirecting you to your dashboard.."
       });  
-      dialogRef.afterClosed().subscribe((data) => {
-        if (data === "proceed") {
-          this.router.navigate(['/instructions']);
-        }
-        else
-          this.router.navigate(['/canview'])
-      });
+      setTimeout(() => {
+        this.router.navigate(['/canview'])
+      }, 1000);
+      // dialogRef.afterClosed().subscribe((data) => {
+          
+      // });
        Name.value = null;
        Address.value = null;
        Image.value = null;
