@@ -12,7 +12,9 @@
             id="search"
             [(ngModel)]="query"
             name="query"
-            type="text"
+            type="search"
+            required
+            (keyup)="applyFilter($event.target.value)"
             placeholder="Search.."
           />
           <i id="cross" class="material-icons" (click)="clear()">close</i>
@@ -41,7 +43,7 @@
       <!-- *ngIf="i >= startIndex && i < endIndex" -->
 
       <div class="cont-cont">
-        <div class="container" *ngFor="let result of data.data | filter: query; let i = index">
+        <div class="container" *ngFor="let result of data.data; let i = index">
           <mat-card class="example-card">
             <div class="header-container">
               <mat-card-header>

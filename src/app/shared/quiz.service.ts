@@ -302,21 +302,21 @@ export class QuizService {
     const Headers = new HttpHeaders()
       .set('Authorization', 'token ' + localStorage.getItem('token'));
 
-    return this.http.get('http://harshraj.pythonanywhere.com/content/course-search', {headers: Headers} );
+    return this.http.get('https://harshraj.pythonanywhere.com/content/course-search', {headers: Headers} );
   }
 
   getAllBlogs(){
     const Headers = new HttpHeaders()
       .set('Authorization', 'token ' + localStorage.getItem('token'));
 
-    return this.http.get('http://harshraj.pythonanywhere.com/content/blogs-search', {headers: Headers} );
+    return this.http.get('https://harshraj.pythonanywhere.com/content/blogs-search', {headers: Headers} );
   }
 
   getAllSchemes(){
     const Headers = new HttpHeaders()
       .set('Authorization', 'token ' + localStorage.getItem('token'));
 
-    return this.http.get('http://harshraj.pythonanywhere.com/content/scheme-search', {headers: Headers} );
+    return this.http.get('https://harshraj.pythonanywhere.com/content/scheme-search', {headers: Headers} );
   }
 
   // postAllMarks(){
