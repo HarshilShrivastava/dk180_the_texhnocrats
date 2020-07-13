@@ -167,7 +167,7 @@ export class QuizService {
     return this.http.post('https://harshraj.pythonanywhere.com/account/login/', data , { headers: reqheaders });
   }
 
-  postFile(Name: string, Address: string ,  fileToUpload: File, Time: string, Familyincome: string, Residence) {
+  postFile(Name: string, Address: string ,  fileToUpload: File, Time: string, Familyincome: string, Residence, Bio: string, Experience: string) {
     const formData: FormData = new FormData();
     formData.append('Resume', fileToUpload, fileToUpload.name);
     formData.append('Name', Name);
@@ -176,6 +176,10 @@ export class QuizService {
     formData.append('Time', Time.toString());
     formData.append('Familyincome', Familyincome.toString());
     formData.append('Residence', Residence.toString());
+    formData.append('Bio', Bio);
+    formData.append('Experience', Experience.toString());
+
+
 
     if(localStorage.getItem("SM1")) 
       formData.append('Socialmedia', localStorage.getItem("SM1"))
@@ -319,6 +323,18 @@ export class QuizService {
     return this.http.get('https://harshraj.pythonanywhere.com/content/scheme-search', {headers: Headers} );
   }
 
+
+  uploadCertificate(Name: string, certificate: File){
+    const Headers = new HttpHeaders()
+      .set('Authorization', 'token ' + localStorage.getItem('token'));
+
+    const formData: FormData = new FormData();
+    formData.append('Name', Name);
+    formData.append('File', certificate, certificate.name);
+
+    return this.http.post('http://harshraj.pythonanywhere.com/candidate/Certificate/', formData, {headers: Headers});
+
+  }
   // postAllMarks(){
   //   const body = {
   //     Roundone: sessionStorage.getItem("Final_Marketing_Rating")

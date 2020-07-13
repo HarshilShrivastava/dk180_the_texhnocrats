@@ -32,7 +32,7 @@
 .dashboard{
   display: flex;
   justify-content: flex-start;
-  max-height: 500px !important;
+  max-height: fit-content;
   margin-left: 5%;
 }
 
@@ -56,6 +56,12 @@
   border-bottom-color: lightgray;
 }
 
+.card-inside-header{
+  margin-top: 2%;
+  font-size: large;
+  color: gray;
+}
+
 .example-card {
   font-family: Poppins !important;
   // max-width: 25%;
@@ -66,6 +72,7 @@
   min-height: 8%;
   padding: 12px !important;
   min-height: 100%;
+  max-height: fit-content;
 }
 
 .example-header-image {
@@ -115,10 +122,19 @@
   overflow: hidden;
   position: relative;
   line-height: 1.2em;
-  max-height: 6em;
+  // max-height: 6em;
   text-align: justify;
   margin-right: -1em;
   padding-right: 2em;
+}
+
+.description-fields{
+  margin-left: 3%;
+  padding: 2% 0%;
+}
+
+.ml5{
+  margin-left: 5% !important;
 }
 
 .dashboard_img-container{
@@ -146,9 +162,14 @@
   font-size: medium !important;
 }
 
+.carousel{
+  height: 500px !important;
+}
+
 .carousel.carousel-slider .carousel-item h2 {
-    max-width: 25%;
-    margin-left: 38%;
+  display: flex;
+  justify-content: center;
+  width: 100% !important;
 }
 
 .carousel.carousel-slider .carousel-item p {
@@ -163,6 +184,16 @@
 
 .white-text {
     color: black !important;
+}
+
+.course-desc{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.last-item{
+  margin-bottom: 2% !important;
 }
 
 .red {

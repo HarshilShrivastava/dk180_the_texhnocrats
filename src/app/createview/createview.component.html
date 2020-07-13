@@ -10,18 +10,20 @@
       <div class="card-panel teal lighten-2">
         <h4 class="center white-text">Candidate Profile</h4>
       </div> -->
-      <form *ngIf="!showLoader" #imageForm=ngForm class="form-style-9" (ngSubmit)="OnSubmit(Name, Address, Image, Time, income)">
+      <form *ngIf="!showLoader" #imageForm=ngForm class="form-style-9" (ngSubmit)="OnSubmit(Name, Address, Image, Time, income, Bio, Experience)">
         <div class="part-number">
           Part 1: General Details:
         </div>
 
         <div class="general-details">
+        <div class="general-details-l1">
         <div class="row">
           <div class="input-field col s12">
             <i class="material-icons prefix">account_circle</i>
 
             <input type="text" class="field-style field-split" #Name="ngModel" [(ngModel)]="fields.name" name="Name" id="Name" required>
-            <label for="Name">Display name* (This name will be visible on your profile and to recruiters)</label>
+            <label for="Name">Display name* </label>
+            <span class="exp-sub">(This name will be visible on your profile and to recruiters)</span>
             <span *ngIf = "Name.errors?.required && Name.touched" class="field_error">
               Name field can't be blank
             </span>
@@ -30,6 +32,24 @@
           </span>
           </div>
         </div>
+
+        <div class="row">
+          <div class="input-field col s12">
+            <i class="material-icons icon-image-preview prefix">access_time</i>
+            <input type="number" class="field-style field-split" #Experience="ngModel" [(ngModel)]="fields.experience" name="Experience" id="Experience" required>
+            <label for="Experience">Experience</label>
+            <span class="exp-sub">Write 0 if you don't have any yet.</span>
+            <span *ngIf = "Experience.errors?.required && Experience.touched" class="field_error">
+              Experience field can't be blank
+            </span>
+            <span *ngIf = "Experience.errors?.pattern && Experience.touched" class="field_error">
+              Please add a valid experience.
+          </span>
+          </div>
+        </div>
+      </div>
+
+
         <div class="row">
           <div class="input-field col s12">
             <i class="material-icons icon-image-preview prefix">home</i>
@@ -39,10 +59,12 @@
               Address field can't be blank
             </span>
             <span *ngIf = "Address.errors?.pattern && Address.touched" class="field_error">
-              Please add a valid name
+              Please add a valid /address/.
           </span>
           </div>
         </div>
+
+        
         <div class="label1">
         <label for="resume-upload" style="font-weight: bold; font-size: inherit;">Upload resume* (Please only upload a .pdf file)</label>
 
@@ -56,7 +78,7 @@
         <mat-checkbox (change)="preview()">I want a preview of my uploaded file</mat-checkbox>
         </div>
         <br>
-        <div>
+        <div class="disp-resume">
           <div *ngIf="display">
             <div class="preview"> Preview: </div>
             <pdf-viewer [src]="imageUrl" [render-text]="true" style="display: block;"></pdf-viewer> 
@@ -69,12 +91,34 @@
 
 
         </div>
+        <div class="label12">
+          <label for="resume-upload" style="font-weight: bold; font-size: inherit;">Upload any certifications you have*</label>
+          <br>
+          <br>
+          <input type="file" class="submit" #Image accept="application/pdf, image/*" (change)="certificateUpload($event.target.files)" multiple>
+        </div>
         </div>
         <br>
 
         <div class="part-number">
-          Part 2: Social Media Activity:
+          Part 2: Make your profile stand out:
         </div>
+
+        <div class="row">
+          <div class="input-field col s12">
+            <i class="material-icons icon-image-preview prefix">home</i>
+            <textarea type="text" class="field-style field-split" #Bio="ngModel" [(ngModel)]="fields.bio" name="Bio" id="Bio" rows="7" required>
+            </textarea>
+            <label for="Bio">Add a bio*</label>
+            <span *ngIf = "Bio.errors?.required && Bio.touched" class="field_error">
+              Bio field can't be blank
+            </span>
+            <span *ngIf = "Bio.errors?.pattern && Bio.touched" class="field_error">
+              Please add a valid bio.
+          </span>
+          </div>
+        </div>
+        <br>
         <div class="info-container">
         <div class="sm-platforms">
           <div class="sm-dropdown" matTooltip="Social Media Platforms You Use">
@@ -109,6 +153,8 @@
           </span>
           </div>
         </div>
+
+        
         </div>
 
         <br>
@@ -118,6 +164,7 @@
         </div>
 
         <div class="info-container">
+          
 
           <div class="se-residence">
             <div class="se-dropdown" matTooltip="Type of area">
@@ -151,6 +198,9 @@
           </div>
         </div>
         </div>
+        <br>
+
+        
         <br>
 
         

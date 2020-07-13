@@ -5,4 +5,6 @@ export class Fields {
     income: number;
     social_media: object;
     residence: string;
+    bio: string;
+    experience: number
 }

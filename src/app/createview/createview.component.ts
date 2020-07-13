@@ -23,10 +23,13 @@ export class CreateviewComponent implements OnInit {
   fields: Fields;
   imageUrl: string = 'http://localhost:4200/assets/image/default-image.png';
   fileToUpload: File = null;
+  certificate: File = null;
   hide: boolean = true;
   display: boolean = false;
   isValid: boolean = true;
   resumeStatus: boolean = false;
+
+  isCertiValid: boolean = true;
 
   socialMediaArray: Array<string> = [ ];
 
@@ -70,7 +73,9 @@ export class CreateviewComponent implements OnInit {
       time: null,
       income: null,
       social_media: { },
-      residence: ''
+      residence: '',
+      bio: '',
+      experience: null
     };
 
   }
@@ -94,6 +99,10 @@ export class CreateviewComponent implements OnInit {
       this.imageUrl = event.target.result;
     };
     
+  }
+
+  certificateUpload(file: FileList){
+    this.certificate = file.item(0);
   }
 
   preview(){
@@ -157,12 +166,26 @@ export class CreateviewComponent implements OnInit {
     localStorage.removeItem("SM5");
   }
 
-  OnSubmit(Name, Address, Image, Time, income) {
+  OnSubmit(Name, Address, Image, Time, income, Bio, Experience) {
 
     this.setPlatforms();
     this.showLoader = true;
    if (localStorage.getItem('token')) {
-   this.quizService.postFile(Name.value, Address.value, this.fileToUpload, Time.value, income.value, this.residence).subscribe(
+     this.quizService.uploadCertificate(Name.value, this.certificate).subscribe((data: any) => {
+       console.log("Certificate", data);
+       if(data.status === 200){
+         let dialogRef1 = this.dialog.open(ErrorDialogComponent, {
+           height: '150px',
+           width: '300px',
+           data: "Upload in progress, please wait..."
+         })
+         setTimeout(() => {
+          dialogRef1.close()
+        }, 300);
+       }
+       
+     })
+   this.quizService.postFile(Name.value, Address.value, this.fileToUpload, Time.value, income.value, this.residence, Bio.value, Experience.value).subscribe(
      (data: any) => {
        console.log('done', data);
        this.showLoader = false;
@@ -174,7 +197,7 @@ export class CreateviewComponent implements OnInit {
       });  
       setTimeout(() => {
         this.router.navigate(['/canview'])
-      }, 1000);
+      }, 500);
       // dialogRef.afterClosed().subscribe((data) => {
           
       // });
