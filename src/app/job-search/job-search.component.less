@@ -2,20 +2,54 @@ mat-form-field {
   height: 20px;
 }
 
-.title-container {
+.page-header-container{
+  font-family: Poppins !important;
   display: flex;
-  justify-content: space-around;
-  align-items: center;
-  .title {
-    font-weight: bold;
-    line-height: 70px;
-    font-size: 50px;
-    max-width: 500px;
-  }
-  img {
-    width: 400px;
-  }
+  justify-content: space-between;
+  border-bottom: 1px solid;
+  border-bottom-color: lightgray;
 }
+
+.title-container{
+  display: flex;
+  flex-direction: column;
+  min-width: 50%;
+  padding: 0% 0% 0% 8.5%;
+  align-self: center;
+}
+
+.title {
+  font-weight: bold;
+  line-height: 70px;
+  font-size: 38px;
+  max-width: 500px;
+}
+
+.header-image-container{
+  max-width: 50%;
+  display: flex;
+  justify-content: center;
+  padding-left: 2%;
+}
+
+.header-image{
+  max-width: 40%;
+}
+
+// .title-container {
+//   display: flex;
+//   justify-content: space-around;
+//   align-items: center;
+//   .title {
+//     font-weight: bold;
+//     line-height: 70px;
+//     font-size: 50px;
+//     max-width: 500px;
+//   }
+//   img {
+//     width: 400px;
+//   }
+// }
 i {
   padding: 3%;
 }
@@ -37,13 +71,13 @@ i {
   font-size: large;
 }
 
-h4 {
-  font-family: Poppins !important;
-  margin-left: 20px !important;
-  margin-bottom: 0px;
-  color: #0b132b;
-  margin-left: 9% !important;
-}
+// h4 {
+//   font-family: Poppins !important;
+//   margin-left: 20px !important;
+//   margin-bottom: 0px;
+//   color: #0b132b;
+//   margin-left: 9% !important;
+// }
 
 .card {
   background: linear-gradient(to bottom, #41295a, #2f0743);
@@ -90,13 +124,14 @@ a {
 
 .search-container {
   display: flex;
-  padding: 0% 5% 0% 8.5%;
+  padding-top: 2%;
+  // padding: 0% 5% 0% 16%;
   // margin-left: 7.5%;
   // background-color: white;
 }
 
 .search-wrapper {
-  margin-bottom: 4%;
+  // margin-bottom: 4%;
   background: white;
 }
 
@@ -104,7 +139,7 @@ a {
   display: flex;
   border: 1px solid;
   height: 42.4px;
-  margin-top: 7%;
+  // margin-top: 7%;
   justify-content: space-between;
   width: 280px;
   max-width: 280px;

@@ -1,9 +1,33 @@
 <div class="row">
+  <div class="page-header-container">
   <div class="title-container">
-    <h4 class="title">Help us in helping you find the perfect job here:</h4>
-    <img src="./assets/image/flat22.png" />
+    <h4 class="title">Find your perfect job here:</h4>
+    <div class="search-container">
+      <div class="nav-wrapper">
+        <form class="search-wrapper">
+          <div class="search-bar">
+            <i id="search-icon" class="material-icons">search</i>
+            <input
+              id="search"
+              [(ngModel)]="query"
+              name="query"
+              type="search"
+              required
+              (keyup)="applyFilter($event.target.value)"
+              placeholder="Search by role or company"
+            />
+            <i id="cross" class="material-icons" (click)="clear()">close</i>
+          </div>
+        </form>
+      </div>
+    </div>
   </div>
-  <div class="search-container">
+
+  <div class="header-image-container">
+    <img src="./assets/image/dashboard.png" class="header-image" />
+  </div>
+</div>
+  <!-- <div class="search-container">
     <div class="nav-wrapper">
       <form class="search-wrapper">
         <div class="search-bar">
@@ -21,7 +45,7 @@
         </div>
       </form>
     </div>
-  </div>
+  </div> -->
 
   <div class="loader-container">
     <div *ngIf="showLoader">
