@@ -50,8 +50,8 @@
                 *ngIf="userService.isOrganization"
               >
                 <i class="material-icons">edit</i>
-                <span>
-                  <div class="dropdown-txt">Apply Now</div>
+                <span [routerLink]="['/deactivate-profile']">
+                  <div class="dropdown-txt">Deactivate Profile</div>
                 </span>
               </button>
               <button class="dropdown-cont" mat-menu-item>

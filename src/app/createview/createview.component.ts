@@ -28,6 +28,9 @@ export class CreateviewComponent implements OnInit {
   display: boolean = false;
   isValid: boolean = true;
   resumeStatus: boolean = false;
+  skillsPresent: boolean = false;
+
+  results: [ ];
 
   isCertiValid: boolean = true;
 
@@ -98,6 +101,13 @@ export class CreateviewComponent implements OnInit {
     reader.onload = (event: any) => {
       this.imageUrl = event.target.result;
     };
+
+    this.quizService.resumeAnalysis(this.fileToUpload).subscribe((data: any) => {
+      console.log(data);
+      this.skillsPresent = true;
+      this.results = data;
+      
+    })
     
   }
 

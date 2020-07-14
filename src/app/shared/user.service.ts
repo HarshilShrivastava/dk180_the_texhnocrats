@@ -78,6 +78,12 @@ export class UserService{
         }
     }
 
+    logOut(){
+        localStorage.clear();
+        console.log("Logged out");
+        
+    }
+
     // getUserName(){
     //     if(this.tok !== undefined && this.tok !== "undefined" && this.tok !== null ){
     //       this.quizService.canView().subscribe((data: any) => {
