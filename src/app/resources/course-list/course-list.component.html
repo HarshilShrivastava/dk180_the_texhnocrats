@@ -1,16 +1,81 @@
 <div class="row">
+  <div class="page-header-container">
     <div class="title-container" *ngIf="blog">
-      <h4 class="title">Search available Blogs here:</h4>
+      <span class="title">Search Available Blogs here:</span>
+      <div class="search-container">
+        <div class="nav-wrapper">
+          <form class="search-wrapper">
+            <div class="search-bar">
+              <i id="search-icon" class="material-icons">search</i>
+              <input
+                id="search"
+                [(ngModel)]="query"
+                name="query"
+                type="search"
+                placeholder="Search.."
+              />
+              <i id="cross" class="material-icons" (click)="clear()">close</i>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="title-container" *ngIf="course">
+      <span class="title">Search Available Courses here:</span>
+      <div class="search-container">
+        <div class="nav-wrapper">
+          <form class="search-wrapper">
+            <div class="search-bar">
+              <i id="search-icon" class="material-icons">search</i>
+              <input
+                id="search"
+                [(ngModel)]="query"
+                name="query"
+                type="search"
+                placeholder="Search.."
+              />
+              <i id="cross" class="material-icons" (click)="clear()">close</i>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="title-container" *ngIf="scheme">
+      <span class="title">Search Available Schemes here:</span>
+      <div class="search-container">
+        <div class="nav-wrapper">
+          <form class="search-wrapper">
+            <div class="search-bar">
+              <i id="search-icon" class="material-icons">search</i>
+              <input
+                id="search"
+                [(ngModel)]="query"
+                name="query"
+                type="search"
+                placeholder="Search.."
+              />
+              <i id="cross" class="material-icons" (click)="clear()">close</i>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="header-image-container">
+      <img src="./assets/image/dashboard.png" class="header-image" />
+    </div>
+  </div>
+    <!-- <div class="title-container" *ngIf="blog">
+      <span class="title">Search Available Blogs here:</span>
       <img src="./assets/image/flat22.png" />
     </div>
 
     <div class="title-container" *ngIf="course">
-        <h4 class="title">Search available Courses here:</h4>
+        <span class="title">Search Available Courses here:</span>
         <img src="./assets/image/flat22.png" />
     </div>
 
     <div class="title-container" *ngIf="scheme">
-      <h4 class="title">Search available Schemes here:</h4>
+      <span class="title">Search Available Schemes here:</span>
       <img src="./assets/image/flat22.png" />
     </div>
     <div class="search-container">
@@ -28,8 +93,8 @@
             <i id="cross" class="material-icons" (click)="clear()">close</i>
           </div>
         </form>
-      </div>
-    </div>
+      </div> -->
+    <!-- </div> -->
   
     <!-- <div class="loader-container">
       <div *ngIf="showLoader">
