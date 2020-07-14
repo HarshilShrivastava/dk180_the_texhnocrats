@@ -30,7 +30,7 @@
                 alt="logo"
               />
             </div>
-            <mat-card-title> <strong> Name: </strong> {{ data.data.Name }}</mat-card-title>
+            <mat-card-title> Hey  <strong> {{ data.data.Name }} </strong></mat-card-title>
           </mat-card-header>
 
           <div class="dropdown">
@@ -69,21 +69,55 @@
             </mat-menu>
           </div>
         </div>
-        <p class="description" title="{{ data.Address }}" title="{{data.data.Address}}">
+        <div class="description">
+          <div class="card-inside-header">
+            <strong>Personal Details:</strong> 
+          </div>
+        
+        <div class="description-fields">
+        <p title="{{ data.Address }}" title="{{data.data.Address}}">
+          <strong>Name : </strong> {{ data.data.Name }}
+        </p>
+
+        <p title="{{ data.Address }}" title="{{data.data.Address}}">
           <strong>Address : </strong> {{ data.data.Address }}
         </p>
+        </div>
+        </div>
         <mat-card-content>
+          <div class="description">
+          <div class="card-inside-header">
+            <strong>Professional Details:</strong> 
+          </div>
+
+          <div class="description-fields">
           <p>
             <strong>Resume : </strong>
             <a href="{{data.data.Resume}}" target="_blank">View</a>
           </p>
 
           <p>
-            <strong>Technical Rating : {{data.data.TechRating}} (Start giving the quiz to improve this)</strong>
+            <strong>Your Bio :</strong> {{data.data.Bio}}
+          </p>
+
+          <p>
+            <strong>Your Experience :</strong> {{data.data.Experience}} year(s)
+          </p>
+        </div>
+      </div>
+
+      <div class="card-inside-header">
+        <strong>CareerConnect Stats:</strong> 
+      </div>
+
+      <div class="description-fields">
+          <p>
+            <strong>Tech Rating: {{data.data.TechRating}} </strong>(Take the <a [routerLink]="['/instructions']">Quiz</a> to improve this )
           </p>
           <p>
-            <strong>Technical Rating : {{data.data.MarketRating}} (Start giving the quiz to improve this)</strong>
+            <strong>Marketing Rating: {{data.data.MarketRating}} </strong>(Take the <a [routerLink]="['/instructions']">Quiz</a> to improve this )
           </p>
+        </div>
         </mat-card-content>
         <mat-card-actions class="footer">
         </mat-card-actions>
@@ -124,12 +158,12 @@
           <a style=" position: relative;"></a>
         </div>
         <div class="carousel-item red white-text" *ngFor="let course of coursess; let i = index">
-            <h2>Title: {{course.title}}</h2>
-            <p class="white-text">Description {{course.desc}}</p>
-            <p class="white-text">By: {{course.by}}</p>
-            <p class="white-text">Rating {{course.rating}}</p>  
+            <h2>Course Name: {{course.title}}</h2>
+            <p class="white-text course-desc"> <strong> Description </strong> {{course.desc}}</p>
+            <p class="white-text course-desc"> <strong> By </strong> {{course.by}}</p>
+            <p class="white-text course-desc last-item"> <strong> Rating </strong> {{course.rating}}</p>  
             <div (click)="onClick(course, i)">
-                <a class="btn waves-effect white grey-text darken-text-2 btn" target="_blank" href="{{course.apply}}"> <a class="btn-txt"> Apply Now </a></a>
+                <a class="btn waves-effect white grey-text darken-text-2 btn" target="_blank" href="{{course.apply}}"> <p class="btn-txt"> Apply Now </p></a>
             </div>     
         </div>
       </div>
