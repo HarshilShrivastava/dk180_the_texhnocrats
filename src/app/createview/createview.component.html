@@ -114,6 +114,11 @@
           </div>
         </div>
 
+        <div *ngIf="isModeEdit" style="width: auto; display: flex; justify-content: center;">
+          Existing Resume:
+          <a href="{{resumeLink}}" target="_blank">View</a>
+        </div>
+
         <div class="label1">
           <label
             for="resume-upload"
@@ -160,14 +165,19 @@
           </div>
         </div>
 
-        <div class="row">
+        <div class="pb" *ngIf="inProgress && !isModeEdit">Scanning for skills:</div>
+        <div class="progress pb" *ngIf="inProgress && !isModeEdit">
+          <div class="indeterminate"></div>
+        </div>
+
+        <div class="row" *ngIf="!isModeEdit">
           <div class="skills-container" *ngIf="skillsPresent">
             <div class="skills-div">
               <div class="skill-item">
                 Skills based on resume analysis
               </div>
             </div>
-            <div class="skill-item" *ngIf="template.meta.tags">
+            <div class="skill-item">
               <div class="skill-item-txt" *ngFor="let skill of results.skills">
                 <div class="itm-txt">{{ skill }}</div>
               </div>

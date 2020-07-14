@@ -359,6 +359,42 @@ export class QuizService {
   //   };
   // }
 
+  getUserProfile(){
+    const Headers = new HttpHeaders()
+      .set('Authorization', 'token ' + localStorage.getItem('token'));
+
+    return this.http.get('https://harshraj.pythonanywhere.com/candidate/create/', {headers: Headers});
+  }
+
+  updateUserProfile(Name: string, Address: string ,  fileToUpload: File, Time: string, Familyincome: string, Residence, Bio: string, Experience: string){
+    const formData: FormData = new FormData();
+    formData.append('Resume', fileToUpload, fileToUpload.name);
+    formData.append('Name', Name);
+    formData.append('Address', Address);
+    // formData.append('Socialmedia', Socialmedia.toString());
+    formData.append('Time', Time.toString());
+    formData.append('Familyincome', Familyincome.toString());
+    formData.append('Residence', Residence.toString());
+    formData.append('Bio', Bio);
+    formData.append('Experience', Experience.toString());
+
+
+
+    if(localStorage.getItem("SM1")) 
+      formData.append('Socialmedia', localStorage.getItem("SM1"))
+    if(localStorage.getItem("SM2")) 
+      formData.append('Socialmedia', localStorage.getItem("SM2"))
+    if(localStorage.getItem("SM3")) 
+      formData.append('Socialmedia', localStorage.getItem("SM3"))
+    if(localStorage.getItem("SM4")) 
+      formData.append('Socialmedia', localStorage.getItem("SM4"))
+    if(localStorage.getItem("SM5")) 
+      formData.append('Socialmedia', localStorage.getItem("SM5"))
+
+    const Headers = new HttpHeaders().set('Authorization', 'token ' + localStorage.getItem('token'));
+    return this.http.put('https://harshraj.pythonanywhere.com/candidate/create/', formData, {headers: Headers});
+  }
+
 
 
 }

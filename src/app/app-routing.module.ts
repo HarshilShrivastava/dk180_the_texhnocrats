@@ -39,6 +39,7 @@ import { CourseListComponent } from './resources/course-list/course-list.compone
 import { BlogListComponent } from './resources/blog-list/blog-list.component';
 import { SchemeListComponent } from './resources/scheme-list/scheme-list.component';
 import { DeactivateProfileComponent } from './candidate-ops/deactivate-profile/deactivate-profile.component';
+import { EditProfileComponent } from './candidate-ops/edit-profile/edit-profile.component';
 
 
 const routes: Routes = [
@@ -84,6 +85,8 @@ const routes: Routes = [
   {path: 'blog-list', component: BlogListComponent},
   {path: 'scheme-list', component: SchemeListComponent},
   {path: 'deactivate-profile', component: DeactivateProfileComponent},
+  {path: 'edit-profile', component: EditProfileComponent},
+
 
 
 {

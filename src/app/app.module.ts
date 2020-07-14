@@ -73,6 +73,7 @@ import { FilterPipe } from '../../src/app/pipes/filter.pipe';
 import { BlogListComponent } from './resources/blog-list/blog-list.component';
 import { SchemeListComponent } from './resources/scheme-list/scheme-list.component';
 import { DeactivateProfileComponent } from './candidate-ops/deactivate-profile/deactivate-profile.component';
+import { EditProfileComponent } from './candidate-ops/edit-profile/edit-profile.component';
 
 
 
@@ -129,7 +130,8 @@ import { DeactivateProfileComponent } from './candidate-ops/deactivate-profile/d
     FilterPipe,
     BlogListComponent,
     SchemeListComponent,
-    DeactivateProfileComponent
+    DeactivateProfileComponent,
+    EditProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -158,7 +160,7 @@ import { DeactivateProfileComponent } from './candidate-ops/deactivate-profile/d
     MatCardModule,
     MatPaginatorModule,
     MatMenuModule,
-    MatSelectModule
+    MatSelectModule,
 ],
   providers: [QuizService, User],
   bootstrap: [AppComponent],
