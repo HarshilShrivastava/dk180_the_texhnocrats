@@ -1,66 +1,79 @@
-.quiz-r1{
-    font-family: Poppins !important;
-    color: black;
-    padding: 2%;
-    /deep/ .mat-stepper-horizontal{
-        box-shadow: -5px -5px 5px 5px lightgrey;
-    }
+.quiz-r1 {
+  font-family: Poppins !important;
+  color: black;
+  padding: 2%;
+  /deep/ .mat-stepper-horizontal {
+    box-shadow: -5px -5px 5px 5px lightgrey;
+  }
+}
+/deep/ .mat-horizontal-stepper-content {
+  display: flex;
+  justify-content: space-between;
+}
+.form-container {
+  //padding: 0% 20% 0% 20%;
+  width: 70%;
+}
+.icon {
+  height: 200px;
+}
+.loader-container {
+  display: flex;
+  justify-content: center;
 }
 
-.loader-container{
-    display: flex;
-    justify-content: center;
+.loader {
+  width: 100px;
+  height: 100px;
 }
 
-.loader{
-    width: 100px;
-    height: 100px;
+.main-container {
+  display: flex;
+  justify-content: space-between;
 }
 
 p {
-    color: lightgray;
-    margin-top: auto;
+  color: lightgray;
+  margin-top: auto;
 }
 
-.card_content white_text{
-    color: #0b132b ;
+.card_content white_text {
+  color: #0b132b;
 }
 
-.collection{
-    // background: linear-gradient(to top, #ada996, #f2f2f2, #dbdbdb, #eaeaea);
-    border: none !important;
-    border-bottom: 1px solid;
-    border-bottom-color: lightgray;
-    font-family: Poppins !important;
-    font-weight: 600;
+.collection {
+  // background: linear-gradient(to top, #ada996, #f2f2f2, #dbdbdb, #eaeaea);
+  border: none !important;
+  border-bottom: 1px solid;
+  border-bottom-color: lightgray;
+  font-family: Poppins !important;
+  font-weight: 600;
 }
 
-.collection span{
-    color: #101010;
-    font-family: Poppins !important;
+.collection span {
+  color: #101010;
+  font-family: Poppins !important;
 }
 
 .card_content {
-background: #0b132b
-
-
+  background: #0b132b;
 }
 
-.card-title{
-    color: antiquewhite;
+.card-title {
+  color: antiquewhite;
 }
 
-// input{ 
+// input{
 //     background-color: #b71c1c;
 // }
 
-.card{
-    background: #0b132b
+.card {
+  background: #0b132b;
 }
 
-.btn-large{
-    background-color: #0b132b;
-    margin-left: 475px;
+.btn-large {
+  background-color: #0b132b;
+  margin-left: 475px;
 }
 
 /* li{
@@ -69,64 +82,59 @@ background: #0b132b
 } */
 
 .mat-form-field {
-    margin-top: 16px;
+  margin-top: 16px;
+}
+
+.pin {
+  position: absolute;
+  padding-left: 8px;
+}
+
+.question_text {
+  color: #101010 !important;
+  border-bottom: 1px solid;
+  border-bottom-color: lightgray;
+  font-family: Poppins !important;
+  font-weight: 600;
+}
+
+.btn-class {
+  display: flex;
+  border-top: 1px solid;
+  border-top-color: lightgray;
+  i {
+    margin-right: 0px;
+    margin-left: 5px;
   }
-
-.pin{
-    position: absolute;
-    padding-left: 8px;
 }
 
-.form-container{
-    padding: 0% 20% 0% 20%;
+.btn {
+  min-height: 45px;
+  max-height: 45px;
+  min-width: 45px;
+  max-width: 250px;
+  display: flex;
+  align-items: center;
+  background-color: #390099;
+  margin-right: 2%;
+  border-radius: 55px;
+  justify-content: center;
+  margin-top: 1%;
+  margin-bottom: 2%;
 }
 
-.question_text{
-    color: #101010 !important;
-    border-bottom: 1px solid;
-    border-bottom-color: lightgray;
-    font-family: Poppins !important;
-    font-weight: 600;
+.review {
+  background-color: #808080 !important;
 }
 
-.btn-class{
-    display: flex;
-    border-top: 1px solid;
-    border-top-color: lightgray;
-    i{
-        margin-right: 0px;
-        margin-left: 5px;
-    }
+.btn-submit {
+  display: flex;
+  justify-content: center;
+  padding: 5%;
 }
 
-.btn{
-    min-height: 45px;
-    max-height: 45px;
-    min-width: 45px;
-    max-width: 250px;
-    display: flex;
-    align-items: center;
-    background-color: #390099;
-    margin-right: 2%;
-    border-radius: 55px;
-    justify-content: center;
-    margin-top: 1%;
-    margin-bottom: 2%;
+.answered-questions {
+  // padding: 0% 21% 0% 21%;
+  font-family: Poppins !important;
+  font-weight: 600;
 }
-
-.review{
-    background-color: #808080 !important; 
-}
-
-.btn-submit{
-    display: flex;
-    justify-content: center;
-    padding: 5%;
-}
-
-.answered-questions{
-    // padding: 0% 21% 0% 21%;
-    font-family: Poppins !important;
-    font-weight: 600;
-}
-
