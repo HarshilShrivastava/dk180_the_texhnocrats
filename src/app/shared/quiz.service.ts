@@ -332,8 +332,26 @@ export class QuizService {
     formData.append('Name', Name);
     formData.append('File', certificate, certificate.name);
 
-    return this.http.post('http://harshraj.pythonanywhere.com/candidate/Certificate/', formData, {headers: Headers});
+    return this.http.post('https://harshraj.pythonanywhere.com/candidate/Certificate/', formData, {headers: Headers});
 
+  }
+
+  resumeAnalysis(Resume: File){
+    const Headers = new HttpHeaders()
+      .set('Authorization', 'token ' + localStorage.getItem('token'));
+
+    const formData: FormData = new FormData();
+    formData.append('username', localStorage.getItem("uname"));
+    formData.append('Resume', Resume, Resume.name);
+
+    return this.http.post('http://sihml.pythonanywhere.com/analysis/analysis/', formData, {headers: Headers});
+  }
+
+  deactivateProfile(){
+    const Headers = new HttpHeaders()
+      .set('Authorization', 'token ' + localStorage.getItem('token'));
+
+    return this.http.get('http://harshraj.pythonanywhere.com/account/deactivate/', {headers: Headers});
   }
   // postAllMarks(){
   //   const body = {

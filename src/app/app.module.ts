@@ -72,6 +72,7 @@ import { CourseListComponent } from './resources/course-list/course-list.compone
 import { FilterPipe } from '../../src/app/pipes/filter.pipe';
 import { BlogListComponent } from './resources/blog-list/blog-list.component';
 import { SchemeListComponent } from './resources/scheme-list/scheme-list.component';
+import { DeactivateProfileComponent } from './candidate-ops/deactivate-profile/deactivate-profile.component';
 
 
 
@@ -127,7 +128,8 @@ import { SchemeListComponent } from './resources/scheme-list/scheme-list.compone
     CourseListComponent,
     FilterPipe,
     BlogListComponent,
-    SchemeListComponent
+    SchemeListComponent,
+    DeactivateProfileComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,33 @@
+<div class="row">
+    <div class="col s8 offset-s2">
+      <!-- <div class="card">
+        <div class="sm-jumbotron center-align"> -->
+          <h2>Deactivate Profile</h2>
+        <!-- </div> -->
+        
+        <form (ngSubmit)="processForm()" class="form-style-9">
+           
+           <div class="row">
+                <div class="input-field col s12">
+                    <i class="material-icons prefix">message</i>
+                    <textarea name="message" #message class="field-style1 field-split1" 
+                        placeholder="We're sorry to let you go... please help us understand what went wrong?" ngModel id="message">
+                    </textarea>
+                </div>
+              
+            </div>  
+            <div class="row">
+                <div class="input-field col s12">
+                  <button class="btn-large btn-submit" type="submit">
+                    <p>Deactivate</p>
+                  </button>
+
+                  <!-- <div class="btn">
+                    <button class="btn-txt">Take Quiz</button>
+                </div> -->
+                </div>
+              </div>
+        </form>
+        
+    </div>
+</div>

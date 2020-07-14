@@ -112,6 +112,7 @@ export class CandidateComponent implements OnInit {
 
   OnSubmit(form: NgForm) {
     this.uname = form.value.username;
+    localStorage.setItem("uname", this.uname)
     this.pw = form.value.password;
 
     this.quizService.Candidate = this.user.Is_Candidate;

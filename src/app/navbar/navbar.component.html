@@ -59,8 +59,8 @@
     <div class="nav-link" *ngIf="!checkifLoggedIn()">
       <a (click)="onClickOption('login')">Log In</a>
     </div>
-
-    <button class="nav-btn" mat-icon-button [matMenuTriggerFor]="resourcesmenu" aria-label="Example icon-button with a menu" *ngIf = "checkifLoggedIn() || userIsCandidate">
+    <!-- *ngIf="!checkifLoggedIn()" removed this condition from below button tag-->
+    <button class="nav-btn" mat-icon-button [matMenuTriggerFor]="resourcesmenu" aria-label="Example icon-button with a menu">
       <div class="nav-btn-txt" >Resources<mat-icon class="dropdwn-arr">arrow_drop_down</mat-icon></div>
     </button>
     <mat-menu #resourcesmenu="matMenu">
@@ -68,7 +68,8 @@
         <mat-icon>search</mat-icon>
         <span>{{name}}</span>
       </button> -->
-      <button class="nav-btn" mat-menu-item (click) = "onClickOption('instructions')" *ngIf = "!userIsOrganization">
+      <!-- *ngIf = "!userIsOrganization" removed this condition from below button tag-->
+      <button class="nav-btn" mat-menu-item (click) = "onClickOption('instructions')">
         <mat-icon>assignment</mat-icon>
         <span>Take Quiz</span>
       </button>
