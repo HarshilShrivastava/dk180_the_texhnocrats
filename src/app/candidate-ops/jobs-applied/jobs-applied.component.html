@@ -1,15 +1,62 @@
-<div class="list-jobs">
-    <h4>Total jobs applied: {{data.count}}</h4>
-<div *ngFor="let job of data.data">
+<!-- <div class="list-jobs">
+  <h4>Total jobs applied: {{ data.count }}</h4>
+  <div *ngFor="let job of data.data">
     <ul class="collection">
-    <li class="collection-item avatar">
-        <img src="./assets/image/applied-job.jpg" alt="" class="circle">
-        <span class="title">Company: {{job.job_company}}</span>
-        <p> Role: {{job.job_name}} <br>
-            Applied at: {{job.At | date :'dd-MMM-yy h:mm:ss a '}}
+      <li class="collection-item avatar">
+        <img src="./assets/image/applied-job.jpg" alt="" class="circle" />
+        <span class="title">Company: {{ job.job_company }}</span>
+        <p>
+          Role: {{ job.job_name }} <br />
+          Applied at: {{ job.At | date: "dd-MMM-yy h:mm:ss a " }}
         </p>
-        <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
-    </li>
+        <a href="#!" class="secondary-content"
+          ><i class="material-icons">grade</i></a
+        >
+      </li>
     </ul>
-</div>
   </div>
+</div> -->
+
+<div class="row">
+  <div class="page-header-container">
+    <div class="title-container">
+      <h4 class="title">Total jobs applied: {{ data.count }}</h4>
+    </div>
+    <div class="header-image-container">
+      <img src="./assets/image/dashboard.png" class="header-image" />
+    </div>
+  </div>
+  <div class="loader-container">
+    <div *ngIf="showLoader">
+      <img src="./assets/loader.gif" class="loader" alt="Loading..." />
+    </div>
+  </div>
+
+  <div *ngIf="!showLoader">
+    <div *ngIf="noMatch" class="no-match">
+      No results found :(
+    </div>
+    <div class="col s12">
+      <div class="cont-cont">
+        <div class="container" *ngFor="let job of data.data">
+          <mat-card class="example-card">
+            <div class="header-container">
+              <mat-card-header>
+                <div mat-card-avatar>
+                  <img
+                    src="./assets/logo1.png"
+                    alt="logo"
+                    style="width: 50px; height: 50px;"
+                  />
+                </div>
+                <mat-card-title>Company: {{ job.job_company }}</mat-card-title>
+                <mat-card-subtitle>Role: {{ job.job_name }}</mat-card-subtitle>
+              </mat-card-header>
+              <p>Applied at: {{ job.At | date: "dd-MMM-yy h:mm:ss a " }}</p>
+            </div>
+          </mat-card>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
