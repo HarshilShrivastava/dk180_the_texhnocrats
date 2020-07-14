@@ -2,7 +2,19 @@
   display: flex;
   justify-content: center;
 }
-
+.title-container {
+  display: flex;
+  justify-content: space-around;
+  h2 {
+    max-width: 400px;
+    font-weight: 600;
+    line-height: 80px;
+    text-align: left;
+  }
+  img {
+    width: 400px;
+  }
+}
 .loader {
   width: 100px;
   height: 100px;
@@ -30,26 +42,24 @@ h2 {
   :hover {
     background: linear-gradient(to top, #390099, #390099);
     color: white !important;
-	margin-left: 250px;
-	border-radius: 55px;
-	white-space: nowrap;
-	font-weight: bold;
-    
-}
-}
-
-.btn-large:hover{
-	background: linear-gradient(to top, #390099, #390099);
-	color: white !important;
-	margin-left: 250px;
-	border-radius: 55px;
-	white-space: nowrap;
-	font-weight: bold;
-    
+    margin-left: 250px;
+    border-radius: 55px;
+    white-space: nowrap;
+    font-weight: bold;
+  }
 }
 
-.row{
-    margin-left: auto;
+.btn-large:hover {
+  background: linear-gradient(to top, #390099, #390099);
+  color: white !important;
+  margin-left: 250px;
+  border-radius: 55px;
+  white-space: nowrap;
+  font-weight: bold;
+}
+
+.row {
+  margin-left: auto;
 }
 
 .form-style-9 {
@@ -111,16 +121,15 @@ h6 {
   padding-left: 6px;
 }
 
-
-p{
-	padding-left: 6px;
-	color: black;
+p {
+  padding-left: 6px;
+  color: black;
 }
 i {
   color: #390099;
 }
 
-.field_error{
+.field_error {
   display: flex;
   justify-content: center;
   color: red;
@@ -128,19 +137,19 @@ i {
   white-space: nowrap;
 }
 
-.mismatchError{
+.mismatchError {
   display: flex;
   justify-content: center;
   color: red;
 }
 
-.btn-container{
+.btn-container {
   width: 100%;
   display: flex;
   justify-content: center;
 }
 
-.btn-submit{
+.btn-submit {
   border: none !important;
   background: linear-gradient(to top, #390099, #390099);
   color: white;
@@ -155,7 +164,7 @@ i {
   cursor: pointer;
 }
 
-.btn-submit:disabled{
+.btn-submit:disabled {
   border: none !important;
   background: transparent;
   color: white;
@@ -170,7 +179,7 @@ i {
   cursor: not-allowed;
 }
 
-.btn-hide{
+.btn-hide {
   border: none !important;
   background: linear-gradient(to top, #390099, #390099);
   color: white;
@@ -186,7 +195,7 @@ i {
   // margin-top: 150px !important;
 }
 
-.btn-hide:disabled{
+.btn-hide:disabled {
   border: none !important;
   background: transparent;
   color: black;

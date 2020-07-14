@@ -31,13 +31,13 @@
             </div>
             <div class="row">
               <h6>You are signing up as:</h6> -->
-                <!-- <p>
+<!-- <p>
                   <label>
                     <input name="Is_University" #Is_University="ngModel" type="radio" id="jradio" value="false" [(ngModel)]="user.Is_University" />
                     <span> University</span>
                   </label>
                 </p> -->
-                <!-- <p>
+<!-- <p>
                   <label>
                     <mat-checkbox class="btn-block" 
                     labelPosition="after" 
@@ -45,16 +45,16 @@
                     (click)="onClick($event)">
                     Candidate
                     </mat-checkbox>                     -->
-                    <!-- <span>Candidate</span> -->
-                  <!-- </label>
+<!-- <span>Candidate</span> -->
+<!-- </label>
                 </p> -->
-                <!-- <p>
+<!-- <p>
                   <label>
                     <input name="Is_Organization" #Is_Organization="ngModel" type="radio" id="fradio" value="false" [(ngModel)]="user.Is_Organization" />
                     <span>Organization</span>
                   </label>
                 </p> -->
-            <!-- </div>
+<!-- </div>
             <div class="row">
                 <div class="input-field col s12">
                   <button [disabled]="!organRegistrationForm.valid" class="btn-large btn-submit" type="submit">
@@ -67,68 +67,128 @@
     </div>
   </div>  -->
 
-
-
-
-  <div class="loader-container">
-    <div *ngIf="showLoader">
-      <img src="./assets/loader.gif" class="loader" alt="Loading..." />
-    </div>
+<div class="loader-container">
+  <div *ngIf="showLoader">
+    <img src="./assets/loader.gif" class="loader" alt="Loading..." />
   </div>
+</div>
 
-
-  <div class="row" *ngIf="!showLoader">
-    <div class="col s8 offset-s2">
-      <!-- <div class="card"> -->
-        <!-- <div class="sm-jumbotron center-align"> -->
-          <h2>Help us get to know you better</h2>
-        <!-- </div> -->
-          <form class="form-style-9" #organRegistrationForm="ngForm" (ngSubmit)="OnSubmit(organRegistrationForm)">
-            <div class="row">
-                <div class="input-field col s6">
-                  <i class="material-icons prefix">account_circle</i>
-                    <input id="username" class="field-style field-split" type="text" name="username" #username="ngModel" [(ngModel)]="user.username" [pattern]="userNamePattern" required >
-                    <label for="username">Username (You will use this to Login)</label>
-                    <!-- <span class="helper-text" data-error="Required Username !" ></span> -->
-                    <span *ngIf = "username.errors?.required && username.touched" class="field_error">
-                      User Name field can't be blank
-                    </span>
-                    <span *ngIf = "username.errors?.pattern && username.touched" class="field_error">
-                        That name doesn't seem right. Caps not accepted.
-                    </span>
-                </div>
-                <div class="input-field col s6"> 
-                  <i class="material-icons icon-image-preview prefix">email</i>
-                    <input id="email" type="text" class="field-style field-split" name="email" #email="ngModel" [(ngModel)]="user.email" [pattern]="emailPattern" required >
-                    <label for="email">Email</label>
-                    <span *ngIf = "email.errors?.required && email.touched" class="field_error">
-                      Email field can't be blank
-                    </span>
-                    <span *ngIf = "email.errors?.pattern && email.touched" class="field_error">
-                      That Email ID doesn't seem right
-                  </span>
-                </div>
-            </div>
-            <div class="row">
-                <div class="input-field col s6">
-                  <i class="material-icons prefix">vpn_key</i>
-                    <input id="password" type="password" class="field-style field-split" name="password" #password="ngModel" [(ngModel)]="user.password"  required >
-                    <label for="password">Password</label>
-                </div>
-                <div class="input-field col s6">
-                  <i class="material-icons prefix">vpn_key</i>
-                    <input id="confirm_password" type="password" class="field-style field-split" name="confirm_password" 
-                    #confirm_password="ngModel" [(ngModel)]="user.confirm_password" (keyup)="comparePasswords(organRegistrationForm, confirm_password)" required >
-                    <label for="confirm_password">Confirm Password</label>
-                    <!-- <span class="helper-text" data-error="Password requires uppercase lowercase symbols and numbers!"></span> -->
-                    <span *ngIf="showMismatchError" class="field_error">Passwords do not match</span>
-                </div>
-            </div>
-            
-            <div class="btn-container">
-              <button type="submit" [ngClass]="{'btn-submit' : organRegistrationForm.valid, 'btn-hide' : !organRegistrationForm.valid}" [disabled]="!organRegistrationForm.valid">Register as Candidate</button>
-            </div>
-          </form>
-      <!-- </div> -->
+<div class="row" *ngIf="!showLoader">
+  <div class="col s8 offset-s2">
+    <!-- <div class="card"> -->
+    <!-- <div class="sm-jumbotron center-align"> -->
+    <div class="title-container">
+      <h2>Help us get to know you better!</h2>
+      <img src="./assets/image/flat5.gif" />
     </div>
-  </div> 
+    <!-- </div> -->
+    <form
+      class="form-style-9"
+      #organRegistrationForm="ngForm"
+      (ngSubmit)="OnSubmit(organRegistrationForm)"
+    >
+      <div class="row">
+        <div class="input-field col s6">
+          <i class="material-icons prefix">account_circle</i>
+          <input
+            id="username"
+            class="field-style field-split"
+            type="text"
+            name="username"
+            #username="ngModel"
+            [(ngModel)]="user.username"
+            [pattern]="userNamePattern"
+            required
+          />
+          <label for="username">Username (You will use this to Login)</label>
+          <!-- <span class="helper-text" data-error="Required Username !" ></span> -->
+          <span
+            *ngIf="username.errors?.required && username.touched"
+            class="field_error"
+          >
+            User Name field can't be blank
+          </span>
+          <span
+            *ngIf="username.errors?.pattern && username.touched"
+            class="field_error"
+          >
+            That name doesn't seem right. Caps not accepted.
+          </span>
+        </div>
+        <div class="input-field col s6">
+          <i class="material-icons icon-image-preview prefix">email</i>
+          <input
+            id="email"
+            type="text"
+            class="field-style field-split"
+            name="email"
+            #email="ngModel"
+            [(ngModel)]="user.email"
+            [pattern]="emailPattern"
+            required
+          />
+          <label for="email">Email</label>
+          <span
+            *ngIf="email.errors?.required && email.touched"
+            class="field_error"
+          >
+            Email field can't be blank
+          </span>
+          <span
+            *ngIf="email.errors?.pattern && email.touched"
+            class="field_error"
+          >
+            That Email ID doesn't seem right
+          </span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s6">
+          <i class="material-icons prefix">vpn_key</i>
+          <input
+            id="password"
+            type="password"
+            class="field-style field-split"
+            name="password"
+            #password="ngModel"
+            [(ngModel)]="user.password"
+            required
+          />
+          <label for="password">Password</label>
+        </div>
+        <div class="input-field col s6">
+          <i class="material-icons prefix">vpn_key</i>
+          <input
+            id="confirm_password"
+            type="password"
+            class="field-style field-split"
+            name="confirm_password"
+            #confirm_password="ngModel"
+            [(ngModel)]="user.confirm_password"
+            (keyup)="comparePasswords(organRegistrationForm, confirm_password)"
+            required
+          />
+          <label for="confirm_password">Confirm Password</label>
+          <!-- <span class="helper-text" data-error="Password requires uppercase lowercase symbols and numbers!"></span> -->
+          <span *ngIf="showMismatchError" class="field_error"
+            >Passwords do not match</span
+          >
+        </div>
+      </div>
+
+      <div class="btn-container">
+        <button
+          type="submit"
+          [ngClass]="{
+            'btn-submit': organRegistrationForm.valid,
+            'btn-hide': !organRegistrationForm.valid
+          }"
+          [disabled]="!organRegistrationForm.valid"
+        >
+          Register as Candidate
+        </button>
+      </div>
+    </form>
+    <!-- </div> -->
+  </div>
+</div>
