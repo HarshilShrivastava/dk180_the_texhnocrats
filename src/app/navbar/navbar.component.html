@@ -53,13 +53,6 @@
     <div class="nav-link" *ngIf="checkifLoggedIn()">
       <a (click)="onClickOption('applied-jobs')">Applied Jobs</a>
     </div> -->
-    <div class="nav-link" *ngIf="!checkifLoggedIn()">
-      <a (click)="onClickOption('profiles')">Sign Up</a>
-    </div>
-    <div class="nav-link" *ngIf="!checkifLoggedIn()">
-      <a (click)="onClickOption('login')">Log In</a>
-    </div>
-    <!-- *ngIf="!checkifLoggedIn()" removed this condition from below button tag-->
     <button class="nav-btn" mat-icon-button [matMenuTriggerFor]="resourcesmenu" aria-label="Example icon-button with a menu">
       <div class="nav-btn-txt" >Resources<mat-icon class="dropdwn-arr">arrow_drop_down</mat-icon></div>
     </button>
@@ -90,6 +83,16 @@
         <span>Disable alerts</span>
       </button> -->
     </mat-menu>
+
+
+    <div class="nav-link" *ngIf="!checkifLoggedIn()">
+      <a (click)="onClickOption('profiles')">Sign Up</a>
+    </div>
+    <div class="nav-link" *ngIf="!checkifLoggedIn()">
+      <a (click)="onClickOption('login')">Log In</a>
+    </div>
+    <!-- *ngIf="!checkifLoggedIn()" removed this condition from below button tag-->
+    
 
     <button class="nav-btn" mat-icon-button [matMenuTriggerFor]="jobsmenu" aria-label="Example icon-button with a menu" *ngIf = "checkifLoggedIn()">
       <div class="nav-btn-txt" >Jobs<mat-icon class="dropdwn-arr">arrow_drop_down</mat-icon></div>
