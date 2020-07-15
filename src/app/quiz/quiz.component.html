@@ -26,6 +26,9 @@
         </ul>
       </div>
     </div> -->
+    <div class="title-container" *ngIf="!showLoader">
+      <span>Round 1: General Quiz</span>
+    </div>
     <mat-horizontal-stepper #stepper labelPosition="bottom" *ngIf="!showLoader">
       <mat-step
         [stepControl]="firstFormGroup"
@@ -120,7 +123,7 @@
           </div>
 
           <div class="row">
-            <div class="btn-submit col s12">
+            <div class="col s12 btn-submit">
               <button
                 class="btn"
                 type="submit"

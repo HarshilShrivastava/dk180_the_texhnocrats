@@ -5,6 +5,9 @@
         <img src="./assets/loader.gif" class="loader" alt="Loading...">
       </div>
     </div>
+    <div *ngIf="!showLoader" class="title-container">
+      <span>Round 3: Sub-domain Quiz</span>
+    </div>
     <mat-horizontal-stepper *ngIf="!showLoader" #stepper labelPosition="bottom">
       <mat-step [stepControl]="firstFormGroup" errorMessage="Not answered."
         *ngFor="let item of data.data; let i = index">
@@ -59,7 +62,7 @@
             Total answered: {{ totalAnswered }} / 20
           </div>
           <div class="row">
-            <div class="btn-submit col s12">
+            <div class="col s12 btn-submit">
               <button class="btn" (click)="Answers()">
                 View Results<i class="material-icons right">done</i>
               </button>
