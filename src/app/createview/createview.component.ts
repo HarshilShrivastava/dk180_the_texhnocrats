@@ -38,7 +38,7 @@ export class CreateviewComponent implements OnInit {
   socialMediaArray: Array<string> = [];
 
   residence: number;
-  resumeLink: string = '';
+  resumeLink: string = "";
 
   showLoader: boolean = false;
   timePattern: "^[0-9]+$";
@@ -118,24 +118,44 @@ export class CreateviewComponent implements OnInit {
     };
 
     if (!this.isModeEdit) {
+      window.scrollTo(0, 500);
       this.quizService
         .resumeAnalysis(this.fileToUpload)
-        .subscribe((data: any) => {
-          console.log(data);
+        .then((data: any) => {
+          if (data.status !== 500) {
+            console.log(data);
+            this.inProgress = false;
+            this.skillsPresent = true;
+            this.results = data;
+          } else if(data.status === 500) {
+            this.inProgress = false;
+            let dialogRef = this.dialog.open(ErrorDialogComponent, {
+              height: "300px",
+              width: "600px",
+              data:
+                "Sorry couldn't fetch your skills right now. We'll update it in your profile shortly.",
+            });
+          }
+        })
+        .catch((err) => {
+          console.log(err);
           this.inProgress = false;
-          this.skillsPresent = true;
-          this.results = data;
-        });
-      (err) => {
-        console.log(err);
-        this.inProgress = false;
-        let dialogRef = this.dialog.open(ErrorDialogComponent, {
-          height: "300px",
-          width: "600px",
-          data:
-            "Sorry couldn't fetch your skills right now. We'll update it in your profile shortly.",
-        });
-      };
+          let dialogRef = this.dialog.open(ErrorDialogComponent,{
+            height: '180px',
+            width: '400px',
+            data: "Sorry something bad happened, please try again in sometime."
+          })
+        })
+      // (err) => {
+      //   console.log(err);
+      //   this.inProgress = false;
+      //   let dialogRef = this.dialog.open(ErrorDialogComponent, {
+      //     height: "300px",
+      //     width: "600px",
+      //     data:
+      //       "Sorry couldn't fetch your skills right now. We'll update it in your profile shortly.",
+      //   });
+      // };
     }
   }
 
