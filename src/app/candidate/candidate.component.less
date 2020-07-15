@@ -85,24 +85,13 @@ h2 {
 .btn-large {
   background: linear-gradient(to top, #390099, #390099);
   color: lightgray;
-  margin-left: 250px;
   :hover {
     background: linear-gradient(to top, #390099, #390099);
     color: white !important;
-    margin-left: 250px;
     border-radius: 55px;
     white-space: nowrap;
     font-weight: bold;
   }
-}
-
-.btn-large:hover {
-  background: linear-gradient(to top, #390099, #390099);
-  color: white !important;
-  margin-left: 250px;
-  border-radius: 55px;
-  white-space: nowrap;
-  font-weight: bold;
 }
 
 .row {
@@ -246,20 +235,19 @@ i {
   justify-content: center;
   cursor: pointer;
   // margin-top: 150px !important;
-}
-
-.btn-hide:disabled {
-  border: none !important;
-  background: transparent;
-  color: black;
-  width: 200px;
-  height: 50px;
-  border-radius: 55px;
-  font-weight: bold;
-  display: flex;
-  /* text-align: center; */
-  align-items: center;
-  justify-content: center;
-  cursor: not-allowed;
-  // margin-top: 150px !important;
+  :disabled {
+    border: none !important;
+    background: transparent;
+    color: black;
+    width: 200px;
+    height: 50px;
+    border-radius: 55px;
+    font-weight: bold;
+    display: flex;
+    /* text-align: center; */
+    align-items: center;
+    justify-content: center;
+    cursor: not-allowed;
+    // margin-top: 150px !important;
+  }
 }

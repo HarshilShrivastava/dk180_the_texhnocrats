@@ -5,6 +5,9 @@
         <img src="./assets/loader.gif" class="loader" alt="Loading...">
       </div>
     </div>
+    <div class="title-container" *ngIf="!showLoader"> 
+      <span>Round 2: Domain Quiz</span>
+    </div>
     <mat-horizontal-stepper *ngIf="!showLoader" #stepper labelPosition="bottom">
       <mat-step [stepControl]="firstFormGroup" errorMessage="Not answered."
         *ngFor="let item of data.data; let i = index">
@@ -59,13 +62,14 @@
           </div>
 
           <div class="row">
-            <div class="btn-submit col s12">
+            <div class="col s12 btn-submit">
               <button class="btn" type="submit" name="action" (click)="Answers()">
                   Round Three<i class="material-icons right">send</i>
               </button>
             </div>
           </div>
         </form>
+        <img class="icon" src="./assets/icons/Legend1.png" />
       </mat-step>
     </mat-horizontal-stepper>
   </div>
