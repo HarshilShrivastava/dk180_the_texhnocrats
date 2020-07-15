@@ -29,7 +29,9 @@ export class CreateviewComponent implements OnInit {
   skillsPresent: boolean = false;
   inProgress: boolean = false;
 
-  results: [];
+  results: {
+    "skills": string
+  };
 
   isCertiValid: boolean = true;
 

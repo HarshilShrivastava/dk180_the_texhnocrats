@@ -200,8 +200,11 @@
             ></pdf-viewer>
           </div>
 
-          <div *ngIf="hide" class="no-resume">
+          <div *ngIf="hide && !isModeEdit" class="no-resume">
             You have not added a PDF of your Resume yet.
+          </div>
+          <div *ngIf="hide && isModeEdit" class="no-resume">
+            You have not updated the PDF of your older Resume yet.
           </div>
           <div *ngIf="!isValid" class="no-resume">
             Please only upload a PDF file.
