@@ -54,7 +54,7 @@
       <a (click)="onClickOption('applied-jobs')">Applied Jobs</a>
     </div> -->
     <button class="nav-btn" mat-icon-button [matMenuTriggerFor]="resourcesmenu" aria-label="Example icon-button with a menu">
-      <div class="nav-btn-txt" >Resources<mat-icon class="dropdwn-arr">arrow_drop_down</mat-icon></div>
+      <div class="nav-btn-txt" >Resources</div><mat-icon class="dropdwn-arr">arrow_drop_down</mat-icon>
     </button>
     <mat-menu #resourcesmenu="matMenu">
       <!-- <button mat-menu-item disabled *ngIf = "checkifLoggedIn()">
@@ -95,7 +95,7 @@
     
 
     <button class="nav-btn" mat-icon-button [matMenuTriggerFor]="jobsmenu" aria-label="Example icon-button with a menu" *ngIf = "checkifLoggedIn()">
-      <div class="nav-btn-txt" >Jobs<mat-icon class="dropdwn-arr">arrow_drop_down</mat-icon></div>
+      <div class="nav-btn-txt" >Jobs</div><mat-icon class="dropdwn-arr">arrow_drop_down</mat-icon>
     </button>
     <mat-menu #jobsmenu="matMenu">
       <!-- <button mat-menu-item disabled *ngIf = "checkifLoggedIn()">
