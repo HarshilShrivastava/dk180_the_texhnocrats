@@ -21,9 +21,26 @@
   <div class="page-header-container">
     <div class="title-container">
       <h4 class="title">Total jobs applied: {{ data.count }}</h4>
+      <div class="search-container">
+        <div class="nav-wrapper">
+          <form class="search-wrapper">
+            <div class="search-bar">
+              <i id="search-icon" class="material-icons">search</i>
+              <input
+                id="search"
+                [(ngModel)]="query"
+                name="query"
+                type="search"
+                placeholder="Search.."
+              />
+              <i id="cross" class="material-icons" (click)="clear()">close</i>
+            </div>
+          </form>
+        </div>
+      </div>
     </div>
     <div class="header-image-container">
-      <img src="./assets/image/dashboard.png" class="header-image" />
+      <img src="./assets/image/hire.png" class="header-image" />
     </div>
   </div>
   <div class="loader-container">
@@ -41,17 +58,57 @@
         <div class="container" *ngFor="let job of data.data">
           <mat-card class="example-card">
             <div class="header-container">
-              <mat-card-header>
-                <div mat-card-avatar>
-                  <img
-                    src="./assets/logo1.png"
-                    alt="logo"
-                    style="width: 50px; height: 50px;"
-                  />
+              <div class="container-class">
+                <mat-card-header>
+                  <div mat-card-avatar>
+                    <img
+                      src="./assets/logo1.png"
+                      alt="logo"
+                      style="width: 50px; height: 50px;"
+                    />
+                  </div>
+                  <mat-card-title
+                    >Company: {{ job.job_company }}</mat-card-title
+                  >
+                  <mat-card-subtitle
+                    >Role: {{ job.job_name }}</mat-card-subtitle
+                  >
+                </mat-card-header>
+                <div class="dropdown">
+                  <button
+                    class="dropdown-cont"
+                    mat-icon-button
+                    [matMenuTriggerFor]="menu"
+                    aria-label="Example icon-button with a menu"
+                  >
+                    <mat-icon>more_vert</mat-icon>
+                  </button>
+                  <mat-menu #menu="matMenu">
+                    <button
+                      class="dropdown-cont"
+                      mat-menu-item
+                      (click)="onApplyClick(job.id)"
+                    >
+                      <i class="material-icons">edit</i>
+                      <span>
+                        <div class="dropdown-txt">View Status</div>
+                      </span>
+                    </button>
+                    <button class="dropdown-cont" mat-menu-item>
+                      <i class="material-icons">share</i>
+                      <span>
+                        <div class="dropdown-txt">View Listing</div>
+                      </span>
+                    </button>
+                    <button class="dropdown-cont" mat-menu-item>
+                      <i class="material-icons">bookmark</i>
+                      <span>
+                        <div class="dropdown-txt">Star</div>
+                      </span>
+                    </button>
+                  </mat-menu>
                 </div>
-                <mat-card-title>Company: {{ job.job_company }}</mat-card-title>
-                <mat-card-subtitle>Role: {{ job.job_name }}</mat-card-subtitle>
-              </mat-card-header>
+              </div>
               <p>Applied at: {{ job.At | date: "dd-MMM-yy h:mm:ss a " }}</p>
             </div>
           </mat-card>
