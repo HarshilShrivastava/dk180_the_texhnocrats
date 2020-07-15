@@ -344,7 +344,9 @@ export class QuizService {
     formData.append('username', localStorage.getItem("uname"));
     formData.append('Resume', Resume, Resume.name);
 
-    return this.http.post('http://sihml.pythonanywhere.com/analysis/analysis/', formData, {headers: Headers});
+    return this.http.post('http://sihml.pythonanywhere.com/analysis/analysis/', formData, {headers: Headers}).toPromise()
+
+
   }
 
   deactivateProfile(){

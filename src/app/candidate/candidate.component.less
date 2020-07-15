@@ -1,10 +1,40 @@
+.row{
+  margin-left: 0px !important;
+}
+
 .loader-container {
   display: flex;
   justify-content: center;
 }
+
+.disp-flex {
+  display: flex;
+  // justify-content: space-evenly;
+  flex-direction: column;
+}
+
+.form-title{
+  display: flex;
+  justify-content: center;
+  h3{
+    font-weight: 400;
+  }
+}
+
+.form-body{
+  display: flex;
+  justify-content: space-between;
+}
+
+.title-ancestor{
+  min-width: 40%; 
+  margin-top: 10%;
+}
+
 .title-container {
   display: flex;
-  justify-content: space-around;
+  align-items: center;
+  flex-direction: column-reverse;
   h2 {
     max-width: 400px;
     font-weight: 600;
@@ -15,6 +45,19 @@
     width: 400px;
   }
 }
+
+.sign-up-form{
+  display: flex;
+  flex-direction: column;
+  min-width: 60%;
+  align-items: center;
+  h5{
+    font-weight: bold;
+    color: #390099;
+  }
+}
+
+
 .loader {
   width: 100px;
   height: 100px;
@@ -30,6 +73,10 @@ p {
 h2 {
   color: #390099;
   text-align: center;
+}
+
+.inp-lbl{
+  font-size: small !important;
 }
 // .sm-jumbotron{
 //     background:#390099 ;
@@ -59,6 +106,12 @@ h2 {
   box-shadow: 1px 1px 25px rgba(0, 0, 0, 0.35);
   border-radius: 10px;
   border: 6px solid #390099;
+  .form-header{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 }
 
 // .form-style-9{

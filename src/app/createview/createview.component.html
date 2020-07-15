@@ -9,6 +9,17 @@
       <div class="card-panel teal lighten-2">
         <h4 class="center white-text">Candidate Profile</h4>
       </div> -->
+    <div class="form-title" *ngIf="!showLoader">
+      <div>
+        <h3><strong> Part 2: </strong></h3>
+      </div>
+      <h4 class="disp-as-flex">
+        Build
+        <div class="theme-clr">&nbsp;<strong>your profile </strong></div>
+        &nbsp;& get started!
+      </h4>
+    </div>
+
     <form
       *ngIf="!showLoader"
       #imageForm="ngForm"
@@ -16,7 +27,7 @@
       (ngSubmit)="OnSubmit(Name, Address, Image, Time, income, Bio, Experience)"
     >
       <div class="part-number">
-        Part 1: General Details:
+        Section 1: General Details:
       </div>
 
       <div class="general-details">
@@ -43,13 +54,13 @@
                 *ngIf="Name.errors?.required && Name.touched"
                 class="field_error"
               >
-                Name field can't be blank
+                Name field cannot be blank!
               </span>
               <span
                 *ngIf="Name.errors?.pattern && Name.touched"
                 class="field_error"
               >
-                Please add a valid name
+                Please add a valid name!
               </span>
             </div>
           </div>
@@ -69,7 +80,7 @@
                 required
               />
               <label for="Experience">Experience</label>
-              <span class="exp-sub">Write 0 if you don't have any yet.</span>
+              <span class="exp-sub">(Write 0 if you don't have any yet)</span>
               <span
                 *ngIf="Experience.errors?.required && Experience.touched"
                 class="field_error"
@@ -113,10 +124,45 @@
             </span>
           </div>
         </div>
+        <br />
 
-        <div *ngIf="isModeEdit" style="width: auto; display: flex; justify-content: center;">
+        <div class="row">
+          <div class="input-field col s12">
+            <i class="material-icons icon-image-preview prefix">textsms</i>
+            <textarea
+              type="text"
+              class="field-style field-split"
+              #Bio="ngModel"
+              [(ngModel)]="fields.bio"
+              name="Bio"
+              id="Bio"
+              rows="7"
+              required
+            >
+            </textarea>
+            <label for="Bio">Add a bio*</label>
+            <span
+              *ngIf="Bio.errors?.required && Bio.touched"
+              class="field_error"
+            >
+              Bio field can't be blank
+            </span>
+            <span
+              *ngIf="Bio.errors?.pattern && Bio.touched"
+              class="field_error"
+            >
+              Please add a valid bio.
+            </span>
+          </div>
+        </div>
+        <br />
+
+        <div
+          *ngIf="isModeEdit"
+          style="width: auto; display: flex; justify-content: center;"
+        >
           Existing Resume:
-          <a href="{{resumeLink}}" target="_blank">View</a>
+          <a href="{{ resumeLink }}" target="_blank">View</a>
         </div>
 
         <div class="label1">
@@ -165,7 +211,9 @@
           </div>
         </div>
 
-        <div class="pb" *ngIf="inProgress && !isModeEdit">Scanning for skills:</div>
+        <div class="pb" *ngIf="inProgress && !isModeEdit">
+          Scanning for skills:
+        </div>
         <div class="progress pb" *ngIf="inProgress && !isModeEdit">
           <div class="indeterminate"></div>
         </div>
@@ -206,33 +254,9 @@
       <br />
 
       <div class="part-number">
-        Part 2: Make your profile stand out:
+        Section 2: Make your profile stand out:
       </div>
 
-      <div class="row">
-        <div class="input-field col s12">
-          <i class="material-icons icon-image-preview prefix">home</i>
-          <textarea
-            type="text"
-            class="field-style field-split"
-            #Bio="ngModel"
-            [(ngModel)]="fields.bio"
-            name="Bio"
-            id="Bio"
-            rows="7"
-            required
-          >
-          </textarea>
-          <label for="Bio">Add a bio*</label>
-          <span *ngIf="Bio.errors?.required && Bio.touched" class="field_error">
-            Bio field can't be blank
-          </span>
-          <span *ngIf="Bio.errors?.pattern && Bio.touched" class="field_error">
-            Please add a valid bio.
-          </span>
-        </div>
-      </div>
-      <br />
       <div class="info-container">
         <div class="sm-platforms">
           <div class="sm-dropdown" matTooltip="Social Media Platforms You Use">
@@ -299,7 +323,7 @@
       <br />
 
       <div class="part-number">
-        Part 3: Socio-Economic Status:
+        Section 3: Socio-Economic Status:
       </div>
 
       <div class="info-container">
