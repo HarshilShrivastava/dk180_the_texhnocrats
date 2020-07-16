@@ -70,6 +70,7 @@ import { ContactPageComponent } from './shared/contact-page/contact-page.compone
 import { AboutUsComponent } from './about-us/about-us.component';
 import { CourseListComponent } from './resources/course-list/course-list.component';
 import { FilterPipe } from '../../src/app/pipes/filter.pipe';
+import { ApplyFilterPipe } from '../../src/app/pipes/applyfilter.pipe';
 import { BlogListComponent } from './resources/blog-list/blog-list.component';
 import { SchemeListComponent } from './resources/scheme-list/scheme-list.component';
 import { DeactivateProfileComponent } from './candidate-ops/deactivate-profile/deactivate-profile.component';
@@ -128,6 +129,7 @@ import { EditProfileComponent } from './candidate-ops/edit-profile/edit-profile.
     AboutUsComponent,
     CourseListComponent,
     FilterPipe,
+    ApplyFilterPipe,
     BlogListComponent,
     SchemeListComponent,
     DeactivateProfileComponent,

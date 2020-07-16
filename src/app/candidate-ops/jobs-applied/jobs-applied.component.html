@@ -22,7 +22,7 @@
     <div class="title-container">
       <h4 class="title">Total jobs applied: {{ data.count }}</h4>
       <!-- Uncomment below div to implement search -->
-      <!-- <div class="search-container">
+      <div class="search-container">
         <div class="nav-wrapper">
           <form class="search-wrapper">
             <div class="search-bar">
@@ -32,34 +32,34 @@
                 [(ngModel)]="query"
                 name="query"
                 type="search"
-                placeholder="Search.."
+                placeholder="Search by role or company"
               />
               <i id="cross" class="material-icons" (click)="clear()">close</i>
             </div>
           </form>
         </div>
-      </div> -->
+      </div>
     </div>
     <div class="header-image-container">
       <img src="./assets/image/hire.png" class="header-image" />
     </div>
   </div>
 
-  <!-- Uncomment the below div when you add loader check using showLoader bool var -->
-  <!-- <div class="loader-container">
-    <div *ngIf="showLoader">
-      <img src="./assets/loader.gif" class="loader" alt="Loading..." />
-    </div>
-  </div> -->
-
-  <!-- *ngIf="!showLoader" add to below div to hide loader when data is loaded -->
   <div>
-    <!-- <div class="no-match">
-      No results found :(
-    </div> -->
+    <div class="loader-container">
+      <div *ngIf="showLoader">
+        <img src="./assets/loader.gif" class="loader" alt="Loading..." />
+      </div>
+    </div>
+    <div *ngIf="noMatch" class="no-match">
+      No results found. :()
+    </div>
     <div class="col s12">
-      <div class="cont-cont">
-        <div class="container" *ngFor="let job of data.data">
+      <div class="cont-cont" *ngIf="!showLoader && !noMatch">
+        <div
+          class="container"
+          *ngFor="let job of data.data | filter: query; let i = index"
+        >
           <mat-card class="example-card">
             <div class="header-container">
               <div class="container-class">
@@ -88,10 +88,7 @@
                     <mat-icon>more_vert</mat-icon>
                   </button>
                   <mat-menu #menu="matMenu">
-                    <button
-                      class="dropdown-cont"
-                      mat-menu-item
-                    >
+                    <button class="dropdown-cont" mat-menu-item>
                       <i class="material-icons">edit</i>
                       <span>
                         <div class="dropdown-txt">View Status</div>
