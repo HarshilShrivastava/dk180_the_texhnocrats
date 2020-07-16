@@ -9,7 +9,7 @@ import { Router } from "@angular/router";
 })
 export class JobsAppliedComponent implements OnInit {
   data: any = {};
-  query: string;
+  query: string = "";
   showLoader: boolean = false;
   noMatch: boolean = false;
 
@@ -23,6 +23,8 @@ export class JobsAppliedComponent implements OnInit {
     this.showLoader = true;
     this.quizService.getAppliedJobs().subscribe((data) => {
       console.log(data);
+      debugger;
+      console.log(this.query);
       this.data = data;
       this.showLoader = false;
       if (this.data.count === 0) this.noMatch = true;

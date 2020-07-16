@@ -58,7 +58,7 @@
       <div class="cont-cont" *ngIf="!showLoader && !noMatch">
         <div
           class="container"
-          *ngFor="let job of data.data | filter: query; let i = index"
+          *ngFor="let job of data.data | applyfilter: query; let i = index"
         >
           <mat-card class="example-card">
             <div class="header-container">
