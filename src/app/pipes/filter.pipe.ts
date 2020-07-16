@@ -7,8 +7,15 @@ export class FilterPipe implements PipeTransform {
     if (!items) return [];
     if (!searchText) return items;
     searchText = searchText.toLowerCase();
-    return items.filter((it) => {
-      return it.Title.toLowerCase().includes(searchText);
-    });
+    if(items[0].hasOwnProperty("job_name") || items[0].hasOwnProperty("job_company")){
+      return items.filter((it) => {
+        return it.job_name.toLowerCase().includes(searchText) || it.job_company.toLowerCase().includes(searchText);
+      });
+    }
+    else{
+      return items.filter((it) => {
+        return it.Title.toLowerCase().includes(searchText);
+      });
+    } 
   }
 }
