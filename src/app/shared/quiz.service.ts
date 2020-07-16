@@ -344,7 +344,7 @@ export class QuizService {
     formData.append('username', localStorage.getItem("uname"));
     formData.append('Resume', Resume, Resume.name);
 
-    return this.http.post('http://sihml.pythonanywhere.com/analysis/analysis/', formData, {headers: Headers}).toPromise()
+    return this.http.post('https://sihml.pythonanywhere.com/analysis/analysis/', formData, {headers: Headers}).toPromise()
 
 
   }
@@ -353,7 +353,7 @@ export class QuizService {
     const Headers = new HttpHeaders()
       .set('Authorization', 'token ' + localStorage.getItem('token'));
 
-    return this.http.get('http://harshraj.pythonanywhere.com/account/deactivate/', {headers: Headers});
+    return this.http.get('https://harshraj.pythonanywhere.com/account/deactivate/', {headers: Headers});
   }
   // postAllMarks(){
   //   const body = {
