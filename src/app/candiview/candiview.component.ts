@@ -116,6 +116,8 @@ export class CandiviewComponent implements OnInit {
     ) { }
 
   ngOnInit() {
+    window.scrollTo(0, 0)
+
     this.showLoader = true;
     this.name = localStorage.getItem("cc_uname")
     init_carousel();

@@ -34,7 +34,8 @@
         <div class="general-details-l1">
           <div class="row">
             <div class="input-field col s12">
-              <i class="material-icons prefix">account_circle</i>
+              <div *ngIf="isModeEdit" class="edit-label">Display name*</div>
+              <i class="material-icons prefix" [ngClass]="{'mt5': isModeEdit}">account_circle</i>
 
               <input
                 type="text"
@@ -45,7 +46,8 @@
                 id="Name"
                 required
               />
-              <label for="Name">Display name* </label>
+  
+              <label for="Name" *ngIf="!isModeEdit">Display name* </label>
               <span class="exp-sub"
                 >(This name will be visible on your profile and to
                 recruiters)</span
@@ -67,7 +69,8 @@
 
           <div class="row">
             <div class="input-field col s12">
-              <i class="material-icons icon-image-preview prefix"
+              <div *ngIf="isModeEdit" class="edit-label">Experience*</div>
+              <i class="material-icons icon-image-preview prefix" [ngClass]="{'mt5': isModeEdit}"
                 >access_time</i
               >
               <input
@@ -79,13 +82,13 @@
                 id="Experience"
                 required
               />
-              <label for="Experience">Experience</label>
+              <label for="Experience" *ngIf="!isModeEdit">Experience</label>
               <span class="exp-sub">(Write 0 if you don't have any yet)</span>
               <span
                 *ngIf="Experience.errors?.required && Experience.touched"
                 class="field_error"
               >
-                Experience field can't be blank
+                Experience field cannot be blank
               </span>
               <span
                 *ngIf="Experience.errors?.pattern && Experience.touched"
@@ -99,7 +102,9 @@
 
         <div class="row">
           <div class="input-field col s12">
-            <i class="material-icons icon-image-preview prefix">home</i>
+            <div *ngIf="isModeEdit" class="edit-label">Address*</div>
+
+            <i class="material-icons icon-image-preview prefix" [ngClass]="{'mt5': isModeEdit}">home</i>
             <input
               type="text"
               class="field-style field-split"
@@ -109,12 +114,12 @@
               id="Address"
               required
             />
-            <label for="Address">Address*</label>
+            <label for="Address" *ngIf="!isModeEdit">Address*</label>
             <span
               *ngIf="Address.errors?.required && Address.touched"
               class="field_error"
             >
-              Address field can't be blank
+              Address field cannot be blank
             </span>
             <span
               *ngIf="Address.errors?.pattern && Address.touched"
@@ -128,7 +133,9 @@
 
         <div class="row">
           <div class="input-field col s12">
-            <i class="material-icons icon-image-preview prefix">textsms</i>
+            <div *ngIf="isModeEdit" class="edit-label">Bio*</div>
+
+            <i class="material-icons icon-image-preview prefix" [ngClass]="{'mt5': isModeEdit}">textsms</i>
             <textarea
               type="text"
               class="field-style field-split"
@@ -140,12 +147,12 @@
               required
             >
             </textarea>
-            <label for="Bio">Add a bio*</label>
+            <label for="Bio" *ngIf="!isModeEdit">Add a bio*</label>
             <span
               *ngIf="Bio.errors?.required && Bio.touched"
               class="field_error"
             >
-              Bio field can't be blank
+              Bio field cannot be blank
             </span>
             <span
               *ngIf="Bio.errors?.pattern && Bio.touched"
@@ -159,16 +166,17 @@
 
         <div
           *ngIf="isModeEdit"
+          class="existing-resume"
           style="width: auto; display: flex; justify-content: center;"
         >
           Existing Resume:
           <a href="{{ resumeLink }}" target="_blank">View</a>
         </div>
 
-        <div class="label1">
+        <div class="label12">
           <label
             for="resume-upload"
-            style="font-weight: bold; font-size: inherit;"
+            class="resume-upload"
             >Upload resume* (Please only upload a .pdf file)</label
           >
 
@@ -239,6 +247,7 @@
         <div class="label12">
           <label
             for="resume-upload"
+            class="resume-upload"
             style="font-weight: bold; font-size: inherit;"
             >Upload any certifications you have*</label
           >
@@ -293,9 +302,11 @@
           </div>
         </div>
 
-        <div class="info-field">
+        <div class="info-field" [ngClass]="{'mb5': isModeEdit}">
           <div class="input-field col s12">
-            <i class="material-icons icon-image-preview prefix">access_time</i>
+            <div *ngIf="isModeEdit" class="edit-label">~ Hours spent on these platforms (Ex: 3)*</div>
+
+            <i class="material-icons icon-image-preview prefix" [ngClass]="{'mt5': isModeEdit}">access_time</i>
             <input
               type="number"
               class="field-style field-split"
@@ -306,12 +317,14 @@
               [pattern]="timePattern"
               required
             />
-            <label for="Time">~ Hours spent on these platforms (Ex: 3)*</label>
+            <label for="Time" *ngIf="!isModeEdit"
+              >~ Hours spent on these platforms (Ex: 3)*</label
+            >
             <span
               *ngIf="Time.errors?.required && Time.touched"
               class="field_error"
             >
-              Time field can't be blank
+              Time field cannot be blank
             </span>
             <span
               *ngIf="Time.errors?.pattern && Time.touched"
@@ -354,9 +367,11 @@
           </div>
         </div>
 
-        <div class="info-field">
+        <div class="info-field" [ngClass]="{'mb5': isModeEdit}">
           <div class="input-field col s12">
-            <i class="material-icons icon-image-preview prefix"
+            <div *ngIf="isModeEdit" class="edit-label">Approximate family income (Ex: 300000)*</div>
+
+            <i class="material-icons icon-image-preview prefix" [ngClass]="{'mt5': isModeEdit}"
               >account_balance</i
             >
             <input
@@ -370,14 +385,14 @@
               [pattern]="timePattern"
               required
             />
-            <label for="income"
+            <label for="income" *ngIf="!isModeEdit"
               >Your approximate family income (Ex: 300000)*</label
             >
             <span
               *ngIf="income.errors?.required && income.touched"
               class="field_error"
             >
-              Income field can't be blank
+              Income field cannot be blank
             </span>
             <span
               *ngIf="income.errors?.pattern && income.touched"
@@ -393,6 +408,15 @@
       <br />
 
       <div class="btn-container">
+        <button
+          type="reset"
+          (click)="onCancelClick()"
+          *ngIf="isModeEdit"
+          class="btn-cancel"
+        >
+          Cancel
+        </button>
+
         <button
           type="submit"
           [ngClass]="{ 'btn-submit': hide, 'btn-hide': !hide }"
