@@ -12,7 +12,7 @@ export class FilterPipe implements PipeTransform {
         if(it.job_name)
           return it.job_name.toLowerCase().includes(searchText) || it.job_company.toLowerCase().includes(searchText);
         else
-        return it.Title.toLowerCase().includes(searchText);
+          return it.Title.toLowerCase().includes(searchText);
       });
     // }
     // else{
