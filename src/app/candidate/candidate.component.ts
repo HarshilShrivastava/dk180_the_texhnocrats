@@ -29,7 +29,7 @@ export class CandidateComponent implements OnInit {
     ) { }
 
   ngOnInit() {
-    window.scroll(0, 0);
+    window.scrollTo(0, 0)
     this.resetForm();
   }
 
