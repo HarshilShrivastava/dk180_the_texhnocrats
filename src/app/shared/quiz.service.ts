@@ -110,7 +110,7 @@ export class QuizService {
       fourth: parseInt(JSON.parse(sessionStorage.getItem("SD_4"))),
     };
 
-    return this.http.post('http://harshraj.pythonanywhere.com/organization/get-jobs', body, {headers: Headers});
+    return this.http.post('https://harshraj.pythonanywhere.com/organization/get-jobs', body, {headers: Headers});
   }
 
   orView() {
