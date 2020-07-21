@@ -11,6 +11,7 @@ import {
 import { MatDialog } from "@angular/material";
 import { first, map } from "rxjs/operators";
 import { GeneralDialogBoxComponent } from "../dialogs/general-dialog-box/general-dialog-box.component";
+import { ErrorDialogComponent } from '../shared/error-dialog/error-dialog.component';
 
 @Component({
   selector: "app-technical",
@@ -99,7 +100,7 @@ export class TechnicalComponent implements OnInit {
 
   TechContacts() {
     this.showLoader = true;
-    this.quizService.TechData().subscribe((data) => {
+    this.quizService.TechData().then((data) => {
       console.log(data);
       this.data = data;
       this.showLoader = false;
@@ -110,7 +111,19 @@ export class TechnicalComponent implements OnInit {
         element.active = false;
         element.noReview = true;
       });
-    });
+    })
+    .catch((err) => {
+      this.quizService.showTimer.next(false);
+      this.quizService.startTimer = false;
+      this.router.navigate(['/home'])
+      console.log(err);
+      let dialogRef = this.dialog.open(ErrorDialogComponent, {
+        height: '180px',
+        width: '360px',
+        data: 'Sorry something went wrong. Please try again in sometime...'
+      })
+      
+    })
   }
 
   canDeactivate() {

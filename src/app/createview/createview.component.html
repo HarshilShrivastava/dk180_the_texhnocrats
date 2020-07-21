@@ -408,7 +408,11 @@
       <br />
 
       <div class="btn-container">
-        <button
+        <div *ngIf="isModeEdit" class="btn-txt">
+          Please make sure you update your Social Media Usage and Place of Residence details whenever you update your profile
+        </div>
+        <div class="btn-btn">
+          <button
           type="reset"
           (click)="onCancelClick()"
           *ngIf="isModeEdit"
@@ -424,6 +428,8 @@
         >
           Submit
         </button>
+        </div>
+        
       </div>
     </form>
     <!-- </div> -->

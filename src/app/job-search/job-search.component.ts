@@ -41,6 +41,8 @@ displayedRows$: Observable<[]>;
   totalRows$: Observable<number>;
   startIndex: number = 0;
   endIndex: number = 10;
+  notRegistered: boolean = false;
+
 
 
   constructor(
@@ -72,6 +74,11 @@ displayedRows$: Observable<[]>;
 
   ngOnInit() {
     this.getListing();
+
+    if(!localStorage.getItem("token")){
+      this.notRegistered = true;
+      this.showLoader = false;
+    }
   }
 
   getListing(){

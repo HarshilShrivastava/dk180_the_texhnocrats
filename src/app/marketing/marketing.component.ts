@@ -10,6 +10,7 @@ import {
 import { MatDialog } from "@angular/material";
 import { GeneralDialogBoxComponent } from "../dialogs/general-dialog-box/general-dialog-box.component";
 import { map, first } from "rxjs/operators";
+import { ErrorDialogComponent } from '../shared/error-dialog/error-dialog.component';
 
 @Component({
   selector: "app-marketing",
@@ -103,7 +104,7 @@ export class MarketingComponent implements OnInit {
 
   MarkContacts() {
     this.showLoader = true;
-    this.quizService.MarkData().subscribe((data) => {
+    this.quizService.MarkData().then((data) => {
       console.log(data);
       this.data = data;
       this.showLoader = false;
@@ -114,7 +115,19 @@ export class MarketingComponent implements OnInit {
         element.active = false;
         element.noReview = true;
       });
-    });
+    })
+    .catch((err) => {
+      this.quizService.showTimer.next(false);
+      this.quizService.startTimer = false;
+      this.router.navigate(['/home'])
+      console.log(err);
+      let dialogRef = this.dialog.open(ErrorDialogComponent, {
+        height: '180px',
+        width: '360px',
+        data: 'Sorry something went wrong. Please try again in sometime...'
+      })
+      
+    })
   }
 
   canDeactivate() {

@@ -31,7 +31,7 @@ export class QuizService {
   }
 
   getData() {
-    return this.http.get(this.apiUrl);
+    return this.http.get(this.apiUrl).toPromise()
   }
 
   getResult() {
@@ -45,7 +45,7 @@ export class QuizService {
   }
 
   TechData() {
-    return this.http.get('https://harshraj.pythonanywhere.com/user/api/get-domain-question/?Domain=1');
+    return this.http.get('https://harshraj.pythonanywhere.com/user/api/get-domain-question/?Domain=1').toPromise();
   }
 
   techResult() {
@@ -58,7 +58,7 @@ export class QuizService {
   }
 
   MarkData() {
-    return this.http.get('https://harshraj.pythonanywhere.com/user/api/get-domain-question/?Domain=2');
+    return this.http.get('https://harshraj.pythonanywhere.com/user/api/get-domain-question/?Domain=2').toPromise();
   }
   levelone() {
     const Headers = new HttpHeaders()
@@ -269,7 +269,7 @@ export class QuizService {
   getSubDomainQuestions(){
     let url = "https://harshraj.pythonanywhere.com/user/level3/" + sessionStorage.getItem('SD_1') + "/" + sessionStorage.getItem('SD_2')
 
-    return this.http.get(url);
+    return this.http.get(url).toPromise();
   }
 
   postTechRating(){
