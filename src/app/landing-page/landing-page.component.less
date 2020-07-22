@@ -13,10 +13,6 @@ a {
   width: 110%;
 }
 
-// a:hover {
-//     background-color: rgba(0, 0, 0, 0) !important;
-// }
-
 .all-txt {
   align-self: center;
 }
@@ -37,20 +33,9 @@ a {
   font-size: xxx-large;
 }
 
-// .part1{
-//     color: #390099;
-// }
-
 .part2 {
   color: #390099;
 }
-
-// @supports (-webkit-text-stroke: 1px black) {
-//     .part2 {
-//       -webkit-text-stroke: 1px black;
-//       -webkit-text-fill-color: whitesmoke;
-//     }
-//   }
 
 .tagline {
   display: flex;
@@ -107,7 +92,6 @@ a {
 
 .img {
   min-width: 50%;
-  // padding-left: 5%;
 }
 
 .lp-img {
@@ -152,7 +136,6 @@ a {
   transition: transform 0.2s;
   height: auto;
   min-height: fit-content;
-  // margin: 7% 7% 0% 0%;
 }
 
 .lp-card:hover {
@@ -162,8 +145,6 @@ a {
 
 .lp-card-img-container {
   display: flex;
-  // min-height: 50%;
-  // max-height: 50% !important;
 }
 
 .lp-card-img {
@@ -172,21 +153,12 @@ a {
   width: -webkit-fill-available;
 }
 
-// .txt-btn-container{
-//   display: flex;
-//   flex-direction: column;
-//   justify-content: space-evenly;
-// }
-
 .lp-card-content {
   min-height: 35%;
   max-height: 35%;
   display: flex;
   flex-direction: column;
   padding: 4%;
-  // justify-content: center;
-  // align-items: center;
-  // text-align: center;
 }
 
 .lp-card-header {
@@ -205,7 +177,7 @@ a {
   margin-right: 0% !important;
 }
 
-.lp-btn-container{
+.lp-btn-container {
   display: flex;
   justify-content: flex-start;
   padding: 2% 4%;
@@ -214,16 +186,64 @@ a {
   max-height: 15%;
 }
 
-.lp-btn{
-    min-height: 45px;
-    max-height: 45px;
-    min-width: 45px;
-    max-width: 100px;
-    display: flex;
+.lp-btn {
+  min-height: 45px;
+  max-height: 45px;
+  min-width: 45px;
+  max-width: 100px;
+  display: flex;
+  align-items: center;
+  background-color: #390099;
+  margin-right: 2%;
+  border-radius: 55px;
+  white-space: nowrap;
+  justify-content: center;
+}
+
+@media screen and (max-width: 768px) {
+  .main {
+    flex-direction: column;
+    .title-txt {
+      font-size: 14px;
+    }
+    .tagline-txt {
+      font-size: 12px;
+      .gif {
+        max-height: 40px;
+        max-width: 40px;
+      }
+    }
+    .btn {
+      min-height: 25px;
+      max-height: 25px;
+      min-width: 25px;
+      max-width: 50px;
+      .btn-txt {
+        font-size: 8px;
+        width: unset;
+      }
+    }
+  }
+  .desc-container {
+    .desc-header {
+      font-size: 14px;
+    }
+    .desc-tagline {
+      font-size: 12px;
+    }
+  }
+  .cards-container {
+    flex-direction: column;
     align-items: center;
-    background-color: #390099;
-    margin-right: 2%;
-    border-radius: 55px;
-    white-space: nowrap;
-    justify-content: center;
+    .lp-card {
+      max-width: 80% !important;
+      margin-bottom: 20px;
+      .lp-card-header {
+        font-size: 12px;
+      }
+      .lp-card-txt {
+        font-size: 10px;
+      }
+    }
+  }
 }
