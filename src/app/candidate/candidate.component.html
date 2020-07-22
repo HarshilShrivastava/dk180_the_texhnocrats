@@ -74,9 +74,6 @@
 </div>
 
 <div class="row disp-flex" *ngIf="!showLoader">
-  <!-- <div class="col s8 offset-s2 disp-flex"> -->
-  <!-- <div class="card"> -->
-  <!-- <div class="sm-jumbotron center-align"> -->
   <div class="form-title">
     <h3 class="disp-as-flex">It takes<div class="theme-clr">&nbsp;less than 3 minutes</div>&nbsp;to register with us!</h3>
   </div>
@@ -86,20 +83,18 @@
       <img src="./assets/image/sign-up.png" />
     </div>
   </div>
-  <!-- </div> -->
   <div class="sign-up-form">
     <form
       class="form-style-9"
       #organRegistrationForm="ngForm"
       (ngSubmit)="OnSubmit(organRegistrationForm)"
     >
-
     <div class="form-header">
       <div class="form-header-p1"><h4 class="disp-as-flex">Part <div class="theme-clr"> &nbsp;1:</div></h4> </div>
       <div class="form-header-p2"><h5>Help us get to know you better</h5></div>
     </div>
       <div class="row">
-        <div class="input-field col s6">
+        <div class="col s6 input-field">
           <i class="material-icons prefix">account_circle</i>
           <input
             id="username"
@@ -111,7 +106,7 @@
             [pattern]="userNamePattern"
             required
           />
-          <label for="username" class="inp-lbl">Username (You will use this to Login)</label>
+          <label for="username" class="inp-lbl">Username</label>
           <!-- <span class="helper-text" data-error="Required Username !" ></span> -->
           <span
             *ngIf="username.errors?.required && username.touched"
@@ -202,6 +197,4 @@
     </form>
   </div>
 </div>
-  <!-- </div> -->
-  <!-- </div> -->
 </div>
