@@ -10,6 +10,7 @@ import {
 import { MatDialog } from "@angular/material";
 import { GeneralDialogBoxComponent } from "src/app/dialogs/general-dialog-box/general-dialog-box.component";
 import { map, first } from "rxjs/operators";
+import { ErrorDialogComponent } from 'src/app/shared/error-dialog/error-dialog.component';
 
 @Component({
   selector: "app-round-three",
@@ -67,7 +68,7 @@ export class RoundThreeComponent implements OnInit {
 
   getQuestions() {
     this.showLoader = true;
-    this.quizService.getSubDomainQuestions().subscribe((data) => {
+    this.quizService.getSubDomainQuestions().then((data) => {
       // console.log(data);
       this.data = data;
       this.showLoader = false;
@@ -82,7 +83,19 @@ export class RoundThreeComponent implements OnInit {
 
       // let g = this.route.snapshot.url;
       // console.log(g);
-    });
+    })
+    .catch((err) => {
+      this.quizService.showTimer.next(false);
+      this.quizService.startTimer = false;
+      this.router.navigate(['/home'])
+      console.log(err);
+      let dialogRef = this.dialog.open(ErrorDialogComponent, {
+        height: '180px',
+        width: '360px',
+        data: 'Sorry something went wrong. Please try again in sometime...'
+      })
+      
+    })
   }
 
   canDeactivate() {

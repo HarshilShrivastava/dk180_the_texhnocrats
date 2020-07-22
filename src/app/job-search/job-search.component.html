@@ -1,5 +1,21 @@
 <div class="row">
-  <div class="page-header-container">
+
+  <div *ngIf="notRegistered" class="not-registered">
+    <div class="not-registered-txt">
+      Please <a [routerLink]="['/profiles']"> Sign Up </a> to view recommended jobs.
+      <!-- In the meantime, you can view these general courses to help you out with the quiz. -->
+    </div>
+    <div class="not-registered-img">
+      <img
+        class="nr-actual-img"
+        src="./assets/image/final.png"
+        alt="error_logo"
+      />
+    </div>
+  </div>
+
+
+  <div class="page-header-container" *ngIf="!notRegistered">
     <div class="title-container">
       <h4 class="title">Find your perfect job here:</h4>
       <div class="search-container">

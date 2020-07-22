@@ -119,7 +119,7 @@ export class QuizComponent implements OnInit {
 
   getContacts() {
     this.showLoader = true;
-    this.quizService.getData().subscribe(data => {
+    this.quizService.getData().then(data => {
       console.log(data);
       this.data = data;
       this.showLoader = false;
@@ -132,7 +132,18 @@ export class QuizComponent implements OnInit {
         this.result_arr.push([])
       })
       
-    });
+    })
+    .catch((err) => {
+      this.quizService.showTimer.next(false);
+      this.quizService.startTimer = false;
+      this.router.navigate(['/home'])
+      console.log(err);
+      let dialogRef = this.dialog.open(ErrorDialogComponent, {
+        height: '180px',
+        width: '360px',
+        data: "Sorry something went wrong! Please try again in sometime.."
+      });  
+    })
 
   }
 
