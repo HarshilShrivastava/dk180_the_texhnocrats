@@ -73,3 +73,28 @@
     }
   }
 }
+@media screen and (max-width: 768px) {
+  .header {
+    h3 {
+      font-size: 14px;
+    }
+    .link-buttons {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      .links-list {
+        margin-right: 0;
+        .btn {
+          min-height: 25px;
+          max-height: 25px;
+          min-width: 25px;
+          max-width: 150px;
+          .btn-txt {
+            font-size: 8px;
+            width: unset;
+          }
+        }
+      }
+    }
+  }
+}
