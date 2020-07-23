@@ -1,0 +1,486 @@
+<div class="container">
+  <div class="row">
+    <div class="loader-container">
+      <div *ngIf="showLoader">
+        <img src="./assets/loader.gif" class="loader" alt="Loading..." />
+      </div>
+    </div>
+    <!-- <div class="col s8 offset-2">
+      <div class="card-panel teal lighten-2">
+        <h4 class="center white-text">Candidate Profile</h4>
+      </div> -->
+    <div class="form-title" *ngIf="!showLoader">
+      <div>
+        <h3><strong> Part 2: </strong></h3>
+      </div>
+      <h4 class="disp-as-flex">
+        Build
+        <div class="theme-clr">&nbsp;<strong>your profile </strong></div>
+        &nbsp;& get started!
+      </h4>
+    </div>
+
+    <form
+      *ngIf="!showLoader"
+      #imageForm="ngForm"
+      class="form-style-9"
+      (ngSubmit)="OnSubmit(Name, Address, Image, Time, income, Bio, Experience)"
+    >
+      <div class="part-number">
+        Section 1: General Details:
+      </div>
+
+      <div class="general-details">
+        <div class="general-details-l1">
+          <div class="row">
+            <div class="input-field col s12">
+              <div *ngIf="isModeEdit" class="edit-label">Display name*</div>
+              <i class="material-icons prefix" [ngClass]="{'mt5': isModeEdit}">account_circle</i>
+
+              <input
+                type="text"
+                class="field-style field-split"
+                #Name="ngModel"
+                [(ngModel)]="fields.name"
+                name="Name"
+                id="Name"
+                required
+              />
+  
+              <label for="Name" *ngIf="!isModeEdit">Display name* </label>
+              <span class="exp-sub"
+                >(This name will be visible on your profile and to
+                recruiters)</span
+              >
+              <span
+                *ngIf="Name.errors?.required && Name.touched"
+                class="field_error"
+              >
+                Name field cannot be blank!
+              </span>
+              <span
+                *ngIf="Name.errors?.pattern && Name.touched"
+                class="field_error"
+              >
+                Please add a valid name!
+              </span>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="input-field col s12">
+              <div *ngIf="isModeEdit" class="edit-label">Experience*</div>
+              <i class="material-icons icon-image-preview prefix" [ngClass]="{'mt5': isModeEdit}"
+                >access_time</i
+              >
+              <input
+                type="number"
+                class="field-style field-split"
+                #Experience="ngModel"
+                [(ngModel)]="fields.experience"
+                name="Experience"
+                id="Experience"
+                required
+              />
+              <label for="Experience" *ngIf="!isModeEdit">Experience</label>
+              <span class="exp-sub">(Write 0 if you don't have any yet)</span>
+              <span
+                *ngIf="Experience.errors?.required && Experience.touched"
+                class="field_error"
+              >
+                Experience field cannot be blank
+              </span>
+              <span
+                *ngIf="Experience.errors?.pattern && Experience.touched"
+                class="field_error"
+              >
+                Please add a valid experience.
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="input-field col s12">
+            <div *ngIf="isModeEdit" class="edit-label">Address*</div>
+
+            <i class="material-icons icon-image-preview prefix" [ngClass]="{'mt5': isModeEdit}">home</i>
+            <input
+              type="text"
+              class="field-style field-split"
+              #Address="ngModel"
+              [(ngModel)]="fields.address"
+              name="Address"
+              id="Address"
+              required
+            />
+            <label for="Address" *ngIf="!isModeEdit">Address*</label>
+            <span
+              *ngIf="Address.errors?.required && Address.touched"
+              class="field_error"
+            >
+              Address field cannot be blank
+            </span>
+            <span
+              *ngIf="Address.errors?.pattern && Address.touched"
+              class="field_error"
+            >
+              Please add a valid /address/.
+            </span>
+          </div>
+        </div>
+        <br />
+
+        <div class="row">
+          <div class="input-field col s12">
+            <div *ngIf="isModeEdit" class="edit-label">Bio*</div>
+
+            <i class="material-icons icon-image-preview prefix" [ngClass]="{'mt5': isModeEdit}">textsms</i>
+            <textarea
+              type="text"
+              class="field-style field-split"
+              #Bio="ngModel"
+              [(ngModel)]="fields.bio"
+              name="Bio"
+              id="Bio"
+              rows="7"
+              required
+            >
+            </textarea>
+            <label for="Bio" *ngIf="!isModeEdit">Add a bio*</label>
+            <span
+              *ngIf="Bio.errors?.required && Bio.touched"
+              class="field_error"
+            >
+              Bio field cannot be blank
+            </span>
+            <span
+              *ngIf="Bio.errors?.pattern && Bio.touched"
+              class="field_error"
+            >
+              Please add a valid bio.
+            </span>
+          </div>
+        </div>
+        <br />
+
+        <div
+          *ngIf="isModeEdit"
+          class="existing-resume"
+          style="width: auto; display: flex; justify-content: center;"
+        >
+          Existing Resume:
+          <a href="{{ resumeLink }}" target="_blank">View</a>
+        </div>
+
+        <div class="label12">
+          <label
+            for="resume-upload"
+            class="resume-upload"
+            >Upload resume* (Please only upload a .pdf file)</label
+          >
+
+          <br />
+          <br />
+          <!-- <img *ngIf="hide" [src]="imageUrl"  style="width:50px;height:50px"> -->
+          <input
+            type="file"
+            class="submit"
+            #Image
+            accept="application/pdf"
+            (change)="handleFileInput($event.target.files)"
+          />
+          <br />
+          <!-- <button class="btn-large btn-submit" (click)="preview()"></button> -->
+
+          <mat-checkbox (change)="preview()"
+            >I want a preview of my uploaded file</mat-checkbox
+          >
+        </div>
+        <br />
+        <div class="disp-resume">
+          <div *ngIf="display">
+            <div class="preview">Preview:</div>
+            <pdf-viewer
+              [src]="imageUrl"
+              [render-text]="true"
+              style="display: block;"
+            ></pdf-viewer>
+          </div>
+
+          <div *ngIf="hide && !isModeEdit" class="no-resume">
+            You have not added a PDF of your Resume yet.
+          </div>
+          <div *ngIf="hide && isModeEdit" class="no-resume">
+            You have not updated the PDF of your older Resume yet.
+          </div>
+          <div *ngIf="!isValid" class="no-resume">
+            Please only upload a PDF file.
+          </div>
+          <div *ngIf="resumeStatus && !display" class="yes-resume">
+            Uploaded! :)
+          </div>
+        </div>
+
+        <div class="pb" *ngIf="inProgress && !isModeEdit">
+          Scanning for skills:
+        </div>
+        <div class="progress pb" *ngIf="inProgress && !isModeEdit">
+          <div class="indeterminate"></div>
+        </div>
+
+        <div class="row" *ngIf="!isModeEdit">
+          <div class="skills-container" *ngIf="skillsPresent">
+            <div class="skills-div">
+              <div class="skill-item">
+                Skills based on resume analysis
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-item-txt" *ngFor="let skill of results.skills">
+                <div class="itm-txt">{{ skill }}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="label12">
+          <label
+            for="resume-upload"
+            class="resume-upload"
+            style="font-weight: bold; font-size: inherit;"
+            >Upload any certifications you have*</label
+          >
+          <br />
+          <br />
+          <input
+            type="file"
+            class="submit"
+            #Image
+            accept="application/pdf, image/*"
+            (change)="certificateUpload($event.target.files)"
+            multiple
+          />
+        </div>
+      </div>
+      <br />
+
+      <div class="part-number">
+        Section 2: Make your profile stand out:
+      </div>
+
+      <div class="info-container">
+        <div class="sm-platforms">
+          <div class="sm-dropdown" matTooltip="Social Media Platforms You Use">
+            <!-- <i class="material-icons icon-image-preview prefix">supervised_user_circle</i> -->
+            <!-- <input type="text" class="field-style field-split" #Socialmedia ngModel name="Socialmedia" id="Socialmedia" required>
+            <label for="Socialmedia">Socialmedia</label> -->
+            <mat-form-field appearance="fill">
+              <mat-label>Social Media Platforms You Use</mat-label>
+              <mat-select
+                [formControl]="socialmedias"
+                (selectionChange)="onSelectionChange($event)"
+                multiple
+              >
+                <mat-select-trigger>
+                  {{ socialmedias.value ? socialmedias.value[0].value : "" }}
+                  <span
+                    *ngIf="socialmedias.value?.length > 1"
+                    class="example-additional-selection"
+                  >
+                    (+{{ socialmedias.value.length - 1 }}
+                    {{ socialmedias.value?.length === 2 ? "other" : "others" }})
+                  </span>
+                </mat-select-trigger>
+                <mat-option
+                  *ngFor="let platform of platformList | keyvalue"
+                  [value]="platform"
+                  >{{ platform.value }}</mat-option
+                >
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div class="info-field" [ngClass]="{'mb5': isModeEdit}">
+          <div class="input-field col s12">
+            <div *ngIf="isModeEdit" class="edit-label">~ Hours spent on these platforms (Ex: 3)*</div>
+
+            <i class="material-icons icon-image-preview prefix" [ngClass]="{'mt5': isModeEdit}">access_time</i>
+            <input
+              type="number"
+              class="field-style field-split"
+              #Time="ngModel"
+              [(ngModel)]="fields.time"
+              name="Time"
+              id="Time"
+              [pattern]="timePattern"
+              required
+            />
+            <label for="Time" *ngIf="!isModeEdit"
+              >~ Hours spent on these platforms (Ex: 3)*</label
+            >
+            <span
+              *ngIf="Time.errors?.required && Time.touched"
+              class="field_error"
+            >
+              Time field cannot be blank
+            </span>
+            <span
+              *ngIf="Time.errors?.pattern && Time.touched"
+              class="field_error"
+            >
+              Please only add an integer value (0-9)
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <br />
+
+      <div class="part-number">
+        Section 3: Socio-Economic Status:
+      </div>
+
+      <div class="info-container">
+        <div class="se-residence">
+          <div class="se-dropdown" matTooltip="Type of area">
+            <!-- <i class="material-icons icon-image-preview prefix">supervised_user_circle</i> -->
+            <!-- <input type="text" class="field-style field-split" #Socialmedia ngModel name="Socialmedia" id="Socialmedia" required>
+              <label for="Socialmedia">Socialmedia</label> -->
+            <mat-form-field appearance="fill">
+              <mat-label>Place of Residence</mat-label>
+              <mat-select
+                [formControl]="residences"
+                (selectionChange)="onResidenceSelectionChange($event)"
+              >
+                <!-- <mat-select-trigger>
+                      {{residences.value ? residences.value[0] : ''}}
+                    </mat-select-trigger> -->
+                <mat-option
+                  *ngFor="let item of residenceList | keyvalue"
+                  [value]="item"
+                  >{{ item.value }}</mat-option
+                >
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div class="info-field" [ngClass]="{'mb5': isModeEdit}">
+          <div class="input-field col s12">
+            <div *ngIf="isModeEdit" class="edit-label">Approximate family income (Ex: 300000)*</div>
+
+            <i class="material-icons icon-image-preview prefix" [ngClass]="{'mt5': isModeEdit}"
+              >account_balance</i
+            >
+            <input
+              type="number"
+              class="field-style field-split"
+              #income="ngModel"
+              [(ngModel)]="fields.income"
+              ngModel
+              name="income"
+              id="income"
+              [pattern]="timePattern"
+              required
+            />
+            <label for="income" *ngIf="!isModeEdit"
+              >Your approximate family income (Ex: 300000)*</label
+            >
+            <span
+              *ngIf="income.errors?.required && income.touched"
+              class="field_error"
+            >
+              Income field cannot be blank
+            </span>
+            <span
+              *ngIf="income.errors?.pattern && income.touched"
+              class="field_error"
+            >
+              Please only add an integer value (0-9)
+            </span>
+          </div>
+        </div>
+      </div>
+      <br />
+
+      <br />
+
+      <div class="btn-container">
+        <div *ngIf="isModeEdit" class="btn-txt">
+          Please make sure you update your Social Media Usage and Place of Residence details whenever you update your profile
+        </div>
+        <div class="btn-btn">
+          <button
+          type="reset"
+          (click)="onCancelClick()"
+          *ngIf="isModeEdit"
+          class="btn-cancel"
+        >
+          Cancel
+        </button>
+
+        <button
+          type="submit"
+          [ngClass]="{ 'btn-submit': hide, 'btn-hide': !hide }"
+          [disabled]="Image.value == '' || !imageForm.valid"
+        >
+          Submit
+        </button>
+        </div>
+        
+      </div>
+    </form>
+    <!-- </div> -->
+  </div>
+</div>
+
+<!-- <div class="container">
+  <div class="row"> -->
+<!-- <div class="col s8 offset-2">
+      <div class="card-panel teal lighten-2">
+        <h4 class="center white-text">Candidate Profile</h4>
+      </div> -->
+<!-- <form #imageForm=ngForm class="form-style-9" (ngSubmit)="OnSubmit(Name,Address,Image)">
+        <div class="row">
+          <div class="input-field col s12">
+            <i class="material-icons prefix">account_circle</i>
+
+            <input type="text" class="field-style field-split" #Name ngModel name="Name" id="Name" required>
+            <label for="Name">Display name* (This name will be visible on your profile and to recruiters)</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <i class="material-icons icon-image-preview prefix">home</i>
+            <input type="text" class="field-style field-split" #Address ngModel name="Address" id="Address" required>
+            <label for="Address">Address*</label>
+          </div>
+        </div>
+        <div class="label1">
+        <label for="resume-upload">Upload resume (Please only upload a .pdf file for now)</label>
+
+        <br>
+        <br> -->
+<!-- <img *ngIf="hide" [src]="imageUrl"  style="width:50px;height:50px"> -->
+<!-- <input type="file" class="submit" #Image accept="image/*" (change)="handleFileInput($event.target.files)"> -->
+<!-- <br> -->
+<!-- <button class="btn-large btn-submit" (click)="preview()"></button> -->
+
+<!-- <mat-checkbox (change)="preview()">I want a preview of my uploaded file</mat-checkbox>
+        </div>
+        <br>
+        <div *ngIf="!hide">
+          <div class="preview"> Preview: </div>
+          <pdf-viewer [src]="imageUrl" [render-text]="true" style="display: block;"></pdf-viewer> 
+
+        </div>
+        <br>
+        
+
+        <button type="submit" [ngClass]="{'btn-large btn-submit' : hide, 'btn-large btn-hide' : !hide}" [disabled]="Image.value=='' || !imageForm.valid">Submit</button>
+      </form> -->
+<!-- </div> -->
+<!-- </div>
+</div> -->

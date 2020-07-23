@@ -1,0 +1,123 @@
+<div class="page-container">
+  <div class="main">
+    <div class="header">
+      <div class="all-txt">
+        <div class="title-txt">
+          <div class="part1">Career</div>
+          <div class="part2">Connect</div>
+        </div>
+        <div class="tagline">
+          <div class="tagline-txt">
+            Find your next dream job at
+            <div class="gif-container">
+              <img class="gif" src="./assets/image/final.gif" alt="companies" />
+            </div>
+          </div>
+          <!-- <div>
+                    <img class="gif" src="../../assets/image/ezgif.com-resize.gif" alt="companies">
+                </div> -->
+        </div>
+      </div>
+      <div class="all-btn">
+        <div class="btn">
+          <a class="btn-txt" [routerLink]="['/instructions']">Take Quiz</a>
+        </div>
+        <div class="btn" *ngIf="!userService.isLoggedIn()">
+          <a class="btn-txt" [routerLink]="['/profiles']">Create Profile</a>
+        </div>
+        <div class="btn" *ngIf="!userService.isLoggedIn()">
+          <a class="btn-txt" [routerLink]="['/login']">Login</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="img">
+      <img src="./assets/image/final.png" class="lp-img" alt="job-pic" />
+    </div>
+  </div>
+
+  <div class="desc-container">
+    <div class="desc-header">
+      What do we bring to the table?
+    </div>
+    <div class="desc-tagline">
+      Take a peek yourself!
+    </div>
+  </div>
+
+  <div class="cards-container">
+    <div class="lp-card" (click) = "onClick('quiz')">
+      <div class="lp-card-img-container">
+        <img
+          src="./assets/image/lp-quiz.jpg"
+          class="lp-card-img"
+          alt="Why us?"
+        />
+      </div>
+
+      <div class="txt-btn-container">
+      <div class="lp-card-content">
+        <div class="lp-card-header">CC Quiz</div>
+        <div class="lp-card-txt">
+          The CC quiz is a smart quiz that shapes itself according to your
+          skillset. It is honed to bring out the best in you. Find out which domain is the best for you, try now!
+        </div>
+      </div>
+      <!-- <div class="lp-btn-container">
+        <div class="btn lp-btn">
+          <a class="btn-txt" [routerLink]="['/instructions']">Try now!</a>
+        </div>
+      </div> -->
+    </div>
+    </div>
+
+    <div class="lp-card" (click) = "onClick('dashboard')">
+      <div class="lp-card-img-container">
+        <img
+          src="./assets/image/lp-resume.jpg"
+          class="lp-card-img"
+          alt="Why us?"
+        />
+      </div>
+
+      <div class="lp-card-content">
+        <div class="lp-card-header">Smart Skills Analysis</div>
+        <div class="lp-card-txt">
+          With our ML-Based Resume analysis, simply re-uploading your resume is
+          all that's required to keep your profile aligned with your resume!
+        </div>
+      </div>
+
+      <!-- <div class="lp-btn-container">
+        <div class="btn lp-btn">
+          <a class="btn-txt" [routerLink]="['/candidate']">Sign up!</a>
+        </div>
+      </div> -->
+    </div>
+
+    <div class="lp-card last-card" (click) = "onClick('jobs')">
+      <div class="lp-card-img-container">
+        <img
+          src="./assets/image/lp-job.jpeg"
+          class="lp-card-img"
+          alt="Why us?"
+        />
+      </div>
+
+      <div class="txt-btn-container">
+        <div class="lp-card-content">
+          <div class="lp-card-header">Get Job Recommendations</div>
+          <div class="lp-card-txt">
+            With our smart profile and job matching algorithm, you can view and apply for jobs that you will 
+            genuinely be interested in!
+          </div>
+        </div>
+        <!-- <div class="lp-btn-container">
+          <div class="btn lp-btn">
+            <a class="btn-txt" [routerLink]="['/instructions']">Try now!</a>
+          </div>
+        </div> -->
+      </div>
+    </div>
+  </div>
+</div>

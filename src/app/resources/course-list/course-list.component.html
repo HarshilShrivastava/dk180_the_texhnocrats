@@ -1,0 +1,213 @@
+<div class="row">
+  <div class="page-header-container">
+    <div class="title-container" *ngIf="blog">
+      <span class="title">Search Available Blogs here:</span>
+      <div class="search-container">
+        <div class="nav-wrapper">
+          <form class="search-wrapper">
+            <div class="search-bar">
+              <i id="search-icon" class="material-icons">search</i>
+              <input
+                id="search"
+                [(ngModel)]="query"
+                name="query"
+                type="search"
+                placeholder="Search.."
+              />
+              <i id="cross" class="material-icons" (click)="clear()">close</i>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="title-container" *ngIf="course">
+      <span class="title">Search Available Courses here:</span>
+      <div class="search-container">
+        <div class="nav-wrapper">
+          <form class="search-wrapper">
+            <div class="search-bar">
+              <i id="search-icon" class="material-icons">search</i>
+              <input
+                id="search"
+                [(ngModel)]="query"
+                name="query"
+                type="search"
+                placeholder="Search.."
+              />
+              <i id="cross" class="material-icons" (click)="clear()">close</i>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="title-container" *ngIf="scheme">
+      <span class="title">Search Available Schemes here:</span>
+      <div class="search-container">
+        <div class="nav-wrapper">
+          <form class="search-wrapper">
+            <div class="search-bar">
+              <i id="search-icon" class="material-icons">search</i>
+              <input
+                id="search"
+                [(ngModel)]="query"
+                name="query"
+                type="search"
+                placeholder="Search.."
+              />
+              <i id="cross" class="material-icons" (click)="clear()">close</i>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="header-image-container" *ngIf="course">
+      <img src="./assets/image/flat.png" class="header-image" />
+    </div>
+    <div class="header-image-container" *ngIf="blog">
+      <img src="./assets/image/office1.png" class="header-image" />
+    </div>
+    <div class="header-image-container" *ngIf="scheme">
+      <img src="./assets/image/office3.png" class="header-image" />
+    </div>
+  </div>
+  <!-- <div class="title-container" *ngIf="blog">
+      <span class="title">Search Available Blogs here:</span>
+      <img src="./assets/image/flat22.png" />
+    </div>
+
+    <div class="title-container" *ngIf="course">
+        <span class="title">Search Available Courses here:</span>
+        <img src="./assets/image/flat22.png" />
+    </div>
+
+    <div class="title-container" *ngIf="scheme">
+      <span class="title">Search Available Schemes here:</span>
+      <img src="./assets/image/flat22.png" />
+    </div>
+    <div class="search-container">
+      <div class="nav-wrapper">
+        <form class="search-wrapper">
+          <div class="search-bar">
+            <i id="search-icon" class="material-icons">search</i>
+            <input
+              id="search"
+              [(ngModel)]="query"
+              name="query"
+              type="search"
+              placeholder="Search.."
+            />
+            <i id="cross" class="material-icons" (click)="clear()">close</i>
+          </div>
+        </form>
+      </div> -->
+  <!-- </div> -->
+
+  <!-- <div class="loader-container">
+      <div *ngIf="showLoader">
+        <img src="./assets/loader.gif" class="loader" alt="Loading..." />
+      </div>
+    </div> -->
+
+  <div>
+    <div class="loader-container">
+      <div *ngIf="showLoader">
+        <img src="./assets/loader.gif" class="loader" alt="Loading..." />
+      </div>
+    </div>
+
+    <div *ngIf="isEmpty" class="empty_list">
+      Sorry we do not have anything listed yet, please try again in a few days.
+    </div>
+    <!-- <div *ngIf="noMatch" class="no-match">
+        No results found :(
+      </div> -->
+
+    <div class="col s12">
+      <div class="cont-cont" *ngIf="!showLoader && !isEmpty">
+        <div
+          class="container"
+          *ngFor="let result of data.data | filter: query; let i = index"
+        >
+          <mat-card class="example-card">
+            <div class="header-container">
+              <mat-card-header>
+                <div mat-card-avatar>
+                  <img
+                    src="{{ result.photo }}"
+                    alt="logo"
+                    style="width: 50px; height: 50px;"
+                  />
+                </div>
+                <mat-card-title>{{ result.Title }}</mat-card-title>
+                <mat-card-subtitle *ngIf="course || scheme">{{
+                  result.By
+                }}</mat-card-subtitle>
+              </mat-card-header>
+
+              <div class="dropdown">
+                <button
+                  class="dropdown-cont"
+                  mat-icon-button
+                  [matMenuTriggerFor]="menu"
+                  aria-label="Example icon-button with a menu"
+                >
+                  <mat-icon>more_vert</mat-icon>
+                </button>
+                <mat-menu #menu="matMenu">
+                  <button class="dropdown-cont" mat-menu-item>
+                    <i class="material-icons">edit</i>
+                    <span>
+                      <div class="dropdown-txt">Apply Now</div>
+                    </span>
+                  </button>
+                  <button class="dropdown-cont" mat-menu-item>
+                    <i class="material-icons">share</i>
+                    <span>
+                      <div class="dropdown-txt">Share</div>
+                    </span>
+                  </button>
+                  <button class="dropdown-cont" mat-menu-item>
+                    <i class="material-icons">bookmark</i>
+                    <span>
+                      <div class="dropdown-txt">Save</div>
+                    </span>
+                  </button>
+                </mat-menu>
+              </div>
+            </div>
+            <p class="description" title="{{ result.Description }}">
+              <strong>Description : </strong>{{ result.Description }}
+            </p>
+
+            <p title="{{ result.Rating }}" *ngIf="blog || course">
+              <strong>Rating : </strong>{{ result.Rating }}
+            </p>
+            <!-- <mat-card-content>
+                <p>
+                  <strong>Minimum experience : </strong>
+                  {{ result.Minimum_experience }}
+                </p>
+                <p class="city">
+                  <strong>Available at : </strong>
+                  {{ result.prefered_city }}
+                </p>
+              </mat-card-content> -->
+            <mat-card-actions class="footer">
+              <button mat-button class="btn" (click)="onViewClick(result)">
+                View Post
+              </button>
+              <!-- <button
+                  mat-button
+                  class="btn"
+                  (click)="onViewApplicant(result.id)"
+                  *ngIf="userIsOrganization"
+                >
+                  View Applicants
+                </button> -->
+            </mat-card-actions>
+          </mat-card>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
