@@ -4,6 +4,9 @@ import { UserService } from 'src/app/shared/user.service';
 import { MatDialog } from '@angular/material';
 import { Router } from '@angular/router';
 
+import { CourseDialogComponent } from 'src/app/shared/course-dialog/course-dialog.component';
+import { Observable } from 'rxjs';
+
 @Component({
   selector: 'app-course-list',
   templateUrl: './course-list.component.html',
@@ -82,6 +85,23 @@ export class CourseListComponent implements OnInit {
         console.log(this.data);
       })
     }
+  }
+
+  onViewClick(res){
+    let data = {
+      Name: res.Title,
+      id: res.id,
+      By: res.By,
+      Description: res.Description,
+      Rating: res.Rating,
+      Apply:res.Apply
+    }
+    let dialogRef = this.dialog.open(CourseDialogComponent, {
+      height: '350px',
+      data: data
+    });
+
+    
   }
 
   clear(){
