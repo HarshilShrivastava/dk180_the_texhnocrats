@@ -75,6 +75,7 @@ import { BlogListComponent } from './resources/blog-list/blog-list.component';
 import { SchemeListComponent } from './resources/scheme-list/scheme-list.component';
 import { DeactivateProfileComponent } from './candidate-ops/deactivate-profile/deactivate-profile.component';
 import { EditProfileComponent } from './candidate-ops/edit-profile/edit-profile.component';
+import { CourseDialogComponent } from './shared/course-dialog/course-dialog.component';
 
 
 
@@ -133,7 +134,8 @@ import { EditProfileComponent } from './candidate-ops/edit-profile/edit-profile.
     BlogListComponent,
     SchemeListComponent,
     DeactivateProfileComponent,
-    EditProfileComponent
+    EditProfileComponent,
+    CourseDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -166,7 +168,7 @@ import { EditProfileComponent } from './candidate-ops/edit-profile/edit-profile.
 ],
   providers: [QuizService, User],
   bootstrap: [AppComponent],
-  entryComponents: [JobApplyDialogComponent, ErrorDialogComponent, GeneralDialogBoxComponent, JobViewDialogComponent]
+  entryComponents: [JobApplyDialogComponent, ErrorDialogComponent, GeneralDialogBoxComponent, JobViewDialogComponent, CourseDialogComponent]
 
 })
 export class AppModule { }
