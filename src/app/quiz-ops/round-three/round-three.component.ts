@@ -31,6 +31,8 @@ export class RoundThreeComponent implements OnInit {
   totalAnswered = 0;
   showLoader: boolean = false;
   proceed: boolean = false;
+  questionThreshold: boolean = false;
+
 
   constructor(
     private quizService: QuizService,
@@ -148,6 +150,9 @@ export class RoundThreeComponent implements OnInit {
       this.result_arr[index] = arr;
     }
     console.log(this.result_arr);
+
+    if(this.totalAnswered >= 10)
+      this.questionThreshold = true;
     // console.log(this.result_arr[index].SubDomain);
 
     // if(this.result_arr[index].SubDomain === 2 && this.result_arr[index].id !== this.sd_2.qid){
