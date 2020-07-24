@@ -26,7 +26,7 @@
 <div class="navba-wrapper">
   <div class="left-nav">
     <div class="logo">
-      <a (click)="onClickOption('home')" *ngIf = "showLinks">
+      <a (click)="onClickOption('home')" *ngIf="showLinks">
         <img src="./assets/grp19.png" alt="Logo" />
       </a>
     </div>
@@ -40,7 +40,7 @@
       <a (click)="onClickOption('quiz')">Take Quiz</a>
     </div>
   </div> -->
-  <div class="links" *ngIf = "showLinks">
+  <div class="links" *ngIf="showLinks">
     <div class="nav-link">
       <a (click)="onClickOption('home')">Home</a>
     </div>
@@ -53,8 +53,14 @@
     <div class="nav-link" *ngIf="checkifLoggedIn()">
       <a (click)="onClickOption('applied-jobs')">Applied Jobs</a>
     </div> -->
-    <button class="nav-btn" mat-icon-button [matMenuTriggerFor]="resourcesmenu" aria-label="Example icon-button with a menu">
-      <div class="nav-btn-txt" >Resources</div><mat-icon class="dropdwn-arr">arrow_drop_down</mat-icon>
+    <button
+      class="nav-btn"
+      mat-icon-button
+      [matMenuTriggerFor]="resourcesmenu"
+      aria-label="Example icon-button with a menu"
+    >
+      <div class="nav-btn-txt">Resources</div>
+      <mat-icon class="dropdwn-arr">arrow_drop_down</mat-icon>
     </button>
     <mat-menu #resourcesmenu="matMenu">
       <!-- <button mat-menu-item disabled *ngIf = "checkifLoggedIn()">
@@ -62,19 +68,38 @@
         <span>{{name}}</span>
       </button> -->
       <!-- *ngIf = "!userIsOrganization" removed this condition from below button tag-->
-      <button class="nav-btn" mat-menu-item (click) = "onClickOption('instructions')">
+      <button
+        class="nav-btn"
+        mat-menu-item
+        (click)="onClickOption('instructions')"
+      >
         <mat-icon>assignment</mat-icon>
         <span>Take Quiz</span>
       </button>
-      <button class="nav-btn" mat-menu-item (click) = "onClickOption('course-list')" *ngIf = "checkifLoggedIn() && userIsCandidate">
+      <button
+        class="nav-btn"
+        mat-menu-item
+        (click)="onClickOption('course-list')"
+        *ngIf="checkifLoggedIn() && userIsCandidate"
+      >
         <mat-icon>menu_book</mat-icon>
         <span>Search Courses</span>
       </button>
-      <button class="nav-btn" mat-menu-item (click) = "onClickOption('blog-list')" *ngIf = "checkifLoggedIn() && userIsCandidate">
+      <button
+        class="nav-btn"
+        mat-menu-item
+        (click)="onClickOption('blog-list')"
+        *ngIf="checkifLoggedIn() && userIsCandidate"
+      >
         <mat-icon>library_books</mat-icon>
         <span>Search Blogs</span>
       </button>
-      <button class="nav-btn" mat-menu-item (click) = "onClickOption('scheme-list')" *ngIf = "checkifLoggedIn() && userIsCandidate">
+      <button
+        class="nav-btn"
+        mat-menu-item
+        (click)="onClickOption('scheme-list')"
+        *ngIf="checkifLoggedIn() && userIsCandidate"
+      >
         <mat-icon>add_alert</mat-icon>
         <span>Search Schemes</span>
       </button>
@@ -84,7 +109,6 @@
       </button> -->
     </mat-menu>
 
-
     <div class="nav-link" *ngIf="!checkifLoggedIn()">
       <a (click)="onClickOption('profiles')">Sign Up</a>
     </div>
@@ -92,25 +116,46 @@
       <a (click)="onClickOption('login')">Log In</a>
     </div>
     <!-- *ngIf="!checkifLoggedIn()" removed this condition from below button tag-->
-    
 
-    <button class="nav-btn" mat-icon-button [matMenuTriggerFor]="jobsmenu" aria-label="Example icon-button with a menu" *ngIf = "checkifLoggedIn()">
-      <div class="nav-btn-txt" >Jobs</div><mat-icon class="dropdwn-arr">arrow_drop_down</mat-icon>
+    <button
+      class="nav-btn"
+      mat-icon-button
+      [matMenuTriggerFor]="jobsmenu"
+      aria-label="Example icon-button with a menu"
+      *ngIf="checkifLoggedIn()"
+    >
+      <div class="nav-btn-txt">Jobs</div>
+      <mat-icon class="dropdwn-arr">arrow_drop_down</mat-icon>
     </button>
     <mat-menu #jobsmenu="matMenu">
       <!-- <button mat-menu-item disabled *ngIf = "checkifLoggedIn()">
         <mat-icon>search</mat-icon>
         <span>{{name}}</span>
       </button> -->
-      <button class="nav-btn" mat-menu-item (click) = "onClickOption('job-search')" *ngIf = "checkifLoggedIn() && userIsCandidate">
+      <button
+        class="nav-btn"
+        mat-menu-item
+        (click)="onClickOption('job-search')"
+        *ngIf="checkifLoggedIn() && userIsCandidate"
+      >
         <mat-icon>search</mat-icon>
         <span>Search Jobs</span>
       </button>
-      <button class="nav-btn" mat-menu-item (click) = "onClickOption('applied-jobs')" *ngIf = "checkifLoggedIn() && userIsCandidate">
+      <button
+        class="nav-btn"
+        mat-menu-item
+        (click)="onClickOption('applied-jobs')"
+        *ngIf="checkifLoggedIn() && userIsCandidate"
+      >
         <mat-icon>edit</mat-icon>
         <span>Applied Jobs</span>
       </button>
-      <button class="nav-btn" mat-menu-item (click) = "onClickOption('create-job')" *ngIf = "checkifLoggedIn() && userIsOrganization">
+      <button
+        class="nav-btn"
+        mat-menu-item
+        (click)="onClickOption('create-job')"
+        *ngIf="checkifLoggedIn() && userIsOrganization"
+      >
         <mat-icon>add_alert</mat-icon>
         <span>Create Job</span>
       </button>
@@ -122,19 +167,35 @@
     <!-- <div class="nav-link" *ngIf = "userService.isLoggedIn()">
       <a (click) = "onClickOption('logout')">Logout</a>
     </div> -->
-    <button class="nav-btn" mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu" *ngIf = "checkifLoggedIn()">
+    <button
+      class="nav-btn"
+      mat-icon-button
+      [matMenuTriggerFor]="menu"
+      aria-label="Example icon-button with a menu"
+      *ngIf="checkifLoggedIn()"
+    >
       <mat-icon>account_circle</mat-icon>
     </button>
     <mat-menu #menu="matMenu">
-      <button class="nav-btn" mat-menu-item disabled *ngIf = "checkifLoggedIn()">
+      <button class="nav-btn" mat-menu-item disabled *ngIf="checkifLoggedIn()">
         <mat-icon>verified_user</mat-icon>
-        <span>{{name}}</span>
+        <span>{{ name }}</span>
       </button>
-      <button class="nav-btn" mat-menu-item (click) = "onClickOption('canview')" *ngIf = "checkifLoggedIn()">
+      <button
+        class="nav-btn"
+        mat-menu-item
+        (click)="onClickOption('canview')"
+        *ngIf="checkifLoggedIn()"
+      >
         <mat-icon>dashboard</mat-icon>
         <span>Dashboard</span>
       </button>
-      <button class="nav-btn" mat-menu-item (click) = "onClickOption('logout')" *ngIf = "checkifLoggedIn()">
+      <button
+        class="nav-btn"
+        mat-menu-item
+        (click)="onClickOption('logout')"
+        *ngIf="checkifLoggedIn()"
+      >
         <mat-icon>cancel</mat-icon>
         <span>Logout</span>
       </button>
@@ -145,14 +206,11 @@
     </mat-menu>
   </div>
 
-
   <div class="links" *ngIf="showTimer">
     <div class="nav-link">
       <a (click)="onClickOption('home')">Exit Quiz</a>
     </div>
   </div>
-
-
 </div>
 
 <!-- <div class="row">
