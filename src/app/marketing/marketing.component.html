@@ -99,6 +99,7 @@
           <div class="row">
             <div class="col s12 btn-submit">
               <button
+                [disabled]="!questionThreshold"
                 class="btn"
                 type="submit"
                 name="action"
@@ -106,7 +107,10 @@
               >
                 Round Three<i class="material-icons right">send</i>
               </button>
-              <div class="attempt-label disp-as-flex" *ngIf = "!questionThreshold">
+              <div
+                class="attempt-label disp-as-flex"
+                *ngIf="!questionThreshold"
+              >
                 You should attempt at least 10 questions
               </div>
             </div>
