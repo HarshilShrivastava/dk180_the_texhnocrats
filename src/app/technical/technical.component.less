@@ -128,13 +128,25 @@ input {
   margin-bottom: 2%;
 }
 
+.btn:disabled{
+  background-color: transparent !important;
+  cursor: not-allowed !important;
+}
+
+.attempt-label{
+  color: rgb(190, 14, 14);
+}
+
 .review {
   background-color: #808080 !important;
 }
 
 .row .btn-submit {
   display: flex;
-  margin-left: 57%;
+  flex-direction: column;
+  align-items: center;
+  max-width: 50%;
+  // margin-left: 57%;
   padding: 5%;
 }
 

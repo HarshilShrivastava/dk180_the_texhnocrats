@@ -67,6 +67,8 @@ export class TechnicalComponent implements OnInit {
   totalAnswered = 0;
   showLoader: boolean = false;
   proceed: boolean = false;
+  questionThreshold: boolean = false;
+
 
   constructor(
     private quizService: QuizService,
@@ -217,6 +219,9 @@ export class TechnicalComponent implements OnInit {
       this.sd_7.qid = this.result_arr[index].id;
     }
     console.log(this.sd_7);
+
+    if(this.totalAnswered >= 10)
+      this.questionThreshold = true;
 
     //  console.log('Marks =', Weightage , 'from domain', from_Domain);
     //  // console.log(qID);
