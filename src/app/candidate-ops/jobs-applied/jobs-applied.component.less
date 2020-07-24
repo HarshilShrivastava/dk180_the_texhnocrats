@@ -253,3 +253,42 @@ p {
   background-color: whitesmoke !important;
   border: none !important;
 }
+
+@media screen and (max-width: 768px) {
+  .page-header-container {
+    display: block;
+    padding-bottom: 30px;
+    .title-container {
+      min-width: unset;
+      padding: 0;
+      .title {
+        max-width: unset;
+        text-align: center;
+        font-size: 18px;
+        line-height: 21px;
+      }
+      .search-container {
+        justify-content: center;
+      }
+    }
+    .header-image-container {
+      max-width: unset;
+      padding: 0;
+      padding-top: 20px;
+    }
+  }
+  .cont-cont {
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+    .container {
+      max-width: unset;
+      margin: 0;
+      width: 100%;
+      .mat-card-header .mat-card-title {
+        font-size: 14px;
+        word-break: break-all;
+      }
+    }
+  }
+}

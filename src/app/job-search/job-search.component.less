@@ -2,24 +2,24 @@ mat-form-field {
   height: 20px;
 }
 
-.not-registered{
+.not-registered {
   display: flex;
   justify-content: center;
   padding: 10%;
 }
 
-.not-registered-txt{
+.not-registered-txt {
   font-size: large;
   font-weight: bold;
   // display: flex;
   max-width: 50%;
 }
 
-.not-registered-img{
+.not-registered-img {
   max-width: 50%;
 }
 
-.nr-actual-img{
+.nr-actual-img {
   width: 100%;
 }
 
@@ -385,4 +385,42 @@ a {
   margin-bottom: 2%;
   white-space: nowrap;
   font-size: small;
+}
+@media screen and (max-width: 768px) {
+  .page-header-container {
+    display: block;
+    padding-bottom: 30px;
+    .title-container {
+      min-width: unset;
+      padding: 0;
+      .title {
+        max-width: unset;
+        text-align: center;
+        font-size: 18px;
+        line-height: 21px;
+      }
+      .search-container {
+        justify-content: center;
+      }
+    }
+    .header-image-container {
+      max-width: unset;
+      padding: 0;
+      padding-top: 20px;
+    }
+  }
+  .cont-cont {
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+    .container {
+      max-width: unset;
+      margin: 0;
+      width: 100%;
+      .mat-card-header .mat-card-title {
+        font-size: 14px;
+        word-break: break-all;
+      }
+    }
+  }
 }
