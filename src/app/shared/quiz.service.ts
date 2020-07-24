@@ -349,6 +349,17 @@ export class QuizService {
 
   }
 
+  resumeUpdateAnalysis(Resume: File){
+    const Headers = new HttpHeaders()
+      .set('Authorization', 'token ' + localStorage.getItem('token'));
+
+    const formData: FormData = new FormData();
+    formData.append('username', localStorage.getItem("uname"));
+    formData.append('Resume', Resume, Resume.name);
+
+    return this.http.put('https://sihml.pythonanywhere.com/analysis/analysis-put/', formData, {headers: Headers}).toPromise()
+  }
+
   deactivateProfile(){
     const Headers = new HttpHeaders()
       .set('Authorization', 'token ' + localStorage.getItem('token'));
