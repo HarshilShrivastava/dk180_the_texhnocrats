@@ -54,6 +54,13 @@ export class FlowDecideComponent implements OnInit {
       this.router.navigate(['/tech'])
     else if(this.domain === "2")
       this.router.navigate(['/mark'])
+    else{
+      let dialogRef = this.dialog.open(ErrorDialogComponent, {
+        height: '150px',
+        data: "You have selected a dummy domain"
+      })
+    }
+    
     }
 
     else if(txt === 'notdecided')
