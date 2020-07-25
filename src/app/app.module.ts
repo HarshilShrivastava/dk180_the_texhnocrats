@@ -76,6 +76,7 @@ import { SchemeListComponent } from './resources/scheme-list/scheme-list.compone
 import { DeactivateProfileComponent } from './candidate-ops/deactivate-profile/deactivate-profile.component';
 import { EditProfileComponent } from './candidate-ops/edit-profile/edit-profile.component';
 import { CourseDialogComponent } from './shared/course-dialog/course-dialog.component';
+import { FlowDecideComponent } from './quiz-ops/flow-decide/flow-decide.component';
 
 
 
@@ -135,7 +136,8 @@ import { CourseDialogComponent } from './shared/course-dialog/course-dialog.comp
     SchemeListComponent,
     DeactivateProfileComponent,
     EditProfileComponent,
-    CourseDialogComponent
+    CourseDialogComponent,
+    FlowDecideComponent
   ],
   imports: [
     BrowserModule,

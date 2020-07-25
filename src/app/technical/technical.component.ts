@@ -30,6 +30,7 @@ export class TechnicalComponent implements OnInit {
   techmarks = 0;
   totalmarks = 0;
   rating = 0;
+  titleText: string;
 
   sd_2 = {
     id: 0,
@@ -75,11 +76,21 @@ export class TechnicalComponent implements OnInit {
     private router: Router,
     private _formBuilder: FormBuilder,
     private dialog: MatDialog
-  ) {}
+  ) {
+
+    this.quizService.onlySubDomainQuiz.subscribe((value) => {
+      if(value)
+        this.titleText = "Round 1: Technical Domains Quiz";
+      else if(!value)
+        this.titleText = "Round 2: Domain Quiz";
+    })
+  }
 
   ngOnInit() {
     this.quizService.showTimer.next(true);
     this.quizService.chaluKar.next(false);
+    this.quizService.startTimer = true;
+
 
     this.firstFormGroup = this._formBuilder.group({
       firstCtrl: ["", Validators.required],

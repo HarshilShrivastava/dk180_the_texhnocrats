@@ -6,7 +6,7 @@
       </div>
     </div>
     <div class="title-container" *ngIf="!showLoader">
-      <span>Round 2: Domain Quiz</span>
+      <span>{{titleText}}</span>
     </div>
     <mat-horizontal-stepper *ngIf="!showLoader" #stepper labelPosition="bottom">
       <mat-step

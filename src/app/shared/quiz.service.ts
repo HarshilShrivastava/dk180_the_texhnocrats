@@ -14,6 +14,8 @@ export class QuizService {
   public chaluKar: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
   public showTimer: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
 
+  public onlySubDomainQuiz: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+
   private apiUrl = 'https://harshraj.pythonanywhere.com/user/api/get-question/?format=json';
   qns: any[];
   Candidate: boolean;

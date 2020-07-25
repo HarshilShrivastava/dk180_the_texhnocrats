@@ -72,6 +72,7 @@ export class MarketingComponent implements OnInit {
   showLoader: boolean = false;
   proceed: boolean = false;
   questionThreshold: boolean = false;
+  titleText: string;
 
 
   constructor(
@@ -79,11 +80,21 @@ export class MarketingComponent implements OnInit {
     private router: Router,
     private _formBuilder: FormBuilder,
     private dialog: MatDialog
-  ) {}
+  ) {
+
+    this.quizService.onlySubDomainQuiz.subscribe((value)=> {
+      if(value)
+        this.titleText = "Round 1: Quiz Domain Quiz"
+      else if(!value)
+        this.titleText = "Round 2: Domain Quiz"
+    })
+  }
 
   ngOnInit() {
     this.quizService.showTimer.next(true);
     this.quizService.chaluKar.next(false);
+    this.quizService.startTimer = true;
+
 
     this.firstFormGroup = this._formBuilder.group({
       firstCtrl: ["", Validators.required],

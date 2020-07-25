@@ -51,6 +51,7 @@ export class QuizComponent implements OnInit {
     this.getContacts();
     this.quizService.showTimer.next(true);
     this.quizService.startTimer = true;
+    this.quizService.onlySubDomainQuiz.next(false);
 
     this.firstFormGroup = this._formBuilder.group({
       firstCtrl: ['', Validators.required]

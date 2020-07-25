@@ -24,6 +24,14 @@ export class NavbarComponent implements OnInit {
     public quizService: QuizService,
     private dialog: MatDialog
     ) { 
+      this.quizService.onlySubDomainQuiz.subscribe(value => {
+        if(value)
+          this.timeLeft = 900;
+        else if(!value)
+          this.timeLeft = 1200;
+      })
+
+
       this.quizService.chaluKar.subscribe(value => {
         this.quizStarted = value
         if(this.quizStarted === true)
@@ -39,7 +47,6 @@ export class NavbarComponent implements OnInit {
             this.showLinks = false
           }
           if(this.showTimer === false){
-            this.timeLeft = 1200;
             this.showLinks = true
             clearInterval(this.interval);
           }
@@ -83,7 +90,7 @@ export class NavbarComponent implements OnInit {
   showSubmenu: boolean = false;
   isShowing = false;
   showSubSubMenu: boolean = false;
-  timeLeft: number = 1200;
+  timeLeft: number;
   interval;
 
   data: any;
@@ -145,7 +152,7 @@ export class NavbarComponent implements OnInit {
             this.Logout();
           else
             this.router.navigate([option]);
-          this.timeLeft = 1200;
+          // this.timeLeft = 1200;
           clearInterval(this.interval);
         }
         // else
@@ -232,15 +239,15 @@ export class NavbarComponent implements OnInit {
         }
         else{
           this.quizService.chaluKar.next(false)
-          this.timeLeft = 1200;
+          // this.timeLeft = 1200;
           clearInterval(this.interval);
         }
       },1000)
       
     }
-    else{
-      this.timeLeft = 1200;
-    }
+    // else{
+    //   this.timeLeft = 1200;
+    // }
   }
 
   pauseTimer(){
