@@ -42,14 +42,14 @@ export class OrcreateComponent implements OnInit {
     .subscribe(
       res => {
         console.log(res);
-        this.router.navigate(['./orview']);
+        this.router.navigate(['/orview']);
       },
       err => {
         console.log(err.message);
       }
     );
     } else {
-      this.router.navigate(['/signup']);
+      this.router.navigate(['/organization']);
     }
 
   }

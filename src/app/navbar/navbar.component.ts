@@ -129,7 +129,13 @@ export class NavbarComponent implements OnInit {
     else if(option === 'login')
       this.LogIn()
     else if(option === 'canview')
-    this.router.navigate(['/canview']);
+    {
+      if(this.userIsCandidate)
+        this.router.navigate(['/canview']);
+      else if(this.userIsOrganization)
+        this.router.navigate(['/orview']);
+    }
+    
     else if(option === 'applied-jobs')
       this.router.navigate(['/applied-jobs']);
     else if(option === 'logout')
