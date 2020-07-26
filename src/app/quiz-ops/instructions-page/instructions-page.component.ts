@@ -18,6 +18,7 @@ hide:boolean=true;
   ) { }
 
   ngOnInit() {
+    window.scrollTo(0, 0)
     this.quizService.chaluKar.next(false);
     this.quizService.showTimer.next(false);
   }

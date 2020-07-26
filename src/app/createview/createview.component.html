@@ -218,14 +218,14 @@
           </div>
         </div>
 
-        <div class="pb" *ngIf="inProgress && !isModeEdit">
+        <div class="pb" *ngIf="inProgress">
           Scanning for skills:
         </div>
-        <div class="progress pb" *ngIf="inProgress && !isModeEdit">
+        <div class="progress pb" *ngIf="inProgress">
           <div class="indeterminate"></div>
         </div>
 
-        <div class="row" *ngIf="!isModeEdit">
+        <div class="row">
           <div class="skills-container" *ngIf="skillsPresent">
             <div class="skills-div">
               <div class="skill-item">
@@ -245,14 +245,14 @@
             for="resume-upload"
             class="resume-upload"
             style="font-weight: bold; font-size: inherit;"
-            >Upload any certifications you have*</label
+            >Upload any certifications you have (Not mandatory)</label
           >
           <br />
           <br />
           <input
             type="file"
             class="submit"
-            #Image
+            #Certificate
             accept="application/pdf, image/*"
             (change)="certificateUpload($event.target.files)"
             multiple

@@ -28,6 +28,8 @@ export class CreateviewComponent implements OnInit {
   resumeStatus: boolean = false;
   skillsPresent: boolean = false;
   inProgress: boolean = false;
+  hasCertificate: boolean = false;
+
 
   results: {
     "skills": string
@@ -131,15 +133,7 @@ export class CreateviewComponent implements OnInit {
             this.inProgress = false;
             this.skillsPresent = true;
             this.results = data;
-          } else if(data.status === 500) {
-            this.inProgress = false;
-            let dialogRef = this.dialog.open(ErrorDialogComponent, {
-              height: "300px",
-              width: "600px",
-              data:
-                "Sorry couldn't fetch your skills right now. We'll update it in your profile shortly.",
-            });
-          }
+          } 
         })
         .catch((err) => {
           console.log(err);
@@ -161,10 +155,34 @@ export class CreateviewComponent implements OnInit {
       //   });
       // };
     }
+
+    else if(this.isModeEdit){
+      window.scrollTo(0, 700);
+      this.quizService
+        .resumeUpdateAnalysis(this.fileToUpload)
+        .then((data: any) => {
+          if (data.status !== 500) {
+            console.log(data);
+            this.inProgress = false;
+            this.skillsPresent = true;
+            this.results = data;
+          } 
+        })
+        .catch((err) => {
+          console.log(err);
+          this.inProgress = false;
+          let dialogRef = this.dialog.open(ErrorDialogComponent,{
+            height: '180px',
+            width: '400px',
+            data: "Sorry something bad happened, please try again in sometime."
+          })
+        })
+    }
   }
 
   certificateUpload(file: FileList) {
     this.certificate = file.item(0);
+    this.hasCertificate = true;
   }
 
   preview() {
@@ -233,7 +251,8 @@ export class CreateviewComponent implements OnInit {
       this.showLoader = true;
 
       if (localStorage.getItem("token")) {
-        this.quizService
+        if(this.hasCertificate){
+          this.quizService
           .uploadCertificate(Name.value, this.certificate)
           .subscribe((data: any) => {
             console.log("Certificate", data);
@@ -248,16 +267,18 @@ export class CreateviewComponent implements OnInit {
               }, 300);
             }
           });
+        }
+        
         this.quizService
           .updateUserProfile(
-            Name.value,
-            Address.value,
+            Name.value ? Name.value : "Not Added",
+            Address.value ? Address.value : "Not Added",
             this.fileToUpload,
-            Time.value,
-            income.value,
-            this.residence,
-            Bio.value,
-            Experience.value
+            Time.value ? Time.value : 0,
+            income.value ? income.value : 0,
+            this.residence ? this.residence : 2,
+            Bio.value ? Bio.value : "Not Added",
+            Experience.value ? Experience.value : 0
           )
           .subscribe((data: any) => {
             console.log("done", data);
@@ -314,7 +335,8 @@ export class CreateviewComponent implements OnInit {
       this.setPlatforms();
       this.showLoader = true;
       if (localStorage.getItem("token")) {
-        this.quizService
+        if(this.hasCertificate){
+          this.quizService
           .uploadCertificate(Name.value, this.certificate)
           .subscribe((data: any) => {
             console.log("Certificate", data);
@@ -329,16 +351,18 @@ export class CreateviewComponent implements OnInit {
               }, 300);
             }
           });
+        }
+        
         this.quizService
           .postFile(
-            Name.value,
-            Address.value,
+            Name.value ? Name.value : "Not Added",
+            Address.value ? Address.value : "Not Added",
             this.fileToUpload,
-            Time.value,
-            income.value,
-            this.residence,
-            Bio.value,
-            Experience.value
+            Time.value ? Time.value : 0,
+            income.value ? income.value : 0,
+            this.residence ? this.residence : 2,
+            Bio.value ? Bio.value : "Not Added",
+            Experience.value ? Experience.value : 0
           )
           .subscribe((data: any) => {
             console.log("done", data);

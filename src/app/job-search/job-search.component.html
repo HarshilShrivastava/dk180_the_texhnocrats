@@ -1,8 +1,8 @@
 <div class="row">
-
   <div *ngIf="notRegistered" class="not-registered">
     <div class="not-registered-txt">
-      Please <a [routerLink]="['/profiles']"> Sign Up </a> to view recommended jobs.
+      Please <a [routerLink]="['/profiles']"> Sign Up </a> to view recommended
+      jobs.
       <!-- In the meantime, you can view these general courses to help you out with the quiz. -->
     </div>
     <div class="not-registered-img">
@@ -13,7 +13,6 @@
       />
     </div>
   </div>
-
 
   <div class="page-header-container" *ngIf="!notRegistered">
     <div class="title-container">

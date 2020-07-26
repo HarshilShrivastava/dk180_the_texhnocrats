@@ -71,17 +71,30 @@ export class MarketingComponent implements OnInit {
   totalAnswered = 0;
   showLoader: boolean = false;
   proceed: boolean = false;
+  questionThreshold: boolean = false;
+  titleText: string;
+
 
   constructor(
     private quizService: QuizService,
     private router: Router,
     private _formBuilder: FormBuilder,
     private dialog: MatDialog
-  ) {}
+  ) {
+
+    this.quizService.onlySubDomainQuiz.subscribe((value)=> {
+      if(value)
+        this.titleText = "Round 1: Quiz Domain Quiz"
+      else if(!value)
+        this.titleText = "Round 2: Domain Quiz"
+    })
+  }
 
   ngOnInit() {
     this.quizService.showTimer.next(true);
     this.quizService.chaluKar.next(false);
+    this.quizService.startTimer = true;
+
 
     this.firstFormGroup = this._formBuilder.group({
       firstCtrl: ["", Validators.required],
@@ -221,6 +234,9 @@ export class MarketingComponent implements OnInit {
       this.sd_13.qid = this.result_arr[index].id;
     }
     console.log(this.sd_13);
+
+    if(this.totalAnswered >= 10)
+      this.questionThreshold = true;
 
     // console.log('Marks =' , Weightage );
     // // console.log(qID);

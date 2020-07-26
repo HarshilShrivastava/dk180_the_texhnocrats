@@ -49,6 +49,7 @@ export class QuizResultsComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    window.scrollTo(0, 0)
     var duration = 30*1000;
     var end = Date.now() + duration;
     if (Date.now() < end)

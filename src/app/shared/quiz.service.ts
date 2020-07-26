@@ -14,6 +14,8 @@ export class QuizService {
   public chaluKar: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
   public showTimer: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
 
+  public onlySubDomainQuiz: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+
   private apiUrl = 'https://harshraj.pythonanywhere.com/user/api/get-question/?format=json';
   qns: any[];
   Candidate: boolean;
@@ -347,6 +349,17 @@ export class QuizService {
     return this.http.post('https://sihml.pythonanywhere.com/analysis/analysis/', formData, {headers: Headers}).toPromise()
 
 
+  }
+
+  resumeUpdateAnalysis(Resume: File){
+    const Headers = new HttpHeaders()
+      .set('Authorization', 'token ' + localStorage.getItem('token'));
+
+    const formData: FormData = new FormData();
+    formData.append('username', localStorage.getItem("uname"));
+    formData.append('Resume', Resume, Resume.name);
+
+    return this.http.put('https://sihml.pythonanywhere.com/analysis/analysis-put/', formData, {headers: Headers}).toPromise()
   }
 
   deactivateProfile(){

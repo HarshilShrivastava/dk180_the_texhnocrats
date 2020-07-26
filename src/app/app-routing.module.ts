@@ -40,6 +40,7 @@ import { BlogListComponent } from './resources/blog-list/blog-list.component';
 import { SchemeListComponent } from './resources/scheme-list/scheme-list.component';
 import { DeactivateProfileComponent } from './candidate-ops/deactivate-profile/deactivate-profile.component';
 import { EditProfileComponent } from './candidate-ops/edit-profile/edit-profile.component';
+import { FlowDecideComponent } from './quiz-ops/flow-decide/flow-decide.component';
 
 
 const routes: Routes = [
@@ -86,6 +87,8 @@ const routes: Routes = [
   {path: 'scheme-list', component: SchemeListComponent},
   {path: 'deactivate-profile', component: DeactivateProfileComponent},
   {path: 'edit-profile', component: EditProfileComponent},
+  {path: 'select-preference', component: FlowDecideComponent},
+
 
 
 
