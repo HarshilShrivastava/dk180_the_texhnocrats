@@ -77,6 +77,7 @@ import { DeactivateProfileComponent } from './candidate-ops/deactivate-profile/d
 import { EditProfileComponent } from './candidate-ops/edit-profile/edit-profile.component';
 import { CourseDialogComponent } from './shared/course-dialog/course-dialog.component';
 import { FlowDecideComponent } from './quiz-ops/flow-decide/flow-decide.component';
+import { OrganizationSignupComponent } from './organization-ops/organization-signup/organization-signup.component';
 
 
 
@@ -137,7 +138,8 @@ import { FlowDecideComponent } from './quiz-ops/flow-decide/flow-decide.componen
     DeactivateProfileComponent,
     EditProfileComponent,
     CourseDialogComponent,
-    FlowDecideComponent
+    FlowDecideComponent,
+    OrganizationSignupComponent
   ],
   imports: [
     BrowserModule,
