@@ -1,0 +1,63 @@
+<div class="main-container">
+  <div class="has-decided">
+    <div class="has-decided-img">
+      <img
+        src="./assets/image/decided.jpg"
+        class="actual-img"
+        alt="decided_domains"
+      />
+    </div>
+    <div class="has-decided-content">
+      <div class="has-decided-txt jcc">
+        I have decided the domain I want to pursue.
+      </div>
+      <div class="has-decided-dropdown jcc">
+        <mat-form-field appearance="fill">
+          <mat-label>Select Domain</mat-label>
+          <mat-select
+            [formControl]="domains"
+            (selectionChange)="onDomainSelectionChange($event)"
+          >
+            <!-- <mat-select-trigger>
+                        {{residences.value ? residences.value[0] : ''}}
+                      </mat-select-trigger> -->
+            <mat-option
+              *ngFor="let item of domainList | keyvalue"
+              [value]="item"
+              >{{ item.value }}</mat-option
+            >
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
+    <button
+      class="btn theme-bg-clr"
+      type="submit"
+      name="action"
+      (click)="onClick('decided')"
+    >
+      Continue<i class="material-icons right">send</i>
+    </button>
+  </div>
+
+  <div class="has-not-decided jcc">
+    <div class="has-not-decided-img">
+      <img
+        src="./assets/image/not-decided.jpg"
+        class="actual-img"
+        alt="decided_domains"
+      />
+    </div>
+    <div class="has-not-decided-content">
+      I need help understanding what I could be good at.
+    </div>
+    <button
+      class="btn theme-bg-clr"
+      type="submit"
+      name="action"
+      (click)="onClick('notdecided')"
+    >
+      Continue<i class="material-icons right">send</i>
+    </button>
+  </div>
+</div>

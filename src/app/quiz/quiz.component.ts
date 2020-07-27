@@ -39,6 +39,7 @@ export class QuizComponent implements OnInit {
   totalAnswered = 0;
   showLoader: boolean = false;
   proceed: boolean = false;
+  questionThreshold: boolean = false;
 
   constructor(
     private quizService: QuizService, 
@@ -50,6 +51,7 @@ export class QuizComponent implements OnInit {
     this.getContacts();
     this.quizService.showTimer.next(true);
     this.quizService.startTimer = true;
+    this.quizService.onlySubDomainQuiz.next(false);
 
     this.firstFormGroup = this._formBuilder.group({
       firstCtrl: ['', Validators.required]
@@ -162,8 +164,8 @@ export class QuizComponent implements OnInit {
     
     console.log(this.result_arr[index]);
     
-
-    
+    if(this.totalAnswered >= 10)
+      this.questionThreshold = true;
     // this.result_arr.forEach(res=>{
     //   if(res.from_Domain == 1){
     //     this.sum += res.Weightage

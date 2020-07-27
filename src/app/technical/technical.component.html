@@ -2,34 +2,47 @@
   <div>
     <div class="loader-container">
       <div *ngIf="showLoader">
-        <img src="./assets/loader.gif" class="loader" alt="Loading...">
+        <img src="./assets/loader.gif" class="loader" alt="Loading..." />
       </div>
     </div>
     <div class="title-container" *ngIf="!showLoader">
-      <span>Round 2: Domain Quiz</span>
+      <span>{{titleText}}</span>
     </div>
     <mat-horizontal-stepper #stepper labelPosition="bottom" *ngIf="!showLoader">
-      <mat-step [stepControl]="firstFormGroup" errorMessage="Not answered."
-        *ngFor="let item of data.data; let i = index">
+      <mat-step
+        [stepControl]="firstFormGroup"
+        errorMessage="Not answered."
+        *ngFor="let item of data.data; let i = index"
+      >
         <form [formGroup]="firstFormGroup" class="form-container">
           <ng-template matStepLabel>
-            <div *ngIf="!item.active && item.noReview"> 
-              <img src="./assets/icons/if_status_inactive.png" alt="unanswered">
+            <div *ngIf="!item.active && item.noReview">
+              <img
+                src="./assets/icons/if_status_inactive.png"
+                alt="unanswered"
+              />
             </div>
             <div *ngIf="item.active && item.noReview">
-              <img src="./assets/icons/if_status_active.png" alt="answered">
+              <img src="./assets/icons/if_status_active.png" alt="answered" />
             </div>
             <div *ngIf="!item.noReview" class="pin">
-              <img src="./assets/icons/pin1.png" alt="pin" class="pin">
+              <img src="./assets/icons/pin1.png" alt="pin" class="pin" />
             </div>
           </ng-template>
           <p class="question_text">Q.{{ i + 1 }} {{ item.Question_text }}</p>
           <div>
             <ul class="collection answer">
-              <ng-container *ngFor="let answer of item.Question_domain; let ind = index">
+              <ng-container
+                *ngFor="let answer of item.Question_domain; let ind = index"
+              >
                 <li>
                   <label>
-                    <input name="selected_answer" type="radio" class="with-gap" name="{{ item.id }}" (click)="
+                    <input
+                      name="selected_answer"
+                      type="radio"
+                      class="with-gap"
+                      name="{{ item.id }}"
+                      (click)="
                         Answer(
                           answer.Weightage,
                           answer.from_Domain,
@@ -37,7 +50,10 @@
                           answer,
                           i
                         )
-                      " value="answer.id" required />
+                      "
+                      value="answer.id"
+                      required
+                    />
                     <span>{{ answer.Answer_text }}</span>
                   </label>
                 </li>
@@ -48,12 +64,31 @@
             <button mat-button matStepperPrevious class="btn" *ngIf="i !== 0">
               <i class="material-icons left">arrow_back_ios</i>Back
             </button>
-            <button mat-button matStepperNext class="btn" *ngIf = "i !== 19">
+            <button mat-button matStepperNext class="btn" *ngIf="i !== 19">
               Next<i class="material-icons right">arrow_forward_ios</i>
             </button>
-            <button *ngIf="item.noReview" mat-button matStepperNext (click)="markForReview(i)" class="btn review">Mark For Review<i class="material-icons right">push_pin</i></button>
-            <button *ngIf="!item.noReview" (click)="markForReview(i)" class="btn review">Unmark From Review<i class="material-icons right">push_pin</i></button>
-            <button mat-button class="btn" (click)="stepper.reset()" *ngIf="i === 19">
+            <button
+              *ngIf="item.noReview"
+              mat-button
+              matStepperNext
+              (click)="markForReview(i)"
+              class="btn review"
+            >
+              Mark For Review<i class="material-icons right">push_pin</i>
+            </button>
+            <button
+              *ngIf="!item.noReview"
+              (click)="markForReview(i)"
+              class="btn review"
+            >
+              Unmark From Review<i class="material-icons right">push_pin</i>
+            </button>
+            <button
+              mat-button
+              class="btn"
+              (click)="stepper.reset()"
+              *ngIf="i === 19"
+            >
               Go back to Q1
             </button>
           </div>
@@ -63,9 +98,21 @@
           </div>
           <div class="row">
             <div class="col s12 btn-submit">
-              <button class="btn" type="submit" name="action" (click)="Answers()">
-                  Round Three<i class="material-icons right">send</i>
+              <button
+                [disabled]="!questionThreshold"
+                class="btn"
+                type="submit"
+                name="action"
+                (click)="Answers()"
+              >
+                Round Three<i class="material-icons right">send</i>
               </button>
+              <div
+                class="attempt-label disp-as-flex"
+                *ngIf="!questionThreshold"
+              >
+                You should attempt at least 10 questions
+              </div>
             </div>
           </div>
         </form>
@@ -75,19 +122,7 @@
   </div>
 </div>
 
-
 <!-- End quiz -->
-
-
-
-
-
-
-
-
-
-
-
 
 <!-- <div class="row" >
     <div class="col s8 offset-s2">

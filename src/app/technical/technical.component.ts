@@ -30,6 +30,7 @@ export class TechnicalComponent implements OnInit {
   techmarks = 0;
   totalmarks = 0;
   rating = 0;
+  titleText: string;
 
   sd_2 = {
     id: 0,
@@ -67,17 +68,29 @@ export class TechnicalComponent implements OnInit {
   totalAnswered = 0;
   showLoader: boolean = false;
   proceed: boolean = false;
+  questionThreshold: boolean = false;
+
 
   constructor(
     private quizService: QuizService,
     private router: Router,
     private _formBuilder: FormBuilder,
     private dialog: MatDialog
-  ) {}
+  ) {
+
+    this.quizService.onlySubDomainQuiz.subscribe((value) => {
+      if(value)
+        this.titleText = "Round 1: Technical Domains Quiz";
+      else if(!value)
+        this.titleText = "Round 2: Domain Quiz";
+    })
+  }
 
   ngOnInit() {
     this.quizService.showTimer.next(true);
     this.quizService.chaluKar.next(false);
+    this.quizService.startTimer = true;
+
 
     this.firstFormGroup = this._formBuilder.group({
       firstCtrl: ["", Validators.required],
@@ -217,6 +230,9 @@ export class TechnicalComponent implements OnInit {
       this.sd_7.qid = this.result_arr[index].id;
     }
     console.log(this.sd_7);
+
+    if(this.totalAnswered >= 10)
+      this.questionThreshold = true;
 
     //  console.log('Marks =', Weightage , 'from domain', from_Domain);
     //  // console.log(qID);
