@@ -41,6 +41,7 @@ import { SchemeListComponent } from './resources/scheme-list/scheme-list.compone
 import { DeactivateProfileComponent } from './candidate-ops/deactivate-profile/deactivate-profile.component';
 import { EditProfileComponent } from './candidate-ops/edit-profile/edit-profile.component';
 import { FlowDecideComponent } from './quiz-ops/flow-decide/flow-decide.component';
+import { OrganizationSignupComponent } from './organization-ops/organization-signup/organization-signup.component';
 
 
 const routes: Routes = [
@@ -56,7 +57,7 @@ const routes: Routes = [
   {path: 'level1', component: Level1Component},
   {path: 'level2', component: Level2Component},
   {path: 'candidate', component: CandidateComponent},
-  {path: 'organ', component: OrgcreateComponent},
+  // {path: 'organ', component: OrgcreateComponent},
   {path: 'level1', component: Level1Component},
   {path: 'level2', component: Level2Component},
   {path: 'jobForm', component: JobformComponent},
@@ -88,6 +89,8 @@ const routes: Routes = [
   {path: 'deactivate-profile', component: DeactivateProfileComponent},
   {path: 'edit-profile', component: EditProfileComponent},
   {path: 'select-preference', component: FlowDecideComponent},
+  {path: 'organization', component: OrganizationSignupComponent},
+
 
 
 
