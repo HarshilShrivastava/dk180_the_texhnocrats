@@ -16,12 +16,12 @@
 </div> -->
 
 <div class="loader-container">
-  <div *ngIf="showLoader">
+  <div>
     <img src="./assets/loader.gif" class="loader" alt="Loading..." />
   </div>
 </div>
 
-<div *ngIf="notRegistered" class="not-registered">
+<div class="not-registered">
   <div class="not-registered-txt">
     Please <a [routerLink]="['/profiles']"> Sign Up </a> to view skills,
     recommended courses/ blogs/ Govt. schemes on your dashboard.
@@ -36,7 +36,7 @@
   </div>
 </div>
 
-<div class="row" *ngIf="!showLoader && !notRegistered">
+<div class="row">
   <div class="dashboard_header">{{ data.data.Name }}'s Dashboard</div>
   <div class="dashboard" *ngIf="data.data">
     <mat-card class="example-card">
@@ -48,7 +48,7 @@
               src="./assets/image/user.png"
               alt="logo"
             />
-          </div>
+          </div> 
           <mat-card-title>
             Hey <strong> {{ data.data.Name }}! </strong></mat-card-title
           >

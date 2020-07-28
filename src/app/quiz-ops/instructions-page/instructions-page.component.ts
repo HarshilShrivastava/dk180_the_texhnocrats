@@ -12,6 +12,7 @@ export class InstructionsPageComponent implements OnInit {
   continue: boolean = false;
   hide1: boolean = true;
 hide:boolean=true;
+labelPosition:false;
   constructor(
     private router: Router,
     public quizService: QuizService
@@ -28,6 +29,7 @@ hide:boolean=true;
     else
       this.hide1= true;
   }
+
   preview1(){
     if(this.hide)
       this.hide = false;

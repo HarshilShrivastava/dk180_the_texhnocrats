@@ -1,4 +1,4 @@
-<div class="main-container">
+<!-- <div class="main-container">
    
 
     
@@ -106,7 +106,7 @@
     </div>
 </section>
     
-</div>
+</div> -->
 
 <!-- <div class="image1">
     <div class="image2">
@@ -116,3 +116,128 @@
 </div>
 </div>
 </div> -->
+
+
+<div class="row">
+    <div class="dashboard">
+          
+<div class="dashboard_img-container">
+    <img
+      src="./assets/image/imageonline-co-transparentimage (1).png"
+      class="dashboard_img"
+      alt="dashboard_img"
+    />
+  </div>
+
+
+  <div class="inst-title"><mark><strong>Please read these instructions carefully before attempting the quiz:</strong></mark>
+
+    <br>
+    <section layout="column" class="page-wrapper page-wrapper-with-header layout-column" ui-view="root">
+        <div class="page-container profile-hero layout-column flex" layout="column" flex=""></div>
+        <div ui-view="main" class="profile ng-scope flex" flex="">
+            <div class="ng-scope">
+                <div ng-transclude="" ng-if="loaded" flex="" class="ng-scope flex">
+    <section class="profile-hero-extend ng-scope">
+        <div class="form-block ng-scope" ng-if="$parent.test.instructions">
+            <span class="section-header">Select any one of the these:</span>
+
+            <br>
+            
+
+
+            <div class="formatted-content">
+
+                <div external-links-iframe="" ng-bind-html="$parent.test.instructions" class="ng-binding">
+
+                    
+
+
+    <div class="prev">
+       <mat-checkbox (change)="preview()" class="flow">Click here for the text view</mat-checkbox>
+       <div *ngIf="!hide1">
+        <ol>  
+            <li>You can attempt this quiz even without signing up on our portal. However for viewing and applying for recommended jobs, you should have an account with us</li>
+             <li>The quiz consists of 3 rounds as follows:
+                 <ul>
+                     <div class="ul-parent">
+                         <div class="btm-border"><li class="round-no"><mark>Round 1: Domain level round</mark></li></div>
+                             <div class="btm-boder-txt">
+                             In this round your knowledge in top level domains will be tested (Domains currently on our portal are technology and marketing). Your best performing domain will be forwarded to round 2 (say Domain X) 
+                             Also you need to cross a threshold of 70% in a domain in this round for it to be your best performing domain, if not you will be asked to re-attempt round 1
+                             </div>
+                     </div>  
+                     <div class="ul-parent">
+                         <div class="btm-border"><li class="round-no"><mark>Round 2: General sub-domain level round</mark></li></div>
+                             <div class="btm-boder-txt">
+                             This round will test your knowledge in the sub-domains of Domain X. As of now, we have 4 sub domains for technology and marketing each.
+                             The 2 subdomains in which you perform best will be considered for the final round. Again, the threshold of 70% needs to be crossed in each of the top 2 sub-domains. If not, you will be redirected to the 2nd round of the 2nd best domain of round 1 (Eg: If in round 2, you could not clear the threshold for tech sub-domains you will be redirected to round 2 of marketing domain)
+                             </div>
+                     </div>
+                     <div class="ul-parent">
+                         <div class="btm-border"><li class="round-no"><mark>Round 3: Sub-domain specific round</mark></li></div>
+                             <div class="btm-boder-txt"> 
+                             Congrats! You made it to the last round! In this round, we aim to dive deeper into your top 2 subdomains from round 2 and really test your knowledge. The reason we need to be so thorough is because post this round, you will be recommended jobs based on the marks you score here.
+                             </div>    
+                     </div>
+                 </ul> 
+             </li>
+             
+        </ol>
+        <div class="bold-txt"><mark><em>Our aim is to target your skillset as accurately as possible so that you can apply for jobs you may genuinely be interested in :)</em></mark> <br>
+            <br>
+            <em>
+            Hope you find what you’re looking for, best of luck!</em></div> 
+
+            <div class="checkbox">
+                <mat-checkbox (change)="onClick()"><div class="bold-txt2"> I have read and understood the instructions</div></mat-checkbox>
+                </div>  
+            
+                <div *ngIf="continue"> 
+                    <div class="my-btn"> 
+                        <a class="btn-txt" [routerLink]="['/select-preference']">Proceed<i class="material-icons right">send</i></a> 
+                    </div> 
+                </div>
+       </div>
+    </div>
+    
+    
+<div class="prev1">
+    
+    <mat-checkbox (change)="preview1()" class="flow1">Click here for the flow chart view</mat-checkbox>
+
+    <div *ngIf="!hide">
+        <div class="flow-diagram">
+            <img src="./assets/job_sih.png" width="640" height="480"/>
+        </div>
+        <div class="bold-txt1"><em>Our aim is to target your skillset as accurately as possible so that you can apply for jobs you may genuinely be interested in :) <br>
+            Hope you find what you’re looking for, best of luck!</em></div> 
+
+            <div class="checkbox1">
+                <mat-checkbox (change)="onClick()"><div class="bold-txt3"> I have read and understood the instructions</div></mat-checkbox>
+                </div>  
+            
+                <div *ngIf="continue"> 
+                    <div class="my-btn"> 
+                        <a class="btn-txt" [routerLink]="['/select-preference']">Proceed<i class="material-icons right">send</i></a> 
+                    </div> 
+                </div>
+            
+    </div>
+
+
+</div>
+        </div>
+        </div> 
+    </div> 
+</section>
+        </div>
+        </div>
+    </div>
+</section>
+
+        </div>
+
+
+    </div>
+</div>

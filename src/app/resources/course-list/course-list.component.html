@@ -138,10 +138,12 @@
                     style="width: 50px; height: 50px;"
                   />
                 </div>
+                
                 <mat-card-title>{{ result.Title }}</mat-card-title>
                 <mat-card-subtitle *ngIf="course || scheme">{{
                   result.By
                 }}</mat-card-subtitle>
+              
               </mat-card-header>
 
               <div class="dropdown">
@@ -179,7 +181,7 @@
               <strong>Description : </strong>{{ result.Description }}
             </p>
 
-            <p title="{{ result.Rating }}" *ngIf="blog || course">
+            <p class="rating" title="{{ result.Rating }}" *ngIf="blog || course">
               <strong>Rating : </strong>{{ result.Rating }}
             </p>
             <!-- <mat-card-content>

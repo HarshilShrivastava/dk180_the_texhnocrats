@@ -17,13 +17,13 @@
         <form [formGroup]="firstFormGroup" class="form-container">
           <ng-template matStepLabel>
             <div *ngIf="!item.active && item.noReview">
-              <img
+              <img class="unactive"
                 src="./assets/icons/if_status_inactive.png"
                 alt="unanswered"
               />
             </div>
             <div *ngIf="item.active && item.noReview">
-              <img src="./assets/icons/if_status_active.png" alt="answered" />
+              <img class="active" src="./assets/icons/if_status_active.png" alt="answered" />
             </div>
             <div *ngIf="!item.noReview" class="pin">
               <img src="./assets/icons/pin1.png" alt="pin" class="pin" />
