@@ -12,6 +12,8 @@ import { Router } from '@angular/router';
 export class OrcreateComponent implements OnInit {
   organ: Organ;
   emailPattern = '^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$';
+  urlPattern = '^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$';
+
 
   constructor(private quizService: QuizService , private router: Router) { }
 

@@ -78,7 +78,7 @@
                 id="Experience"
                 required
               />
-              <label for="Experience" *ngIf="!isModeEdit">Experience</label>
+              <label for="Experience" *ngIf="!isModeEdit">Experience (in years)</label>
               <span class="exp-sub">(Write 0 if you don't have any yet)</span>
               <span
                 *ngIf="Experience.errors?.required && Experience.touched"
