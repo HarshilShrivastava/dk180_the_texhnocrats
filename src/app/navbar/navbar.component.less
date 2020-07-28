@@ -250,6 +250,27 @@ a {
 }
 @media screen and (max-width: 768px) {
   .navba-wrapper {
+    //display: none;
+    .logo {
+      width: 80px;
+    }
+    .nav-link {
+      margin: 0;
+      padding-bottom: 2px;
+      a {
+        font-size: 10px;
+      }
+    }
+    .nav-btn .nav-btn-txt {
+      font-size: 10px;
+      font-weight: bold;
+      font-family: Poppins !important;
+    }
+  }
+  .beta-vers {
     display: none;
+  }
+  /deep/ .mat-menu-content:not(:empty) {
+    padding: 0;
   }
 }
