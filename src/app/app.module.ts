@@ -78,6 +78,7 @@ import { EditProfileComponent } from './candidate-ops/edit-profile/edit-profile.
 import { CourseDialogComponent } from './shared/course-dialog/course-dialog.component';
 import { FlowDecideComponent } from './quiz-ops/flow-decide/flow-decide.component';
 import { OrganizationSignupComponent } from './organization-ops/organization-signup/organization-signup.component';
+import { JobListingsComponent } from './organization-ops/job-listings/job-listings.component';
 
 
 
@@ -139,7 +140,8 @@ import { OrganizationSignupComponent } from './organization-ops/organization-sig
     EditProfileComponent,
     CourseDialogComponent,
     FlowDecideComponent,
-    OrganizationSignupComponent
+    OrganizationSignupComponent,
+    JobListingsComponent
   ],
   imports: [
     BrowserModule,

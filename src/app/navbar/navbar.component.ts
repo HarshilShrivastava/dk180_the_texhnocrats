@@ -122,6 +122,8 @@ export class NavbarComponent implements OnInit {
       this.router.navigate(['/scheme-list']);
     else if(option === 'create-job')
       this.router.navigate(['/jobForm']);
+      else if(option === 'job-listings')
+      this.router.navigate(['/job-listings']);
     else if(option === 'job-search')
       this.router.navigate(['/job-search']);
     else if(option === 'profiles')

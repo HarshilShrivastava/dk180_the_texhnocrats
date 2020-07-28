@@ -28,15 +28,22 @@ export class JobformComponent implements OnInit {
       Minimum_experience: null,
       prefered_city: '',
       fields: null,
-      id: this.job.id
+      // id: this.job.id
     };
   }
 
-  OnSubmit(form: NgForm) {
-    this.quizService.jobview(form.value).subscribe(
+  OnSubmit(job_title, Job_Descreption, Level, Minimum_experience, prefered_city, fields) {
+    this.quizService.jobview(
+      job_title.value? job_title.value : "Not Added", 
+      Job_Descreption.value? Job_Descreption.value : "Not Added", 
+      Level.value? Level.value : null, 
+      Minimum_experience.value? Minimum_experience.value: null , 
+      prefered_city.value? prefered_city.value : "Not Added", 
+      fields.value? fields.value: null
+    ).subscribe(
       res => {
         console.log(res);
-        this.router.navigate(['/jobview']);
+        this.router.navigate(['/job-listing']);
       },
       err => {
         console.log(err.message);

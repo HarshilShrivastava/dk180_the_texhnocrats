@@ -42,6 +42,7 @@ import { DeactivateProfileComponent } from './candidate-ops/deactivate-profile/d
 import { EditProfileComponent } from './candidate-ops/edit-profile/edit-profile.component';
 import { FlowDecideComponent } from './quiz-ops/flow-decide/flow-decide.component';
 import { OrganizationSignupComponent } from './organization-ops/organization-signup/organization-signup.component';
+import { JobListingsComponent } from './organization-ops/job-listings/job-listings.component';
 
 
 const routes: Routes = [
@@ -90,8 +91,7 @@ const routes: Routes = [
   {path: 'edit-profile', component: EditProfileComponent},
   {path: 'select-preference', component: FlowDecideComponent},
   {path: 'organization', component: OrganizationSignupComponent},
-
-
+  {path: 'job-listings', component: JobListingsComponent},
 
 
 

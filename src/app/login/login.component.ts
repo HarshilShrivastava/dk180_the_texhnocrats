@@ -81,8 +81,15 @@ export class LoginComponent implements OnInit {
         localStorage.setItem('Is_Organization' , data.Is_Organization );
         localStorage.setItem('Is_Candidate' , data.Is_Candidate );
         localStorage.setItem('Is_University' , data.Is_University );
-        localStorage.setItem("cc_uname", "Not Added")
+        localStorage.setItem("cc_uname", "Not Added");
+        localStorage.setItem("uname", data.username)
         this.userService.aaya.next(true);
+        if(data.Is_Organization === true){
+          this.userService.organizationhai.next(true);
+        }
+        else if(data.Is_Candidate === true){
+          this.userService.candidatehai.next(true);
+        }
 
         // this.router.navigate(['instructions']);
         if (data.Is_Candidate === true) {

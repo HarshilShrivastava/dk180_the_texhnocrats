@@ -231,15 +231,15 @@ export class QuizService {
     return this.http.post('https://harshraj.pythonanywhere.com/University/Uprofile/', info, {headers: Headers});
   }
 
-  jobview(job: Job) {
+  jobview(job_title, Job_Descreption, Level, Minimum_experience, prefered_city, fields) {
     const data: Job = {
-      job_title: job.job_title,
-      Job_Descreption: job.Job_Descreption,
-      Level: job.Level,
-      Minimum_experience: job.Minimum_experience,
-      prefered_city: job.prefered_city,
-      fields: job.fields,
-      id: job.id
+      job_title: job_title,
+      Job_Descreption: Job_Descreption,
+      Level: Level,
+      Minimum_experience: Minimum_experience,
+      prefered_city: prefered_city,
+      fields: fields,
+      // id: id
     };
     const Headers = new HttpHeaders({'Content-Type': 'application/json'})
     .set('Authorization', 'token ' + localStorage.getItem('token'));
