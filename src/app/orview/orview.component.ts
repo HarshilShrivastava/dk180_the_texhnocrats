@@ -8,7 +8,7 @@ import { UserService } from '../shared/user.service';
   styleUrls: ['./orview.component.less']
 })
 export class OrviewComponent implements OnInit {
-  data: any = { };
+  data: any = { 'data': [] };
   constructor( 
     private quizService : QuizService,
     public userService: UserService
