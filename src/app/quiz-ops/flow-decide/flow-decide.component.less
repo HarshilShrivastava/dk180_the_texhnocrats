@@ -20,6 +20,11 @@
   padding: 5%;
 }
 
+.has-decided-txt{
+  color: black;
+  
+}
+
 .has-decided:hover {
   box-shadow: 0 0 10px 8px rgb(109, 107, 107);
   transform: scale(1.1);
@@ -28,7 +33,10 @@
 .actual-img {
   border-radius: 2% 2% 0% 0%;
   // max-width: 390px;
-  max-width: -webkit-fill-available;
+  height: 200px;
+  display: inline-block;
+  width: 100%;
+  height: auto;
 }
 
 .has-decided-dropdown {
@@ -52,9 +60,47 @@
 
 .has-not-decided-content {
   padding: 5%;
+  color: black;
+  text-align: center;
+  justify-content: center;
+  display: flex;
 }
 
 .has-not-decided:hover {
   box-shadow: 0 0 10px 8px rgb(109, 107, 107);
   transform: scale(1.1);
+}
+
+.img {
+  min-width: 50%;
+  // padding-left: 5%;
+}
+.btn {
+  min-height: 45px;
+  max-height: 45px;
+  min-width: 45px;
+  max-width: 150px;
+  display: flex;
+  align-items: center;
+  background-color: #390099;
+  margin-right: 2%;
+  margin-bottom: 8%;
+  border-radius: 55px;
+  white-space: nowrap;
+  justify-content: center;
+}
+
+.btn:hover {
+  background-color: #2e0379;
+}
+
+.btn-txt {
+  color: white;
+  font-weight: bold;
+}
+.all-btn {
+  display: flex;
+  justify-content: center;
+  padding: 2%;
+  
 }

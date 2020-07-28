@@ -2,7 +2,7 @@
   <div class="has-decided">
     <div class="has-decided-img">
       <img
-        src="./assets/image/decided.jpg"
+        src="./assets/image/Domain-selection-tips-1024x512.png"
         class="actual-img"
         alt="decided_domains"
       />
@@ -13,7 +13,7 @@
       </div>
       <div class="has-decided-dropdown jcc">
         <mat-form-field appearance="fill">
-          <mat-label>Select Domain</mat-label>
+          <mat-label>Select Domains</mat-label>
           <mat-select
             [formControl]="domains"
             (selectionChange)="onDomainSelectionChange($event)"
@@ -30,27 +30,38 @@
         </mat-form-field>
       </div>
     </div>
-    <button
+    <!-- <button
       class="btn theme-bg-clr"
       type="submit"
       name="action"
       (click)="onClick('decided')"
     >
       Continue<i class="material-icons right">send</i>
+    </button> -->
+    <div class="all-btn">
+      <button
+      class="btn"
+      type="submit"
+      name="action"
+      (click)="onClick('decided')"
+    >
+      Continue<i class="material-icons right">send</i>
     </button>
+      </div>
   </div>
 
-  <div class="has-not-decided jcc">
+  <div class="has-not-decided">
     <div class="has-not-decided-img">
       <img
-        src="./assets/image/not-decided.jpg"
+        src="./assets/image/image-res.img.9a88373a-03ed-4fe5-9e68-05ef3ef8daca.png"
         class="actual-img"
-        alt="decided_domains"
+        alt="decided_domains" 
       />
     </div>
     <div class="has-not-decided-content">
       I need help understanding what I could be good at.
     </div>
+    <div class="all-btn">
     <button
       class="btn theme-bg-clr"
       type="submit"
@@ -59,5 +70,11 @@
     >
       Continue<i class="material-icons right">send</i>
     </button>
+    
+    <!-- <div class="all-btn">
+    <div class="btn">
+      <a class="btn-txt" [routerLink]="['/quiz']">Take Quiz</a>
+    </div>
+    </div> -->
   </div>
 </div>
