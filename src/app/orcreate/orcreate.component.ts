@@ -4,7 +4,8 @@ import { QuizService } from "../shared/quiz.service";
 import { NgForm } from "@angular/forms";
 import { Router } from "@angular/router";
 import { MatDialog } from "@angular/material";
-import { ErrorDialogComponent } from '../shared/error-dialog/error-dialog.component';
+import { ErrorDialogComponent } from "../shared/error-dialog/error-dialog.component";
+import { UserService } from "../shared/user.service";
 
 @Component({
   selector: "app-orcreate",
@@ -19,7 +20,8 @@ export class OrcreateComponent implements OnInit {
   constructor(
     private quizService: QuizService,
     private router: Router,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    private userService: UserService
   ) {}
 
   ngOnInit() {
@@ -46,11 +48,14 @@ export class OrcreateComponent implements OnInit {
       this.quizService.createView(form.value).subscribe(
         (res: any) => {
           console.log(res);
-          if (res.sucess === true) this.router.navigate(["/orview"]);
-          else {
+          if (res.sucess === true) {
+            this.router.navigate(["/orview"]);
+            this.userService.organizationhai.next(true);
+          } else {
             let dialogRef = this.dialog.open(ErrorDialogComponent, {
               height: "150px",
-              data: "Oops! Could not create your profile right now, please try again in sometime.",
+              data:
+                "Oops! Could not create your profile right now, please try again in sometime.",
             });
           }
         },

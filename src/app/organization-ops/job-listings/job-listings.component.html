@@ -56,14 +56,14 @@
             <!-- </mat-menu>
           </div> -->
         </div>
-        <p class="description" title="{{ result.Job_Descreption }}">
+        <p class="description" matTooltip="{{ result.Job_Descreption }}">
           <strong>Job_Descreption : </strong>{{ result.Job_Descreption }}
         </p>
-        <p class="description" title="{{ result.Job_Descreption }}">
+        <p class="description" matTooltip = "1-Tech | 2-Marketing">
             <strong>Field Related To : </strong>{{ result.fields }}
           </p>
-          <p class="description" title="{{ result.Job_Descreption }}">
-            <strong>Minimum Experience : </strong>{{ result.Minimum_experience }}
+          <p class="description">
+            <strong>Minimum Experience : </strong>{{ result.Minimum_experience }} year(s)
           </p>
         <!-- <mat-card-content>
           <p>

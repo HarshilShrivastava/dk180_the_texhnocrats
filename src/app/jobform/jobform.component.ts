@@ -43,7 +43,7 @@ export class JobformComponent implements OnInit {
     ).subscribe(
       res => {
         console.log(res);
-        this.router.navigate(['/job-listing']);
+        this.router.navigate(['/job-listings']);
       },
       err => {
         console.log(err.message);
