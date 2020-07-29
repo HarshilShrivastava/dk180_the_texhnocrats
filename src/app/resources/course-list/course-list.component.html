@@ -7,13 +7,7 @@
           <form class="search-wrapper">
             <div class="search-bar">
               <i id="search-icon" class="material-icons">search</i>
-              <input
-                id="search"
-                [(ngModel)]="query"
-                name="query"
-                type="search"
-                placeholder="Search.."
-              />
+              <input id="search" [(ngModel)]="query" name="query" type="search" placeholder="Search.." />
               <i id="cross" class="material-icons" (click)="clear()">close</i>
             </div>
           </form>
@@ -27,13 +21,7 @@
           <form class="search-wrapper">
             <div class="search-bar">
               <i id="search-icon" class="material-icons">search</i>
-              <input
-                id="search"
-                [(ngModel)]="query"
-                name="query"
-                type="search"
-                placeholder="Search.."
-              />
+              <input id="search" [(ngModel)]="query" name="query" type="search" placeholder="Search.." />
               <i id="cross" class="material-icons" (click)="clear()">close</i>
             </div>
           </form>
@@ -47,13 +35,7 @@
           <form class="search-wrapper">
             <div class="search-bar">
               <i id="search-icon" class="material-icons">search</i>
-              <input
-                id="search"
-                [(ngModel)]="query"
-                name="query"
-                type="search"
-                placeholder="Search.."
-              />
+              <input id="search" [(ngModel)]="query" name="query" type="search" placeholder="Search.." />
               <i id="cross" class="material-icons" (click)="clear()">close</i>
             </div>
           </form>
@@ -124,35 +106,24 @@
 
     <div class="col s12">
       <div class="cont-cont" *ngIf="!showLoader && !isEmpty">
-        <div
-          class="container"
-          *ngFor="let result of data.data | filter: query; let i = index"
-        >
+        <div class="container" *ngFor="let result of data.data | filter: query; let i = index">
           <mat-card class="example-card">
             <div class="header-container">
               <mat-card-header>
                 <div mat-card-avatar>
-                  <img
-                    src="{{ result.photo }}"
-                    alt="logo"
-                    style="width: 50px; height: 50px;"
-                  />
+                  <img src="{{ result.photo }}" alt="logo" style="width: 50px; height: 50px;" />
                 </div>
-                
+
                 <mat-card-title>{{ result.Title }}</mat-card-title>
                 <mat-card-subtitle *ngIf="course || scheme">{{
                   result.By
                 }}</mat-card-subtitle>
-              
+
               </mat-card-header>
 
               <div class="dropdown">
-                <button
-                  class="dropdown-cont"
-                  mat-icon-button
-                  [matMenuTriggerFor]="menu"
-                  aria-label="Example icon-button with a menu"
-                >
+                <button class="dropdown-cont" mat-icon-button [matMenuTriggerFor]="menu"
+                  aria-label="Example icon-button with a menu">
                   <mat-icon>more_vert</mat-icon>
                 </button>
                 <mat-menu #menu="matMenu">

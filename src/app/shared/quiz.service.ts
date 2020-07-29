@@ -231,19 +231,37 @@ export class QuizService {
     return this.http.post('https://harshraj.pythonanywhere.com/University/Uprofile/', info, {headers: Headers});
   }
 
-  jobview(job_title, Job_Descreption, Level, Minimum_experience, prefered_city, fields) {
-    const data: Job = {
-      job_title: job_title,
-      Job_Descreption: Job_Descreption,
-      Level: Level,
-      Minimum_experience: Minimum_experience,
-      prefered_city: prefered_city,
-      fields: fields,
-      // id: id
-    };
+  jobview(job_title: string, Job_Descreption: string, Level: number, Minimum_experience: number, prefered_city: string, fields: number) {
+    // const data: Job = {
+    //   job_title: job_title,
+    //   Job_Descreption: Job_Descreption,
+    //   Level: Level,
+    //   Minimum_experience: Minimum_experience,
+    //   prefered_city: prefered_city,
+    //   fields: fields,
+    // };
+
+    const formData: FormData = new FormData();
+    formData.append('job_title', job_title);
+    formData.append('Job_Descreption', Job_Descreption);
+    formData.append('Level', Level.toString());
+    // formData.append('Socialmedia', Socialmedia.toString());
+    formData.append('Minimum_experience', Minimum_experience.toString());
+    formData.append('prefered_city', prefered_city);
+    formData.append('fields', fields.toString());
+
+    if(localStorage.getItem("job_SD1")) 
+      formData.append('SubDomain', localStorage.getItem("job_SD1"))
+    if(localStorage.getItem("job_SD2")) 
+      formData.append('SubDomain', localStorage.getItem("job_SD2"))
+    if(localStorage.getItem("job_SD3")) 
+      formData.append('SubDomain', localStorage.getItem("job_SD3"))
+    if(localStorage.getItem("job_SD4")) 
+      formData.append('SubDomain', localStorage.getItem("job_SD4"))
+    
     const Headers = new HttpHeaders({'Content-Type': 'application/json'})
     .set('Authorization', 'token ' + localStorage.getItem('token'));
-    return this.http.post('https://harshraj.pythonanywhere.com/organization/api/get-job/', data, {headers: Headers});
+    return this.http.post('https://harshraj.pythonanywhere.com/organization/api/get-job/', formData, {headers: Headers});
   }
 
   jobapply(jb: JobApply) {

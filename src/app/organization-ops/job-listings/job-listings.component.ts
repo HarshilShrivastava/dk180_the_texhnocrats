@@ -10,6 +10,8 @@ import { Router } from '@angular/router';
 export class JobListingsComponent implements OnInit {
 
   data: any = {};
+  showLoader: boolean = false;
+  isEmpty: boolean = false;
 
   constructor(
     private quizService: QuizService,
@@ -17,10 +19,14 @@ export class JobListingsComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.showLoader = true;
     this.quizService.jobView().subscribe(
       (data: any) => {
         console.log(data);
         this.data = data;
+        this.showLoader = false;
+        if(this.data.data.length === 0)
+          this.isEmpty = true;
       }
     )
     

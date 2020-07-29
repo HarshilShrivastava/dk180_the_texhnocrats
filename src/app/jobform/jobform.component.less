@@ -10,13 +10,26 @@
 }
 
 .btn-large:hover{
-	background: linear-gradient(to top, #390099, #390099);
+	background: linear-gradient(to top, #390099, #260164);
 	color: white !important;
 	margin-left: 210px;
 	border-radius: 55px;
 	white-space: nowrap;
 	font-weight: bold;
     
+}
+
+.btn-large:disabled{
+	background: transparent;
+	color: black !important;
+	margin-left: 210px;
+	border-radius: 55px;
+	white-space: nowrap;
+	font-weight: bold;
+	cursor: not-allowed;
+	:hover{
+		cursor: not-allowed;
+	}
 }
 
 h2{

@@ -1,16 +1,27 @@
 <div class="cont-cont">
-    <div class="container" *ngFor="let result of data.data; let i = index">
-        <mat-card class="example-card">
-            <div class="header-container">
-                <mat-card-header>
-                    <div mat-card-avatar>
-                        <img src="./assets/logo1.png" alt="logo" style="width: 50px; height: 50px;" />
-                    </div>
-                    <mat-card-title>{{ result.Recruit_obj }}</mat-card-title>
-                    <!-- <mat-card-subtitle> <a href="{{ result.Resume_obj }}"> View Resume</a></mat-card-subtitle> -->
-                </mat-card-header>
 
-                <!-- <div class="dropdown">
+  <div class="loader-container">
+    <div *ngIf="showLoader">
+      <img src="./assets/loader.gif" class="loader" alt="Loading..." />
+    </div>
+  </div>
+
+  <div *ngIf="isEmpty" class="empty_list">
+    No applications received yet...
+  </div>
+
+  <div class="container" *ngFor="let result of data.data; let i = index">
+    <mat-card class="example-card">
+      <div class="header-container">
+        <mat-card-header>
+          <div mat-card-avatar>
+            <img src="./assets/logo1.png" alt="logo" style="width: 50px; height: 50px;" />
+          </div>
+          <mat-card-title>{{ result.Recruit_obj }}</mat-card-title>
+          <!-- <mat-card-subtitle> <a href="{{ result.Resume_obj }}"> View Resume</a></mat-card-subtitle> -->
+        </mat-card-header>
+
+        <!-- <div class="dropdown">
             <button
               class="dropdown-cont"
               mat-icon-button
@@ -49,35 +60,36 @@
                         <div class="dropdown-txt" >View applicants</div>
                     </span>
                 </button> -->
-                <!-- </mat-menu>
+        <!-- </mat-menu>
           </div> -->
-            </div>
+      </div>
 
-            <p class="description">
-                <strong>Address : </strong>{{ result.Recruit_add_obj }}
-            </p>
-            <p class="description theme-clr">
-                <strong> <a class="theme-clr" href="{{result.Resume_obj}}" target="_blank">Click here to view resume</a></strong>
-            </p>
-            <mat-card-content>
-                <p class="description">
-                    <strong>Proposal : </strong>{{ result.proposal }}
-                </p>
-                <p class="description" matTooltip="Similarity based on your listing and candidate's application ">
-                    <strong>Similarity score : </strong>{{ result.similarity }}
-                </p>
-                <p class="description" matTooltip="% content copied from sources">
-                    <strong>Plagiiarism % : </strong>{{ plagStat.plagPercent }}%
-                </p>
-                <p class="description" matTooltip="{{ result.Job_Descreption }}">
-                    <strong>Applied : </strong>{{ result.At | date: "dd-MMM-yy h:mm a" }}
-                </p>
-                <!-- <p class="city">
+      <p class="description">
+        <strong>Address : </strong>{{ result.Recruit_add_obj }}
+      </p>
+      <p class="description theme-clr">
+        <strong> <a class="theme-clr" href="{{result.Resume_obj}}" target="_blank">Click here to view
+            resume</a></strong>
+      </p>
+      <mat-card-content>
+        <p class="description">
+          <strong>Proposal : </strong>{{ result.proposal }}
+        </p>
+        <p class="description" matTooltip="Similarity based on your listing and candidate's application ">
+          <strong>Similarity score : </strong>{{ result.similarity }}
+        </p>
+        <p class="description" matTooltip="% content copied from sources">
+          <strong>Plagiiarism % : </strong>{{ plagStat.plagPercent }}%
+        </p>
+        <p class="description" matTooltip="{{ result.Job_Descreption }}">
+          <strong>Applied : </strong>{{ result.At | date: "dd-MMM-yy h:mm a" }}
+        </p>
+        <!-- <p class="city">
             <strong>Available at : </strong>
             {{ result.prefered_city }}
           </p> -->
-            </mat-card-content>
-            <!-- <mat-card-actions class="footer">
+      </mat-card-content>
+      <!-- <mat-card-actions class="footer">
                 <button mat-button class="btn" (click)="onViewClick(result)">
             View Post
           </button>
@@ -85,6 +97,6 @@
                     View Applicants
                 </button>
             </mat-card-actions> -->
-        </mat-card>
-    </div>
+    </mat-card>
+  </div>
 </div>

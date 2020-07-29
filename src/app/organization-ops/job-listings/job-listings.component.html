@@ -1,20 +1,26 @@
 <div class="cont-cont">
-    <div class="container" *ngFor="let result of data.data; let i = index">
-      <mat-card class="example-card">
-        <div class="header-container">
-          <mat-card-header>
-            <div mat-card-avatar>
-              <img
-                src="./assets/logo1.png"
-                alt="logo"
-                style="width: 50px; height: 50px;"
-              />
-            </div>
-            <mat-card-title>{{ result.job_title }}</mat-card-title>
-            <!-- <mat-card-subtitle> <a href="{{ result.Resume_obj }}"> View Resume</a></mat-card-subtitle> -->
-          </mat-card-header>
+  <div class="loader-container">
+    <div *ngIf="showLoader">
+      <img src="./assets/loader.gif" class="loader" alt="Loading..." />
+    </div>
+  </div>
 
-          <!-- <div class="dropdown">
+  <div *ngIf="isEmpty" class="empty_list">
+   You have not added any job listings yet. Get started now and connect with the best fit!
+  </div>
+
+  <div class="container" *ngFor="let result of data.data; let i = index">
+    <mat-card class="example-card">
+      <div class="header-container">
+        <mat-card-header>
+          <div mat-card-avatar>
+            <img src="./assets/logo1.png" alt="logo" style="width: 50px; height: 50px;" />
+          </div>
+          <mat-card-title>{{ result.job_title }}</mat-card-title>
+          <!-- <mat-card-subtitle> <a href="{{ result.Resume_obj }}"> View Resume</a></mat-card-subtitle> -->
+        </mat-card-header>
+
+        <!-- <div class="dropdown">
             <button
               class="dropdown-cont"
               mat-icon-button
@@ -53,37 +59,33 @@
                         <div class="dropdown-txt" >View applicants</div>
                     </span>
                 </button> -->
-            <!-- </mat-menu>
+        <!-- </mat-menu>
           </div> -->
-        </div>
-        
-        <p class="description" matTooltip = "1-Tech | 2-Marketing">
-            <strong>Field Related To : </strong>{{ result.fields }}
-          </p>
-          <p class="description">
-            <strong>Minimum Experience : </strong>{{ result.Minimum_experience }} year(s)
-          </p>
-        <mat-card-content>
-          <p class="description" matTooltip="{{ result.Job_Descreption }}">
-            <strong>Job_Descreption : </strong>{{ result.Job_Descreption }}
-          </p>
-          <!-- <p class="city">
+      </div>
+
+      <p class="description" matTooltip="1-Tech | 2-Marketing">
+        <strong>Field Related To : </strong>{{ result.fields }}
+      </p>
+      <p class="description">
+        <strong>Minimum Experience : </strong>{{ result.Minimum_experience }} year(s)
+      </p>
+      <mat-card-content>
+        <p class="description" matTooltip="{{ result.Job_Descreption }}">
+          <strong>Job Description : </strong>{{ result.Job_Descreption }}
+        </p>
+        <!-- <p class="city">
             <strong>Available at : </strong>
             {{ result.prefered_city }}
           </p> -->
-        </mat-card-content>
-        <mat-card-actions class="footer">
-          <!-- <button mat-button class="btn" (click)="onViewClick(result)">
+      </mat-card-content>
+      <mat-card-actions class="footer">
+        <!-- <button mat-button class="btn" (click)="onViewClick(result)">
             View Post
           </button> -->
-          <button
-            mat-button
-            class="btn"
-            (click)="onViewApplicant(result.id)"
-          >
-            View Applicants
-          </button>
-        </mat-card-actions>
-      </mat-card>
-    </div>
+        <button mat-button class="btn" (click)="onViewApplicant(result.id)">
+          View Applicants
+        </button>
+      </mat-card-actions>
+    </mat-card>
   </div>
+</div>
