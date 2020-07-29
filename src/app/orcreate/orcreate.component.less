@@ -102,3 +102,34 @@ p {
 i {
   color: #390099;
 }
+
+@media screen and (max-width: 768px) {
+  h2 {
+    margin-top: 60px;
+    font-size: 24px;
+  }
+  .form-style-9 {
+    padding: 12px;
+  }
+  .row .col.offset-s2 {
+    margin-left: 0;
+  }
+  .row .col.s6,
+  .row .col.s8,
+  .row .col.s12 {
+    width: unset;
+    margin-left: 0;
+  }
+  .btn-large {
+    margin: 0;
+    font-size: 10px;
+    line-height: 21px;
+  }
+  .row {
+    display: flex;
+    flex-direction: column;
+    .input-field {
+      width: unset;
+    }
+  }
+}
