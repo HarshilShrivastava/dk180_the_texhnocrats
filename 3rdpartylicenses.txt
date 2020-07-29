@@ -101,6 +101,8 @@ THE SOFTWARE.
 
 @angular/material/menu
 
+@angular/material/radio
+
 @angular/material/select
 
 @angular/material/stepper
