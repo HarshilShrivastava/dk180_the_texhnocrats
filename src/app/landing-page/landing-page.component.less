@@ -121,13 +121,18 @@ a {
 
 .cards-container {
   padding: 5%;
+  // overflow: hidden;
   display: flex;
+  // width: 100%;
   flex-wrap: wrap;
   justify-content: space-between;
 }
 
 .lp-card {
   max-width: 25% !important;
+  //  z-index: 999;
+
+//  float: left;
   border-radius: 2%;
   display: flex;
   flex-direction: column;
@@ -140,6 +145,7 @@ a {
 
 .lp-card:hover {
   box-shadow: 0 0 10px 8px rgb(173, 170, 170);
+  overflow: hidden;
   transform: scale(1.1);
 }
 

@@ -61,6 +61,7 @@ import {MatExpansionModule} from '@angular/material/expansion';
 import {MatStepperModule} from '@angular/material/stepper';
 import { ReactiveFormsModule } from '@angular/forms';
 import {MatCardModule} from '@angular/material/card';
+import {MatRadioModule} from '@angular/material/radio';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { JobViewDialogComponent } from './shared/job-view-dialog/job-view-dialog.component';
 import { MinutesToSecondsPipe } from '../../src/app/pipes/minutesToSeconds.pipe';
@@ -171,6 +172,7 @@ import { JobListingsComponent } from './organization-ops/job-listings/job-listin
     MatPaginatorModule,
     MatMenuModule,
     MatSelectModule,
+    MatRadioModule
 ],
   providers: [QuizService, User],
   bootstrap: [AppComponent],

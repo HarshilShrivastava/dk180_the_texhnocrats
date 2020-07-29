@@ -121,13 +121,13 @@
 <div class="row">
     <div class="dashboard">
           
-<div class="dashboard_img-container">
+<!-- <div class="dashboard_img-container">
     <img
       src="./assets/image/imageonline-co-transparentimage (1).png"
       class="dashboard_img"
       alt="dashboard_img"
     />
-  </div>
+  </div> -->
 
 
   <div class="inst-title"><mark><strong>Please read these instructions carefully before attempting the quiz:</strong></mark>
@@ -150,11 +150,12 @@
 
                 <div external-links-iframe="" ng-bind-html="$parent.test.instructions" class="ng-binding">
 
+                    <mat-radio-group [(ngModel)]="labelPosition">
                     
-
-
+ 
     <div class="prev">
-       <mat-checkbox (change)="preview()" class="flow">Click here for the text view</mat-checkbox>
+        
+       <mat-radio-button  (change)="preview()"  class="flow">Click here for the text view</mat-radio-button>
        <div *ngIf="!hide1">
         <ol>  
             <li>You can attempt this quiz even without signing up on our portal. However for viewing and applying for recommended jobs, you should have an account with us</li>
@@ -200,19 +201,21 @@
                 </div>
        </div>
     </div>
-    
+      
     
 <div class="prev1">
     
-    <mat-checkbox (change)="preview1()" class="flow1">Click here for the flow chart view</mat-checkbox>
+    <mat-radio-button (change)="preview()" class="flow1">Click here for the flow chart view</mat-radio-button>
 
     <div *ngIf="!hide">
         <div class="flow-diagram">
             <img src="./assets/job_sih.png" width="640" height="480"/>
         </div>
-        <div class="bold-txt1"><em>Our aim is to target your skillset as accurately as possible so that you can apply for jobs you may genuinely be interested in :) <br>
+        <div class="bold-txt1"><mark><em>Our aim is to target your skillset as accurately as possible so that you can apply for jobs you may genuinely be interested in :)</em></mark> <br>
+            <br>
+            <em>
             Hope you find what you’re looking for, best of luck!</em></div> 
-
+            
             <div class="checkbox1">
                 <mat-checkbox (change)="onClick()"><div class="bold-txt3"> I have read and understood the instructions</div></mat-checkbox>
                 </div>  
@@ -227,9 +230,13 @@
 
 
 </div>
+
+</mat-radio-group>
         </div>
         </div> 
+        
     </div> 
+    
 </section>
         </div>
         </div>
@@ -239,5 +246,5 @@
         </div>
 
 
-    </div>
+    <!-- </div> -->
 </div>

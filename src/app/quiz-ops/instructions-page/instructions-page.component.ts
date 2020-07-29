@@ -12,7 +12,7 @@ export class InstructionsPageComponent implements OnInit {
   continue: boolean = false;
   hide1: boolean = true;
 hide:boolean=true;
-labelPosition:false;
+disabled:false;
   constructor(
     private router: Router,
     public quizService: QuizService
@@ -24,18 +24,24 @@ labelPosition:false;
     this.quizService.showTimer.next(false);
   }
   preview(){
-    if(this.hide1)
+    if(this.hide1){
       this.hide1 = false;
-    else
+      this.hide=true;}
+    else {
       this.hide1= true;
+      this.hide=false;
+    }
+    //   if(this.hide)
+    //   this.hide = false;
+    // else
+    //   this.hide= true;
   }
-
-  preview1(){
-    if(this.hide)
-      this.hide = false;
-    else
-      this.hide= true;
-  }
+  // preview1(){
+  //   if(this.hide)
+  //     this.hide = false;
+  //   else
+  //     this.hide= true;
+  // }
   onClick(){
     if(this.continue === false)
       this.continue = true

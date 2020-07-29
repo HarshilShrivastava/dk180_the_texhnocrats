@@ -21,8 +21,30 @@
            <div class="row">
             <div class="input-field col s12">
                 <i class="material-icons prefix">message</i>
-                <textarea name="message" #message class="field-style1 field-split1" placeholder="What's on your mind" ngModel id="message"></textarea>
-              </div>
+                <textarea
+              type="text"
+              class="field-style field-split"
+              #Bio="ngModel"
+              [(ngModel)]="fields.bio"
+              name="Bio"
+              id="Bio"
+              rows="7"
+              required
+            >
+            </textarea>
+            <label for="Bio">Add a bio*</label>
+            <span
+              *ngIf="Bio.errors?.required && Bio.touched"
+              class="field_error"
+            >
+              Bio field cannot be blank
+            </span>
+            <span
+              *ngIf="Bio.errors?.pattern && Bio.touched"
+              class="field_error"
+            >
+              Please add a valid bio.
+            </span></div>
               
             </div>  
             <div class="row">
