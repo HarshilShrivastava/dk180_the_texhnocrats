@@ -265,7 +265,7 @@ export class QuizService {
   viewAppliedCandidateList(){
     const Headers = new HttpHeaders()
       .set('Authorization', 'token ' + localStorage.getItem('token'));
-    return this.http.get('https://harshraj.pythonanywhere.com/organization/application-list/' + localStorage.getItem('id'), {headers: Headers} );
+    return this.http.get('https://harshraj.pythonanywhere.com/organization/application-list/' + localStorage.getItem('job_id'), {headers: Headers} );
   }
 
   getSubDomainQuestions(){
@@ -408,6 +408,20 @@ export class QuizService {
 
     const Headers = new HttpHeaders().set('Authorization', 'token ' + localStorage.getItem('token'));
     return this.http.put('https://harshraj.pythonanywhere.com/candidate/create/', formData, {headers: Headers});
+  }
+
+  checkPlagiarism(text){
+    let url = "https://www.prepostseo.com/apis/checkPlag"
+
+    let key = "1da46e9a3a63fc8d6000fa43453043bb"
+
+    const formData: FormData = new FormData();
+    formData.append('key', key);
+    formData.append('data', text);
+
+    return this.http.post("https://www.prepostseo.com/apis/checkPlag", formData)
+
+
   }
 
 

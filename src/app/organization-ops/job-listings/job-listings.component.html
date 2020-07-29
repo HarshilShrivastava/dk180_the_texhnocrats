@@ -56,29 +56,26 @@
             <!-- </mat-menu>
           </div> -->
         </div>
-        <p class="description" matTooltip="{{ result.Job_Descreption }}">
-          <strong>Job_Descreption : </strong>{{ result.Job_Descreption }}
-        </p>
+        
         <p class="description" matTooltip = "1-Tech | 2-Marketing">
             <strong>Field Related To : </strong>{{ result.fields }}
           </p>
           <p class="description">
             <strong>Minimum Experience : </strong>{{ result.Minimum_experience }} year(s)
           </p>
-        <!-- <mat-card-content>
-          <p>
-            <strong>Minimum experience : </strong>
-            {{ result.Minimum_experience }}
+        <mat-card-content>
+          <p class="description" matTooltip="{{ result.Job_Descreption }}">
+            <strong>Job_Descreption : </strong>{{ result.Job_Descreption }}
           </p>
-          <p class="city">
+          <!-- <p class="city">
             <strong>Available at : </strong>
             {{ result.prefered_city }}
-          </p>
-        </mat-card-content> -->
-        <!-- <mat-card-actions class="footer">
-          <button mat-button class="btn" (click)="onViewClick(result)">
+          </p> -->
+        </mat-card-content>
+        <mat-card-actions class="footer">
+          <!-- <button mat-button class="btn" (click)="onViewClick(result)">
             View Post
-          </button>
+          </button> -->
           <button
             mat-button
             class="btn"
@@ -86,7 +83,7 @@
           >
             View Applicants
           </button>
-        </mat-card-actions> -->
+        </mat-card-actions>
       </mat-card>
     </div>
   </div>

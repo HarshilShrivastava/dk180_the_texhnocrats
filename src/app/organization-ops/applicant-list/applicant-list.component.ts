@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 export class ApplicantListComponent implements OnInit {
 
   data: any = {};
+  plagStat: any = {};
 
   constructor(
     private quizservice: QuizService,
@@ -19,6 +20,7 @@ export class ApplicantListComponent implements OnInit {
 
   ngOnInit() {
     this.getApplicants();
+    this.checkPlag();
   }
 
   getApplicants(){
@@ -28,5 +30,14 @@ export class ApplicantListComponent implements OnInit {
       this.data = data;
       console.log(this.data, "My Data");  
     });
+  }
+
+  checkPlag(){
+    this.quizservice.checkPlagiarism(this.data.proposal)
+    .subscribe((data) => {
+      console.log(data);
+      this.plagStat = data;
+      
+    })
   }
 }
