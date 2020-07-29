@@ -72,16 +72,16 @@
       <button class="nav-btn" mat-menu-item (click)="onClickOption('course-list')"
         *ngIf="checkifLoggedIn() && userIsCandidate">
         <mat-icon>menu_book</mat-icon>
-        <span>Search Courses</span>
+        <span>View Courses</span>
       </button>
       <button class="nav-btn" mat-menu-item (click)="onClickOption('blog-list')"
         *ngIf="checkifLoggedIn() && userIsCandidate">
         <mat-icon>library_books</mat-icon>
-        <span>Search Blogs</span>
+        <span>Read Blogs</span>
       </button>
       <button class="nav-btn" mat-menu-item (click)="onClickOption('scheme-list')"
         *ngIf="checkifLoggedIn() && userIsCandidate">
-        <mat-icon>add_alert</mat-icon>
+        <mat-icon>search</mat-icon>
         <span>Search Schemes</span>
       </button>
       <!-- <button mat-menu-item>
@@ -125,7 +125,7 @@
       </button>
       <button class="nav-btn" mat-menu-item (click)="onClickOption('job-listings')"
         *ngIf="checkifLoggedIn() && userIsOrganization">
-        <mat-icon>add_alert</mat-icon>
+        <mat-icon>pageview</mat-icon>
         <span>View my Listings</span>
       </button>
       <!-- <button mat-menu-item>

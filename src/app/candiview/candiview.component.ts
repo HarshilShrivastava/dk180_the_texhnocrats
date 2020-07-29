@@ -41,7 +41,7 @@ function init_carousel(){
   styleUrls: ['./candiview.component.less']
 })
 export class CandiviewComponent implements OnInit {
-  data: any = {};
+  data: any = {"data": {} };
   resumeFile: any;
   resumeLink: any;
   courses: any;

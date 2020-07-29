@@ -1,3 +1,17 @@
+<div *ngIf="notRegistered" class="not-registered">
+  
+  <div class="not-registered-txt">
+    Please&nbsp;<a [routerLink]="['/profiles']">Sign Up</a>&nbsp;to create job listings and view top recommended candidates.
+  </div>
+  <div class="not-registered-img">
+    <img
+      class="nr-actual-img"
+      src="./assets/image/register_now.png"
+      alt="error_logo"
+    />
+  </div>
+</div>
+
 <div class="cont-cont">
   <div class="loader-container">
     <div *ngIf="showLoader">

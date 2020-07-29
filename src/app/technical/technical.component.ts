@@ -31,6 +31,7 @@ export class TechnicalComponent implements OnInit {
   totalmarks = 0;
   rating = 0;
   titleText: string;
+  btnText: string;
 
   sd_2 = {
     id: 0,
@@ -79,10 +80,15 @@ export class TechnicalComponent implements OnInit {
   ) {
 
     this.quizService.onlySubDomainQuiz.subscribe((value) => {
-      if(value)
+      if(value){
         this.titleText = "Round 1: Technical Domains Quiz";
+        this.btnText = "Round Two"
+      }
       else if(!value)
+      {
         this.titleText = "Round 2: Domain Quiz";
+        this.btnText = "Round Three"
+      }
     })
   }
 
