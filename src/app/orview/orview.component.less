@@ -275,3 +275,24 @@
       color: white;
       font-weight: bold;
     }
+
+    @media screen and (max-width: 768px) {
+      .dashboard_header {
+        margin: 0;
+        text-align: center;
+        padding-top: 50px;
+        padding-bottom: 20px;
+      }
+      .dashboard {
+        display: block;
+        margin-left: 0;
+        .example-card {
+          min-width: unset;
+          max-width: unset;
+        }
+        .dashboard_img-container {
+          max-width: unset;
+          padding-left: 20px;
+        }
+      }
+    }

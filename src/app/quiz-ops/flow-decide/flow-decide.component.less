@@ -20,9 +20,8 @@
   padding: 5%;
 }
 
-.has-decided-txt{
+.has-decided-txt {
   color: black;
-  
 }
 
 .has-decided:hover {
@@ -102,5 +101,18 @@
   display: flex;
   justify-content: center;
   padding: 2%;
-  
+}
+
+@media screen and (max-width: 768px) {
+  .main-container {
+    padding-top: 50px;
+    flex-direction: column;
+    .has-decided {
+      max-width: unset;
+    }
+    .has-not-decided {
+      max-width: unset;
+      margin-top: 50px;
+    }
+  }
 }
