@@ -77,10 +77,10 @@
           </div> -->
       </div>
 
-      <p class="description" matTooltip="1-Tech | 2-Marketing">
+      <p matTooltip="1-Tech | 2-Marketing">
         <strong>Field Related To : </strong>{{ result.fields }}
       </p>
-      <p class="description">
+      <p>
         <strong>Minimum Experience : </strong>{{ result.Minimum_experience }} year(s)
       </p>
       <mat-card-content>
@@ -88,8 +88,8 @@
           <strong>Job Description : </strong>{{ result.Job_Descreption }}
         </p>
 
-        <p class="description" matTooltip="{{ result.Job_Descreption }}">
-          <strong>Posted At: : </strong>{{ result.prefered_city }}
+        <p>
+          <strong>Posted At: </strong>{{ result.prefered_city }}
         </p>
         <!-- <p class="city">
             <strong>Available at : </strong>
@@ -97,9 +97,9 @@
           </p> -->
       </mat-card-content>
       <mat-card-actions class="footer">
-        <!-- <button mat-button class="btn" (click)="onViewClick(result)">
+        <button mat-button class="btn" (click)="onViewClick(result)">
             View Post
-          </button> -->
+          </button>
         <button mat-button class="btn" (click)="onViewApplicant(result.id)">
           View Applicants
         </button>

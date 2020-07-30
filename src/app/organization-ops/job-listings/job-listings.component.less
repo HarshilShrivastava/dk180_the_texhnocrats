@@ -323,34 +323,36 @@ a {
 }
 
 .description {
+  border-top: 1px solid;
+  border-top-color: lightgray;
   border-bottom: 1px solid;
   border-bottom-color: lightgray;
   overflow: hidden;
   position: relative;
   line-height: 1.2em;
-  max-height: 6em;
+  max-height: 8em;
   text-align: justify;
   margin-right: -1em;
   padding-right: 2em;
 }
 
-//   .description:before {
-//     content: "...";
-//     position: absolute;
-//     right: 0;
-//     bottom: 0;
-//     padding-right: 1em;
-//   }
+  .description:before {
+    content: "...";
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    padding-right: 1em;
+  }
 
-//   .description:after {
-//     content: "";
-//     position: absolute;
-//     right: 0;
-//     width: 1em;
-//     height: 1em;
-//     margin-top: 0.2em;
-//     background: white;
-//   }
+  .description:after {
+    content: "";
+    position: absolute;
+    right: 0;
+    width: 1em;
+    height: 1em;
+    margin-top: 0.2em;
+    background: white;
+  }
 
 .city {
   border-bottom: 1px solid;
@@ -364,7 +366,7 @@ a {
   padding: 0% 2% 0% 2%;
   // position: absolute;
   // bottom: 5%;
-  margin-top: 50px;
+  // margin-top: 50px;
   margin-bottom: -50px;
 }
 
