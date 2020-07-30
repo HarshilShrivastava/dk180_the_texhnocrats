@@ -374,6 +374,10 @@ i {
 
 @media screen and (max-width: 768px) {
   .container {
+    .input-field.col .prefix ~ label,
+    .input-field.col .prefix ~ .validate ~ label {
+      font-size: 10px;
+    }
     .form-title {
       padding-top: 30px;
       .disp-as-flex {
@@ -387,6 +391,9 @@ i {
         flex-direction: column;
       }
     }
+    .material-icons {
+      display: none;
+    }
     .info-container {
       flex-direction: column;
       /deep/.mat-form-field-infix {
@@ -399,6 +406,7 @@ i {
           .field-style {
             font-size: 10px;
             margin: 0;
+            margin-top: 10px;
           }
         }
       }
