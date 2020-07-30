@@ -53,7 +53,7 @@
     <div class="nav-link" *ngIf="checkifLoggedIn()">
       <a (click)="onClickOption('applied-jobs')">Applied Jobs</a>
     </div> -->
-    <button class="nav-btn" mat-icon-button [matMenuTriggerFor]="resourcesmenu"
+    <button *ngIf="!userIsOrganization" class="nav-btn" mat-icon-button [matMenuTriggerFor]="resourcesmenu"
       aria-label="Example icon-button with a menu">
       <div class="nav-btn-txt">Resources</div>
       <mat-icon class="dropdwn-arr">arrow_drop_down</mat-icon>

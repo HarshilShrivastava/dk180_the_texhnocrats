@@ -19,7 +19,7 @@
         </div>
       </div>
       <div class="all-btn">
-        <div class="btn">
+        <div class="btn" *ngIf="!userService.isOrganization()">
           <a class="btn-txt" [routerLink]="['/instructions']">Take Quiz</a>
         </div>
         <div class="btn" *ngIf="!userService.isLoggedIn()">
