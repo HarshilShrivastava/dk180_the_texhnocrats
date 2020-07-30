@@ -101,10 +101,7 @@
             </mat-panel-description> -->
           </mat-expansion-panel-header>
           <div class="skill-item">
-            <div
-              class="skill-item-txt"
-              *ngFor="let skill of result.get_candidate_skills"
-            >
+            <div class="skill-item-txt" *ngFor="let skill of result.get_candidate_skills">
               <div class="itm-txt">{{ skill.Name }}</div>
             </div>
           </div>
@@ -122,23 +119,20 @@
             </mat-panel-description> -->
           </mat-expansion-panel-header>
           <div class="skill-item">
-            <div
-              class="skill-item-txt"
-              *ngFor="let skill of result.get_job_skills"
-            >
+            <div class="skill-item-txt" *ngFor="let skill of result.get_job_skills">
               <div class="itm-txt">{{ skill.Name }}</div>
             </div>
           </div>
         </mat-expansion-panel>
       </mat-accordion>
-      <!-- <mat-card-actions class="footer">
-                <button mat-button class="btn" (click)="onViewClick(result)">
-            View Post
-          </button>
-                <button mat-button class="btn" (click)="onViewApplicant(result.id)">
-                    View Applicants
-                </button>
-            </mat-card-actions> -->
+      <mat-card-actions class="footer">
+        <button mat-button class="btn" (click)="onViewClick(result)">
+          View Proposal
+        </button>
+        <!-- <button mat-button class="btn" (click)="onViewApplicant(result.id)">
+          View Applicants
+        </button> -->
+      </mat-card-actions>
     </mat-card>
   </div>
 </div>

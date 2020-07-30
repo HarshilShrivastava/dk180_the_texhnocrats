@@ -51,6 +51,55 @@ strong {
   white-space: nowrap;
   font-size: small;
 }
+
+.skills-container {
+  display: flex;
+  flex-direction: column;
+  // padding-left: 7.5%;
+}
+
+.skills-div {
+  max-height: 50px;
+}
+
+.skill-item {
+  font-family: Poppins !important;
+  display: flex;
+  flex-wrap: wrap;
+  font-weight: bold;
+  // border: 1px solid;
+}
+
+.skill-item-txt {
+  border: 1px solid;
+  border-radius: 20px;
+  height: 30px;
+  box-sizing: border-box;
+  margin-right: 12px;
+  padding: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.itm-txt {
+  display: flex;
+  justify-content: center;
+}
+
+.description {
+  border-bottom: 1px solid;
+  border-bottom-color: lightgray;
+  overflow: hidden;
+  position: relative;
+  line-height: 1.2em;
+  max-height: 6em;
+  text-align: justify;
+  margin-right: -1em;
+  padding-right: 2em;
+}
+
 @media screen and (max-width: 768px) {
   .dialog-container {
     /deep/ mat-dialog-content {
