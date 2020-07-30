@@ -121,13 +121,6 @@
 <div class="row">
     <div class="dashboard">
           
-<!-- <div class="dashboard_img-container">
-    <img
-      src="./assets/image/imageonline-co-transparentimage (1).png"
-      class="dashboard_img"
-      alt="dashboard_img"
-    />
-  </div> -->
 
 
   <div class="inst-title"><mark><strong>Please read these instructions carefully before attempting the quiz:</strong></mark>
@@ -205,7 +198,7 @@
     
 <div class="prev1">
     
-    <mat-radio-button (change)="preview()" class="flow1">Click here for the flow chart view</mat-radio-button>
+    <mat-radio-button (change)="preview1()" class="flow1">Click here for the flow chart view</mat-radio-button>
 
     <div *ngIf="!hide">
         <div class="flow-diagram">
@@ -217,10 +210,10 @@
             Hope you find what you’re looking for, best of luck!</em></div> 
             
             <div class="checkbox1">
-                <mat-checkbox (change)="onClick()"><div class="bold-txt3"> I have read and understood the instructions</div></mat-checkbox>
+                <mat-checkbox (change)="onClick1()"><div class="bold-txt3"> I have read and understood the instructions</div></mat-checkbox>
                 </div>  
             
-                <div *ngIf="continue"> 
+                <div *ngIf="continue1"> 
                     <div class="my-btn"> 
                         <a class="btn-txt" [routerLink]="['/select-preference']">Proceed<i class="material-icons right">send</i></a> 
                     </div> 
@@ -246,5 +239,5 @@
         </div>
 
 
-    <!-- </div> -->
+    </div>
 </div>
