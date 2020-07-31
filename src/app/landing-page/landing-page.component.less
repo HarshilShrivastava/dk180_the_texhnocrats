@@ -174,6 +174,24 @@ a {
   font-weight: 600;
 }
 
+.lp-card-header:after{
+  background: none repeat scroll 0 0 transparent;
+  bottom: 0;
+  content: "";
+  display: block;
+  height: 2px;
+  left: 50%;
+  position: absolute;
+  background: #fff;
+  transition: width 0.3s ease 0s, left 0.3s ease 0s;
+  width: 0;
+}
+
+.lp-card-header:hover:after{
+  width: 100%; 
+  left: 0; 
+}
+
 .lp-card-txt {
   // min-height: 50% !important;
   flex-grow: 3;
@@ -211,13 +229,14 @@ a {
   .main {
     flex-direction: column;
     .title-txt {
-      font-size: 18px;
+      padding-top: 30px;
+      font-size: 30px;
     }
     .tagline-txt {
-      font-size: 14px;
+      font-size: 18px;
       .gif {
-        max-height: 40px;
-        max-width: 40px;
+        max-height: 50px;
+        max-width: 50px;
       }
     }
     .btn {
@@ -233,10 +252,10 @@ a {
   }
   .desc-container {
     .desc-header {
-      font-size: 14px;
+      font-size: 20px;
     }
     .desc-tagline {
-      font-size: 12px;
+      font-size: 16px;
     }
   }
   .cards-container {
@@ -246,10 +265,10 @@ a {
       max-width: 80% !important;
       margin-bottom: 20px;
       .lp-card-header {
-        font-size: 12px;
+        font-size: 16px;
       }
       .lp-card-txt {
-        font-size: 10px;
+        font-size: 14px;
       }
     }
   }

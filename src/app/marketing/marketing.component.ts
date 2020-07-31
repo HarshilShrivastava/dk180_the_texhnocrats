@@ -73,6 +73,7 @@ export class MarketingComponent implements OnInit {
   proceed: boolean = false;
   questionThreshold: boolean = false;
   titleText: string;
+  btnText: string;
 
 
   constructor(
@@ -84,9 +85,14 @@ export class MarketingComponent implements OnInit {
 
     this.quizService.onlySubDomainQuiz.subscribe((value)=> {
       if(value)
-        this.titleText = "Round 1: Quiz Domain Quiz"
-      else if(!value)
-        this.titleText = "Round 2: Domain Quiz"
+      {
+        this.titleText = "Round 1: Marketing Domains Quiz";
+        this.btnText = "Round Two"
+      }
+      else if(!value){
+        this.titleText = "Round 2: Domain Quiz";
+        this.btnText = "Round Three"
+      }
     })
   }
 

@@ -231,7 +231,7 @@ export class QuizService {
     return this.http.post('https://harshraj.pythonanywhere.com/University/Uprofile/', info, {headers: Headers});
   }
 
-  jobview(job_title, Job_Descreption, Level, Minimum_experience, prefered_city, fields) {
+  jobview(job_title: string, Job_Descreption: string, Level: number, Minimum_experience: number, prefered_city: string, fields: number, SubDomain: string) {
     const data: Job = {
       job_title: job_title,
       Job_Descreption: Job_Descreption,
@@ -239,8 +239,35 @@ export class QuizService {
       Minimum_experience: Minimum_experience,
       prefered_city: prefered_city,
       fields: fields,
-      // id: id
+      SubDomain: SubDomain
     };
+    // if(localStorage.getItem("job_SD1")) 
+    //   data.push('SubDomain', localStorage.getItem("job_SD1"))
+    // if(localStorage.getItem("job_SD2")) 
+    //   formData.append('SubDomain', localStorage.getItem("job_SD2"))
+    // if(localStorage.getItem("job_SD3")) 
+    //   formData.append('SubDomain', localStorage.getItem("job_SD3"))
+    // if(localStorage.getItem("job_SD4")) 
+    //   formData.append('SubDomain', localStorage.getItem("job_SD4"))    
+
+    // const formData: FormData = new FormData();
+    // formData.append('job_title', job_title);
+    // formData.append('Job_Descreption', Job_Descreption);
+    // formData.append('Level', Level.toString());
+    // // formData.append('Socialmedia', Socialmedia.toString());
+    // formData.append('Minimum_experience', Minimum_experience.toString());
+    // formData.append('prefered_city', prefered_city);
+    // formData.append('fields', fields.toString());
+
+    // if(localStorage.getItem("job_SD1")) 
+    //   formData.append('SubDomain', localStorage.getItem("job_SD1"))
+    // if(localStorage.getItem("job_SD2")) 
+    //   formData.append('SubDomain', localStorage.getItem("job_SD2"))
+    // if(localStorage.getItem("job_SD3")) 
+    //   formData.append('SubDomain', localStorage.getItem("job_SD3"))
+    // if(localStorage.getItem("job_SD4")) 
+    //   formData.append('SubDomain', localStorage.getItem("job_SD4"))    
+    
     const Headers = new HttpHeaders({'Content-Type': 'application/json'})
     .set('Authorization', 'token ' + localStorage.getItem('token'));
     return this.http.post('https://harshraj.pythonanywhere.com/organization/api/get-job/', data, {headers: Headers});
@@ -265,7 +292,7 @@ export class QuizService {
   viewAppliedCandidateList(){
     const Headers = new HttpHeaders()
       .set('Authorization', 'token ' + localStorage.getItem('token'));
-    return this.http.get('https://harshraj.pythonanywhere.com/organization/application-list/' + localStorage.getItem('id'), {headers: Headers} );
+    return this.http.get('https://harshraj.pythonanywhere.com/organization/application-list/' + localStorage.getItem('job_id'), {headers: Headers} );
   }
 
   getSubDomainQuestions(){
@@ -408,6 +435,20 @@ export class QuizService {
 
     const Headers = new HttpHeaders().set('Authorization', 'token ' + localStorage.getItem('token'));
     return this.http.put('https://harshraj.pythonanywhere.com/candidate/create/', formData, {headers: Headers});
+  }
+
+  checkPlagiarism(text){
+    let url = "https://www.prepostseo.com/apis/checkPlag"
+
+    let key = "1da46e9a3a63fc8d6000fa43453043bb"
+
+    const formData: FormData = new FormData();
+    formData.append('key', key);
+    formData.append('data', text);
+
+    return this.http.post("https://www.prepostseo.com/apis/checkPlag", formData)
+
+
   }
 
 

@@ -10,11 +10,13 @@
   
   .not-registered{
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     padding: 10%;
   }
   
   .not-registered-txt{
+    display: flex;
+    align-items: center;
     font-size: large;
     font-weight: bold;
     // display: flex;
@@ -274,4 +276,25 @@
     .btn-txt{
       color: white;
       font-weight: bold;
+    }
+
+    @media screen and (max-width: 768px) {
+      .dashboard_header {
+        margin: 0;
+        text-align: center;
+        padding-top: 50px;
+        padding-bottom: 20px;
+      }
+      .dashboard {
+        display: block;
+        margin-left: 0;
+        .example-card {
+          min-width: unset;
+          max-width: unset;
+        }
+        .dashboard_img-container {
+          max-width: unset;
+          padding-left: 20px;
+        }
+      }
     }

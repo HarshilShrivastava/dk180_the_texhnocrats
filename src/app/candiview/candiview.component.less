@@ -10,11 +10,13 @@
 
 .not-registered {
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   padding: 10%;
 }
 
 .not-registered-txt {
+  display: flex;
+  align-items: center;
   font-size: large;
   font-weight: bold;
   // display: flex;
@@ -278,6 +280,7 @@
   .dashboard_header {
     margin: 0;
     text-align: center;
+    padding-top: 50px;
     padding-bottom: 20px;
   }
   .dashboard {
@@ -291,5 +294,13 @@
       max-width: unset;
       padding-left: 20px;
     }
+  }
+  .carousel {
+    margin-bottom: 30px;
+    height: 530px !important;
+  }
+  .carousel.carousel-slider .carousel-item p {
+    max-width: 80%;
+    margin-left: 10% !important;
   }
 }

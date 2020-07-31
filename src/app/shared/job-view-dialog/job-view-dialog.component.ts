@@ -1,6 +1,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { Router } from '@angular/router';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-job-view-dialog',
@@ -10,17 +11,27 @@ import { Router } from '@angular/router';
 export class JobViewDialogComponent implements OnInit {
 
   isPresent: boolean = false;
+  isCandidate: boolean = false;
+  isApplicantList: boolean = false;
+
 
   constructor(
     public dialogRef: MatDialogRef<JobViewDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
-    private router: Router
+    private router: Router,
+    public userService: UserService
 
   ) { }
 
   ngOnInit() {
     if(this.data)
       this.isPresent = true;
+    if(this.userService.isOrganization)
+      this.isCandidate = false;
+    if(this.data.At)
+      this.isApplicantList = true;
+    else  
+      this.isApplicantList = false;
   }
 
   onApplyClick(){

@@ -1,40 +1,46 @@
-.dialog-container{
-    /deep/ mat-dialog-container{
-        width: 900px !important;
-        overflow: auto !important;
-        
-    }
-}
-
-.dialog-container{
-    font-family: Poppins;
-}
-
-.mat-dialog-content{
-    font-family: Poppins !important;
+.dialog-container {
+  /deep/ mat-dialog-container {
+    width: 900px !important;
     overflow: auto !important;
-    // width: 400px !important;
+  }
 }
 
-.course-view{
-    overflow: auto;
+.dialog-container {
+  font-family: Poppins;
 }
 
-.button{
-    min-height: 45px;
-    max-height: 45px;
-    min-width: 45px;
-    max-width: 150px;
-    display: flex;
-    align-items: center;
-    background-color: #390099;
-    margin-right: 2%;
-    border-radius: 55px;
-    justify-content: center;
-    color: white;
-    margin-top: 1%;
-    margin-bottom: 2%;
-    white-space: nowrap;
-    font-size: medium;
+.mat-dialog-content {
+  font-family: Poppins !important;
+  overflow: auto !important;
+  // width: 400px !important;
 }
 
+.course-view {
+  overflow: auto;
+}
+
+.button {
+  min-height: 45px;
+  max-height: 45px;
+  min-width: 45px;
+  max-width: 150px;
+  display: flex;
+  align-items: center;
+  background-color: #390099;
+  margin-right: 2%;
+  border-radius: 55px;
+  justify-content: center;
+  color: white;
+  margin-top: 1%;
+  margin-bottom: 2%;
+  white-space: nowrap;
+  font-size: medium;
+}
+
+@media screen and (max-width: 768px) {
+  .dialog-container {
+    /deep/ mat-dialog-content {
+      //width: 300px !important;
+    }
+  }
+}

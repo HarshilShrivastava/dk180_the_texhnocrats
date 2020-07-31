@@ -1,1 +1,138 @@
-<p>applicant-list works!</p>
+<div class="cont-cont">
+
+  <div class="loader-container">
+    <div *ngIf="showLoader">
+      <img src="./assets/loader.gif" class="loader" alt="Loading..." />
+    </div>
+  </div>
+
+  <div *ngIf="isEmpty" class="empty_list">
+    No applications received yet...
+  </div>
+
+  <div class="container" *ngFor="let result of data.data; let i = index">
+    <mat-card class="example-card">
+      <div class="header-container">
+        <mat-card-header>
+          <div mat-card-avatar>
+            <img src="./assets/logo1.png" alt="logo" style="width: 50px; height: 50px;" />
+          </div>
+          <mat-card-title>{{ result.Recruit_obj }}</mat-card-title>
+          <!-- <mat-card-subtitle> <a href="{{ result.Resume_obj }}"> View Resume</a></mat-card-subtitle> -->
+        </mat-card-header>
+
+        <!-- <div class="dropdown">
+            <button
+              class="dropdown-cont"
+              mat-icon-button
+              [matMenuTriggerFor]="menu"
+              aria-label="Example icon-button with a menu"
+            >
+              <mat-icon>more_vert</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu">
+              <button
+                class="dropdown-cont"
+                mat-menu-item
+                (click)="onApplyClick(result.id)"
+                *ngIf="userService.isOrganization"
+              >
+                <i class="material-icons">edit</i>
+                <span>
+                  <div class="dropdown-txt">Apply Now</div>
+                </span>
+              </button>
+              <button class="dropdown-cont" mat-menu-item>
+                <i class="material-icons">share</i>
+                <span>
+                  <div class="dropdown-txt">Share</div>
+                </span>
+              </button>
+              <button class="dropdown-cont" mat-menu-item>
+                <i class="material-icons">bookmark</i>
+                <span>
+                  <div class="dropdown-txt">Save</div>
+                </span>
+              </button>
+              <!-- <button class="dropdown-cont" mat-menu-item (click)="onViewApplicant(result.id)" *ngIf="userService.isOrganization">
+                    <i class="material-icons">pageview</i>
+                    <span>
+                        <div class="dropdown-txt" >View applicants</div>
+                    </span>
+                </button> -->
+        <!-- </mat-menu>
+          </div> -->
+      </div>
+
+      <p class="description">
+        <strong>Address : </strong>{{ result.Recruit_add_obj }}
+      </p>
+      <p class="description theme-clr">
+        <strong> <a class="theme-clr" href="{{result.Resume_obj}}" target="_blank">Click here to view
+            resume</a></strong>
+      </p>
+      <mat-card-content>
+        <p class="description">
+          <strong>Proposal : </strong>{{ result.proposal }}
+        </p>
+        <p class="description" matTooltip="Similarity based on your listing and candidate's application ">
+          <strong>Similarity score : </strong>{{ result.similarity }}
+        </p>
+        <p class="description" matTooltip="% content copied from sources">
+          <strong>Plagiiarism % : </strong>{{ plagStat.plagPercent }}%
+        </p>
+        <p class="description" matTooltip="{{ result.Job_Descreption }}">
+          <strong>Applied : </strong>{{ result.At | date: "dd-MMM-yy h:mm a" }}
+        </p>
+        <!-- <p class="city">
+            <strong>Available at : </strong>
+            {{ result.prefered_city }}
+          </p> -->
+      </mat-card-content>
+
+      <mat-accordion class="description-fields">
+        <mat-expansion-panel class="skills-container">
+          <mat-expansion-panel-header class="skills-div">
+            <mat-panel-title class="skill-item">
+              Click here to view candidate's skillset
+            </mat-panel-title>
+            <!-- <mat-panel-description>
+              Currently I am {{ panelOpenState ? "open" : "closed" }}
+            </mat-panel-description> -->
+          </mat-expansion-panel-header>
+          <div class="skill-item">
+            <div class="skill-item-txt" *ngFor="let skill of result.get_candidate_skills">
+              <div class="itm-txt">{{ skill.Name }}</div>
+            </div>
+          </div>
+        </mat-expansion-panel>
+      </mat-accordion>
+
+      <mat-accordion class="description-fields">
+        <mat-expansion-panel class="skills-container">
+          <mat-expansion-panel-header class="skills-div">
+            <mat-panel-title class="skill-item">
+              Click here to view skills required for your listing
+            </mat-panel-title>
+            <!-- <mat-panel-description>
+              Currently I am {{ panelOpenState ? "open" : "closed" }}
+            </mat-panel-description> -->
+          </mat-expansion-panel-header>
+          <div class="skill-item">
+            <div class="skill-item-txt" *ngFor="let skill of result.get_job_skills">
+              <div class="itm-txt">{{ skill.Name }}</div>
+            </div>
+          </div>
+        </mat-expansion-panel>
+      </mat-accordion>
+      <mat-card-actions class="footer">
+        <button mat-button class="btn" (click)="onViewClick(result)">
+          View Proposal
+        </button>
+        <!-- <button mat-button class="btn" (click)="onViewApplicant(result.id)">
+          View Applicants
+        </button> -->
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>

@@ -373,6 +373,35 @@ i {
 }
 
 @media screen and (max-width: 768px) {
-  .main {
+  .container {
+    .form-title {
+      padding-top: 30px;
+      .disp-as-flex {
+        display: block;
+        text-align: center;
+      }
+    }
+    .general-details {
+      .general-details-l1 {
+        margin-top: 10px;
+        flex-direction: column;
+      }
+    }
+    .info-container {
+      flex-direction: column;
+      /deep/.mat-form-field-infix {
+        width: 235px;
+      }
+      .info-field {
+        width: 100%;
+        .input-field {
+          padding: 0;
+          .field-style {
+            font-size: 10px;
+            margin: 0;
+          }
+        }
+      }
+    }
   }
 }

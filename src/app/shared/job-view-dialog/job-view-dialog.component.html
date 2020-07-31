@@ -1,4 +1,18 @@
-<div class="dialog-container">
+<div *ngIf="!isApplicantList" class="dialog-container">
+    <h3 mat-dialog-title>{{data.Name}}</h3>
+
+    <mat-dialog-content class="job-view">
+        <h5> <strong> Role: </strong> {{data.job_title}}</h5>
+        <h5> <strong> Description: </strong> {{data.Job_Descreption}}</h5>
+        <h5> <strong> Minimum Experience: </strong> {{data.Minimum_experience}} years</h5>
+        <h5> <strong> Preferred City: </strong> {{data.prefered_city}}</h5>
+
+        <button *ngIf="isCandidate" mat-button class="btn" (click)="onApplyClick()">Apply Now<i
+                class="material-icons footer-icons right">edit</i></button>
+    </mat-dialog-content>
+</div>
+<!-- 
+<div class="dialog-container">  
     <h3 mat-dialog-title>{{data.Name}}</h3>
 
     <mat-dialog-content class="job-view">
@@ -8,5 +22,53 @@
         <h5>  <strong> Preferred City: </strong> {{data.prefered_city}}</h5>
 
         <button mat-button class="btn" (click)="onApplyClick()">Apply Now<i class="material-icons footer-icons right">edit</i></button>
+    </mat-dialog-content>
+</div> -->
+
+<div *ngIf="isApplicantList" class="dialog-container">
+    <h3 mat-dialog-title>{{data.Recruit_obj}}</h3>
+
+    <mat-dialog-content class="job-view">
+        <h5> <strong> Address: </strong> {{data.Recruit_add_obj}}</h5>
+        <h5> <strong> Proposal: </strong> {{data.proposal}}</h5>
+        <h5> <strong> Similarity Score: </strong> {{data.similarity}}</h5>
+        <h5> <strong> Plagiarism: </strong> {{data.plagPercent}}%</h5>
+        <h5> <strong> Applied At: </strong> {{data.At | date: "dd-MMM-yy h:mm a"}}</h5>
+
+        <mat-accordion class="description-fields">
+            <mat-expansion-panel class="skills-container">
+              <mat-expansion-panel-header class="skills-div">
+                <mat-panel-title class="skill-item">
+                  Click here to view candidate's skillset
+                </mat-panel-title>
+                <!-- <mat-panel-description>
+                  Currently I am {{ panelOpenState ? "open" : "closed" }}
+                </mat-panel-description> -->
+              </mat-expansion-panel-header>
+              <div class="skill-item">
+                <div class="skill-item-txt" *ngFor="let skill of data.candi_skills">
+                  <div class="itm-txt">{{ skill.Name }}</div>
+                </div>
+              </div>
+            </mat-expansion-panel>
+          </mat-accordion>
+    
+          <mat-accordion class="description-fields">
+            <mat-expansion-panel class="skills-container">
+              <mat-expansion-panel-header class="skills-div">
+                <mat-panel-title class="skill-item">
+                  Click here to view skills required for your listing
+                </mat-panel-title>
+                <!-- <mat-panel-description>
+                  Currently I am {{ panelOpenState ? "open" : "closed" }}
+                </mat-panel-description> -->
+              </mat-expansion-panel-header>
+              <div class="skill-item">
+                <div class="skill-item-txt" *ngFor="let skill of data.job_skills">
+                  <div class="itm-txt">{{ skill.Name }}</div>
+                </div>
+              </div>
+            </mat-expansion-panel>
+          </mat-accordion>
     </mat-dialog-content>
 </div>
