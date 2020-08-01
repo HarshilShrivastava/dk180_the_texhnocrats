@@ -15,7 +15,7 @@ export class UploadQaCustomquizComponent implements OnInit {
   domain: string;
 
   constructor(
-    quizService: QuizService
+    public quizService: QuizService
   ) {}
 
   ngOnInit() {}
@@ -41,13 +41,14 @@ export class UploadQaCustomquizComponent implements OnInit {
   }
 
   valueOut() {
-    this.dataList.forEach(
-      function (data) {
+    this.dataList.forEach( (data) => {
         // console.log(data[0], data[1].length);
-        const answer = data.Question_text;
+        const id = data.id
+        const question = data.Question_text;
         const domain = data.Domain;
-        this.quizService.postQuestions(answer, domain);
-      }.bind(this)
+        this.quizService.postQuestions(id, question, domain);
+    }
+      
     );
   }
 }
