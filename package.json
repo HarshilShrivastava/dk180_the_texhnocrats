@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve -o",
-    "deploy": "ng build --prod --base-href https://gauravjoshi1998.github.io/JobsForYou/ && sudo npx ngh --dir=dist/mcq2",
+    "deploy": "ng build --prod --base-href https://HarshilShrivastava.github.io/dk180_the_texhnocrats/ && sudo npx ngh --dir=dist/mcq2",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
