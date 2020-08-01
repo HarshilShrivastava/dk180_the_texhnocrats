@@ -675,11 +675,42 @@ export class QuizService {
   }
 
   postQuestions(id: string, Question: string, Domain: string) {
-    // const formData: FormData = new FormData();
-    // formData.append("Question_Text", Question);
-    // formData.append("Domain", Domain)
-    console.log("key", id);
-    console.log("Question_text", Question);
-    console.log("Domain", Domain);
+
+    const Headers = new HttpHeaders().set(
+      "Authorization",
+      "token " + localStorage.getItem("token")
+    );
+
+    const formData: FormData = new FormData();
+    formData.append("key", id);
+    formData.append("Question_text", Question);
+    formData.append("Domain", Domain)
+    // console.log("key", id);
+    // console.log("Question_text", Question);
+    // console.log("Domain", Domain);
+
+    return this.http.post(
+      "http://harshraj.pythonanywhere.com/customquestion/",
+      formData,
+      { headers: Headers }
+    );
+  }
+
+  postAnswers(Question_related_to: string, Answer_text: string, Weightage: string){
+    const Headers = new HttpHeaders().set(
+      "Authorization",
+      "token " + localStorage.getItem("token")
+    );
+
+    const formData: FormData = new FormData();
+    formData.append("Question_related_to", Question_related_to);
+    formData.append("Answer_text", Answer_text);
+    formData.append("Weightage", Weightage)
+
+    return this.http.post(
+      "http://harshraj.pythonanywhere.com/customanswer/",
+      formData,
+      { headers: Headers }
+    );
   }
 }
