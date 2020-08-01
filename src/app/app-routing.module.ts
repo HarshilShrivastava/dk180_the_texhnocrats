@@ -44,6 +44,8 @@ import { FlowDecideComponent } from './quiz-ops/flow-decide/flow-decide.componen
 import { OrganizationSignupComponent } from './organization-ops/organization-signup/organization-signup.component';
 import { JobListingsComponent } from './organization-ops/job-listings/job-listings.component';
 import { UploadQaCustomquizComponent } from './organization-ops/upload-qa-customquiz/upload-qa-customquiz.component';
+import { OrgPrefComponent } from './organization-ops/org-pref/org-pref.component';
+import { CustomQuizComponent } from './organization-ops/custom-quiz/custom-quiz.component';
 
 
 const routes: Routes = [
@@ -94,6 +96,9 @@ const routes: Routes = [
   {path: 'organization', component: OrganizationSignupComponent},
   {path: 'job-listings', component: JobListingsComponent},
   {path: 'custom-quiz', component: UploadQaCustomquizComponent},
+  {path: 'org-pref', component: OrgPrefComponent},
+  {path: 'preview-custom-quiz', component: CustomQuizComponent},
+  
 
 
 

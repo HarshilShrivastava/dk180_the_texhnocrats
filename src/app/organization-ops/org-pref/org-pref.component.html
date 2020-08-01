@@ -1,0 +1,20 @@
+<!-- Need to add an option to generate a link for the quiz here if possible -->
+
+<div class="main-container">
+    <div class="header jcc">
+        Your quiz has been created successfully! Do you want to preview it?
+    </div>
+    <div class="choice-container">
+        <div class="all-btn jcc">
+            <button class="btn" type="submit" name="action" [routerLink]="['/preview-custom-quiz']">
+                Yes<i class="material-icons right">send</i>
+            </button>
+        </div>
+
+        <div class="all-btn jcc">
+            <button class="btn" type="submit" name="action" [routerLink]="['/orview']">
+                No<i class="material-icons right">send</i>
+            </button>
+        </div>
+    </div>
+</div>

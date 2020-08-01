@@ -30,19 +30,12 @@
       <span>Round 1: General Quiz</span>
     </div>
     <mat-horizontal-stepper #stepper labelPosition="bottom" *ngIf="!showLoader">
-      <mat-step
-        [stepControl]="firstFormGroup"
-        errorMessage="Not answered."
-        *ngFor="let item of data.Question_list; let i = index"
-        class="main-container"
-      >
+      <mat-step [stepControl]="firstFormGroup" errorMessage="Not answered."
+        *ngFor="let item of data.Question_list; let i = index" class="main-container">
         <form [formGroup]="firstFormGroup" class="form-container">
           <ng-template matStepLabel>
             <div *ngIf="!item.active && item.noReview">
-              <img
-                src="./assets/icons/if_status_inactive.png"
-                alt="unanswered"
-              />
+              <img src="./assets/icons/if_status_inactive.png" alt="unanswered" />
             </div>
             <div *ngIf="item.active && item.noReview">
               <img src="./assets/icons/if_status_active.png" alt="answered" />
@@ -56,17 +49,10 @@
           <!-- </mat-form-field> -->
           <div>
             <ul class="collection answer">
-              <ng-container
-                *ngFor="let answer of item.Question; let ind = index"
-              >
+              <ng-container *ngFor="let answer of item.Question; let ind = index">
                 <li>
                   <label>
-                    <input
-                      name="selected_answer"
-                      type="radio"
-                      class="with-gap"
-                      name="{{ item.id }}"
-                      (click)="
+                    <input name="selected_answer" type="radio" class="with-gap" name="{{ item.id }}" (click)="
                         Answer(
                           answer.Weightage,
                           answer.from_Domain,
@@ -74,10 +60,7 @@
                           answer,
                           i
                         )
-                      "
-                      value="answer.id"
-                      required
-                    />
+                      " value="answer.id" required />
                     <!-- <span>{{answer.id}}</span> -->
                     <span>{{ answer.Answer_text }}</span>
                   </label>
@@ -92,29 +75,14 @@
             <button mat-button matStepperNext class="btn" *ngIf="i !== 19">
               Next<i class="material-icons right">arrow_forward_ios</i>
             </button>
-            <button
-              *ngIf="item.noReview"
-              mat-button
-              matStepperNext
-              (click)="markForReview(i)"
-              class="btn review"
-            >
+            <button *ngIf="item.noReview" mat-button matStepperNext (click)="markForReview(i)" class="btn review">
               Mark For Review<i class="material-icons right">push_pin</i>
             </button>
-            <button
-              *ngIf="!item.noReview"
-              (click)="markForReview(i)"
-              class="btn review"
-            >
+            <button *ngIf="!item.noReview" (click)="markForReview(i)" class="btn review">
               Unmark From Review<i class="material-icons right">push_pin</i>
             </button>
 
-            <button
-              mat-button
-              class="btn"
-              (click)="stepper.reset()"
-              *ngIf="i === 19"
-            >
+            <button mat-button class="btn" (click)="stepper.reset()" *ngIf="i === 19">
               Go back to Q1
             </button>
           </div>
@@ -124,16 +92,10 @@
 
           <div class="row">
             <div class="col s12 btn-submit">
-              <button
-                [disabled] = "!questionThreshold"
-                class="btn"
-                type="submit"
-                name="action"
-                (click)="Answers()"
-              >
+              <button [disabled]="!questionThreshold" class="btn" type="submit" name="action" (click)="Answers()">
                 Round Two<i class="material-icons right">send</i>
               </button>
-              <div class="attempt-label disp-as-flex" *ngIf = "!questionThreshold">
+              <div class="attempt-label disp-as-flex" *ngIf="!questionThreshold">
                 You should attempt at least 10 questions
               </div>
             </div>

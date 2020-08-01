@@ -733,7 +733,7 @@ export class QuizService {
 
 
     return this.http.get(
-      "http://harshraj.pythonanywhere.com/api/get-question/",
+      "http://harshraj.pythonanywhere.com/api/get-question?username=" + localStorage.getItem("uname"),
       { headers: Headers }
     );
   }

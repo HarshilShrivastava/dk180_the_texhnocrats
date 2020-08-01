@@ -83,6 +83,8 @@ import { JobListingsComponent } from './organization-ops/job-listings/job-listin
 
 import { Contactfields } from './shared/contact-fields.model';
 import { UploadQaCustomquizComponent } from './organization-ops/upload-qa-customquiz/upload-qa-customquiz.component';
+import { OrgPrefComponent } from './organization-ops/org-pref/org-pref.component';
+import { CustomQuizComponent } from './organization-ops/custom-quiz/custom-quiz.component';
 
 @NgModule({
   declarations: [
@@ -144,7 +146,9 @@ import { UploadQaCustomquizComponent } from './organization-ops/upload-qa-custom
     FlowDecideComponent,
     OrganizationSignupComponent,
     JobListingsComponent,
-    UploadQaCustomquizComponent
+    UploadQaCustomquizComponent,
+    OrgPrefComponent,
+    CustomQuizComponent
   ],
   imports: [
     BrowserModule,
