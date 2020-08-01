@@ -15,8 +15,15 @@
              </div>
              <div class="input-field col s6">
                 <i class="material-icons prefix">email</i>
-                <input type="email" #email name="email" class="field-style field-split" placeholder="Your Email" ngModel id="email">
-              </div>
+                <input id="email" type="text" class="field-style field-split" name="email" #email="ngModel"
+              [(ngModel)]="messages.email" [pattern]="emailPattern" required />
+            <label for="email" class="inp-lbl">Email</label>
+            <span *ngIf="email.errors?.required && email.touched" class="field_error">
+              Email field can't be blank
+            </span>
+            <span *ngIf="email.errors?.pattern && email.touched" class="field_error">
+              That Email ID doesn't seem right
+            </span> </div>
            </div>
            <div class="row">
             <div class="input-field col s12">
@@ -24,27 +31,31 @@
                 <textarea
               type="text"
               class="field-style field-split"
-              #Bio="ngModel"
-              [(ngModel)]="fields.bio"
-              name="Bio"
-              id="Bio"
-              rows="7"
+              #message="ngModel"
+              [(ngModel)]="messages.messagess"
+              name="message" 
+              id="message"
+              rows="7" 
               required
             >
             </textarea>
-            <label for="Bio">Add a bio*</label>
-            <span
-              *ngIf="Bio.errors?.required && Bio.touched"
+            <label for="messages">Add a bio*</label>
+            <!-- <span
+              *ngIf="messages.errors?.required && messages.touched"
               class="field_error"
             >
               Bio field cannot be blank
             </span>
             <span
-              *ngIf="Bio.errors?.pattern && Bio.touched"
+              *ngIf="messages.errors?.pattern && messages.touched"
               class="field_error"
             >
               Please add a valid bio.
-            </span></div>
+            </span> -->
+
+            
+          
+          </div>
               
             </div>  
             <div class="row">

@@ -81,7 +81,7 @@ import { FlowDecideComponent } from './quiz-ops/flow-decide/flow-decide.componen
 import { OrganizationSignupComponent } from './organization-ops/organization-signup/organization-signup.component';
 import { JobListingsComponent } from './organization-ops/job-listings/job-listings.component';
 
-
+import { Contactfields } from './shared/contact-fields.model';
 
 @NgModule({
   declarations: [
@@ -174,7 +174,7 @@ import { JobListingsComponent } from './organization-ops/job-listings/job-listin
     MatSelectModule,
     MatRadioModule
 ],
-  providers: [QuizService, User],
+  providers: [QuizService, User, Contactfields],
   bootstrap: [AppComponent],
   entryComponents: [JobApplyDialogComponent, ErrorDialogComponent, GeneralDialogBoxComponent, JobViewDialogComponent, CourseDialogComponent]
 
