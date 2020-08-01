@@ -1,0 +1,22 @@
+<div class="main-container">
+    <div class="header">
+        Prepare a quiz that best suits your needs
+    </div>
+    <div>
+        <div class="upload-srv">
+            <div>
+                Upload your questions CSV file here:
+            </div>
+            <input type="file" (change)="onFileChange($event.target.files)" class="dropify" accept=".csv, .xlsx"
+                data-allowed-file-extensions="csv xlsx" data-max-file-size="3000K" />
+        </div>
+
+        <div class="upload-srv">
+            <div>
+                Upload your answers CSV file here:
+            </div>
+            <input type="file" (change)="onFileChange($event)" class="dropify" accept=".csv, .xlsx"
+                data-allowed-file-extensions="csv xlsx" data-max-file-size="3000K" />
+        </div>
+    </div>
+</div>
