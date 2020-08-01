@@ -24,9 +24,12 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.less"
+              "src/styles.less",
+              "./node_modules/dropify/dist/css/dropify.css"
             ],
-            "scripts": []
+            "scripts": [
+              "./node_modules/dropify/dist/js/dropify.min.js"
+            ]
           },
           "configurations": {
             "production": {
