@@ -13,7 +13,7 @@ export class JobViewDialogComponent implements OnInit {
   isPresent: boolean = false;
   isCandidate: boolean = false;
   isApplicantList: boolean = false;
-
+  isOrganization = localStorage.getItem("Is_Organization");
 
   constructor(
     public dialogRef: MatDialogRef<JobViewDialogComponent>,

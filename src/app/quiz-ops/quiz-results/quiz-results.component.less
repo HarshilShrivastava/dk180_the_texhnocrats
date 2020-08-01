@@ -1,73 +1,90 @@
 .mat-tab-group {
-    margin-bottom: 48px;
-    color: black;
-    /* margin-left: 30%; */
-  }
+  margin-bottom: 48px;
+  color: black;
+  /* margin-left: 30%; */
+}
 
 .mat-tab-group .mat-tab-label {
-    color: black !important;
+  color: black !important;
+  font-weight: bold !important;
+}
+
+.tab-header {
+  /deep/ .mat-tab-header {
+    margin-bottom: 20px !important;
+    font-weight: bold !important;
   }
-
-.tab-header{
-    /deep/ .mat-tab-label-content{
-        color: black !important;
-    }
-    
+  /deep/ .mat-tab-label-content {
+    color: black !important;
+    font-weight: bold !important;
+  }
+}
+h5 {
+  margin-left: 2%;
 }
 
-mat-tab{
-    color: black;
+mat-tab {
+  color: black;
 }
 
-.btn-large{
-    margin: 20px;
-    background-color: #0b132b;
-    margin-left: 35%;
+.btn-large {
+  margin: 20px;
+  background-color: #0b132b;
+  margin-left: 35%;
 }
 
-.btn-large p{
-    color: lightgray;
+.btn-large p {
+  color: lightgray;
 }
 
-.results{
-    margin-left: 2%;
+.results {
+  margin-left: 2%;
 }
 
-.jobs{
-    // margin-left: 40%;
+.jobs {
+  // margin-left: 40%;
 }
 
-.post-rating{
-    // margin-left: 39.5%;
+.post-rating {
+  // margin-left: 39.5%;
 }
 
-.btn-txt{
-    display: contents;
+.btn-txt {
+  display: contents;
 }
 
-.rating{
-    margin: 10px;
-    color: black;
+.rating {
+  margin: 10px;
+  color: black;
 }
 
-.actions{
-    display: grid;
-    place-items: center;
-    // height: 100vh;
+.actions {
+  display: grid;
+  place-items: center;
+  // height: 100vh;
 }
 
-.btn{
-    min-height: 45px;
-    max-height: 45px;
-    min-width: 45px;
-    max-width: 350px;
-    display: flex;
-    align-items: center;
-    background-color: #390099;
-    margin-right: 2%;
-    border-radius: 55px;
-    justify-content: center;
-    margin-top: 1%;
-    margin-bottom: 2%;
-    white-space: nowrap;
+.btn {
+  min-height: 45px;
+  max-height: 45px;
+  min-width: 45px;
+  max-width: 350px;
+  display: flex;
+  align-items: center;
+  background-color: #390099;
+  margin-right: 2%;
+  border-radius: 55px;
+  justify-content: center;
+  margin-top: 1%;
+  margin-bottom: 2%;
+  white-space: nowrap;
+}
+
+@media screen and (max-width: 768px) {
+  .tab-header {
+    margin-top: 30px;
+  }
+  // .btn {
+  //   font-size: 10px;
+  // }
 }

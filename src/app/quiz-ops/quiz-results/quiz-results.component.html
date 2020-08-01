@@ -22,23 +22,44 @@
     </div>
 </div> -->
 
-    <mat-tab-group mat-align-tabs="start" class="tab-header">
-    <mat-tab label="Round 1">
-        <div *ngIf = "tech_lvl1" class="results">You scored: {{Marks_tech_lvl1}} in tech domain in round 1.</div>
-        <div *ngIf = "marketing_lvl1" class="results">You scored: {{Marks_marketing_lvl1}} in marketing domain in round 1.</div>        
-    </mat-tab>
-    <mat-tab label="Round 2">
-        <div *ngIf = "tech_lvl2" class="results">You scored: {{Marks_tech_lvl2}} in tech domain in round 2.</div>
-        <div *ngIf = "marketing_lvl2" class="results">You scored: {{Marks_marketing_lvl2}} in marketing domain in round 2.</div>  
-        <div *ngIf = "sd_1" class="results">Your top sub-domain was {{SD_1_name}} in round 2 with a total score of {{SD_1_marks}}.</div>  
-        <div *ngIf = "sd_2" class="results">Your 2nd best sub-domain was {{SD_2_name}} in round 2 with a total score of {{SD_2_marks}}.</div>  
-
-    </mat-tab>
-    <mat-tab label="Round 3">
-        <div *ngIf = "sd_1" class="results">You scored: {{Final_SD1_Marks}} in sub-domain {{SD_1_name}} in round 3.</div>
-        <div *ngIf = "sd_2" class="results">You scored: {{Final_SD2_Marks}} in sub-domain {{SD_2_name}} in round 3.</div>
-    </mat-tab>
-    <!-- <mat-tab label="Save data">
+<mat-tab-group mat-align-tabs="start" class="tab-header">
+  <mat-tab label="Round 1">
+    <h5>General Quiz</h5>
+    <div *ngIf="tech_lvl1" class="results">
+      <strong>Technical</strong> Domain Score: {{ Marks_tech_lvl1 }}
+    </div>
+    <div *ngIf="marketing_lvl1" class="results">
+      <strong>Marketing</strong> Domain Score: {{ Marks_marketing_lvl1 }}
+    </div>
+  </mat-tab>
+  <mat-tab label="Round 2">
+    <h5>Domain Quiz</h5>
+    <div *ngIf="tech_lvl2" class="results">
+      <strong>Technical</strong> Domain Score: {{ Marks_tech_lvl2 }}
+    </div>
+    <div *ngIf="marketing_lvl2" class="results">
+      <strong>Marketing</strong> Domain Score: {{ Marks_marketing_lvl2 }}
+    </div>
+    <br />
+    <div *ngIf="sd_1" class="results">
+      <strong>TOP</strong> Sub-domain: {{ SD_1_name }}.<br />Score:
+      {{ SD_1_marks }}
+    </div>
+    <div *ngIf="sd_2" class="results">
+      <strong>SECOND</strong> best Sub-domain: {{ SD_2_name }}.<br />Score:
+      {{ SD_2_marks }}
+    </div>
+  </mat-tab>
+  <mat-tab label="Round 3">
+    <h5>Sub-Domain Quiz</h5>
+    <div *ngIf="sd_1" class="results">
+      <strong>{{ SD_1_name }}</strong> Score: {{ Final_SD1_Marks }}
+    </div>
+    <div *ngIf="sd_2" class="results">
+      <strong>{{ SD_2_name }}</strong> Score: {{ Final_SD2_Marks }}
+    </div>
+  </mat-tab>
+  <!-- <mat-tab label="Save data">
         <button mat-raised-button class="btn-large post-marks" (click)="OnPostMarks()"
             matTooltip="Click here to save this data to your profile"
             position = "right"
@@ -46,31 +67,52 @@
             <p class="btn-txt">Save marks<i class="material-icons right">backup</i></p>        
         </button>
     </mat-tab> -->
-    </mat-tab-group>  
-    <div class="actions">
-            <button class="btn" type="submit" name="action" (click)="OnClickRating()" *ngIf = "!display_rating">
-                Click here to view your rating<i class="material-icons right">remove_red_eye</i>
-            </button>
+</mat-tab-group>
+<div class="actions">
+  <button
+    class="btn"
+    type="submit"
+    name="action"
+    (click)="OnClickRating()"
+    *ngIf="!display_rating"
+  >
+    Click here to view your rating<i class="material-icons right"
+      >remove_red_eye</i
+    >
+  </button>
 
-            <button class="btn" type="submit" name="action" (click)="OnClickRating()" *ngIf = "display_rating">
-                Click here to hide your rating<i class="material-icons right">remove</i>
-            </button>
+  <button
+    class="btn"
+    type="submit"
+    name="action"
+    (click)="OnClickRating()"
+    *ngIf="display_rating"
+  >
+    Click here to hide your rating<i class="material-icons right">remove</i>
+  </button>
 
-            <button class="btn jobs" type="submit" name="action" (click)="OnClickViewJobs()">
-                View jobs for me<i class="material-icons right">find_in_page</i>
-            </button>
+  <button
+    class="btn jobs"
+    type="submit"
+    name="action"
+    (click)="OnClickViewJobs()"
+  >
+    View jobs for me<i class="material-icons right">find_in_page</i>
+  </button>
 
-        <div class="rating" *ngIf = "display_rating">
-        <b>Your rating based on the quiz assessment is {{final_rating}}/5.</b>
-        </div>
+  <div class="rating" *ngIf="display_rating">
+    <b>Your rating based on the quiz assessment is {{ final_rating }}/5.</b>
+  </div>
 
-        <div *ngIf = "display_rating">
-            <button mat-raised-button class="btn post-rating" (click)="OnPostRating()"
-                matTooltip="Post this rating to your profile"
-                position = "right">
-                Post to my profile<i class="material-icons right">backup</i>        
-            </button>
-        </div>
-    </div>
-
-    
+  <div *ngIf="display_rating">
+    <button
+      mat-raised-button
+      class="btn post-rating"
+      (click)="OnPostRating()"
+      matTooltip="Post this rating to your profile"
+      position="right"
+    >
+      Post to my profile<i class="material-icons right">backup</i>
+    </button>
+  </div>
+</div>
