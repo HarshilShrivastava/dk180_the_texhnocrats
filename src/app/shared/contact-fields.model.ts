@@ -1,3 +1,4 @@
 export class Contactfields {
-    message:string;
+    messagess:string;
+    email: string;
 }
