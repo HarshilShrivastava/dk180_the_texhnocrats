@@ -30,7 +30,13 @@
 .nr-actual-img {
   width: 100%;
 }
-
+/deep/.mat-card-header /deep/ .mat-card-title {
+  margin-bottom: 0 !important;
+}
+/deep/ .mat-card-header-text {
+  display: flex !important;
+  align-items: center !important;
+}
 .dashboard {
   display: flex;
   justify-content: space-evenly;
@@ -40,12 +46,11 @@
 
 .dashboard_header {
   display: flex;
-  // flex-direction: column;
   justify-content: center;
-  font-size: xx-large;
+  font-size: xxx-large;
   font-weight: bold;
-  display: flex;
   margin-left: 7%;
+  padding: 30px 0;
   // text-align: end;
   // max-width: 35%;
   // padding-left: 8.5%;
@@ -55,14 +60,17 @@
   font-family: Poppins !important;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   border-bottom: 1px solid;
   border-bottom-color: lightgray;
+  padding-bottom: 10px;
 }
 
 .card-inside-header {
   margin-top: 2%;
   font-size: large;
   color: gray;
+  padding: 0 16px;
 }
 
 .example-card {
@@ -188,22 +196,21 @@
 .dashboard_img-container {
   max-width: 50%;
   padding-left: 5%;
+  display: flex;
+  align-items: center;
 }
 
 .dashboard_img {
-  max-width: 100%;
-  // max-height: 50% !important;
-  // margin-left: 10%;
-  max-height: 100%;
+  max-width: 80%;
 }
 
 .dashboard_courses_header {
   display: flex;
   flex-direction: column;
+  align-items: center;
   font-size: xx-large;
   font-weight: bold;
-  display: flex;
-  padding-left: 8.5%;
+  //padding-left: 8.5%;
 }
 
 .dashboard_header_subtitle {
@@ -218,6 +225,7 @@
   display: flex;
   justify-content: center;
   width: 100% !important;
+  color: #390099;
 }
 
 .carousel.carousel-slider .carousel-item p {
