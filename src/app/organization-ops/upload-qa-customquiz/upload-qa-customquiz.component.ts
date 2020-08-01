@@ -11,6 +11,7 @@ declare var $: any;
 })
 export class UploadQaCustomquizComponent implements OnInit {
   dataList: any[];
+  answerDataList: any[];
   answer: string;
   domain: string;
 
@@ -22,7 +23,7 @@ export class UploadQaCustomquizComponent implements OnInit {
     $(".dropify").dropify({});
   }
 
-  onFileChange(files: File[]) {
+  onQuestionFileChange(files: File[]) {
     console.log(event);
     if (files[0]) {
       console.log(files[0]);
@@ -38,13 +39,44 @@ export class UploadQaCustomquizComponent implements OnInit {
     }
   }
 
+  onAnswerFileChange(files: File[]) {
+    console.log(event);
+    if (files[0]) {
+      console.log(files[0]);
+      Papa.parse(files[0], {
+        header: true,
+        skipEmptyLines: true,
+        complete: (result, file) => {
+          console.log(result);
+          this.answerDataList = result.data;
+          this.answerValueOut();
+        },
+      });
+    }
+  }
+
   valueOut() {
     this.dataList.forEach((data) => {
       // console.log(data[0], data[1].length);
       const id = data.id;
       const question = data.Question_text;
       const domain = data.Domain;
-      this.quizService.postQuestions(id, question, domain);
+      this.quizService.postQuestions(id, question, domain).subscribe((data) => {
+        console.log(data);
+      });
+    });
+  }
+
+  answerValueOut() {
+    this.answerDataList.forEach((data) => {
+      // console.log(data[0], data[1].length);
+      const id = data.id;
+      const Question_related_to = data.Question_related_to;
+      const Answer_text = data.Answer_text;
+      const Weightage = data.Weightage
+      this.quizService.postAnswers(Question_related_to, Answer_text, Weightage).subscribe((data) => {
+        console.log(data);
+      });
     });
   }
 }
