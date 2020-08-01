@@ -689,7 +689,7 @@ export class QuizService {
     // console.log("Domain", Domain);
 
     return this.http.post(
-      "http://harshraj.pythonanywhere.com/customquestion/",
+      "https://harshraj.pythonanywhere.com/customquestion/",
       formData,
       { headers: Headers }
     );
@@ -711,7 +711,7 @@ export class QuizService {
     formData.append("Weightage", Weightage);
 
     return this.http.post(
-      "http://harshraj.pythonanywhere.com/customanswer/",
+      "https://harshraj.pythonanywhere.com/customanswer/",
       formData,
       { headers: Headers }
     );
@@ -733,7 +733,7 @@ export class QuizService {
 
 
     return this.http.get(
-      "http://harshraj.pythonanywhere.com/api/get-question?username=" + localStorage.getItem("uname"),
+      "https://harshraj.pythonanywhere.com/api/get-question?username=" + localStorage.getItem("uname"),
       { headers: Headers }
     );
   }

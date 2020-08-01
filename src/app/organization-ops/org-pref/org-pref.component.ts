@@ -14,6 +14,7 @@ export class OrgPrefComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    window.scrollTo(0, 0)
     // this.quizService.getCustomQuiz().subscribe((data : any) => {
     //   this.data = data
     //   console.log(this.data);
