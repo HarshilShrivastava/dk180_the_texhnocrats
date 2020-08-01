@@ -675,7 +675,6 @@ export class QuizService {
   }
 
   postQuestions(id: string, Question: string, Domain: string) {
-
     const Headers = new HttpHeaders().set(
       "Authorization",
       "token " + localStorage.getItem("token")
@@ -684,7 +683,7 @@ export class QuizService {
     const formData: FormData = new FormData();
     formData.append("key", id);
     formData.append("Question_text", Question);
-    formData.append("Domain", Domain)
+    formData.append("Domain", Domain);
     // console.log("key", id);
     // console.log("Question_text", Question);
     // console.log("Domain", Domain);
@@ -696,7 +695,11 @@ export class QuizService {
     );
   }
 
-  postAnswers(Question_related_to: string, Answer_text: string, Weightage: string){
+  postAnswers(
+    Question_related_to: string,
+    Answer_text: string,
+    Weightage: string
+  ) {
     const Headers = new HttpHeaders().set(
       "Authorization",
       "token " + localStorage.getItem("token")
@@ -705,11 +708,32 @@ export class QuizService {
     const formData: FormData = new FormData();
     formData.append("Question_related_to", Question_related_to);
     formData.append("Answer_text", Answer_text);
-    formData.append("Weightage", Weightage)
+    formData.append("Weightage", Weightage);
 
     return this.http.post(
       "http://harshraj.pythonanywhere.com/customanswer/",
       formData,
+      { headers: Headers }
+    );
+  }
+
+  getCustomQuiz() {
+    const Headers = new HttpHeaders().set(
+      "Authorization",
+      "token " + localStorage.getItem("token")
+    );
+
+    // let url =
+    //   "https://harshraj.pythonanywhere.com/user/level3/" +
+    //   sessionStorage.getItem("SD_1") +
+    //   "/" +
+    //   sessionStorage.getItem("SD_2");
+
+      // return this.http.get(url).toPromise();
+
+
+    return this.http.get(
+      "http://harshraj.pythonanywhere.com/api/get-question/",
       { headers: Headers }
     );
   }
