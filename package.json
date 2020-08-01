@@ -27,6 +27,7 @@
     "angular-material": "^1.1.21",
     "angular-password-strength-meter": "^1.0.2",
     "canvas-confetti": "^1.2.0",
+    "dropify": "^0.2.2",
     "express": "^4.17.1",
     "firebase": "^7.8.0",
     "materialize-css": "^1.0.0",

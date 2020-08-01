@@ -43,6 +43,7 @@ import { EditProfileComponent } from './candidate-ops/edit-profile/edit-profile.
 import { FlowDecideComponent } from './quiz-ops/flow-decide/flow-decide.component';
 import { OrganizationSignupComponent } from './organization-ops/organization-signup/organization-signup.component';
 import { JobListingsComponent } from './organization-ops/job-listings/job-listings.component';
+import { UploadQaCustomquizComponent } from './organization-ops/upload-qa-customquiz/upload-qa-customquiz.component';
 
 
 const routes: Routes = [
@@ -92,6 +93,7 @@ const routes: Routes = [
   {path: 'select-preference', component: FlowDecideComponent},
   {path: 'organization', component: OrganizationSignupComponent},
   {path: 'job-listings', component: JobListingsComponent},
+  {path: 'custom-quiz', component: UploadQaCustomquizComponent},
 
 
 

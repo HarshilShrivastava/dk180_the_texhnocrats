@@ -13,10 +13,10 @@
       </div>
       <div class="has-decided-dropdown jcc">
         <mat-form-field appearance="fill">
-          <mat-label>Select Domains</mat-label>
+          <mat-label>Select Your Domain</mat-label>
           <mat-select
             [formControl]="domains"
-            (selectionChange)="onDomainSelectionChange($event)"
+            (selectionChange)="fonDomainSelectionChange($event)"
           >
             <!-- <mat-select-trigger>
                         {{residences.value ? residences.value[0] : ''}}
@@ -59,7 +59,7 @@
       />
     </div>
     <div class="has-not-decided-content">
-      I need help understanding what I could be good at.
+      I would like to discover my interests.
     </div>
     <div class="all-btn">
     <button
