@@ -674,11 +674,12 @@ export class QuizService {
     );
   }
 
-  postQuestions(Question: string, Domain: string) {
+  postQuestions(id: string, Question: string, Domain: string) {
     // const formData: FormData = new FormData();
     // formData.append("Question_Text", Question);
     // formData.append("Domain", Domain)
-    console.log("Question", Question);
+    console.log("key", id);
+    console.log("Question_text", Question);
     console.log("Domain", Domain);
   }
 }
