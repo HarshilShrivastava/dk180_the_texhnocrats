@@ -27,6 +27,6 @@ export class LandingPageComponent implements OnInit {
     if (inp === "quiz") this.router.navigate(["/instructions"]);
     else if (inp === "dashboard") this.router.navigate(["/canview"]);
     else if (inp === "jobs") this.router.navigate(["/job-search"]);
-    else if (inp === "job-listings") this.router.navigate(["/job-listings"]);
+    else if (inp === "jobForm") this.router.navigate(["/jobForm"]);
   }
 }

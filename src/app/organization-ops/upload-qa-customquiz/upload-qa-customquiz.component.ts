@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import * as Papa from "papaparse";
-import { QuizService } from 'src/app/shared/quiz.service';
+import { QuizService } from "src/app/shared/quiz.service";
 
 declare var $: any;
 
@@ -14,9 +14,7 @@ export class UploadQaCustomquizComponent implements OnInit {
   answer: string;
   domain: string;
 
-  constructor(
-    public quizService: QuizService
-  ) {}
+  constructor(public quizService: QuizService) {}
 
   ngOnInit() {}
 
@@ -41,14 +39,12 @@ export class UploadQaCustomquizComponent implements OnInit {
   }
 
   valueOut() {
-    this.dataList.forEach( (data) => {
-        // console.log(data[0], data[1].length);
-        const id = data.id
-        const question = data.Question_text;
-        const domain = data.Domain;
-        this.quizService.postQuestions(id, question, domain);
-    }
-      
-    );
+    this.dataList.forEach((data) => {
+      // console.log(data[0], data[1].length);
+      const id = data.id;
+      const question = data.Question_text;
+      const domain = data.Domain;
+      this.quizService.postQuestions(id, question, domain);
+    });
   }
 }
