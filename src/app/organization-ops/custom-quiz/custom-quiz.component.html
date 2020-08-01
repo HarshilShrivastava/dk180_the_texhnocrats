@@ -26,10 +26,13 @@
           </ul>
         </div>
       </div> -->
-        <div class="title-container" *ngIf="!showLoader">
+      <div class="emptyText jcc" *ngIf="isEmpty">
+          You have not added a custom quiz for your organization yet.&nbsp;<a [routerLink]="['/custom-quiz']">Click here</a>&nbsp;to add one.
+      </div>
+        <div class="title-container" *ngIf="!showLoader && !isEmpty">
             <span>Custom Quiz</span>
         </div>
-        <mat-horizontal-stepper #stepper labelPosition="bottom" *ngIf="!showLoader">
+        <mat-horizontal-stepper #stepper labelPosition="bottom" *ngIf="!showLoader && !isEmpty">
             <mat-step [stepControl]="firstFormGroup" errorMessage="Not answered."
                 *ngFor="let item of data.Question_list; let i = index" class="main-container">
                 <form [formGroup]="firstFormGroup" class="form-container">

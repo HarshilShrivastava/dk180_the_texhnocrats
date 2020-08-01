@@ -17,7 +17,8 @@ export class CustomQuizComponent implements OnInit {
   result_arr: any = [];
   totalAnswered = 0;
   questionThreshold: boolean = false;
-
+  isEmpty: boolean = false;
+  showLoader: boolean = false;
 
 
 
@@ -27,9 +28,13 @@ export class CustomQuizComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.showLoader = true;
     this.quizService.getCustomQuiz().subscribe((data : any) => {
       this.data = data
       console.log(this.data); 
+      this.showLoader = false;
+      if(this.data.Question_list.length === 0)
+        this.isEmpty = true;
 
       this.data.Question_list.forEach(function(element) {
         element.active = false;
