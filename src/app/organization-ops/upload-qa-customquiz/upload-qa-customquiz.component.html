@@ -15,7 +15,7 @@
             <div class="answer-header jcc">
                 Upload your answers CSV file here:
             </div>
-            <input type="file" (change)="onFileChange($event)" class="dropify" accept=".csv, .xlsx"
+            <input type="file" (change)="onFileChange(uploads.files)" class="dropify" accept=".csv, .xlsx"
                 data-allowed-file-extensions="csv xlsx" data-max-file-size="3000K" />
         </div>
 
