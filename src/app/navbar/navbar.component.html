@@ -128,6 +128,11 @@
         <mat-icon>pageview</mat-icon>
         <span>View my Listings</span>
       </button>
+      <button class="nav-btn" mat-menu-item (click)="onClickOption('preview-quiz')"
+        *ngIf="checkifLoggedIn() && userIsOrganization">
+        <mat-icon>preview</mat-icon>
+        <span>Preview my quiz</span>
+      </button>
       <!-- <button mat-menu-item>
         <mat-icon>notifications_off</mat-icon>
         <span>Disable alerts</span>
