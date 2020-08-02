@@ -5,11 +5,9 @@
 </div>
 
 <div *ngIf="notRegistered" class="not-registered">
-  
   <div class="not-registered-txt">
-    Please &nbsp;<a [routerLink]="['/profiles']">Sign Up</a>&nbsp;to view skills, recommended
-    courses/ blogs/ Govt. schemes on your dashboard.
-    <!-- In the meantime, you can view these general courses to help you out with the quiz. -->
+    Please &nbsp;<a [routerLink]="['/profiles']">Sign Up</a>&nbsp;to view
+    skills, recommended courses/ blogs/ Govt. schemes on your dashboard.
   </div>
   <div class="not-registered-img">
     <img
@@ -69,12 +67,6 @@
                 <div class="dropdown-txt">Edit Profile</div>
               </span>
             </button>
-            <!-- <button class="dropdown-cont" mat-menu-item>
-              <i class="material-icons">bookmark</i>
-              <span>
-                <div class="dropdown-txt">Save</div>
-              </span>
-            </button> -->
           </mat-menu>
         </div>
       </div>
@@ -117,34 +109,12 @@
         <div class="card-inside-header">
           <strong>CareerConnect Stats:</strong>
         </div>
-
-        <!-- <div class="description-fields">
-          <div class="skills-container">
-            <div class="skills-div">
-              <div class="skill-item">
-                Skills based on resume analysis
-              </div>
-            </div>
-            <div class="skill-item">
-              <div
-                class="skill-item-txt"
-                *ngFor="let skill of data.data.Skills"
-              >
-                <div class="itm-txt">{{ skill.Name }}</div>
-              </div>
-            </div>
-          </div>
-        </div> -->
-
         <mat-accordion class="description-fields">
           <mat-expansion-panel class="skills-container">
             <mat-expansion-panel-header class="skills-div">
               <mat-panel-title class="skill-item">
                 Click here to view skills based on resume analysis
               </mat-panel-title>
-              <!-- <mat-panel-description>
-                Currently I am {{ panelOpenState ? "open" : "closed" }}
-              </mat-panel-description> -->
             </mat-expansion-panel-header>
             <div class="skill-item">
               <div
@@ -179,21 +149,6 @@
         alt="dashboard_img"
       />
     </div>
-    <!-- <div class="card blue-grey darken-1" >
-            <div class="card-content white-text">
-                <span class="card-title">Your Profile</span>
-                <p ><strong>Your Name : </strong>{{data.data.Name}}</p> -->
-    <!-- <p ><strong>Address : </strong>{{data.Address}}</p> -->
-    <!-- <p ><strong>Resume: </strong> <a href="{{data.data.Resume}}" target="_blank">View</a>         -->
-    <!-- <pdf-viewer [src]="resumeLink" [render-text]="true" style="display: block;"></pdf-viewer>  -->
-    <!-- </p>
-                <p><strong>Your rating in Technical domain : {{data.data.TechRating}} (Start giving the quiz to improve this)</strong></p>
-                <p><strong>Your rating in Marketing domain : {{data.data.MarketRating}} (Start giving the quiz to improve this)</strong></p>
-
-            </div> -->
-    <!--button type="submit" class="btn-large btn-submit" ng-hide="IsVisible" >Submit</button-->
-
-    <!-- </div> -->
   </div>
 </div>
 
@@ -204,12 +159,7 @@
   </div>
 </div>
 
-<!-- <div *ngIf="!showLoader && !notRegistered"> -->
 <div class="carousel carousel-slider center">
-  <!-- <div style="display: flex; justify-content: space-evenly; z-index: 1;">
-        <div><mat-icon class="dropdwn-arr">chevron_left</mat-icon></div>
-        <div><mat-icon class="dropdwn-arr">chevron_right</mat-icon></div>
-      </div> -->
   <div class="carousel-fixed-item center">
     <a style="position: relative;"></a>
   </div>
@@ -236,39 +186,3 @@
     </div>
   </div>
 </div>
-<!-- </div> -->
-
-<!-- <div>
-    <div class="carousel carousel-slider center" id="courses-carousel" data-indicators="true">
-        
-        <div class="carousel-item red white-text" *ngFor="let course of coursess; let i = index">
-            <div class="carousel-fixed-item center">
-                <a class="btn waves-effect white grey-text darken-text-2">button</a>
-              </div>
-            <div class="course-title">
-                <h2>Title: {{course.title}}</h2>
-            </div>
-            <div class="course-content">
-                <p class="white-text">Description {{course.desc}}</p>
-                <p class="white-text">By: {{course.by}}</p>
-                <p class="white-text">Rating {{course.rating}}</p>
-            </div>
-            <div class="carousel-fixed-item center">
-                <a class="btn waves-effect white grey-text darken-text-2" target="_blank" href="{{course.apply}}">Apply Now</a>
-            </div> -->
-<!-- <button><a href="{{course.apply}}">Apply Now!</a></button>  -->
-<!-- </div> -->
-<!-- <div class="carousel-item amber white-text" href="#two!">
-          <h2>Second Panel</h2>
-          <p class="white-text">This is your second panel</p>
-        </div>
-        <div class="carousel-item green white-text" href="#three!">
-          <h2>Third Panel</h2>
-          <p class="white-text">This is your third panel</p>
-        </div>
-        <div class="carousel-item blue white-text" href="#four!">
-          <h2>Fourth Panel</h2>
-          <p class="white-text">This is your fourth panel</p>
-        </div> -->
-<!-- </div>
-    </div> -->

@@ -1,54 +1,100 @@
 <div class="row">
   <div class="col s8 offset-s2">
-    <!-- <div class="card">
-        <div class="sm-jumbotron center-align"> -->
     <h2>Create Job Form</h2>
-    <!-- </div> -->
-    <form class="form-style-9" #createForm="ngForm"
-      (ngSubmit)="OnSubmit(job_title, Job_Descreption, Level, Minimum_experience, prefered_city )">
+    <form
+      class="form-style-9"
+      #createForm="ngForm"
+      (ngSubmit)="
+        OnSubmit(
+          job_title,
+          Job_Descreption,
+          Level,
+          Minimum_experience,
+          prefered_city
+        )
+      "
+    >
       <div class="row">
         <div class="input-field col s6 w100">
           <i class="material-icons prefix">work</i>
-          <input type="text" class="field-style field-split" name="job_title" #job_title="ngModel"
-            [(ngModel)]="job.job_title" required placeholder="Job Title" />
+          <input
+            type="text"
+            class="field-style field-split"
+            name="job_title"
+            #job_title="ngModel"
+            [(ngModel)]="job.job_title"
+            required
+            placeholder="Job Title"
+          />
         </div>
-
       </div>
       <div class="row">
         <div class="input-field col s6 w100">
           <i class="material-icons prefix">description</i>
-          <input class="field-style field-split" type="text" name="Job_Descreption" #Job_Descreption="ngModel"
-            [(ngModel)]="job.Job_Descreption" required placeholder="Job Description" />
+          <input
+            class="field-style field-split"
+            type="text"
+            name="Job_Descreption"
+            #Job_Descreption="ngModel"
+            [(ngModel)]="job.Job_Descreption"
+            required
+            placeholder="Job Description"
+          />
         </div>
       </div>
       <div class="row">
         <div class="input-field col s6">
           <i class="material-icons prefix">account_circle</i>
-          <input type="number" class="field-style field-split" name="Level" #Level="ngModel" [(ngModel)]="job.Level"
-            required placeholder="Level" />
+          <input
+            type="number"
+            class="field-style field-split"
+            name="Level"
+            #Level="ngModel"
+            [(ngModel)]="job.Level"
+            required
+            placeholder="Level"
+          />
         </div>
         <div class="input-field col s6">
           <i class="material-icons prefix">history</i>
-          <input class="field-style field-split" type="number" name="Minimum_experience" #Minimum_experience="ngModel"
-            [(ngModel)]="job.Minimum_experience" required placeholder="Minimum experience" />
+          <input
+            class="field-style field-split"
+            type="number"
+            name="Minimum_experience"
+            #Minimum_experience="ngModel"
+            [(ngModel)]="job.Minimum_experience"
+            required
+            placeholder="Minimum experience"
+          />
         </div>
       </div>
       <div class="row w100">
         <div class="input-field col s6 w100">
           <i class="material-icons prefix">room</i>
-          <input type="text" class="field-style field-split" name="prefered_city" #prefered_city="ngModel"
-            [(ngModel)]="job.prefered_city" required placeholder="Preferred city" />
+          <input
+            type="text"
+            class="field-style field-split"
+            name="prefered_city"
+            #prefered_city="ngModel"
+            [(ngModel)]="job.prefered_city"
+            required
+            placeholder="Preferred city"
+          />
         </div>
       </div>
       <div class="row dropdwn-class">
         <div class="input-field col s6">
-          <!-- <i class="material-icons prefix"></i> -->
-          <!-- <i class="material-icons prefix">input</i> -->
           <mat-form-field appearance="fill" class="domain-dropdwn">
             <mat-label>Select Domain:</mat-label>
-            <mat-select [formControl]="domains" (selectionChange)="onDomainSelectionChange($event)">
-              
-              <mat-option *ngFor="let item of domainList | keyvalue" [value]="item">{{ item.value }}</mat-option>
+            <mat-select
+              [formControl]="domains"
+              (selectionChange)="onDomainSelectionChange($event)"
+            >
+              <mat-option
+                *ngFor="let item of domainList | keyvalue"
+                [value]="item"
+                >{{ item.value }}</mat-option
+              >
             </mat-select>
           </mat-form-field>
         </div>
@@ -56,19 +102,16 @@
         <div *ngIf="domainIsTech && !domainIsMark">
           <mat-form-field appearance="fill" class="sdomain-dropdwn1">
             <mat-label>Sub-domains for tech:</mat-label>
-            <mat-select [formControl]="techsubdomains" (selectionChange)="onTechSelectionChange($event)">
-              <!-- <mat-select-trigger>
-                {{ techsubdomains.value ? techsubdomains.value[0].value : "" }}
-                <span
-                  *ngIf="techsubdomains.value?.length > 1"
-                  class="example-additional-selection"
-                >
-                  (+{{ techsubdomains.value.length - 1 }}
-                  {{ techsubdomains.value?.length === 2 ? "other" : "others" }})
-                </span>
-              </mat-select-trigger> -->
-              <mat-option *ngFor="let subdomains of techSubDomainsList | keyvalue" [value]="subdomains">
-                {{ subdomains.value }}</mat-option>
+            <mat-select
+              [formControl]="techsubdomains"
+              (selectionChange)="onTechSelectionChange($event)"
+            >
+              <mat-option
+                *ngFor="let subdomains of techSubDomainsList | keyvalue"
+                [value]="subdomains"
+              >
+                {{ subdomains.value }}</mat-option
+              >
             </mat-select>
           </mat-form-field>
         </div>
@@ -76,39 +119,31 @@
         <div *ngIf="domainIsMark && !domainIsTech">
           <mat-form-field appearance="fill" class="sdomain-dropdwn2">
             <mat-label>Sub-domains for Marketing:</mat-label>
-            <mat-select [formControl]="marksubdomains" (selectionChange)="onMarkSelectionChange($event)">
-              <!-- <mat-select-trigger>
-                {{ marksubdomains.value ? marksubdomains.value[0].value : "" }}
-                <span
-                  *ngIf="marksubdomains.value?.length > 1"
-                  class="example-additional-selection"
-                >
-                  (+{{ marksubdomains.value.length - 1 }}
-                  {{ marksubdomains.value?.length === 2 ? "other" : "others" }})
-                </span>
-              </mat-select-trigger> -->
-              <mat-option *ngFor="let subdomain of markSubDomainsList | keyvalue" [value]="subdomain">
-                {{ subdomain.value }}</mat-option>
+            <mat-select
+              [formControl]="marksubdomains"
+              (selectionChange)="onMarkSelectionChange($event)"
+            >
+              <mat-option
+                *ngFor="let subdomain of markSubDomainsList | keyvalue"
+                [value]="subdomain"
+              >
+                {{ subdomain.value }}</mat-option
+              >
             </mat-select>
           </mat-form-field>
         </div>
       </div>
-
-      <!-- <div class="row">
-        
-      </div>
-
-      <div class="row">
-        
-      </div> -->
       <div class="row">
         <div class="input-field col s12">
-          <button [disabled]="!createForm.valid" class="btn-large btn-submit" type="submit">
+          <button
+            [disabled]="!createForm.valid"
+            class="btn-large btn-submit"
+            type="submit"
+          >
             <p>Create job</p>
           </button>
         </div>
       </div>
     </form>
-    <!-- </div> -->
   </div>
 </div>
