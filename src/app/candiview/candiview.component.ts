@@ -59,12 +59,12 @@ export class CandiviewComponent implements OnInit {
       by: "Johns Hopkins University",
       photo: "./../../assets/image/team/gaurav_emoji.png",
       ref: "https://www.coursera.org/",
-      rating: 5,
+      rating: 4,
       apply: "https://www.coursera.org/learn/data-scientists-tools/"
 
     },
     {
-      title: "Data Science",
+      title: "Introduction to HTML5",
       desc:
         "In this course you will get an introduction to the main tools and ideas in the data scientist's toolbox. The course gives an overview of the data, questions, and tools that data analysts and data scientists work with. There are two components to this course. The first is a conceptual introduction to the ideas behind turning data into actionable knowledge. The second is a practical introduction to the tools that will be used in the program like version control, markdown, git, GitHub, R, and RStudio.",
       by: "Johns Hopkins University",
@@ -75,31 +75,31 @@ export class CandiviewComponent implements OnInit {
 
     },
     {
-      title: "Data Science",
+      title: "Software Development: Better Requirements Gathering Skills",
       desc:
-        "In this course you will get an introduction to the main tools and ideas in the data scientist's toolbox. The course gives an overview of the data, questions, and tools that data analysts and data scientists work with. There are two components to this course. The first is a conceptual introduction to the ideas behind turning data into actionable knowledge. The second is a practical introduction to the tools that will be used in the program like version control, markdown, git, GitHub, R, and RStudio.",
+      "Whether you are a software developer, architect, project manager or just someone who codes for fun; knowing what to write is just as hard as knowing how to write it. 'Software requirements gathering' is the process of capturing the objectives, goals and wishes of the customer upfront and early-on in the Software Development Life Cycle (SDLC).",
       by: "Johns Hopkins University",
       photo: "./../../assets/image/team/gaurav_emoji.png",
       ref: "https://www.coursera.org/",
-      rating: 5,
+      rating: 4,
       apply: "https://www.coursera.org/learn/data-scientists-tools/"
 
     },
     {
-      title: "Data Science",
+      title: "Data Science A-Z™: Real-Life Data Science Exercises Included",
       desc:
         "In this course you will get an introduction to the main tools and ideas in the data scientist's toolbox. The course gives an overview of the data, questions, and tools that data analysts and data scientists work with. There are two components to this course. The first is a conceptual introduction to the ideas behind turning data into actionable knowledge. The second is a practical introduction to the tools that will be used in the program like version control, markdown, git, GitHub, R, and RStudio.",
-      by: "Johns Hopkins University",
+      by: "Kirill Eremenko and SuperDataScience Team",
       photo: "./../../assets/image/team/gaurav_emoji.png",
-      ref: "https://www.coursera.org/",
-      rating: 5,
-      apply: "https://www.coursera.org/learn/data-scientists-tools/"
+      ref: "https://www.udemy.com/",
+      rating: 4,
+      apply: "https://www.udemy.com/course/software-requirements-gathering/"
 
     },
     {
-      title: "Data Science",
+      title: "The Complete jQuery Course: From Beginner To Advanced!",
       desc:
-        "In this course you will get an introduction to the main tools and ideas in the data scientist's toolbox. The course gives an overview of the data, questions, and tools that data analysts and data scientists work with. There are two components to this course. The first is a conceptual introduction to the ideas behind turning data into actionable knowledge. The second is a practical introduction to the tools that will be used in the program like version control, markdown, git, GitHub, R, and RStudio.",
+      "Learn AJAX: Discover how to fetch and add content to your page dynamically without reloading. Fetch images from Flickr, movies from TheMovieDB and display all using jQuery's user-friendly syntax.This course covers jQuery from start to end. You'll learn the ins and outs of developing professional dynamic websites using JavaScript & jQuery",
       by: "Johns Hopkins University",
       photo: "./../../assets/image/team/gaurav_emoji.png",
       ref: "https://www.coursera.org/",
