@@ -71,7 +71,7 @@ export class CandiviewComponent implements OnInit {
       photo: "./../../assets/image/team/gaurav_emoji.png",
       ref: "https://www.coursera.org/",
       rating: 5,
-      apply: "https://www.coursera.org/learn/data-scientists-tools/"
+      apply: "https://www.coursera.org/learn/html/"
 
     },
     {
@@ -82,7 +82,7 @@ export class CandiviewComponent implements OnInit {
       photo: "./../../assets/image/team/gaurav_emoji.png",
       ref: "https://www.coursera.org/",
       rating: 4,
-      apply: "https://www.coursera.org/learn/data-scientists-tools/"
+      apply: "https://www.udemy.com/course/software-requirements-gathering/"
 
     },
     {
@@ -93,7 +93,7 @@ export class CandiviewComponent implements OnInit {
       photo: "./../../assets/image/team/gaurav_emoji.png",
       ref: "https://www.udemy.com/",
       rating: 4,
-      apply: "https://www.udemy.com/course/software-requirements-gathering/"
+      apply: "https://www.coursera.org/learn/data-scientists-tools/"
 
     },
     {
@@ -104,7 +104,7 @@ export class CandiviewComponent implements OnInit {
       photo: "./../../assets/image/team/gaurav_emoji.png",
       ref: "https://www.coursera.org/",
       rating: 5,
-      apply: "https://www.coursera.org/learn/data-scientists-tools/"
+      apply: "https://www.udemy.com/courses/search/?src=ukw&q=jquery"
 
     }
   ];

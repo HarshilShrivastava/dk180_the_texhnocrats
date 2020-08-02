@@ -164,6 +164,15 @@
               >
                 View Applicants
               </button>
+
+              <button
+                *ngIf="quizExists"
+                mat-button
+                class="btn"
+                (click)="onTakeQuiz()"
+              >
+                Take Quiz
+              </button>
             </mat-card-actions>
           </mat-card>
         </div>

@@ -39,7 +39,7 @@ export class JobformComponent implements OnInit {
     2: "Web Development",
     3: "Android App Development",
     5: "Software Development",
-    7: "Data Scince",
+    7: "Data Science",
   };
 
   markSubDomainsList = {
