@@ -6,11 +6,7 @@
   </div>
 
   <div class="container-class" *ngIf="!showLoader">
-    <!-- <div class="card">
-        <div class="sm-jumbotron center-align"> -->
     <div class="left-pane">
-      <h2>Login</h2>
-      <!-- </div> -->
       <div *ngIf="isLoginError" class="red-text center error-message">
         <i class="material-icons">error</i> Incorrect username or password
       </div>
@@ -19,6 +15,10 @@
         class="form-style-9"
         (ngSubmit)="OnSubmit(username.value, password.value)"
       >
+        <div class="icon center">
+          <i class="fas fa-user fa-2x"></i>
+        </div>
+        <h2>Login</h2>
         <div class="row">
           <div class="input-field col s12">
             <i class="material-icons prefix">account_circle</i>
@@ -68,7 +68,6 @@
     <div class="right-pane">
       <img src="./assets/image/flat1.gif" />
     </div>
-    <!-- </div> -->
   </div>
 </div>
 `

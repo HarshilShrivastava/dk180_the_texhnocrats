@@ -79,10 +79,9 @@ a {
   border-radius: 55px;
   white-space: nowrap;
   justify-content: center;
-}
-
-.btn:hover {
-  background-color: #2e0379;
+  :hover {
+    background-color: #2e0379;
+  }
 }
 
 .btn-txt {
@@ -117,22 +116,17 @@ a {
   font-size: x-large;
   font-weight: bold;
   color: rgb(116, 111, 111);
-} 
+}
 
 .cards-container {
   padding: 5%;
-  // overflow: hidden;
   display: flex;
-  // width: 100%;
   flex-wrap: wrap;
   justify-content: space-between;
 }
 
 .lp-card {
   max-width: 25% !important;
-  //  z-index: 999;
-
-//  float: left;
   border-radius: 2%;
   display: flex;
   flex-direction: column;
@@ -141,12 +135,11 @@ a {
   transition: transform 0.2s;
   height: auto;
   min-height: fit-content;
-}
-
-.lp-card:hover {
-  box-shadow: 0 0 10px 8px rgb(173, 170, 170);
-  overflow: hidden;
-  transform: scale(1.1);
+  :hover {
+    box-shadow: 0 0 10px 8px rgb(173, 170, 170);
+    overflow: hidden;
+    transform: scale(1.1);
+  }
 }
 
 .lp-card-img-container {
@@ -162,7 +155,6 @@ a {
 
 .lp-card-content {
   min-height: 35%;
-  // max-height: 35%;
   display: flex;
   flex-direction: column;
   padding: 4%;
@@ -172,24 +164,22 @@ a {
   color: black;
   font-size: large;
   font-weight: 600;
+  :after {
+    background: none repeat scroll 0 0 transparent;
+    bottom: 0;
+    content: "";
+    display: block;
+    height: 2px;
+    left: 50%;
+    position: absolute;
+    background: #fff;
+    transition: width 0.3s ease 0s, left 0.3s ease 0s;
+    width: 0;
+  }
 }
-
-.lp-card-header:after{
-  background: none repeat scroll 0 0 transparent;
-  bottom: 0;
-  content: "";
-  display: block;
-  height: 2px;
-  left: 50%;
-  position: absolute;
-  background: #fff;
-  transition: width 0.3s ease 0s, left 0.3s ease 0s;
-  width: 0;
-}
-
-.lp-card-header:hover:after{
-  width: 100%; 
-  left: 0; 
+.lp-card-header:hover:after {
+  width: 100%;
+  left: 0;
 }
 
 .lp-card-txt {

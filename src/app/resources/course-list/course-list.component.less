@@ -23,10 +23,6 @@ mat-form-field {
   padding: 0% 0% 0% 8.5%;
   align-self: center;
 }
-// .tit{
-//   max-height: 4em;
-//   overflow-y: auto;
-// }
 
 mat-card-title {
   max-height: 10em;
@@ -72,16 +68,6 @@ mat-card-title {
 }
 i {
   padding: 3%;
-}
-
-.loader-container {
-  display: flex;
-  justify-content: center;
-}
-
-.loader {
-  width: 100px;
-  height: 100px;
 }
 
 .no-match {
@@ -313,26 +299,23 @@ a {
   margin-right: -1em;
   padding-right: 2em;
   padding-bottom: 15px;
+  :before {
+    content: "...";
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    padding-right: 1em;
+  }
+  :after {
+    content: "";
+    position: absolute;
+    right: 0;
+    width: 1em;
+    height: 1em;
+    margin-top: 0.2em;
+    background: white;
+  }
 }
-
-.description:before {
-  content: "...";
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  padding-right: 1em;
-}
-
-.description:after {
-  content: "";
-  position: absolute;
-  right: 0;
-  width: 1em;
-  height: 1em;
-  margin-top: 0.2em;
-  background: white;
-}
-
 .city {
   border-bottom: 1px solid;
   border-bottom-color: lightgray;

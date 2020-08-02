@@ -18,9 +18,6 @@
             [formControl]="domains"
             (selectionChange)="onDomainSelectionChange($event)"
           >
-            <!-- <mat-select-trigger>
-                        {{residences.value ? residences.value[0] : ''}}
-                      </mat-select-trigger> -->
             <mat-option
               *ngFor="let item of domainList | keyvalue"
               [value]="item"
@@ -30,14 +27,6 @@
         </mat-form-field>
       </div>
     </div>
-    <!-- <button
-      class="btn theme-bg-clr"
-      type="submit"
-      name="action"
-      (click)="onClick('decided')"
-    >
-      Continue<i class="material-icons right">send</i>
-    </button> -->
     <div class="all-btn">
       <button
       class="btn"
@@ -70,12 +59,6 @@
     >
       Continue<i class="material-icons right">send</i>
     </button>
-    
-    <!-- <div class="all-btn">
-    <div class="btn">
-      <a class="btn-txt" [routerLink]="['/quiz']">Take Quiz</a>
-    </div>
-    </div> -->
   </div>
 </div>
 

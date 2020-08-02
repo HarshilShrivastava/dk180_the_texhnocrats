@@ -2,11 +2,6 @@
   margin-left: 0px !important;
 }
 
-.loader-container {
-  display: flex;
-  justify-content: center;
-}
-
 .disp-flex {
   display: flex;
   flex-direction: column;
@@ -23,10 +18,11 @@
 .form-body {
   display: flex;
   justify-content: space-between;
+  width: 100%;
 }
 
 .title-ancestor {
-  min-width: 40%;
+  width: 40%;
   margin-top: 2%;
 }
 
@@ -41,24 +37,19 @@
     text-align: left;
   }
   img {
-    width: 400px;
+    max-width: 600px;
   }
 }
 
 .sign-up-form {
   display: flex;
   flex-direction: column;
-  min-width: 60%;
+  width: 60%;
   align-items: center;
   h5 {
     font-weight: bold;
     color: #390099;
   }
-}
-
-.loader {
-  width: 100px;
-  height: 100px;
 }
 
 p {
@@ -94,8 +85,7 @@ h2 {
 }
 
 .form-style-9 {
-  min-width: 800px;
-  max-width: 850px;
+  width: 80%;
   background: #fafafa;
   padding: 30px;
   margin: 50px auto;
@@ -117,6 +107,7 @@ h2 {
   padding: 8px;
   outline: none;
   border: 1px solid #390099;
+  transition: all 0.3s ease-in-out;
   -webkit-transition: all 0.3s ease-in-out;
   -moz-transition: all 0.3s ease-in-out;
   -ms-transition: all 0.3s ease-in-out;
@@ -177,22 +168,20 @@ i {
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  :disabled {
+    border: none !important;
+    background: transparent;
+    color: white;
+    width: 200px;
+    height: 50px;
+    border-radius: 55px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: not-allowed;
+  }
 }
-
-.btn-submit:disabled {
-  border: none !important;
-  background: transparent;
-  color: white;
-  width: 200px;
-  height: 50px;
-  border-radius: 55px;
-  font-weight: bold;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: not-allowed;
-}
-
 .btn-hide {
   border: none !important;
   background: linear-gradient(to top, #390099, #390099);
@@ -219,7 +208,19 @@ i {
     cursor: not-allowed;
   }
 }
-
+.btn-hide:disabled {
+  border: 1px solid;
+  background: transparent;
+  color: black;
+  width: 200px;
+  height: 50px;
+  border-radius: 55px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: not-allowed;
+}
 @media screen and (max-width: 768px) {
   .form-title {
     h3 {
@@ -233,8 +234,7 @@ i {
     display: block;
   }
   .form-style-9 {
-    min-width: unset;
-    max-width: unset;
+    width: unset;
   }
   .form-header-p2 {
     h5 {
@@ -253,17 +253,3 @@ i {
   }
 }
 
-.btn-hide:disabled {
-  border: 1px solid;
-  background: transparent;
-  color: black;
-  width: 200px;
-  height: 50px;
-  border-radius: 55px;
-  font-weight: bold;
-  display: flex;
-  /* text-align: center; */
-  align-items: center;
-  justify-content: center;
-  cursor: not-allowed;
-}
