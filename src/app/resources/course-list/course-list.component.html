@@ -52,43 +52,6 @@
       <img src="./assets/image/office3.png" class="header-image" />
     </div>
   </div>
-  <!-- <div class="title-container" *ngIf="blog">
-      <span class="title">Search Available Blogs here:</span>
-      <img src="./assets/image/flat22.png" />
-    </div>
-
-    <div class="title-container" *ngIf="course">
-        <span class="title">Search Available Courses here:</span>
-        <img src="./assets/image/flat22.png" />
-    </div>
-
-    <div class="title-container" *ngIf="scheme">
-      <span class="title">Search Available Schemes here:</span>
-      <img src="./assets/image/flat22.png" />
-    </div>
-    <div class="search-container">
-      <div class="nav-wrapper">
-        <form class="search-wrapper">
-          <div class="search-bar">
-            <i id="search-icon" class="material-icons">search</i>
-            <input
-              id="search"
-              [(ngModel)]="query"
-              name="query"
-              type="search"
-              placeholder="Search.."
-            />
-            <i id="cross" class="material-icons" (click)="clear()">close</i>
-          </div>
-        </form>
-      </div> -->
-  <!-- </div> -->
-
-  <!-- <div class="loader-container">
-      <div *ngIf="showLoader">
-        <img src="./assets/loader.gif" class="loader" alt="Loading..." />
-      </div>
-    </div> -->
 
   <div>
     <div class="loader-container">
@@ -100,9 +63,6 @@
     <div *ngIf="isEmpty" class="empty_list">
       Sorry we do not have anything listed yet, please try again in a few days.
     </div>
-    <!-- <div *ngIf="noMatch" class="no-match">
-        No results found :(
-      </div> -->
 
     <div class="col s12">
       <div class="cont-cont" *ngIf="!showLoader && !isEmpty">
@@ -155,28 +115,12 @@
             <p class="rating" title="{{ result.Rating }}" *ngIf="blog || course">
               <strong>Rating : </strong>{{ result.Rating }}
             </p>
-            <!-- <mat-card-content>
-                <p>
-                  <strong>Minimum experience : </strong>
-                  {{ result.Minimum_experience }}
-                </p>
-                <p class="city">
-                  <strong>Available at : </strong>
-                  {{ result.prefered_city }}
-                </p>
-              </mat-card-content> -->
+            
             <mat-card-actions class="footer">
               <button mat-button class="btn" (click)="onViewClick(result)">
                 View Post
               </button>
-              <!-- <button
-                  mat-button
-                  class="btn"
-                  (click)="onViewApplicant(result.id)"
-                  *ngIf="userIsOrganization"
-                >
-                  View Applicants
-                </button> -->
+              
             </mat-card-actions>
           </mat-card>
         </div>

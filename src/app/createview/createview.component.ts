@@ -144,16 +144,6 @@ export class CreateviewComponent implements OnInit {
             data: "Sorry something bad happened, please try again in sometime."
           })
         })
-      // (err) => {
-      //   console.log(err);
-      //   this.inProgress = false;
-      //   let dialogRef = this.dialog.open(ErrorDialogComponent, {
-      //     height: "300px",
-      //     width: "600px",
-      //     data:
-      //       "Sorry couldn't fetch your skills right now. We'll update it in your profile shortly.",
-      //   });
-      // };
     }
 
     else if(this.isModeEdit){
@@ -194,11 +184,9 @@ export class CreateviewComponent implements OnInit {
     var ext = name.substring(name.lastIndexOf(".") + 1);
     if (ext.toLowerCase() == "pdf") {
       this.isValid = true;
-      // this.resumeStatus = true;
       return true;
     } else {
       this.isValid = false;
-      // this.resumeStatus = false;
       return false;
     }
   }
@@ -216,7 +204,6 @@ export class CreateviewComponent implements OnInit {
   onResidenceSelectionChange(event) {
     this.residence = event.value.key;
     console.log(this.residence);
-    // localStorage.setItem("Residence" , this.residence.toString())
   }
 
   setPlatforms() {
