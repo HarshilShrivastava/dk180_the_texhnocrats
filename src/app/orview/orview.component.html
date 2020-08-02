@@ -1,20 +1,3 @@
-<!-- <div class="row">
-    <div class="col s12 " >
-        <div class="card blue-grey darken-1" *ngIf="data.data" >
-            <div class="card-content white-text">
-                <span class="card-title" >Your Profile</span>
-                <p ><strong>{{data.data.Name}}</strong></p>
-                <p ><strong>Address : </strong>{{data.data.Address}}</p>
-                <p ><strong>Email : </strong>{{data.data.Email}}</p>
-                <p ><strong>City : </strong>{{data.data.City}}</p>
-                <p ><strong>State : </strong>{{data.data.State}}</p>
-                <p ><strong>Registration_no : </strong>{{data.data.Registration_no}}</p>
-                <p ><strong>website : </strong>{{data.data.website}}</p>
-            </div>
-        </div>
-    </div>
-</div> -->
-
 <div class="loader-container">
   <div *ngIf="showLoader">
     <img src="./assets/loader.gif" class="loader" alt="Loading..." />
@@ -129,62 +112,6 @@
         </div>
       </div>
       <mat-card-content>
-        <!-- <div class="description">
-            <div class="card-inside-header">
-              <strong>Professional Details:</strong>
-            </div>
-  
-            <div class="description-fields">
-              <p>
-                <strong>Resume : </strong>
-                <a href="{{ data.data.Resume }}" target="_blank">View</a>
-              </p>
-  
-              <p><strong>Your Bio :</strong> {{ data.data.Bio }}</p>
-  
-              <p>
-                <strong>Your Experience :</strong>
-                {{ data.data.Experience }} year(s)
-              </p>
-            </div>
-          </div> -->
-
-        <!-- <div class="card-inside-header">
-            <strong>CareerConnect Stats:</strong>
-          </div>
-  
-         
-  
-          <mat-accordion class="description-fields">
-            <mat-expansion-panel class="skills-container">
-              <mat-expansion-panel-header class="skills-div">
-                <mat-panel-title class="skill-item">
-                  Click here to view skills based on resume analysis
-                </mat-panel-title>
-                
-              </mat-expansion-panel-header>
-              <div class="skill-item">
-                <div
-                  class="skill-item-txt"
-                  *ngFor="let skill of data.data.Skills"
-                >
-                  <div class="itm-txt">{{ skill.Name }}</div>
-                </div>
-              </div>
-            </mat-expansion-panel>
-          </mat-accordion>
-  
-          <div class="description-fields">
-            <p>
-              <strong>Tech Rating: {{ data.data.TechRating }} </strong>(Take the
-              <a [routerLink]="['/instructions']">Quiz</a> to improve this )
-            </p>
-            <p>
-              <strong>Marketing Rating: {{ data.data.MarketRating }} </strong
-              >(Take the <a [routerLink]="['/instructions']">Quiz</a> to improve
-              this )
-            </p>
-          </div> -->
       </mat-card-content>
       <mat-card-actions class="footer"> </mat-card-actions>
     </mat-card>
@@ -198,40 +125,3 @@
     </div>
   </div>
 </div>
-
-<!-- <div class="dashboard_courses_header" *ngIf="!showLoader && !notRegistered">
-    {{ data.data.Name }}'s Recommended courses <br />
-    <div class="dashboard_header_subtitle">
-      (Click anywhere on the section below to view the next course)
-    </div>
-  </div>
-  
-  <div class="carousel carousel-slider center">
-   
-    <div class="carousel-fixed-item center">
-      <a style="position: relative;"></a>
-    </div>
-    <div
-      class="carousel-item red white-text"
-      *ngFor="let course of coursess; let i = index"
-    >
-      <h2>Course Name: {{ course.title }}</h2>
-      <p class="white-text course-desc">
-        <strong> Description </strong> {{ course.desc }}
-      </p>
-      <p class="white-text course-desc"><strong> By </strong> {{ course.by }}</p>
-      <p class="white-text course-desc last-item">
-        <strong> Rating </strong> {{ course.rating }}
-      </p>
-      <div (click)="onClick(course, i)">
-        <a
-          class="btn waves-effect white grey-text darken-text-2 btn"
-          target="_blank"
-          href="{{ course.apply }}"
-        >
-          <p class="btn-txt">Apply Now</p></a
-        >
-      </div>
-    </div>
-  </div>
-   -->

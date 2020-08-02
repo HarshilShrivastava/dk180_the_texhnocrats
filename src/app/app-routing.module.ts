@@ -5,7 +5,6 @@ import { MarketingComponent } from './marketing/marketing.component';
 import { TechnicalComponent } from './technical/technical.component';
 import { LoginComponent } from './login/login.component';
 import { CreateviewComponent } from './createview/createview.component';
-import { SignupComponent } from './signup/signup.component';
 import { OrcreateComponent } from './orcreate/orcreate.component';
 import { JobformComponent } from './jobform/jobform.component';
 import { OrviewComponent } from './orview/orview.component';
@@ -56,7 +55,6 @@ const routes: Routes = [
   {path: 'candidate', component: CandidateComponent},
   {path: 'jobForm', component: JobformComponent},
   {path: 'orview', component: OrviewComponent},
-  {path: 'signup', component: SignupComponent},
   {path: 'resume', component: ResumeComponent},
   {path: 'canview', component: CandiviewComponent},
   {path: 'login', component: LoginComponent},
@@ -92,7 +90,6 @@ const routes: Routes = [
 
 {
     path: 'signup', component: UserComponent,
-    children: [{ path: '', component: SignupComponent }]
 },
   {path: '', redirectTo: '/quiz' , pathMatch: 'full' }
 ];

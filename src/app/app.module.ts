@@ -11,12 +11,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { MarketingComponent } from './marketing/marketing.component';
 import { TechnicalComponent } from './technical/technical.component';
 import { PasswordStrengthMeterModule } from 'angular-password-strength-meter';
-import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { QuizService } from './shared/quiz.service';
 import { CreateviewComponent } from './createview/createview.component';
 import { OrgcreateComponent } from './orgcreate/orgcreate.component';
-import { SignupComponent } from './signup/signup.component';
 import { CandidateComponent } from './candidate/candidate.component';
 import { OrcreateComponent } from './orcreate/orcreate.component';
 import { JobformComponent } from './jobform/jobform.component';
@@ -41,7 +39,6 @@ import { MatFormFieldModule, MatInputModule, MatSidenav, MatSidenavContainer, Ma
 import { MatMenuModule} from '@angular/material/menu';
 import { JobsAppliedComponent } from './candidate-ops/jobs-applied/jobs-applied.component';
 import { ApplicantListComponent } from './organization-ops/applicant-list/applicant-list.component';
-import { SignupPageComponent } from './signup-page/signup-page.component';
 import { ErrorDialogComponent } from './shared/error-dialog/error-dialog.component';
 import { QuizResultsComponent } from './quiz-ops/quiz-results/quiz-results.component';
 import { RoundThreeComponent } from './quiz-ops/round-three/round-three.component';
@@ -88,12 +85,9 @@ import { CustomQuizComponent } from './organization-ops/custom-quiz/custom-quiz.
     NavbarComponent,
     MarketingComponent,
     TechnicalComponent,
-    RegisterComponent,
     LoginComponent,
     CreateviewComponent,
     OrgcreateComponent,
-    SignupComponent,
-    SignupPageComponent,
     CandidateComponent,
     OrcreateComponent,
     JobformComponent,

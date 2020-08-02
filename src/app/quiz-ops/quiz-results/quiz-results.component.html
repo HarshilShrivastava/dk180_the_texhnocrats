@@ -1,27 +1,3 @@
-<!-- <div>
-    Tech level 1 marks: {{Marks_tech_lvl1}}
-</div> -->
-
-<!-- <div class="card">
-    <div class="card-content">
-      <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
-    </div>
-    <div class="card-tabs">
-      <ul class="tabs tabs-fixed-width">
-        <li class="tab"><a href="#test4">Round 1</a></li>
-        <li class="tab"><a class="active" href="#test5">Round 2</a></li>
-        <li class="tab"><a href="#test6">Round 3</a></li>
-      </ul>
-    </div>
-    <div class="card-content grey lighten-4">
-      <div *ngIf = "tech_lvl1" id="test4">You scored: {{Marks_tech_lvl1}} in tech domain in round 1.</div>
-      <div *ngIf = "marketing_lvl1" id="test4">You scored: {{Marks_marketing_lvl1}} in marketing domain in round 1.</div>
-      <div *ngIf = "tech_lvl2" id="test5">You scored: {{Marks_tech_lvl2}} in tech domain in round 2.</div>
-      <div *ngIf = "marketing_lvl2" id="test5">You scored: {{Marks_marketing_lvl2}} in marketing domain in round 2.</div>
-
-    </div>
-</div> -->
-
 <mat-tab-group mat-align-tabs="start" class="tab-header">
   <mat-tab label="Round 1">
     <h5>General Quiz</h5>
@@ -59,14 +35,6 @@
       <strong>{{ SD_2_name }}</strong> Score: {{ Final_SD2_Marks }}
     </div>
   </mat-tab>
-  <!-- <mat-tab label="Save data">
-        <button mat-raised-button class="btn-large post-marks" (click)="OnPostMarks()"
-            matTooltip="Click here to save this data to your profile"
-            position = "right"
-            aria-label="Tooltip to post marks to profile">
-            <p class="btn-txt">Save marks<i class="material-icons right">backup</i></p>        
-        </button>
-    </mat-tab> -->
 </mat-tab-group>
 <div class="actions">
   <button
