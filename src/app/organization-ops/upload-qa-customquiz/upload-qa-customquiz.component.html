@@ -2,35 +2,83 @@
     <div class="header jcc theme-clr">
         Prepare a quiz that best suits your needs
     </div>
+    <div class="instructions-container">
+        <div>
+            <ol class="ordered-list-header">
+                <li class="unordered-list-header">
+                    <strong> Every Questions CSV you upload must have the following columns:</strong>
+                    <ul>
+                        <li>
+                            • An <strong> "id" column".</strong> This is required to give marks to the users for that
+                            question
+                        </li>
+                        <li>
+                            • A <strong> "Question_text" column.</strong> This is the question you want to ask the
+                            candidates
+                        </li>
+                        <li>
+                            • A <strong> "Domain" column.</strong> This places your questions in one of the domains (Ex:
+                            1 - Technology |
+                            2 - Marketing)
+                        </li>
+                    </ul>
+                </li>
+                <li class="unordered-list-header">
+                    <strong> Every Answers CSV you upload must have the following columns:</strong>
+                    <ul>
+                        <li>
+                            • A <strong> "Question_related_to"</strong> column which will have the "id" value of the
+                            Question to which
+                            this answer is related to
+                        </li>
+                        <li>
+                            • A <strong> "Weightage"</strong> column which has the weightage of the Answer
+                        </li>
+                        <li>
+                            • An <strong> "Answer_text" </strong> column which has the answer choices to be displayed to
+                            the candidate
+                        </li>
+                    </ul>
+                </li>
+                <li class="unordered-list-header">
+                    Please <strong>download the sample template</strong>  to get a better idea of how you should upload your CSV files
+                </li>
+            </ol>
+        </div>
+    </div>
     <div>
         <div class="upload-srv">
             <div class="csv-help">
-            <div class="question-header jcc">
-                Upload your questions CSV file here:
+                <div class="question-header jcc">
+                    Upload your questions CSV file here:
+                </div>
+                <div class="csv-sample">
+                    <a href="./assets/sample_csv/Sample_Questions_upload.csv" target="_self"
+                        download="Sample_Questions_upload.csv">Download Template (Non-filled)</a>
+                </div>
+                <div class="csv-sample">
+                    <a href="./assets/sample_csv/Questions_pre-filled_sample.csv" target="_self"
+                        download="Questions_pre-filled_sample.csv">Download Template (Pre-filled)</a>
+                </div>
             </div>
-            <div class="csv-sample">
-                <a href="./assets/sample_csv/Sample_Questions_upload.csv" target="_self" download="Sample_Questions_upload.csv">Download Template (Non-filled)</a>
-            </div>
-            <div class="csv-sample">
-                <a href="./assets/sample_csv/Questions_pre-filled_sample.csv" target="_self" download="Questions_pre-filled_sample.csv">Download Template (Pre-filled)</a>
-            </div>
-        </div>
             <input type="file" (change)="onQuestionFileChange($event.target.files)" class="dropify" accept=".csv, .xlsx"
                 data-allowed-file-extensions="csv xlsx" data-max-file-size="3000K" />
         </div>
 
         <div class="upload-srv">
             <div class="csv-help">
-            <div class="answer-header jcc">
-                Upload your answers CSV file here:
+                <div class="answer-header jcc">
+                    Upload your answers CSV file here:
+                </div>
+                <div class="csv-sample">
+                    <a href="./assets/sample_csv/Sample_Answers_Upload.csv" target="_self"
+                        download="Sample_Answers_Upload.csv">Download Template (Non-filled)</a>
+                </div>
+                <div class="csv-sample">
+                    <a href="./assets/sample_csv/Answers_pre-filled_sample.csv" target="_self"
+                        download="Answers_pre-filled_sample.csv">Download Template (Pre-filled)</a>
+                </div>
             </div>
-            <div class="csv-sample">
-                <a href="../../../assets/sample_csv/Sample_Answers_Upload.csv" target="_self" download="Sample_Answers_Upload.csv">Download Template (Non-filled)</a>
-            </div>
-            <div class="csv-sample">
-                <a href="../../../assets/sample_csv/Answers_pre-filled_sample.csv" target="_self" download="Answers_pre-filled_sample.csv">Download Template (Pre-filled)</a>
-            </div>
-        </div>
             <input type="file" (change)="onAnswerFileChange($event.target.files)" class="dropify" accept=".csv, .xlsx"
                 data-allowed-file-extensions="csv xlsx" data-max-file-size="3000K" />
         </div>
