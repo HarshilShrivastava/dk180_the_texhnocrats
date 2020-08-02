@@ -2,10 +2,18 @@
   display: flex;
   align-items: center;
   justify-content: space-around;
-  img {
-    padding-top: 80px;
-    width: 500px;
+  width: 100%;
+  .right-pane {
+    display: flex;
+    justify-content: center;
+    width: 50%;
+    img {
+      width: 80%;
+    }
   }
+}
+.row .col {
+  padding: 0 2em;
 }
 .submit {
   display: flex;
@@ -27,6 +35,7 @@
 }
 
 .left-pane {
+  width: 50%;
   h2 {
     color: #390099;
     text-align: center;
@@ -57,8 +66,8 @@ p {
   padding-right: 4px;
 }
 
-.form {
-  max-width: 650px;
+.form-style-9 {
+  width: 70%;
   background: #fafafa;
   margin: 50px auto;
   box-shadow: 1px 1px 25px rgba(0, 0, 0, 0.35);
