@@ -10,7 +10,7 @@
     <h5><strong> Preferred City: </strong> {{ data.prefered_city }}</h5>
 
     <button
-      *ngIf="userService.isOrganization"
+      *ngIf="!userService.isOrganization"
       mat-button
       class="btn"
       (click)="onApplyClick()"
