@@ -105,7 +105,7 @@
             <i class="material-icons prefix">account_circle</i>
             <input id="username" class="field-style field-split" type="text" name="username" #username="ngModel"
               [(ngModel)]="user.username" [pattern]="userNamePattern" required />
-            <label for="username" class="inp-lbl">Username (You will use this to Login)</label>
+            <label for="username" class="inp-lbl">Username (To Login)</label>
             <!-- <span class="helper-text" data-error="Required Username !" ></span> -->
             <span *ngIf="username.errors?.required && username.touched" class="field_error">
               User Name field can't be blank
