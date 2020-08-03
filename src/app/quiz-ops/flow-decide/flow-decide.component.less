@@ -32,6 +32,7 @@
 .actual-img {
   border-radius: 2% 2% 0% 0%;
   height: 200px;
+  background: white;
   display: inline-block;
   width: 100%;
   height: auto;
@@ -56,17 +57,16 @@
   transition: transform 0.2s;
 }
 
+.has-not-decided:hover {
+  box-shadow: 0 0 10px 8px rgb(109, 107, 107);
+  transform: scale(1.1);
+}
 .has-not-decided-content {
   padding: 5%;
   color: black;
   text-align: center;
   justify-content: center;
   display: flex;
-}
-
-.has-not-decided:hover {
-  box-shadow: 0 0 10px 8px rgb(109, 107, 107);
-  transform: scale(1.1);
 }
 
 .img {
@@ -85,12 +85,10 @@
   border-radius: 55px;
   white-space: nowrap;
   justify-content: center;
+  :hover {
+    background-color: #2e0379;
+  }
 }
-
-.btn:hover {
-  background-color: #2e0379;
-}
-
 .btn-txt {
   color: white;
   font-weight: bold;
