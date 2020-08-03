@@ -42,6 +42,7 @@ displayedRows$: Observable<[]>;
   startIndex: number = 0;
   endIndex: number = 10;
   notRegistered: boolean = false;
+  quizExists: boolean = false;
 
 
 
@@ -87,6 +88,13 @@ displayedRows$: Observable<[]>;
     .subscribe((data) => {
       console.log(data);
       this.data = data;
+      // this.data.data.forEach((res)=>{
+      //   if(res.Name === "Test Company")
+      //     this.quizExists = true;
+      // }
+        
+      // )
+      
       this.paginatorLength = this.data.count;
       this.showLoader = false;
       console.log(this.data, "My Data");  
@@ -175,6 +183,10 @@ displayedRows$: Observable<[]>;
   onApplyClick(id) {
     localStorage.setItem('id', id);
     this.router.navigate(['/jobapply']);
+  }
+
+  onTakeQuiz(){
+    window.open("https://harshraj.pythonanywhere.com/api/get-question?username=test_company", "_blank");
   }
 
   onViewClick(res){

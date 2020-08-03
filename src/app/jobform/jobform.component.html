@@ -31,15 +31,13 @@
       <div class="row">
         <div class="input-field col s6 w100">
           <i class="material-icons prefix">description</i>
-          <input
-            class="field-style field-split"
-            type="text"
-            name="Job_Descreption"
-            #Job_Descreption="ngModel"
-            [(ngModel)]="job.Job_Descreption"
-            required
-            placeholder="Job Description"
-          />
+          <!-- <input class="field-style field-split" type="text" name="Job_Descreption" #Job_Descreption="ngModel"
+            [(ngModel)]="job.Job_Descreption" required placeholder="Job Description" /> -->
+
+            <textarea class="field-style field-split" type="text" name="Job_Descreption" id="Job_Descreption"#Job_Descreption="ngModel" 
+            cols="30" rows="30" [(ngModel)]="job.Job_Descreption" required placeholder="Job Description">
+              Enter job desc here...
+            </textarea>
         </div>
       </div>
       <div class="row">
