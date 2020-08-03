@@ -1,0 +1,8 @@
+/*!
+ * =============================================================
+ * dropify v0.2.1 - Override your input files with style.
+ * https://github.com/JeremyFagis/dropify
+ *
+ * (c) 2016 - Jeremy FAGIS <jeremy@fagis.fr> (http://fagis.fr)
+ * =============================================================
+ */
