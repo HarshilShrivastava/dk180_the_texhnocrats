@@ -12,6 +12,7 @@ import { JobViewDialogComponent } from 'src/app/shared/job-view-dialog/job-view-
 export class ApplicantListComponent implements OnInit {
   data: any = {};
   plagStat: any = {};
+  sentiment: any = {}
 
   showLoader: boolean = false;
   isEmpty: boolean = false;
@@ -26,6 +27,7 @@ export class ApplicantListComponent implements OnInit {
     this.showLoader = true;
     this.getApplicants();
     this.checkPlag();
+    this.analyseSentiment();
   }
 
   getApplicants() {
@@ -45,6 +47,13 @@ export class ApplicantListComponent implements OnInit {
       console.log(data);
       this.plagStat = data;
     });
+  }
+
+  analyseSentiment(){
+    this.quizservice.sentimentAnalysis(this.data.proposal).subscribe((data) => {
+      console.log(data);
+      this.sentiment = data;
+    })
   }
 
   onViewClick(res){
