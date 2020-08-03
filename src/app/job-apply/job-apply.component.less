@@ -32,17 +32,15 @@ p {
   border-radius: 55px;
   white-space: nowrap;
   font-weight: bold;
+  :hover {
+    background: linear-gradient(to top, #390099, #390099);
+    color: white !important;
+    margin-left: 210px;
+    border-radius: 55px;
+    white-space: nowrap;
+    font-weight: bold;
+  }
 }
-
-.btn-large:hover {
-  background: linear-gradient(to top, #390099, #390099);
-  color: white !important;
-  margin-left: 210px;
-  border-radius: 55px;
-  white-space: nowrap;
-  font-weight: bold;
-}
-
 .form-style-9 .field-style {
   box-sizing: border-box;
   -webkit-box-sizing: border-box;
@@ -50,6 +48,7 @@ p {
   padding: 8px;
   outline: none;
   border: 1px solid #390099;
+  transition: all 0.3s ease-in-out;
   -webkit-transition: all 0.3s ease-in-out;
   -moz-transition: all 0.3s ease-in-out;
   -ms-transition: all 0.3s ease-in-out;
@@ -68,12 +67,13 @@ p {
   padding: 8px;
   outline: none;
   border: 1px solid #390099;
+  transition: all 0.3s ease-in-out;
   -webkit-transition: all 0.3s ease-in-out;
   -moz-transition: all 0.3s ease-in-out;
   -ms-transition: all 0.3s ease-in-out;
   -o-transition: all 0.3s ease-in-out;
-}
-.form-style-9 .field-style1:focus {
-  box-shadow: 0 0 5px #b0cfe0;
-  border: 1px solid #b0cfe0;
+  :focus {
+    box-shadow: 0 0 5px #b0cfe0;
+    border: 1px solid #b0cfe0;
+  }
 }
