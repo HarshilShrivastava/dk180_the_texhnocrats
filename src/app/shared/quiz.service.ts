@@ -729,12 +729,23 @@ export class QuizService {
     //   "/" +
     //   sessionStorage.getItem("SD_2");
 
-      // return this.http.get(url).toPromise();
-
+    // return this.http.get(url).toPromise();
 
     return this.http.get(
-      "https://harshraj.pythonanywhere.com/api/get-question?username=" + localStorage.getItem("uname"),
+      "https://harshraj.pythonanywhere.com/api/get-question?username=" +
+        localStorage.getItem("uname"),
       { headers: Headers }
     );
+  }
+
+  sentimentAnalysis(inp: string) {
+    let url =
+      "https://api.eu-gb.tone-analyzer.watson.cloud.ibm.com/instances/aec654db-ce16-40d0-b53a-f62ee480246f/v3/tone?version=2017-09-21&text=";
+
+    let key = "sE0rr_vAWsJILSAx2El4zzNsHXQ5-IuMfxJPjYacj_SC";
+
+    let para = encodeURI(inp);
+
+    return this.http.get(url + para);
   }
 }
